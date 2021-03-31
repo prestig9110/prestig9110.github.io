@@ -94,19 +94,19 @@ p {
   font-weight: 600;
 }
 h1 {
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 900;
 }
 h2 {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 900;
 }
 h3 {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 600;
 }
 h4 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
   text-align: start;
   padding-left: 20px;
@@ -117,7 +117,7 @@ h5 {
   padding-left: 20px;
 }
 h6 {
-  font-size: 20px;
+  font-size: 18px;
 }
 .container ul {
   padding-top: 10px;
@@ -236,14 +236,13 @@ h6 {
   float: left;
   margin: 10px;
   overflow: hidden;
-  background: rgb(255, 186, 0);
   background: radial-gradient(
     circle,
-    rgba(255, 186, 0, 0.75) 0%,
-    rgba(255, 116, 250, 0.75) 100%
+    rgba(223, 221, 215, 0.75) 0%,
+    rgba(143, 142, 143, 0.75) 100%
   );
-  border: 0qpx solid white;
-  border-radius: 50px;
+  border: 0.1px solid rgba(143, 142, 143, 0.75);
+  border-radius: none;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.35s ease-out;
@@ -260,7 +259,7 @@ h6 {
   height: 60px;
   line-height: 60px;
   margin-left: 10px;
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 600;
 }
 /*---------- menu ----------*/
@@ -297,7 +296,7 @@ h6 {
   flex-direction: column;
   justify-content: center;
   color: white;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 500;
   height: 100%;
   width: 100%;
@@ -839,7 +838,12 @@ h6 {
   margin: 2rem auto;
 }
 .accordion-item {
-  background-color: #fff;
+  background: radial-gradient(
+    circle,
+    rgba(223, 221, 215, 0.75) 0%,
+    rgba(143, 142, 143, 0.75) 100%
+  );
+  border: 0.1px solid rgba(143, 142, 143, 0.75);
   color: #111;
   margin: 1rem 0;
   border-radius: 0.5rem;
