@@ -136,7 +136,7 @@ h6 {
 }
 /*---------------------------------------- .falling ----------------------------------------*/
 .falling {
-  position: absolute;
+  position: fixed;
   top: 0;
   height: 100vh;
   width: 100%;
@@ -217,7 +217,7 @@ h6 {
   background: url(../img/header.webp) no-repeat center;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1000;
-  transition: all 0.5s ease;
+  transition: all 0.35s ease;
 }
 /*---------------------------------------- menu ----------------------------------------*/
 .wrapper-link {
@@ -246,7 +246,7 @@ h6 {
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease-out;
+  transition: all 0.35s ease-out;
 }
 .wrapper-link .button-link:hover {
   width: 250px;
@@ -273,7 +273,7 @@ h6 {
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.5);
-  transition: all 0.5s ease;
+  transition: all 0.35s ease;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
   border: 0.2px solid black;
   z-index: 1000;
@@ -302,7 +302,7 @@ h6 {
   height: 100%;
   width: 100%;
   min-width: 220px;
-  transition: all 0.5s ease;
+  transition: all 0.35s ease;
   text-decoration: none;
   cursor: pointer;
 }
@@ -319,7 +319,7 @@ h6 {
   background: rgba(0, 0, 0, 0.5);
   top: 0;
   opacity: 0;
-  transition: all 0.5s ease-out;
+  transition: all 0.35s ease-out;
   visibility: hidden;
   border-radius: 10px;
 }
@@ -327,7 +327,7 @@ h6 {
   top: 50px;
   opacity: 1;
   visibility: visible;
-  transition: all 0.5s ease;
+  transition: all 0.35s ease;
 }
 .links ul li {
   margin-left: 0;
@@ -393,7 +393,7 @@ h6 {
   margin: 20px;
   padding: 20px;
   border: 2px;
-  transition: 0.5s;
+  transition: 0.35s;
 }
 .cd-btn-1:hover {
   background-color: #ffba00;
@@ -424,7 +424,7 @@ h6 {
   padding: 15px;
   font-size: 18px;
   color: #ffba00;
-  transition: all 0.5s ease;
+  transition: all 0.35s ease;
 }
 .download-files:hover {
   color: #ff74fa;
@@ -474,7 +474,7 @@ h6 {
   width: 10px;
   border-left: 4px solid #ffba00;
   border-bottom: 4px solid #ffba00;
-  transition: transform 0.5s ease;
+  transition: transform 0.35s ease;
   transform: rotate(-45deg);
 }
 .accordion input[type="checkbox"] {
@@ -494,7 +494,7 @@ h6 {
   flex-direction: row;
   justify-content: center;
   height: 0px;
-  transition: height ease 0.5s, padding ease 0.5s;
+  transition: height ease 0.35s, padding ease 0.5s;
   overflow: hidden;
   border-radius: 5px;
 }
@@ -558,7 +558,7 @@ h6 {
 }
 .card img {
   width: 100%;
-  transition: all 0.5s ease;
+  transition: all 0.35s ease;
   z-index: 0;
 }
 .image {
@@ -668,7 +668,7 @@ h6 {
     margin-left: 0;
     padding: 15px;
     overflow-y: auto;
-    transition: all 0.5s ease;
+    transition: all 0.35s ease;
     transform: translateX(-450px);
   }
   .active {
@@ -711,12 +711,12 @@ h6 {
     opacity: 0;
     max-height: 0px;
     overflow: hidden;
-    transition: height ease 0.5s;
+    transition: height ease 0.35s;
   }
   .links #one-menu:checked ~ ul,
   .links #two-menu:checked ~ ul,
   .links #three-menu:checked ~ ul {
-    transition: height ease 0.5s;
+    transition: height ease 0.35s;
     max-height: 100vh;
     opacity: 1;
   }
@@ -874,7 +874,7 @@ h6 {
 .accordion-item-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-out;
+  transition: max-height 0.35s ease-out;
 }
 .accordion-item-body-content {
   padding: 1rem;
