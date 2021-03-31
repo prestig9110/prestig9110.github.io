@@ -387,12 +387,17 @@ h6 {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  color: white;
+  color: black;
   letter-spacing: 2px;
   margin: 20px;
-  padding: 20px;
-  border: 2px;
+  padding: 20px;  
   transition: 0.35s;
+}
+.cd-btn-1{
+  border: 2px solid #ffba00;
+}
+.cd-btn-2{
+  border: 2px solid #ff74fa;
 }
 .cd-btn-1:hover {
   background-color: #ffba00;
@@ -502,20 +507,71 @@ h6 {
   height: 256px;
 }
 /*---------------------------------------- market ----------------------------------------*/
-#market ul li {
+.accordion-2 {
+  width: 90%;
+  max-width: 1500px;
+}
+.accordion-item {
+  background: radial-gradient(
+    circle,
+    rgba(223, 221, 215, 0.75) 0%,
+    rgba(143, 142, 143, 0.75) 100%
+  );
+  border: 0.1px solid rgba(143, 142, 143, 0.75);
+  color: #111;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+}
+.accordion-item-header {
+  padding: 8px 48px 8px 16px;
+  min-height: 52px;
+  line-height: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+.accordion-item-header img {
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+.accordion-item-header::after {
+  content: "\002B";
+  font-size: 32px;
+  position: absolute;
+  right: 16px;
+  color: #ffba00;
+}
+.accordion-item-header.active::after {
+  content: "\2212";
+  color: #ff74fa;
+}
+.accordion-item-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out;
+}
+.accordion-item-body-content {
+  padding: 16px;
+  line-height: 24px;
+  border-top: 1px solid;
+  border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+}
+.accordion-item-body-content img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+  margin-right: 10px;
+}
+.accordion-item-body-content ul li {
   display: flex;
   flex-direction: row;
   justify-content: start;
-}
-#market ul li img {
-  display: flex;
-  width: 36px;
-  height: 36px;
-  margin-right: 8px;
-}
-#market ul li span {
-  font-weight: 700;
-  margin-right: 5px;
 }
 /*---------------------------------------- main-container ----------------------------------------*/
 .main-link {
@@ -624,16 +680,6 @@ h6 {
 }
 /*---------------------------------------- media ----------------------------------------*/
 @media screen and (max-width: 1600px) {
-  .container {
-    padding-left: 80px;
-    padding-right: 80px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    height: 100%;
-    min-height: 1024px;
-    width: 1600px;
-    color: black;
-  }
   .links li {
     width: 310px;
     margin-left: 14px;
@@ -744,145 +790,4 @@ h6 {
   .links ul li label {
     width: 300px;
   }
-}
-
-#maps a {
-  border: none;
-  position: relative;
-  align-self: center;
-  color: white;
-  background-color: #ffba00;
-  font-size: 24px;
-  font-family: "Slabo 27px", serif;
-  padding: 20px 40px;
-}
-#maps a:before {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  top: 0px;
-  right: 0;
-  background-color: #ffba00;
-}
-
-#maps a:hover:before {
-  display: block;
-  background: white;
-  animation: pixel 0.4s ease-in-out forwards;
-}
-
-@keyframes pixel {
-  0% {
-    box-shadow: 10px 40px 0 #ffba00;
-  }
-
-  10% {
-    box-shadow: 10px 40px 0 #ffba00, -60px 0px 0 #ffba00;
-  }
-
-  20% {
-    box-shadow: 10px 40px 0 #ffba00, -60px 0px 0 #ffba00, 20px -20px 0 #ffba00;
-  }
-
-  30% {
-    box-shadow: 10px 40px 0 #ffba00, -60px 0px 0 #ffba00, 20px -20px 0 #ffba00,
-      40px 70px 0 #ffba00;
-  }
-
-  40% {
-    box-shadow: 10px 40px 0 #ffba00, -60px 0px 0 #ffba00, 20px -20px 0 #ffba00,
-      40px 70px 0 #ffba00, -10px 90px 0 #ffba00;
-  }
-
-  50% {
-    box-shadow: 10px 40px 0 #ffba00, -60px 0px 0 #ffba00, 20px -20px 0 #ffba00,
-      40px 70px 0 #ffba00, -10px 90px 0 #ffba00, 60px 10px 0 #ffba00;
-  }
-
-  60% {
-    box-shadow: 10px 40px 0 #ffba00, -60px 0px 0 #ffba00, 20px -20px 0 #ffba00,
-      40px 70px 0 #ffba00, -10px 90px 0 #ffba00, 60px 10px 0 #ffba00,
-      30px 25px 0 #ffba00;
-  }
-
-  70% {
-    box-shadow: 10px 40px 0 #ffba00, -60px 0px 0 #ffba00, 20px -20px 0 #ffba00,
-      40px 70px 0 #ffba00, -10px 90px 0 #ffba00, 60px 10px 0 #ffba00,
-      30px 25px 0 #ffba00, -80px 75px 0 #ffba00;
-  }
-
-  80% {
-    box-shadow: 10px 40px 0 #ffba00, -60px 0px 0 #ffba00, 20px -20px 0 #ffba00,
-      40px 70px 0 #ffba00, -10px 90px 0 #ffba00, 60px 10px 0 #ffba00,
-      30px 25px 0 #ffba00, -80px 75px 0 #ffba00, 15px 75px 0 #ffba00;
-  }
-
-  90% {
-    box-shadow: 10px 40px 0 #ffba00, -60px 0px 0 #ffba00, 20px -20px 0 #ffba00,
-      40px 70px 0 #ffba00, -10px 90px 0 #ffba00, 60px 10px 0 #ffba00,
-      30px 25px 0 #ffba00, -80px 75px 0 #ffba00, 15px 75px 0 #ffba00,
-      45px 90px 0 #ffba00;
-  }
-  100% {
-    box-shadow: 10px 40px 0 #ffba00, -60px 0px 0 #ffba00, 20px -20px 0 #ffba00,
-      40px 70px 0 #ffba00, -10px 90px 0 #ffba00, 60px 10px 0 #ffba00,
-      30px 25px 0 #ffba00, -80px 75px 0 #ffba00, 15px 75px 0 #ffba00,
-      45px 90px 0 #ffba00, 80px 45px 0 #ffba00;
-  }
-}
-
-.accordion-2 {
-  width: 90%;
-  max-width: 1000px;
-  margin: 2rem auto;
-}
-.accordion-item {
-  background: radial-gradient(
-    circle,
-    rgba(223, 221, 215, 0.75) 0%,
-    rgba(143, 142, 143, 0.75) 100%
-  );
-  border: 0.1px solid rgba(143, 142, 143, 0.75);
-  color: #111;
-  margin: 1rem 0;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
-}
-.accordion-item-header {
-  padding: 0.5rem 3rem 0.5rem 1rem;
-  min-height: 3.5rem;
-  line-height: 1.25rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  position: relative;
-  cursor: pointer;
-}
-.accordion-item-header img {
-  width: 35px;
-  height: 35px;
-  margin-right: 10px;
-}
-.accordion-item-header::after {
-  content: "\002B";
-  font-size: 2rem;
-  position: absolute;
-  right: 1rem;
-  color: #ffba00;
-}
-.accordion-item-header.active::after {
-  content: "\2212";
-  color: #ff74fa;
-}
-.accordion-item-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease-out;
-}
-.accordion-item-body-content {
-  padding: 1rem;
-  line-height: 1.5rem;
-  border-top: 1px solid;
-  border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
 }
