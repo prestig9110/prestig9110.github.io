@@ -319,13 +319,13 @@ h6 {
   color: black;
   letter-spacing: 2px;
   margin: 20px;
-  padding: 20px;  
+  padding: 20px;
   transition: 0.35s;
 }
-.cd-btn-1{
+.cd-btn-1 {
   border: 2px solid #ffba00;
 }
-.cd-btn-2{
+.cd-btn-2 {
   border: 2px solid #ff74fa;
 }
 .cd-btn-1:hover {
@@ -606,14 +606,14 @@ h6 {
   width: 65px;
   height: 65px;
 }
-.linck-discord iframe{
+.linck-discord iframe {
   width: 550px;
   height: 450px;
 }
 /*---------------------------------------- media ----------------------------------------*/
 @media screen and (max-width: 1700px) {
   .wrapper-link {
-    width: 1550px;    
+    width: 1550px;
   }
   .container {
     padding-left: 100px;
@@ -641,8 +641,8 @@ h6 {
     width: 1550px;
   }
   .wrapper-link {
-    width: auto; 
-    min-width: 1400px;   
+    width: auto;
+    min-width: 1400px;
   }
   .container-link {
     width: 1550px;
@@ -656,9 +656,9 @@ h6 {
 }
 @media screen and (max-width: 1400px) {
   .wrapper-link {
-    width: auto; 
-    min-width: 1200px;   
-  } 
+    width: auto;
+    min-width: 1200px;
+  }
   .linck-contact {
     width: auto;
   }
@@ -678,7 +678,7 @@ h6 {
   .links {
     display: block;
     position: absolute;
-    background: rgba(0, 0, 0, 0.60);
+    background: rgba(0, 0, 0, 0.6);
     height: 100%;
     min-height: 1000px;
     width: 100%;
@@ -741,11 +741,11 @@ h6 {
     opacity: 1;
   }
   .wrapper-link {
-    min-width: 900px; 
+    min-width: 900px;
     display: flex;
-    flex-direction: row;  
-  } 
-  .container-link {  
+    flex-direction: row;
+  }
+  .container-link {
     width: 900px;
     display: flex;
     padding: 0 auto;
@@ -761,21 +761,21 @@ h6 {
   .linck-discord {
     margin: 0 auto;
   }
-  .linck-discord iframe{    
+  .linck-discord iframe {
     width: 750px;
     height: 600px;
   }
-  .player-header {    
+  .player-header {
     height: 320px;
   }
   .image {
     height: 320px;
   }
-  .icon {   
+  .icon {
     top: 235px;
   }
-  .accordion{
-    max-width: 550px;;
+  .accordion {
+    max-width: 550px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -822,13 +822,22 @@ h6 {
     font-weight: 600;
   }
   .wrapper-link {
-    min-width: 550px; 
-  } 
+    min-width: 550px;
+  }
   .card {
     width: 650px;
   }
-  .linck-discord iframe{    
+  .linck-discord iframe {
     width: 650px;
+  }
+  .player-header {
+    height: 300px;
+  }
+  .image {
+    height: 300px;
+  }
+  .icon {
+    top: 235px;
   }
 }
 @media screen and (max-width: 640px) {
@@ -857,18 +866,69 @@ h6 {
   }
   .card {
     width: 550px;
+    height: auto;
   }
-  .linck-discord iframe{    
+  .linck-discord iframe {
     width: 550px;
   }
-  #resources .content
-  {
+  #resources .content {
     padding-left: 0;
   }
+  .player-header {
+    height: 250px;
+  }
+  .image {
+    height: 250px;
+  }
+  .icon {
+    top: 200px;
+  }
 }
-@media screen and (max-width: 480px){
+@media screen and (max-width: 480px) {
+  p {
+    font-size: 14px;
+    padding-left: 20px;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 900;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 900;
+  }
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+  }
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: start;
+    padding-left: 10px;
+  }
+  h5 {
+    font-size: 16px;
+    font-weight: normal;
+    padding-left: 20px;
+  }
+  h6 {
+    font-size: 14px;
+  }
+  .container ul {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+  }
+  .container ul li {
+    font-size: 14px;
+    line-height: 2;
+    text-decoration: none;
+    font-weight: 600;
+  }
   .wrapper-link {
-    min-width: 400px; 
+    min-width: 400px;
   }
   .container {
     padding-left: 20px;
@@ -878,12 +938,22 @@ h6 {
     width: 100%;
   }
   .card {
-    width: 450px;
+    width: 425px;
+    height: auto;
   }
-  .linck-discord iframe{    
-    width: 450px;
+  .linck-discord iframe {
+    width: 425px;
   }
-  .accordion{
-    max-width: 450px;;
+  .accordion {
+    max-width: 450px;
+  }
+  .player-header {
+    height: 230px;
+  }
+  .image {
+    height: 230px;
+  }
+  .icon {
+    top: 180px;
   }
 }
