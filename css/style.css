@@ -148,6 +148,7 @@ h6 {
 }
 /*---------------------------------------- menu ----------------------------------------*/
 .wrapper-link {
+  width: 1750px;
   display: flex;
   flex-direction: column;
   margin-left: 10px;
@@ -168,7 +169,7 @@ h6 {
     rgba(223, 221, 215, 0.75) 0%,
     rgba(143, 142, 143, 0.75) 100%
   );
-  border: 0.1px solid rgba(143, 142, 143, 0.75);
+  border: 0.2px solid rgba(143, 142, 143, 0.75);
   border-radius: none;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -305,7 +306,8 @@ h6 {
 }
 /*---------------------------------------- plugins ----------------------------------------*/
 #plugins ul li span {
-  font-weight: 700;
+  font-style: italic;
+  font-weight: 500;
 }
 /*---------------------------------------- maps ----------------------------------------*/
 .cd-btn-1,

@@ -18,7 +18,7 @@ $.getJSON(url, function (r) {
       "<br><b>Игроков онлайн: </b> " +
       r.players.online +
       pl +
-      "<b> из 55</b> "
+      "<b> из 50</b> "
    );
    $("#favicon").attr("src", r.favicon);
 });
