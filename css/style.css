@@ -839,6 +839,10 @@ h6 {
   .icon {
     top: 235px;
   }
+  .main-link {    
+    padding-top: 50px;
+    padding-bottom: 50px;    
+  }
 }
 @media screen and (max-width: 640px) {
   .accordion:after {
@@ -955,5 +959,32 @@ h6 {
   }
   .icon {
     top: 180px;
+  }
+  .main-link {    
+    padding-top: 30px;
+    padding-bottom: 30px;    
+  }
+}
+@media screen and (max-width: 400px) {
+ 
+  .wrapper-link {
+    min-width: 370px;
+  }
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+  }
+  .card {
+    width: 380px;
+    height: auto;
+  }
+  .linck-discord iframe {
+    width: 380px;
+  }
+  .accordion {
+    max-width: 380px;
   }
 }
