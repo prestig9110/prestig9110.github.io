@@ -263,11 +263,45 @@ h6 {
 }
 #toggle {
   display: none;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease;
 }
-#toggle > span {
-  color: white;
-  font-size: 42px;
+#toggle.active{
+  background: rgba(0, 0, 0, 0.7);
 }
+#toggle::before {
+  content:'';
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: white;
+  transition: 0.3s ease;
+  transform: translateY(-10px);
+  box-shadow: 0 10px 0  white;
+}
+#toggle.active::before{  
+  transform: translateY(0px) rotate(45deg);
+  box-shadow: 0 0 0  white;
+}
+#toggle::after {
+  content:'';
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: white;
+  transition: 0.3s ease;
+  transform: translateY(10px);
+}
+#toggle.active::after{
+  transform: translateY(0px) rotate(-45deg);
+}
+
 /*---------------------------------------- the-default-view ----------------------------------------*/
 
 /*---------------------------------------- start ----------------------------------------*/
@@ -385,6 +419,7 @@ h6 {
   min-height: 320px;
   padding: 20px;
   margin-top: 50px;
+  margin-bottom: 50px;
   margin-right: 100px;
   border-radius: 10px;
   position: relative;
@@ -822,8 +857,6 @@ h6 {
     display: flex;
     position: relative;
     cursor: pointer;
-    padding-left: 15px;
-    padding-bottom: 15px;
   }
   /*---------- the-default-view ----------*/
   /*---------- start ----------*/
@@ -959,7 +992,10 @@ h6 {
   .icon {
     top: 235px;
   }
-  /*---------- all ----------*/  
+  /*---------- all ----------*/ 
+  .linck-discord {
+    margin: 0 auto;
+  } 
   .linck-discord iframe {
     width: 650px;
   }
@@ -1086,6 +1122,9 @@ h6 {
   .wrapper-link {
     min-width: 400px;
   }
+  .wrapper-link .button-link:hover {
+    width: 210px;
+  }
   /*---------- menu ----------*/
   /*---------- the-default-view ----------*/
   /*---------- start ----------*/
@@ -1101,6 +1140,7 @@ h6 {
   /*---------- accordion ----------*/
   .accordion {
     max-width: 450px;
+    margin-right: 0;
   }
   /*---------- litematica ----------*/
   /*---------- market ----------*/
@@ -1112,23 +1152,30 @@ h6 {
   }
   /*---------- card ----------*/
   .card {
-    width: 100%;
+    width: 95%;
     height: auto;
-    margin: 5px;
+    margin: 10px;
   }
   .player-header {
-    height: 230px;
+    height: 215px;
   }
   .image {
-    height: 230px;
+    height: 215px;
   }
   .icon {
     top: 180px;
   }
   /*---------- all ----------*/
-.linck-discord iframe {
+  .linck-discord {
+    width: 95%;    
+    margin: 10px;
+    margin-top: 4%;
+  }
+  .linck-discord iframe {
     width: 100%;
-    margin: 5px;
+  }
+  .linck-contact {
+    margin-bottom: 30px;
   }  
 }
 @media screen and (max-width: 400px) {
@@ -1159,6 +1206,7 @@ h6 {
   /*---------- resources ----------*/
   /*---------- accordion ----------*/
   .accordion {
+    min-width: 360px;
     max-width: 380px;
   }
   /*---------- litematica ----------*/
