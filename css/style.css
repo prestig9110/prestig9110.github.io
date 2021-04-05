@@ -146,7 +146,7 @@ h6 {
   z-index: 1000;
   transition: all 0.35s ease;
 }
-/*---------------------------------------- menu ----------------------------------------*/
+/*---------------------------------------- header-menu-link ----------------------------------------*/
 .wrapper-link {
   width: 1750px;
   display: flex;
@@ -284,7 +284,6 @@ h6 {
 #support ul li a {
   color: #30679e;
 }
-
 /*---------------------------------------- mods ----------------------------------------*/
 #mods ul li a {
   color: #30679e;
@@ -341,6 +340,15 @@ h6 {
   font-weight: 800;
   font-style: italic;
 }
+/*---------------------------------------- gallery-new-year ----------------------------------------*/
+.gallery-box{
+  height: auto;
+  width: 100%;
+}
+/*---------------------------------------- gallery-hyper-loop ----------------------------------------*/
+
+/*---------------------------------------- gallery-pink-squad ----------------------------------------*/
+
 /*---------------------------------------- resources ----------------------------------------*/
 #resources .content {
   display: flex;
@@ -436,6 +444,8 @@ h6 {
   height: 256px;
 }
 /*---------------------------------------- market ----------------------------------------*/
+
+/*---------- accordion-2 ----------*/
 .accordion-2 {
   max-width: 1500px;
 }
@@ -539,6 +549,7 @@ h6 {
   box-shadow: 0 4px 3px #0002;
   overflow: hidden;
 }
+/*---------- card ----------*/
 .card img {
   width: 100%;
   transition: all 0.35s ease;
@@ -550,12 +561,10 @@ h6 {
   cursor: crosshair;
   overflow: hidden;
 }
-
 .image:hover img {
   -webkit-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
 }
-
 .player-header h3 {
   position: absolute;
   bottom: 0;
@@ -589,6 +598,7 @@ h6 {
   font-size: 20px;
   font-weight: 700;
 }
+/*---------- all ----------*/
 .linck-contact {
   display: flex;
   flex-direction: column;
@@ -612,9 +622,7 @@ h6 {
 }
 /*---------------------------------------- media ----------------------------------------*/
 @media screen and (max-width: 1700px) {
-  .wrapper-link {
-    width: 1550px;
-  }
+  /*---------- body ----------*/
   .container {
     padding-left: 100px;
     padding-right: 100px;
@@ -622,8 +630,47 @@ h6 {
     padding-bottom: 80px;
     width: 1600px;
   }
+  /*---------- header ----------*/
+  /*---------- header-menu-link ----------*/
+  .wrapper-link {
+    width: 1550px;
+  }
+  /*---------- menu ----------*/
+  /*---------- the-default-view ----------*/
+  /*---------- start ----------*/
+  /*---------- support ----------*/
+  /*---------- mods ----------*/
+  /*---------- plugins ----------*/
+  /*---------- maps ----------*/
+  /*---------- command ----------*/
+  /*---------- gallery-new-year ----------*/
+  /*---------- gallery-hyper-loop ----------*/
+  /*---------- gallery-pink-squad ----------*/
+  /*---------- resources ----------*/
+  /*---------- accordion ----------*/
+  /*---------- litematica ----------*/
+  /*---------- market ----------*/
+  /*---------- accordion-2 ----------*/
+  /*---------- main-container ----------*/
+  /*---------- card ----------*/
+  /*---------- all ----------*/
 }
 @media screen and (max-width: 1600px) {
+  /*---------- body ----------*/
+  .container {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 1550px;
+  }
+  /*---------- header ----------*/
+  /*---------- header-menu-link ----------*/
+  .wrapper-link {
+    width: auto;
+    min-width: 1400px;
+  }
+  /*---------- menu ----------*/
   .links li {
     width: 310px;
     margin-left: 14px;
@@ -633,48 +680,79 @@ h6 {
   .links li label {
     font-size: 25px;
   }
-  .container {
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 80px;
-    padding-bottom: 80px;
-    width: 1550px;
-  }
-  .wrapper-link {
-    width: auto;
-    min-width: 1400px;
-  }
-  .container-link {
-    width: 1550px;
-  }
-  .linck-contact {
-    width: 1200px;
-  }
+  /*---------- the-default-view ----------*/
+  /*---------- start ----------*/
+  /*---------- support ----------*/
+  /*---------- mods ----------*/
+  /*---------- plugins ----------*/
+  /*---------- maps ----------*/
+  /*---------- command ----------*/
+  /*---------- gallery-new-year ----------*/
+  /*---------- gallery-hyper-loop ----------*/
+  /*---------- gallery-pink-squad ----------*/
+  /*---------- resources ----------*/
   #resources .content {
     padding-left: 45px;
   }
+  /*---------- accordion ----------*/
+  /*---------- litematica ----------*/
+  /*---------- market ----------*/
+  /*---------- accordion-2 ----------*/
+  /*---------- main-container ----------*/
+  .container-link {
+    width: 1550px;
+  }
+  /*---------- card ----------*/
+  /*---------- all ----------*/
+  .linck-contact {
+    width: 1200px;
+  }
 }
 @media screen and (max-width: 1400px) {
+  /*---------- body ----------*/
+  /*---------- header ----------*/
+  /*---------- header-menu-link ----------*/
   .wrapper-link {
     width: auto;
     min-width: 1200px;
   }
+  /*---------- menu ----------*/
+  /*---------- the-default-view ----------*/
+  /*---------- start ----------*/
+  /*---------- support ----------*/
+  /*---------- mods ----------*/
+  /*---------- plugins ----------*/
+  /*---------- maps ----------*/
+  /*---------- command ----------*/
+  /*---------- gallery-new-year ----------*/
+  /*---------- gallery-hyper-loop ----------*/
+  /*---------- gallery-pink-squad ----------*/
+  /*---------- resources ----------*/
+  /*---------- accordion ----------*/
+  /*---------- litematica ----------*/
+  /*---------- market ----------*/
+  /*---------- accordion-2 ----------*/
+  /*---------- main-container ----------*/
+  /*---------- card ----------*/
+  /*---------- all ----------*/
   .linck-contact {
     width: auto;
   }
 }
 @media screen and (max-width: 1024px) {
+  /*---------- body ----------*/
+  /*---------- header ----------*/
   .header {
     height: 250px;
     justify-content: space-between;
   }
-  #toggle {
+  /*---------- header-menu-link ----------*/
+  .wrapper-link {
+    min-width: 900px;
     display: flex;
-    position: relative;
-    cursor: pointer;
-    padding-left: 15px;
-    padding-bottom: 15px;
+    flex-direction: row;
   }
+  /*---------- menu ----------*/
   .links {
     display: block;
     position: absolute;
@@ -740,11 +818,32 @@ h6 {
     max-height: 100vh;
     opacity: 1;
   }
-  .wrapper-link {
-    min-width: 900px;
+  #toggle {
     display: flex;
-    flex-direction: row;
+    position: relative;
+    cursor: pointer;
+    padding-left: 15px;
+    padding-bottom: 15px;
   }
+  /*---------- the-default-view ----------*/
+  /*---------- start ----------*/
+  /*---------- support ----------*/
+  /*---------- mods ----------*/
+  /*---------- plugins ----------*/
+  /*---------- maps ----------*/
+  /*---------- command ----------*/
+  /*---------- gallery-new-year ----------*/
+  /*---------- gallery-hyper-loop ----------*/
+  /*---------- gallery-pink-squad ----------*/
+  /*---------- resources ----------*/
+  /*---------- accordion ----------*/
+  .accordion {
+    max-width: 550px;
+  }
+  /*---------- litematica ----------*/
+  /*---------- market ----------*/
+  /*---------- accordion-2 ----------*/
+  /*---------- main-container ----------*/
   .container-link {
     width: 900px;
     display: flex;
@@ -753,17 +852,11 @@ h6 {
     flex-wrap: wrap;
     justify-content: center;
   }
+  /*---------- card ----------*/
   .card {
     margin: 0 auto 65px auto;
     height: 550px;
     width: 750px;
-  }
-  .linck-discord {
-    margin: 0 auto;
-  }
-  .linck-discord iframe {
-    width: 750px;
-    height: 600px;
   }
   .player-header {
     height: 320px;
@@ -774,11 +867,17 @@ h6 {
   .icon {
     top: 235px;
   }
-  .accordion {
-    max-width: 550px;
+  /*---------- all ----------*/
+  .linck-discord {
+    margin: 0 auto;
+  }
+  .linck-discord iframe {
+    width: 750px;
+    height: 600px;
   }
 }
 @media screen and (max-width: 767px) {
+  /*---------- body ----------*/
   p {
     font-size: 14px;
     padding-left: 20px;
@@ -821,13 +920,34 @@ h6 {
     text-decoration: none;
     font-weight: 600;
   }
+  /*---------- header ----------*/
+  /*---------- header-menu-link ----------*/
   .wrapper-link {
     min-width: 550px;
   }
-  .card {
-    width: 650px;
+  /*---------- menu ----------*/
+  /*---------- the-default-view ----------*/
+  /*---------- start ----------*/
+  /*---------- support ----------*/
+  /*---------- mods ----------*/
+  /*---------- plugins ----------*/
+  /*---------- maps ----------*/
+  /*---------- command ----------*/
+  /*---------- gallery-new-year ----------*/
+  /*---------- gallery-hyper-loop ----------*/
+  /*---------- gallery-pink-squad ----------*/
+  /*---------- resources ----------*/
+  /*---------- accordion ----------*/
+  /*---------- litematica ----------*/
+  /*---------- market ----------*/
+  /*---------- accordion-2 ----------*/
+  /*---------- main-container ----------*/
+  .main-link {
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
-  .linck-discord iframe {
+  /*---------- card ----------*/
+  .card {
     width: 650px;
   }
   .player-header {
@@ -839,15 +959,16 @@ h6 {
   .icon {
     top: 235px;
   }
-  .main-link {    
-    padding-top: 50px;
-    padding-bottom: 50px;    
+  /*---------- all ----------*/  
+  .linck-discord iframe {
+    width: 650px;
   }
 }
 @media screen and (max-width: 640px) {
-  .accordion:after {
-    content: "";
-  }
+  /*---------- body ----------*/
+  /*---------- header ----------*/
+  /*---------- header-menu-link ----------*/
+  /*---------- menu ----------*/
   .links {
     max-width: 350px;
     padding: 10px;
@@ -868,15 +989,32 @@ h6 {
   .links ul li label {
     width: 300px;
   }
+  /*---------- the-default-view ----------*/
+  /*---------- start ----------*/
+  /*---------- support ----------*/
+  /*---------- mods ----------*/
+  /*---------- plugins ----------*/
+  /*---------- maps ----------*/
+  /*---------- command ----------*/
+  /*---------- gallery-new-year ----------*/
+  /*---------- gallery-hyper-loop ----------*/
+  /*---------- gallery-pink-squad ----------*/
+  /*---------- resources ----------*/
+  #resources .content {
+    padding-left: 0;
+  }
+  /*---------- accordion ----------*/
+  .accordion:after {
+    content: "";
+  }
+  /*---------- litematica ----------*/
+  /*---------- market ----------*/
+  /*---------- accordion-2 ----------*/
+  /*---------- main-container ----------*/
+  /*---------- card ----------*/
   .card {
     width: 550px;
     height: auto;
-  }
-  .linck-discord iframe {
-    width: 550px;
-  }
-  #resources .content {
-    padding-left: 0;
   }
   .player-header {
     height: 250px;
@@ -887,8 +1025,13 @@ h6 {
   .icon {
     top: 200px;
   }
+  /*---------- all ----------*/  
+  .linck-discord iframe {
+    width: 550px;
+  }
 }
 @media screen and (max-width: 480px) {
+  /*---------- body ----------*/
   p {
     font-size: 14px;
     padding-left: 20px;
@@ -931,9 +1074,6 @@ h6 {
     text-decoration: none;
     font-weight: 600;
   }
-  .wrapper-link {
-    min-width: 400px;
-  }
   .container {
     padding-left: 20px;
     padding-right: 20px;
@@ -941,15 +1081,40 @@ h6 {
     padding-bottom: 10px;
     width: 100%;
   }
-  .card {
-    width: 425px;
-    height: auto;
+  /*---------- header ----------*/
+  /*---------- header-menu-link ----------*/
+  .wrapper-link {
+    min-width: 400px;
   }
-  .linck-discord iframe {
-    width: 425px;
-  }
+  /*---------- menu ----------*/
+  /*---------- the-default-view ----------*/
+  /*---------- start ----------*/
+  /*---------- support ----------*/
+  /*---------- mods ----------*/
+  /*---------- plugins ----------*/
+  /*---------- maps ----------*/
+  /*---------- command ----------*/
+  /*---------- gallery-new-year ----------*/
+  /*---------- gallery-hyper-loop ----------*/
+  /*---------- gallery-pink-squad ----------*/
+  /*---------- resources ----------*/
+  /*---------- accordion ----------*/
   .accordion {
     max-width: 450px;
+  }
+  /*---------- litematica ----------*/
+  /*---------- market ----------*/
+  /*---------- accordion-2 ----------*/
+  /*---------- main-container ----------*/
+  .main-link {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  /*---------- card ----------*/
+  .card {
+    width: 100%;
+    height: auto;
+    margin: 5px;
   }
   .player-header {
     height: 230px;
@@ -960,16 +1125,14 @@ h6 {
   .icon {
     top: 180px;
   }
-  .main-link {    
-    padding-top: 30px;
-    padding-bottom: 30px;    
-  }
+  /*---------- all ----------*/
+.linck-discord iframe {
+    width: 100%;
+    margin: 5px;
+  }  
 }
 @media screen and (max-width: 400px) {
- 
-  .wrapper-link {
-    min-width: 370px;
-  }
+  /*---------- body ----------*/
   .container {
     padding-left: 15px;
     padding-right: 15px;
@@ -977,14 +1140,31 @@ h6 {
     padding-bottom: 10px;
     width: 100%;
   }
-  .card {
-    width: 380px;
-    height: auto;
+  /*---------- header ----------*/
+  /*---------- header-menu-link ----------*/
+  .wrapper-link {
+    min-width: 370px;
   }
-  .linck-discord iframe {
-    width: 380px;
-  }
+  /*---------- menu ----------*/
+  /*---------- the-default-view ----------*/
+  /*---------- start ----------*/
+  /*---------- support ----------*/
+  /*---------- mods ----------*/
+  /*---------- plugins ----------*/
+  /*---------- maps ----------*/
+  /*---------- command ----------*/
+  /*---------- gallery-new-year ----------*/
+  /*---------- gallery-hyper-loop ----------*/
+  /*---------- gallery-pink-squad ----------*/
+  /*---------- resources ----------*/
+  /*---------- accordion ----------*/
   .accordion {
     max-width: 380px;
   }
+  /*---------- litematica ----------*/
+  /*---------- market ----------*/
+  /*---------- accordion-2 ----------*/
+  /*---------- main-container ----------*/
+  /*---------- card ----------*/
+  /*---------- all ----------*/  
 }
