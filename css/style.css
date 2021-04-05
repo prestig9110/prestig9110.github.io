@@ -262,7 +262,6 @@ h6 {
   position: relative;
 }
 #toggle {
-  display: none;
   width: 50px;
   height: 50px;
   background: rgba(0, 0, 0, 0.5);
@@ -271,26 +270,27 @@ h6 {
   justify-content: center;
   align-items: center;
   transition: 0.3s ease;
+  display: none;
 }
-#toggle.active{
+#toggle.active {
   background: rgba(0, 0, 0, 0.7);
 }
 #toggle::before {
-  content:'';
+  content: "";
   position: absolute;
   width: 28px;
   height: 2px;
   background: white;
   transition: 0.3s ease;
   transform: translateY(-10px);
-  box-shadow: 0 10px 0  white;
+  box-shadow: 0 10px 0 white;
 }
-#toggle.active::before{  
+#toggle.active::before {
   transform: translateY(0px) rotate(45deg);
-  box-shadow: 0 0 0  white;
+  box-shadow: 0 0 0 white;
 }
 #toggle::after {
-  content:'';
+  content: "";
   position: absolute;
   width: 28px;
   height: 2px;
@@ -298,10 +298,9 @@ h6 {
   transition: 0.3s ease;
   transform: translateY(10px);
 }
-#toggle.active::after{
+#toggle.active::after {
   transform: translateY(0px) rotate(-45deg);
 }
-
 /*---------------------------------------- the-default-view ----------------------------------------*/
 
 /*---------------------------------------- start ----------------------------------------*/
@@ -375,9 +374,17 @@ h6 {
   font-style: italic;
 }
 /*---------------------------------------- gallery-new-year ----------------------------------------*/
-.gallery-box{
-  height: auto;
+.gallery-box {
+  display: flex;
+  justify-content: center;
   width: 100%;
+  height: 100%;
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: 1600px;
 }
 /*---------------------------------------- gallery-hyper-loop ----------------------------------------*/
 
@@ -679,6 +686,12 @@ h6 {
   /*---------- maps ----------*/
   /*---------- command ----------*/
   /*---------- gallery-new-year ----------*/
+  .gallery {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 1500px;
+  }
   /*---------- gallery-hyper-loop ----------*/
   /*---------- gallery-pink-squad ----------*/
   /*---------- resources ----------*/
@@ -723,6 +736,12 @@ h6 {
   /*---------- maps ----------*/
   /*---------- command ----------*/
   /*---------- gallery-new-year ----------*/
+  .gallery {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 1400px;
+  }
   /*---------- gallery-hyper-loop ----------*/
   /*---------- gallery-pink-squad ----------*/
   /*---------- resources ----------*/
@@ -760,6 +779,12 @@ h6 {
   /*---------- maps ----------*/
   /*---------- command ----------*/
   /*---------- gallery-new-year ----------*/
+  .gallery {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 1300px;
+  }
   /*---------- gallery-hyper-loop ----------*/
   /*---------- gallery-pink-squad ----------*/
   /*---------- resources ----------*/
@@ -866,6 +891,12 @@ h6 {
   /*---------- maps ----------*/
   /*---------- command ----------*/
   /*---------- gallery-new-year ----------*/
+  .gallery {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 900px;
+  }
   /*---------- gallery-hyper-loop ----------*/
   /*---------- gallery-pink-squad ----------*/
   /*---------- resources ----------*/
@@ -967,6 +998,12 @@ h6 {
   /*---------- maps ----------*/
   /*---------- command ----------*/
   /*---------- gallery-new-year ----------*/
+  .gallery {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 600px;
+  }
   /*---------- gallery-hyper-loop ----------*/
   /*---------- gallery-pink-squad ----------*/
   /*---------- resources ----------*/
@@ -992,10 +1029,10 @@ h6 {
   .icon {
     top: 235px;
   }
-  /*---------- all ----------*/ 
+  /*---------- all ----------*/
   .linck-discord {
     margin: 0 auto;
-  } 
+  }
   .linck-discord iframe {
     width: 650px;
   }
@@ -1033,6 +1070,12 @@ h6 {
   /*---------- maps ----------*/
   /*---------- command ----------*/
   /*---------- gallery-new-year ----------*/
+  .gallery {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 500px;
+  }
   /*---------- gallery-hyper-loop ----------*/
   /*---------- gallery-pink-squad ----------*/
   /*---------- resources ----------*/
@@ -1061,7 +1104,7 @@ h6 {
   .icon {
     top: 200px;
   }
-  /*---------- all ----------*/  
+  /*---------- all ----------*/
   .linck-discord iframe {
     width: 550px;
   }
@@ -1134,6 +1177,12 @@ h6 {
   /*---------- maps ----------*/
   /*---------- command ----------*/
   /*---------- gallery-new-year ----------*/
+  .gallery {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 360px;
+  }
   /*---------- gallery-hyper-loop ----------*/
   /*---------- gallery-pink-squad ----------*/
   /*---------- resources ----------*/
@@ -1167,7 +1216,7 @@ h6 {
   }
   /*---------- all ----------*/
   .linck-discord {
-    width: 95%;    
+    width: 95%;
     margin: 10px;
     margin-top: 4%;
   }
@@ -1176,7 +1225,7 @@ h6 {
   }
   .linck-contact {
     margin-bottom: 30px;
-  }  
+  }
 }
 @media screen and (max-width: 400px) {
   /*---------- body ----------*/
@@ -1201,6 +1250,12 @@ h6 {
   /*---------- maps ----------*/
   /*---------- command ----------*/
   /*---------- gallery-new-year ----------*/
+  .gallery {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 340px;
+  }
   /*---------- gallery-hyper-loop ----------*/
   /*---------- gallery-pink-squad ----------*/
   /*---------- resources ----------*/
@@ -1214,5 +1269,5 @@ h6 {
   /*---------- accordion-2 ----------*/
   /*---------- main-container ----------*/
   /*---------- card ----------*/
-  /*---------- all ----------*/  
+  /*---------- all ----------*/
 }
