@@ -1,0 +1,8 @@
+pip3 install Flask
+pip3 install flask-mysql
+
+config.py:
+    MYSQL_DATABASE_USER = 'root'
+    MYSQL_DATABASE_PASSWORD = 'root'
+    MYSQL_DATABASE_DB = 'DB'
+    MYSQL_DATABASE_HOST = 'localhost'

@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(100) NOT NULL,
+  tag VARCHAR(100) NOT NULL,
+  type INT NOT NULL,
+  age VARCHAR(10),
+  from_about TEXT,
+  you_about TEXT,
+  date DATETIME
+);
