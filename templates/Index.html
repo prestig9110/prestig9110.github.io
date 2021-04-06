@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="static/css/reset.css" />
   <link rel="stylesheet" href="static/css/fotorama.css" />
   <link rel="stylesheet" href="static/css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
@@ -73,6 +74,7 @@
               <li><a href="#start">Как начать</a></li>
               <li><a href="#support">Помощь проекту</a></li>
               <li><a href="#maps">Карта</a></li>
+              <li><a href="#reg">Регистрация</a></li>
             </ul>
           </li>
           <li>
@@ -308,6 +310,49 @@
           </ul>
           <a href="http://3dmap.gmgame.ru/#over:3:71:-15:44:0:0:0:0:perspective" class="cd-btn cd-btn-2">Открыть
             карту</a>
+        </section>
+        <!-- ------------ register -------- -->
+        <section id="reg">
+          <script>
+            $( document ).ready(function() {
+              $( "#register" ).click( function() {
+                let params = {
+                  name: $("#name").val(),
+                  login: $("#login").val(),
+                  password: $("#password").val(),
+                };
+
+                query(params);
+              });
+
+              function query (params) {
+                $.ajax({
+                  type: "POST",
+                  url: '/register',
+                  data: params, 
+                })
+                .done(function (res) {
+                  if ( res.error ) {
+                    $("#res").css({ color: 'red' }).html(res.error).addClass('hint');
+                  } else {
+                    $("#res").css({ color: 'green' }).html(res.success).addClass('hint');
+                  }
+                })
+                .fail(function () {
+                  console.log("fail");
+                });
+              };
+            });
+          </script>
+          <div id="res"></div>
+          <form>
+            <p><b>Регистрация</b></p>
+            <input id="name" type="input" name="name" value="name">Имя<Br>
+            <input id="login" type="input" name="login" value="login">Логиг</p>
+            <input id="password" type="input" name="password" value="password">Пароль</p>
+            <input id="tag" type="input" name="tag" value="tag">Discord tag</p>
+          </form>
+          <button id="register" type="button">Зарегистрироваться</button>
         </section>
 
         <!-- ---------- command --------- -->
@@ -1350,7 +1395,6 @@
   </div>
 
   <!-- ---------- scripts --------- -->
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="static/js/functionToggle.js"></script>
   <script src="static/js/fotorama.js"></script>
   <script src="static/js/navigation.js"></script>
