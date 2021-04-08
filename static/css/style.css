@@ -662,6 +662,14 @@ h6 {
   width: 550px;
   height: 450px;
 }
+/*---------------------------------------- modal-register ----------------------------------------*/
+#reg{
+  position: fixed;
+  width: 500px;
+  height: 600px;
+  border: 2px  solid red;
+  background: rgba(0, 0, 0, 0.7);  
+}
 /*---------------------------------------- media ----------------------------------------*/
 @media screen and (max-width: 1700px) {
   /*---------- body ----------*/
@@ -1270,4 +1278,122 @@ h6 {
   /*---------- main-container ----------*/
   /*---------- card ----------*/
   /*---------- all ----------*/
+}
+
+
+
+
+
+
+/*---------------------------------------- modal-register ----------------------------------------*/
+.register-close {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  top: 20px;
+  right: -30px;
+  border: none;
+  background-color: transparent;
+}
+.register-close::before {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 3px;
+  background: #ffba00;
+  transition: 0.3s ease;
+  transform: translateY(0px) rotate(45deg);
+}
+.register-close::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 3px;
+  background: #ffba00;
+  transition: 0.3s ease;
+  transform: translateY(0px) rotate(-45deg);
+}
+.modal-register {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 123456;
+  background: radial-gradient(
+    circle,
+    rgba(223, 221, 215, 0.75) 0%,
+    rgba(143, 142, 143, 0.75) 100%
+  );
+  color: black;
+  overflow-y: hidden;
+}
+.register h3 {
+  height: auto;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 30px;
+}
+.register {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+  top: 5%;
+  left: 50%;
+  width: 700px;
+  height: auto;
+  transform: translateX(-50%);
+  background: white;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.register-form {
+  position: relative;
+  padding: 30px;
+  text-align: center;
+}
+.register-form input {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.9);
+  padding: 25px;
+  height: 25px;
+  width: 100%;
+  margin-bottom: 25px;
+  font-size: 16px;
+  color: black;
+  background: transparent;
+}
+.register-form input:active,
+.register-form input:focus{
+  border-radius: 10px;
+  border: none;
+}
+.register-form input placeholder{
+  font-size: 16px;
+  color: black;
+}
+.register-form span {
+  padding-left: 8px;
+  padding-right: 8px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 16px;
+  color: black;
+  background:white;
+}
+.register-btn {
+  padding: 20px auto;
+  background: lightblue;
+  height: 50px;
+  width: 300px;
+  border: 2px solid rgb(83, 143, 163);
+  border-radius: 10px;
 }
