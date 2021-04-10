@@ -739,7 +739,7 @@ h6 {
   border: 0.2px solid rgba(143, 142, 143, 0.75);
   outline: none;
 }
-.register-btn-next:hover{
+.register-btn-next:hover {
   outline: none;
 }
 
@@ -1265,4 +1265,3 @@ h6 {
   /*---------- card ----------*/
   /*---------- all ----------*/
 }
-
