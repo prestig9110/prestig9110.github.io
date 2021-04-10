@@ -150,7 +150,7 @@ h6 {
 .wrapper-link {
   width: 1750px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-left: 10px;
   z-index: 1000;
 }
@@ -176,7 +176,9 @@ h6 {
   transition: all 0.35s ease-out;
 }
 .wrapper-link .button-link:hover {
-  width: 250px;
+  transition: all 0.35s ease-out;
+  width: max-content;
+  padding-right: 25px;
 }
 .icon-button img {
   height: 35px;
@@ -373,28 +375,13 @@ h6 {
   font-weight: 800;
   font-style: italic;
 }
-/*---------------------------------------- gallery-new-year ----------------------------------------*/
-.gallery-box {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-.gallery {
-  display: flex;
-  justify-content: center;
-  height: auto;
-  width: 1600px;
-}
-/*---------------------------------------- gallery-hyper-loop ----------------------------------------*/
-
-/*---------------------------------------- gallery-pink-squad ----------------------------------------*/
+/*---------------------------------------- gallery ----------------------------------------*/
 
 /*---------------------------------------- resources ----------------------------------------*/
 #resources .content {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 #resources h4 span {
@@ -411,85 +398,12 @@ h6 {
 .download-files:hover {
   color: #ff74fa;
 }
-.elytra,
-.totem {
-  display: flex;
-  flex-wrap: wrap;
-}
-/*--------------- accordion ---------------*/
-.accordion {
-  background: white;
-  width: auto;
-  min-width: 450px;
-  max-width: 1500px;
-  height: max-content;
-  min-height: 320px;
-  padding: 20px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  margin-right: 100px;
-  border-radius: 10px;
-  position: relative;
-}
-.accordion:after {
-  content: "GMGame";
-  font-size: 60px;
-  font-weight: 900;
-  color: white;
-  position: absolute;
-  height: 70px;
-  top: 140px;
-  left: -205px;
-  transform: rotate(-90deg);
-}
-.accordion .title {
-  font-size: 20px;
-  font-weight: 600;
-}
-.accordion label {
-  float: right;
-  width: 20px;
-  height: 20px;
-  padding: 5px;
-}
-.accordion label .mark {
-  height: 10px;
-  width: 10px;
-  border-left: 4px solid #ffba00;
-  border-bottom: 4px solid #ffba00;
-  transition: transform 0.35s ease;
-  transform: rotate(-45deg);
-}
-.accordion input[type="checkbox"] {
-  display: none;
-  float: right;
-}
-.accordion input[type="checkbox"]:checked ~ .panel {
-  height: 256px;
-}
-.accordion input[type="checkbox"]:checked ~ label .mark {
-  transform: rotate(135deg);
-  border-left: 4px solid #ff74fa;
-  border-bottom: 4px solid #ff74fa;
-}
-.accordion .panel {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  height: 0px;
-  transition: height ease 0.35s, padding ease 0.5s;
-  overflow: hidden;
-  border-radius: 5px;
-}
-.accordion .panel img {
-  width: 256px;
-  height: 256px;
-}
 /*---------------------------------------- market ----------------------------------------*/
 
 /*---------- accordion-2 ----------*/
 .accordion-2 {
   max-width: 1500px;
+  width: auto;
 }
 .accordion-item {
   background: radial-gradient(
@@ -502,6 +416,7 @@ h6 {
   margin: 1rem 0;
   border-radius: 0.5rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  min-width: 350px;
 }
 .accordion-item-header {
   padding: 8px 48px 8px 16px;
@@ -547,6 +462,14 @@ h6 {
   height: 36px;
   width: 36px;
   margin-right: 10px;
+}
+.prev-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 250px !important;
+  width: 250px !important;
+  margin: 0 auto !important;
 }
 .accordion-item-body-content ul li {
   display: flex;
@@ -663,13 +586,163 @@ h6 {
   height: 450px;
 }
 /*---------------------------------------- modal-register ----------------------------------------*/
-#reg{
-  position: fixed;
-  width: 500px;
-  height: 600px;
-  border: 2px  solid red;
-  background: rgba(0, 0, 0, 0.7);  
+.register-close {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 60px;
+  font-style: 900;
+  top: 20px;
+  right: 30px;
+  border: none;
+  background-color: transparent;
+  color: #ffba00;
+  transition: all 0.35s ease;
+  outline: none;
 }
+.register-close:hover {
+  color: #ff74fa;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+.modal-register {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 123456;
+  background: radial-gradient(
+    circle,
+    rgba(223, 221, 215, 0.75) 0%,
+    rgba(143, 142, 143, 0.75) 100%
+  );
+  color: black;
+  overflow-y: hidden;
+}
+.register {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 10px;
+  width: 100%;
+  height: 100vh;
+  background: white;
+}
+.register h3 {
+  height: auto;
+  width: 100%;
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.register-form {
+  text-align: center;
+  height: 100vh;
+  width: 650px;
+}
+.register-form input,
+.register-form textarea {
+  min-height: 45px;
+  max-height: 150px;
+  max-width: 70%;
+  min-width: 70%;
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+  margin-top: 25px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  outline: none;
+}
+.register-form textarea {
+  margin-bottom: 25px;
+}
+.register-form input:active,
+.register-form input:focus {
+  border: 1px solid black;
+}
+.register-form input::before,
+.register-form textarea::before {
+  content: attr(data-title); /*помещаем подсказку в псевдоэлемент*/
+  display: none; /*скрываем подсказку*/
+}
+.register-form input placeholder,
+.register-form input placeholder:hover {
+  font-size: 16px;
+  background: none;
+}
+.input-name {
+  position: absolute;
+  width: auto;
+  background: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(25%);
+}
+.support-hover {
+  display: inline-block;
+  position: absolute;
+  transform: translateX(80%) translateY(70%);
+  color: #06c;
+  text-decoration: none;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+}
+.support-hover::before {
+  content: attr(data-title);
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: White;
+  border-radius: 3px;
+  border: 1px solid lightgray;
+  box-shadow: 5px 5px 0.5em -0.1em rgba(0, 0, 6, 0.5);
+  color: #000;
+  cursor: default;
+  padding: 5px;
+  margin: 10px;
+  width: 300px;
+  min-height: 50px;
+  height: auto;
+}
+.support-hover em {
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  font-weight: 700;
+}
+.support-hover:hover::before {
+  display: block;
+}
+.register-btn-next {
+  padding: 20px auto;
+  background: lightblue;
+  height: 50px;
+  width: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(223, 221, 215, 0.75) 0%,
+    rgba(143, 142, 143, 0.75) 100%
+  );
+  border: 0.2px solid rgba(143, 142, 143, 0.75);
+  outline: none;
+}
+.register-btn-next:hover{
+  outline: none;
+}
+
 /*---------------------------------------- media ----------------------------------------*/
 @media screen and (max-width: 1700px) {
   /*---------- body ----------*/
@@ -693,17 +766,8 @@ h6 {
   /*---------- plugins ----------*/
   /*---------- maps ----------*/
   /*---------- command ----------*/
-  /*---------- gallery-new-year ----------*/
-  .gallery {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    width: 1500px;
-  }
-  /*---------- gallery-hyper-loop ----------*/
-  /*---------- gallery-pink-squad ----------*/
+  /*---------- gallery ----------*/
   /*---------- resources ----------*/
-  /*---------- accordion ----------*/
   /*---------- litematica ----------*/
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
@@ -743,20 +807,11 @@ h6 {
   /*---------- plugins ----------*/
   /*---------- maps ----------*/
   /*---------- command ----------*/
-  /*---------- gallery-new-year ----------*/
-  .gallery {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    width: 1400px;
-  }
-  /*---------- gallery-hyper-loop ----------*/
-  /*---------- gallery-pink-squad ----------*/
+  /*---------- gallery ----------*/
   /*---------- resources ----------*/
   #resources .content {
     padding-left: 45px;
   }
-  /*---------- accordion ----------*/
   /*---------- litematica ----------*/
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
@@ -786,17 +841,8 @@ h6 {
   /*---------- plugins ----------*/
   /*---------- maps ----------*/
   /*---------- command ----------*/
-  /*---------- gallery-new-year ----------*/
-  .gallery {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    width: 1300px;
-  }
-  /*---------- gallery-hyper-loop ----------*/
-  /*---------- gallery-pink-squad ----------*/
+  /*---------- gallery ----------*/
   /*---------- resources ----------*/
-  /*---------- accordion ----------*/
   /*---------- litematica ----------*/
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
@@ -818,7 +864,6 @@ h6 {
   .wrapper-link {
     min-width: 900px;
     display: flex;
-    flex-direction: row;
   }
   /*---------- menu ----------*/
   .links {
@@ -898,20 +943,8 @@ h6 {
   /*---------- plugins ----------*/
   /*---------- maps ----------*/
   /*---------- command ----------*/
-  /*---------- gallery-new-year ----------*/
-  .gallery {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    width: 900px;
-  }
-  /*---------- gallery-hyper-loop ----------*/
-  /*---------- gallery-pink-squad ----------*/
+  /*---------- gallery ----------*/
   /*---------- resources ----------*/
-  /*---------- accordion ----------*/
-  .accordion {
-    max-width: 550px;
-  }
   /*---------- litematica ----------*/
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
@@ -1005,17 +1038,8 @@ h6 {
   /*---------- plugins ----------*/
   /*---------- maps ----------*/
   /*---------- command ----------*/
-  /*---------- gallery-new-year ----------*/
-  .gallery {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    width: 600px;
-  }
-  /*---------- gallery-hyper-loop ----------*/
-  /*---------- gallery-pink-squad ----------*/
+  /*---------- gallery ----------*/
   /*---------- resources ----------*/
-  /*---------- accordion ----------*/
   /*---------- litematica ----------*/
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
@@ -1077,22 +1101,10 @@ h6 {
   /*---------- plugins ----------*/
   /*---------- maps ----------*/
   /*---------- command ----------*/
-  /*---------- gallery-new-year ----------*/
-  .gallery {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    width: 500px;
-  }
-  /*---------- gallery-hyper-loop ----------*/
-  /*---------- gallery-pink-squad ----------*/
+  /*---------- gallery ----------*/
   /*---------- resources ----------*/
   #resources .content {
     padding-left: 0;
-  }
-  /*---------- accordion ----------*/
-  .accordion:after {
-    content: "";
   }
   /*---------- litematica ----------*/
   /*---------- market ----------*/
@@ -1184,21 +1196,8 @@ h6 {
   /*---------- plugins ----------*/
   /*---------- maps ----------*/
   /*---------- command ----------*/
-  /*---------- gallery-new-year ----------*/
-  .gallery {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    width: 360px;
-  }
-  /*---------- gallery-hyper-loop ----------*/
-  /*---------- gallery-pink-squad ----------*/
+  /*---------- gallery ----------*/
   /*---------- resources ----------*/
-  /*---------- accordion ----------*/
-  .accordion {
-    max-width: 450px;
-    margin-right: 0;
-  }
   /*---------- litematica ----------*/
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
@@ -1257,21 +1256,8 @@ h6 {
   /*---------- plugins ----------*/
   /*---------- maps ----------*/
   /*---------- command ----------*/
-  /*---------- gallery-new-year ----------*/
-  .gallery {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    width: 340px;
-  }
-  /*---------- gallery-hyper-loop ----------*/
-  /*---------- gallery-pink-squad ----------*/
+  /*---------- gallery ----------*/
   /*---------- resources ----------*/
-  /*---------- accordion ----------*/
-  .accordion {
-    min-width: 360px;
-    max-width: 380px;
-  }
   /*---------- litematica ----------*/
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
@@ -1280,120 +1266,3 @@ h6 {
   /*---------- all ----------*/
 }
 
-
-
-
-
-
-/*---------------------------------------- modal-register ----------------------------------------*/
-.register-close {
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  top: 20px;
-  right: -30px;
-  border: none;
-  background-color: transparent;
-}
-.register-close::before {
-  content: "";
-  position: absolute;
-  width: 28px;
-  height: 3px;
-  background: #ffba00;
-  transition: 0.3s ease;
-  transform: translateY(0px) rotate(45deg);
-}
-.register-close::after {
-  content: "";
-  position: absolute;
-  width: 28px;
-  height: 3px;
-  background: #ffba00;
-  transition: 0.3s ease;
-  transform: translateY(0px) rotate(-45deg);
-}
-.modal-register {
-  display: none;
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 123456;
-  background: radial-gradient(
-    circle,
-    rgba(223, 221, 215, 0.75) 0%,
-    rgba(143, 142, 143, 0.75) 100%
-  );
-  color: black;
-  overflow-y: hidden;
-}
-.register h3 {
-  height: auto;
-  width: 100%;
-  text-align: center;
-  padding-bottom: 30px;
-}
-.register {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 10px;
-  top: 5%;
-  left: 50%;
-  width: 700px;
-  height: auto;
-  transform: translateX(-50%);
-  background: white;
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.5);
-}
-.register-form {
-  position: relative;
-  padding: 30px;
-  text-align: center;
-}
-.register-form input {
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.9);
-  padding: 25px;
-  height: 25px;
-  width: 100%;
-  margin-bottom: 25px;
-  font-size: 16px;
-  color: black;
-  background: transparent;
-}
-.register-form input:active,
-.register-form input:focus{
-  border-radius: 10px;
-  border: none;
-}
-.register-form input placeholder{
-  font-size: 16px;
-  color: black;
-}
-.register-form span {
-  padding-left: 8px;
-  padding-right: 8px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  font-size: 16px;
-  color: black;
-  background:white;
-}
-.register-btn {
-  padding: 20px auto;
-  background: lightblue;
-  height: 50px;
-  width: 300px;
-  border: 2px solid rgb(83, 143, 163);
-  border-radius: 10px;
-}
