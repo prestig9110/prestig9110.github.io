@@ -31,9 +31,9 @@
           }
         },
 
-        'plugins': {
+        'config-system': {
           'rendered': function() {
-            console.log('view currently showing is "plugins"');
+            console.log('view currently showing is "config-system"');
             app.preventScroll();
           }
         },
