@@ -31,9 +31,9 @@
           }
         },
 
-        'plugins': {
+        'config-system': {
           'rendered': function() {
-            console.log('view currently showing is "plugins"');
+            console.log('view currently showing is "config-system"');
             app.preventScroll();
           }
         },
@@ -52,23 +52,9 @@
           }
         },
 
-        'gallery-new-year': {
+        'gallery': {
           'rendered': function() {
-            console.log('view currently showing is "gallery-new-year"');
-            app.preventScroll();
-          }
-        },
-
-        'gallery-hyper-loop': {
-          'rendered': function() {
-            console.log('view currently showing is "gallery-hyper-loop"');
-            app.preventScroll();
-          }
-        },
-
-        'gallery-pink-squad': {
-          'rendered': function() {
-            console.log('view currently showing is "gallery-pink-squad"');
+            console.log('view currently showing is "gallery"');
             app.preventScroll();
           }
         },
@@ -93,7 +79,6 @@
             app.preventScroll();
           }
         },  
-
 
       },
 

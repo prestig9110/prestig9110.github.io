@@ -26,12 +26,10 @@
         <a href="#start">start</a>
         <a href="#support">support</a>
         <a href="#mods">mods</a>
-        <a href="#plugins">plugins</a>
+        <a href="#config-system">config-system</a>
         <a href="#maps">maps</a>
         <a href="#command">command</a>
-        <a href="#gallery-new-year">gallery-new-year</a>
-        <a href="#gallery-hyper-loop">gallery-hyper-loop</a>
-        <a href="#gallery-pink-squad">gallery-pink-squad</a>
+        <a href="#gallery">gallery</a>
         <a href="#resources">resources</a>
         <a href="#litematica">litematica</a>
         <a href="#market">market</a>
@@ -49,13 +47,19 @@
           <a href="#support" class="icon-button">
             <img src="static/img/coin.svg" alt="coin">
           </a>
-          <span>Donate</span>
+          <span>Поддержать</span>
         </div>
         <div class="button-link">
           <a href="https://www.instagram.com/gmgameserver/" class="icon-button">
             <img src="static/img/instagram.svg" alt="instagram">
           </a>
           <span>Instagram</span>
+        </div>
+        <div class="button-link register-btn">
+          <a href="https://www.instagram.com/gmgameserver/" class="icon-button">
+            <img src="static/img/register.svg" alt="instagram">
+          </a>
+          <span>Зарегистрироваться</span>
         </div>
       </div>
     </div>
@@ -73,7 +77,7 @@
               <li><a href="#start">Как начать</a></li>
               <li><a href="#support">Помощь проекту</a></li>
               <li><a href="#maps">Карта</a></li>
-              <li><a href="#reg">Регистрация</a></li>
+              <li><a href="#gallery">Фотографии</a></li>
             </ul>
           </li>
           <li>
@@ -82,21 +86,11 @@
             <label for="two-menu">Полезное</label>
             <ul>
               <li><a href="#mods">Моды</a></li>
-              <li><a href="#plugins">Плагины</a></li>
+              <li><a href="#config-system">Система</a></li>
               <li><a href="#litematica">Лайтматики</a></li>
               <li><a href="#command">Команды</a></li>
               <li><a href="#resources">Ресурсы</a></li>
               <li><a href="#market">Магазин</a></li>
-            </ul>
-          </li>
-          <li>
-            <a class="desktop-link" href="">Галереи</a>
-            <input type="checkbox" id="three-menu" />
-            <label for="three-menu">Галереи</label>
-            <ul>
-              <li><a href="#gallery-new-year">Новый год 2021</a></li>
-              <li><a href="#gallery-hyper-loop">Туннели</a></li>
-              <li><a href="#gallery-pink-squad">База Pinksquad</a></li>
             </ul>
           </li>
         </ul>
@@ -110,21 +104,21 @@
         <!-- ---------- the-default-view --------- -->
         <section id="the-default-view">
           <h1>GMGame</h1>
-          <h4>GMGame — развивающийся строительный minecraft-сервер с элементами лёгкого ролеплея</h4>
+          <h4>GMGame — развивающийся строительный minecraft-сервер с элементами лёгкого ролеплея.</h4>
           <h4>Сервер функционирует на ядре Yatopia версии 1.16.5 с плагинами, повышающими комфортность игры и, вместе с
             тем,
-            позволяющими не потерять полуванильный облик игрового процесса</h4>
+            позволяющими не потерять полуванильный облик игрового процесса.</h4>
           <h4>Доступ на сервер осуществляется бесплатно, есть возможность играть с лицензионных/нелицензионных учётных
             записей
-            Java Edition, имеется поддержка версии Bedrock Edition</h4>
+            Java Edition, имеется поддержка версии Bedrock Edition.</h4>
           <h4>Игровой мир делится на Основной и Ресурсный миры со всеми тремя измерениями и переходами между ними, в
             будущем
             планируется добавление мира для редстоун-систем и креатив-мира. Перемещение по основному миру происходит
-            посредством системы хайперлупов, вход в ресурсные миры осуществляется через портал на Спавне</h4>
+            посредством системы хайперлупов, вход в ресурсные миры осуществляется через портал на Спавне.</h4>
           <h4>На нашем сервере по мере возможности поддерживается дружеская атмосфера, токсики и неадекваты оперативно
             локализуются и не задерживаются надолго. В чатах и войсах рекомендовано придерживаться общепринятых норм
             поведения
-            и общения. На игровом сервере запрещено гриферство, воровство и читерство</h4>
+            и общения. На игровом сервере запрещено гриферство, воровство и читерство.</h4>
         </section>
 
         <!-- ---------- start --------- -->
@@ -156,9 +150,8 @@
         <!-- ---------- support --------- -->
         <section id="support">
           <h2>Поддержать проект</h2>
-          <h4>Сервер GMgame является бесплатным и существует за Ваши донаты.</h4>
-          <h4>Для поддержки и развития проекта, Вы можете пожертвовать или сделать донат на конкретное оборудование:
-          </h4>
+          <h4>Сервер GMGame является бесплатным, но Вы можете поддержать проект, сделав пожертвование на конкретное
+            оборудование или на развитие сервера в целом</h4>
           <ul>
             <li><a href="https://donate.guru/v/gtn27">- Диск</a></li>
             <li><a href="https://donate.guru/v/73v6l">- Кулер процессора</a></li>
@@ -173,8 +166,10 @@
         <!-- ---------- mods --------- -->
         <section id="mods">
           <h2>Сборки модов для игры</h2>
-          <h4>Здесь собраны два оптимальных варианта сборок, которыми может пользоваться игрок нашего сервера.</h4>
-          <h5>Самое первое, что нужно установить, чтобы моды заработали - это Fabric и Fabric API.</h5>
+          <h4>В этом разделе размещены два оптимальных варианта сборок, которыми может пользоваться игрок нашего
+            сервера.</h4>
+          <h5>По вопросами можно обратиться к нам в Дискорд</h5>
+          <h5>Для работы модов потребуется установка Fabric и Fabric API</h5>
           <ul>
             <li><a href="https://fabricmc.net/use/">Fabric</a></li>
             <li><a href="https://www.curseforge.com/minecraft/mc-mods/fabric-api/files">Fabric API</a></li>
@@ -260,8 +255,15 @@
           </ul>
         </section>
 
-        <!-- ---------- plugins --------- -->
-        <section id="plugins">
+        <!-- ---------- config-system --------- -->
+        <section id="config-system">
+          <h2>Конфигурация сервера</h2>
+          <ul>
+            <li>- </li>
+            <li>- </li>
+            <li>- </li>
+            <li>- </li>
+          </ul>
           <h2>Плагины</h2>
           <h4>Плагины - дополнения к серверу, которые предоставляют удобства игрокам.</h4>
           <ul>
@@ -287,25 +289,26 @@
         <!-- ---------- maps --------- -->
         <section id="maps">
           <h2>Карта сервера</h2>
-          <h3>На сервере доступно две карты на двух платформах</h3>
-          <h4>Первая карта Overviewer обновляется каждые два часа начиная с 00:00 по МСК</h4>
-          <h4>Tо что доступно на карте</h4>
+          <h3>На сервере доступно две карты на различных платформах:</h3>
+          <h4>Карта Overviewer обновляется каждые два часа</h4>
+          <h4>На карте доступны следующие слои:</h4>
           <ul>
-            <li>- Верхний мир в дневное время</li>
-            <li>- Верхний мир в ночное время</li>
-            <li>- Нижний мир с отображением до 50 уровня и с переключением выше 50 уровня</li>
-            <li>- Мир края</li>
+            <li>- Верхний мир в дневное/ночное время</li>
+            <li>- Верхний фермерский мир в дневное время</li>
+            <li>- Креатив мир в дневное время</li>
+            <li>- Нижний мир со срезом на высоте 50 и с переключением на «крышу Ада»</li>
+            <li>- Мир Края</li>
           </ul>
           <a href="http://map.gmgame.ru/#/22/64/-34/-4/gmgame%20-%20overworld/over" class="cd-btn cd-btn-1">Открыть
             карту</a>
 
-          <h4>Вторая карта Blue Map обновляется каждые два часа начиная с 00:00 по МСК</h4>
-          <h4>Tо что доступно на карте</h4>
+          <h4>Карта Blue Map обновляется каждые два часа</h4>
+          <h4>На карте доступны следующие слои:</h4>
           <ul>
             <li>- Верхний мир </li>
             <li>- Нижний мир </li>
-            <li>- Мир края</li>
-            <li>- Для всех миров доступный дневной/ночной режим, 2d, 3D и Spectator</li>
+            <li>- Мир Края</li>
+            <li>- Для всех миров доступны дневной/ночной, 2D/3D и Spectator режимы</li>
           </ul>
           <a href="http://3dmap.gmgame.ru/#over:3:71:-15:44:0:0:0:0:perspective" class="cd-btn cd-btn-2">Открыть
             карту</a>
@@ -352,116 +355,15 @@
             <li><span>/plot</span> - </li>
             <li><span>/plot</span> - </li>
             <li><span>/plot</span> - </li>
+            <li><span>/plot flag set</span> - </li>
+            <li><span>/plot flag set</span> - </li>
+            <li><span>/plot flag set</span> - </li>
           </ul>
         </section>
 
-        <!-- ---------- gallery-new-year--------- -->
-        <section id="gallery-new-year">
-          <h2>Новогодняя галерея</h2>
-          <h4>Небольшой фото отчёт празднования нового года на сервере</h4>
-          <div class="gallery-box">
-            <div class="gallery">
-              <div class="fotorama" data-allowfullscreen="native" data-nav="thumbs" data-loop="true" data-shuffle="true"
-                data-keyboard="true" data-arrows="true" data-click="true" data-swipe="true">
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-1.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-1.webp" id="01" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-2.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-2.webp" id="02" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year 3.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year 3.webp" id="03" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-4.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-4.webp" id="04" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-5.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-5.webp" id="05" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-6.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-6.webp" id="06" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-6.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-6.webp" id="06" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-7.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-7.webp" id="07" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-8.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-8.webp" id="08" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-9.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-9.webp" id="09" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-10.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-10.webp" id="10" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-11.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-11.webp" id="11" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-12.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-12.webp" id="12" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-13.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-13.webp" id="13" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-14.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-14.webp" id="14" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-15.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-15.webp" id="15" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-16.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-16.webp" id="16" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-17.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-17.webp" id="17" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-18.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-18.webp" id="18" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-19.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-19.webp" id="19" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-20.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-20.webp" id="20" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-21.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-21.webp" id="21" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-22.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-22.webp" id="22" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-23.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-23.webp" id="23" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-24.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-24.webp" id="24" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-25.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-25.webp" id="25" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-26.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-26.webp" id="26" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-27.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-27.webp" id="27" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-28.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-28.webp" id="28" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-29.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-29.webp" id="29" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-30.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-30.webp" id="30" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-31.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-31.webp" id="31" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-32.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-32.webp" id="32" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-33.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-33.webp" id="33" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-34.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-34.webp" id="34" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-35.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-35.webp" id="35" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-36.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-36.webp" id="36" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-37.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-37.webp" id="37" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-38.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-38.webp" id="38" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-39.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-39.webp" id="39" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-40.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-40.webp" id="40" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-41.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-41.webp" id="41" /></a>
-                <a href="static/img/Galerry/Gallery New-Year/New-Year-42.webp"><img
-                    src="static/img/Galerry/Gallery New-Year/New-Year-42.webp" id="42" /></a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- ---------- gallery-hyper-loop --------- -->
-        <section id="gallery-hyper-loop">
-          <h2>Страница еще не доступна</h2>
-        </section>
-
-        <!-- ---------- gallery-pink-squad --------- -->
-        <section id="gallery-pink-squad">
-          <h2>Страница еще не доступна</h2>
+        <!-- ---------- gallery--------- -->
+        <section id="gallery">
+          <div class="instagram-post"></div>
         </section>
 
         <!-- ---------- resources --------- -->
@@ -475,463 +377,405 @@
             текстур пак &#171&#171&#171
           </a>
           <div class="content">
-            <div class="elytra">
-              <div class="accordion">
-                <div class="tab">
-                  <span class="title">angel</span>
-                  <input type="checkbox" id="angel">
-                  <label for="angel">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/angel.webp" alt="angel">
+            <div class="Elitra">
+              <h3>Элитры</h3>
+              <div class="accordion-2">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">angel</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/angel.webp" alt="angel-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">archangel</span>
-                  <input type="checkbox" id="archangel">
-                  <label for="archangel">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/archangel.webp" alt="archangel">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">archangel</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/archangel.webp" alt="archangel-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">avatar</span>
-                  <input type="checkbox" id="avatar">
-                  <label for="avatar">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/avatar.webp" alt="avatar">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">avatar</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/avatar.webp" alt="avatar-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">bee</span>
-                  <input type="checkbox" id="bee">
-                  <label for="bee">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/bee.webp" alt="bee">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">bee</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/bee.webp" alt="bee-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">cosmos</span>
-                  <input type="checkbox" id="cosmos">
-                  <label for="cosmos">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/cosmos.webp" alt="cosmos">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">cosmos</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/cosmos.webp" alt="cosmos-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">crimson</span>
-                  <input type="checkbox" id="crimson">
-                  <label for="crimson">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/crimson.webp" alt="crimson">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">crimson</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/crimson.webp" alt="crimson-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">davinci</span>
-                  <input type="checkbox" id="davinci">
-                  <label for="davinci">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/davinci.webp" alt="davinci">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">davinci</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/davinci.webp" alt="davinci-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">demon</span>
-                  <input type="checkbox" id="demon">
-                  <label for="demon">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/demon.webp" alt="demon">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">demon</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/demon.webp" alt="demon-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">dragon</span>
-                  <input type="checkbox" id="dragon">
-                  <label for="dragon">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/dragon.webp" alt="dragon">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">dragon</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/dragon.webp" alt="dragon-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">dragonfly</span>
-                  <input type="checkbox" id="dragonfly">
-                  <label for="dragonfly">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/dragonfly.webp" alt="dragonfly">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">dragonfly</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/dragonfly.webp" alt="dragonfly-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">dreamtime</span>
-                  <input type="checkbox" id="dreamtime">
-                  <label for="dreamtime">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/dreamtime.webp" alt="dreamtime">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">dreamtime</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/dreamtime.webp" alt="dreamtime-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">eagle</span>
-                  <input type="checkbox" id="eagle">
-                  <label for="eagle">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/eagle.webp" alt="eagle">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">eagle</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/eagle.webp" alt="eagle-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">elysium</span>
-                  <input type="checkbox" id="elysium">
-                  <label for="elysium">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/elysium.webp" alt="elysium">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">elysium</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/elysium.webp" alt="elysium-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">fairy</span>
-                  <input type="checkbox" id="fairy">
-                  <label for="fairy">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/fairy.webp" alt="fairy">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">evessay</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/evessay.webp" alt="evessay-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">fried_wings</span>
-                  <input type="checkbox" id="fried_wings">
-                  <label for="fried_wings">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/fried_wings.webp" alt="fried_wings">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">fairy</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/fairy.webp" alt="fairy-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">golden_beetle</span>
-                  <input type="checkbox" id="golden_beetle">
-                  <label for="golden_beetle">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/golden_beetle.webp" alt="golden_beetle">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">fried_wings</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/fried_wings.webp" alt="fried_wings-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">green_beetle</span>
-                  <input type="checkbox" id="green_beetle">
-                  <label for="green_beetle">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/green_beetle.webp" alt="green_beetle">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">golden_beetle</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/golden_beetle.webp"
+                        alt="golden_beetle-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">green_dragon</span>
-                  <input type="checkbox" id="green_dragon">
-                  <label for="green_dragon">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/green_dragon.webp" alt="green_dragon">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">green_beetle</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/green_beetle.webp" alt="green_beetle-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">inferno</span>
-                  <input type="checkbox" id="inferno">
-                  <label for="inferno">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/inferno.webp" alt="inferno">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">green_dragon</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/green_dragon.webp" alt="green_dragon-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">macaw</span>
-                  <input type="checkbox" id="macaw">
-                  <label for="macaw">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/macaw.webp" alt="macaw">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">inferno</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/inferno.webp" alt="inferno-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">mercy</span>
-                  <input type="checkbox" id="mercy">
-                  <label for="mercy">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/mercy.webp" alt="mercy">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">macaw</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/macaw.webp" alt="macaw-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">mercyinferno</span>
-                  <input type="checkbox" id="mercyinferno">
-                  <label for="mercyinferno">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/mercyinferno.webp" alt="mercyinferno">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">mercy</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/mercy.webp" alt="mercy-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">mercysapphire</span>
-                  <input type="checkbox" id="mercysapphire">
-                  <label for="mercysapphire">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/mercysapphire.webp" alt="mercysapphire">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">mercyinferno</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/mercyinferno.webp" alt="mercyinferno-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">neonblue</span>
-                  <input type="checkbox" id="neonblue">
-                  <label for="neonblue">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/neonblue.webp" alt="neonblue">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">mercysapphire</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/mercysapphire.webp"
+                        alt="mercysapphire-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">nova</span>
-                  <input type="checkbox" id="nova">
-                  <label for="nova">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/nova.webp" alt="nova">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">neonblue</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/neonblue.webp" alt="neonblue-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">phoenix</span>
-                  <input type="checkbox" id="phoenix">
-                  <label for="phoenix">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/phoenix.webp" alt="phoenix">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">nova</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/nova.webp" alt="nova-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">priest</span>
-                  <input type="checkbox" id="priest">
-                  <label for="priest">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/priest.webp" alt="priest">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">phoenix</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/phoenix.webp" alt="phoenix-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">prime</span>
-                  <input type="checkbox" id="prime">
-                  <label for="prime">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/prime.webp" alt="prime">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">priest</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/priest.webp" alt="priest-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">red_dragon</span>
-                  <input type="checkbox" id="red_dragon">
-                  <label for="red_dragon">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/red_dragon.webp" alt="red_dragon">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">prime</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/prime.webp" alt="prime-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">solar</span>
-                  <input type="checkbox" id="solar">
-                  <label for="solar">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/solar.webp" alt="solar">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">red_dragon</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/red_dragon.webp" alt="red_dragon-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">sunset</span>
-                  <input type="checkbox" id="sunset">
-                  <label for="sunset">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/sunset.webp" alt="sunset">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">solar</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/solar.webp" alt="solar-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">test</span>
-                  <input type="checkbox" id="test">
-                  <label for="test">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/test.webp" alt="test">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">sunset</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/sunset.webp" alt="sunset-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">warped</span>
-                  <input type="checkbox" id="warped">
-                  <label for="warped">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Elytra/warped.webp" alt="warped">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">test</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/test.webp" alt="test-img">
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <div class="accordion-item-header">warped</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Elytra/warped.webp" alt="warped-img">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="totem">
-              <div class="accordion">
-                <div class="tab">
-                  <span class="title">Blackirita</span>
-                  <input type="checkbox" id="Blackirita">
-                  <label for="Blackirita">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Totem/Blackirita.webp" alt="Blackirita">
+            <div class="Totem">
+              <h3>Тотемы</h3>
+              <div class="accordion-2">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">Blackirita</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/Blackirita.webp" alt="Blackirita-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">Dalandis</span>
-                  <input type="checkbox" id="Dalandis">
-                  <label for="Dalandis">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Totem/Dalandis.webp" alt="Dalandis">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">Dalandis</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/Dalandis.webp" alt="Dalandis-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">dunno59</span>
-                  <input type="checkbox" id="dunno59">
-                  <label for="dunno59">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Totem/dunno59.webp" alt="dunno59">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">dunno59</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/dunno59.webp" alt="dunno59-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">dunno69</span>
-                  <input type="checkbox" id="dunno69">
-                  <label for="dunno69">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Totem/dunno69.webp" alt="dunno69">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">dunno69</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/dunno69.webp" alt="dunno69-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">Kerubifi</span>
-                  <input type="checkbox" id="Kerubifi">
-                  <label for="Kerubifi">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Totem/Kerubifi.webp" alt="Kerubifi">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">Kerubifi</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/Kerubifi.webp" alt="Kerubifi-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">KIPO4</span>
-                  <input type="checkbox" id="KIPO4">
-                  <label for="KIPO4">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Totem/KIPO4.webp" alt="KIPO4">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">KIPO4</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/KIPO4.webp" alt="KIPO4-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">Matychka</span>
-                  <input type="checkbox" id="Matychka">
-                  <label for="Matychka">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Totem/Matychka.webp" alt="Matychka">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">Matychka</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/Matychka.webp" alt="Matychka-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">Niksette</span>
-                  <input type="checkbox" id="Niksette">
-                  <label for="Niksette">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Totem/Niksette.webp" alt="Niksette">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">Niksette</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/Niksette.webp" alt="Niksette-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">Pr0sTiK</span>
-                  <input type="checkbox" id="Pr0sTiK">
-                  <label for="Pr0sTiK">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Totem/Pr0sTiK.webp" alt="Pr0sTiK">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">Pr0sTiK</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/Pr0sTiK.webp" alt="Pr0sTiK-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">prestig9110</span>
-                  <input type="checkbox" id="prestig9110">
-                  <label for="prestig9110">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Totem/prestig9110.webp" alt="prestig9110">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">prestig9110</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/prestig9110.webp" alt="prestig9110-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">SoftPanda3</span>
-                  <input type="checkbox" id="SoftPanda3">
-                  <label for="SoftPanda3">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Totem/SoftPanda3.webp" alt="SoftPanda3">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">SoftPanda3</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/SoftPanda3.webp" alt="SoftPanda3-img">
+                    </div>
                   </div>
                 </div>
-                <div class="tab">
-                  <span class="title">VessAy</span>
-                  <input type="checkbox" id="VessAy">
-                  <label for="VessAy">
-                    <div class="mark"></div>
-                  </label>
-                  <div class="panel">
-                    <img src="static/img/resources/Totem/VessAy.webp" alt="VessAy">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">VessAy</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/VessAy.webp" alt="VessAy-img">
+                    </div>
                   </div>
                 </div>
-
+              </div>
+            </div>
+            <div class="Statuia">
+              <h3>Статуи</h3>
+              <div class="accordion-2">
+                <div class="accordion-item">
+                  <div class="accordion-item-header">lorem</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/lorem.webp" alt="lorem-img">
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <div class="accordion-item-header">lorem</div>
+                  <div class="accordion-item-body">
+                    <div class="accordion-item-body-content">
+                      <img class="prev-img" src="static/img/resources/Totem/lorem.webp" alt="lorem-img">
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -939,7 +783,169 @@
 
         <!-- ---------- litematica --------- -->
         <section id="litematica">
-          <h2>Страница еще не доступна</h2>
+          <div>
+            <div class="accordion-2">
+              <div class="accordion-item">
+                <div class="accordion-item-header"> Основной хаб </div>
+                <div class="accordion-item-body">
+                  <div class="accordion-item-body-content">
+                    <div class="info-litematic">
+                      <h4>Основная информация</h4>
+                      <ul>
+                        <li>- Размеры - 101 х 89 х 101 </li>
+                        <li>- Автор - prestig9110</li>
+                        <li>- Количество блоков - 162050</li>
+                        <li><a href="#"
+                            download="static/download/.litematic/GMGame_Hyperloop_osnova_hub_all.litematic">&darr;
+                            GMGame_Hyperloop_osnova_hub_all.litematic</a></li>
+                      </ul>
+                    </div>
+                    <div class="info-litematic-img">
+                      <img src="static/img/litematic/GMGame_Hyperloop_osnova_hub_all.webp"
+                        alt="GMGame_Hyperloop_osnova_hub_all.webp">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-item-header"> Главный Hyperloop </div>
+              <div class="accordion-item-body">
+                <div class="accordion-item-body-content">
+                  <div class="info-litematic">
+                    <h4>Основная информация</h4>
+                    <ul>
+                      <li>- Размеры - 72 х 20 х 21 </li>
+                      <li>- Автор - prestig9110</li>
+                      <li>- Количество блоков - 11618</li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_osnova_cyan.litematic">&darr;
+                          GMGame_Hyperloop_osnova_cyan.litematic</a></li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_osnova_lime.litematic">&darr;
+                          GMGame_Hyperloop_osnova_lime.litematic</a></li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_osnova_orange.litematic">&darr;
+                          GMGame_Hyperloop_osnova_orange.litematic</a></li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_osnova_pink.litematic">&darr;
+                          GMGame_Hyperloop_osnova_pink.litematic</a></li>
+                    </ul>
+                  </div>
+                  <div class="info-litematic-img">
+                    <img src="static/img/litematic/GMGame_Hyperloop_osnova_orange.webp"
+                      alt="GMGame_Hyperloop_osnova_orange.webp">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-item-header"> Дополнительный Hyperloop</div>
+              <div class="accordion-item-body">
+                <div class="accordion-item-body-content">
+                  <div class="info-litematic">
+                    <h4>Основная информация</h4>
+                    <ul>
+                      <li>- Размеры - 72 х 6 х 7 </li>
+                      <li>- Автор - prestig9110</li>
+                      <li>- Количество блоков - 1093</li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_dop_128+_cyan.litematic">&darr;
+                          GMGame_Hyperloop_dop_128+_cyan.litematic</a></li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_dop_128+_lime.litematic">&darr;
+                          GMGame_Hyperloop_dop_128+_lime.litematic</a></li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_dop_128+_orange.litematic">&darr;
+                          GMGame_Hyperloop_dop_128+_orange.litematic</a></li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_dop_128+_pink.litematic">&darr;
+                          GMGame_Hyperloop_dop_128+_pink.litematic</a></li>
+                    </ul>
+                  </div>
+                  <div class="info-litematic-img">
+                    <img src="static/img/litematic/GMGame_Hyperloop_dop_128+_cyan.webp"
+                      alt="GMGame_Hyperloop_dop_128+_cyan.webp">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-item-header"> Окончание главного Hyperloop </div>
+              <div class="accordion-item-body">
+                <div class="accordion-item-body-content">
+                  <div class="info-litematic">
+                    <h4>Основная информация</h4>
+                    <ul>
+                      <li>- Размеры - 44 х 20 х 21 </li>
+                      <li>- Автор - prestig9110</li>
+                      <li>- Количество блоков - 9252</li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_finish_cyan.litematic">&darr;
+                          GMGame_Hyperloop_finish_cyan.litematic</a></li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_finish_lime.litematic">&darr;
+                          GMGame_Hyperloop_finish_lime.litematic</a></li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_finish_orange.litematic">&darr;
+                          GMGame_Hyperloop_finish_orange.litematic</a></li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_finish_pink.litematic">&darr;
+                          GMGame_Hyperloop_finish_pink.litematic</a></li>
+                    </ul>
+                  </div>
+                  <div class="info-litematic-img">
+                    <img src="static/img/litematic/GMGame_Hyperloop_finish_cyan.webp"
+                      alt="GMGame_Hyperloop_finish_cyan.webp">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-item-header"> Окончание Дополнительного Hyperloop </div>
+              <div class="accordion-item-body">
+                <div class="accordion-item-body-content">
+                  <div class="info-litematic">
+                    <h4>Основная информация</h4>
+                    <ul>
+                      <li>- Размеры - 12 х 6 х 7 </li>
+                      <li>- Автор - prestig9110</li>
+                      <li>- Количество блоков - 172</li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_finish_128+_all.litematic">&darr;
+                          GMGame_Hyperloop_finish_128+_all.litematic</a></li>
+                    </ul>
+                  </div>
+                  <div class="info-litematic-img">
+                    <img src="static/img/litematic/GMGame_Hyperloop_finish_128+_all.webp"
+                      alt="GMGame_Hyperloop_finish_128+_all.webp">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-item-header"> Мини хаб 128+ </div>
+              <div class="accordion-item-body">
+                <div class="accordion-item-body-content">
+                  <div class="info-litematic">
+                    <h4>Основная информация</h4>
+                    <ul>
+                      <li>- Размеры - 21 х 6 х 21 </li>
+                      <li>- Автор - prestig9110</li>
+                      <li>- Количество блоков - 930</li>
+                      <li><a href="#"
+                          download="static/download/.litematic/GMGame_Hyperloop_mini_hub_128+_all.litematic">&darr;
+                          GMGame_Hyperloop_mini_hub_128+_all.litematic</a></li>
+                    </ul>
+                  </div>
+                  <div class="info-litematic-img">
+                    <img src="static/img/litematic/GMGame_Hyperloop_mini_hub_128+_all.webp"
+                      alt="GMGame_Hyperloop_mini_hub_128+_all.webp">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- ---------- market --------- -->
@@ -954,6 +960,9 @@
               <div class="accordion-item-body">
                 <div class="accordion-item-body-content">
                   <ul>
+                    <li><img src="static/img/market/Oge/Лазуритовая_руда.webp" alt="Лазуритовая.webp">Лазуритовая
+                      руда -
+                      0,5$</li>
                     <li><img src="static/img/market/Oge/Алмазная_руда.webp" alt="Алмазная_руда.webp">Алмазная
                       руда -
 
@@ -962,13 +971,10 @@
                       руда
                       -
                       4$</li>
-                    <li><img src="static/img/market/Oge/Лазуритовая_руда.webp" alt="Лазуритовая.webp">Лазуритовая
-                      руда -
-                      4-6$</li>
                     <li><img src="static/img/market/Oge/Древние_обломки.webp" alt="Древние_обломки.webp">Древние
                       обломки
                       -
-                      6-10$</li>
+                      5$</li>
                   </ul>
                 </div>
               </div>
@@ -1003,14 +1009,14 @@
               <div class="accordion-item-body">
                 <div class="accordion-item-body-content">
                   <ul>
+                    <li><img src="static/img/market/Oge/Лазуритовая_руда.webp" alt="Лазуритовая.webp">Лазуритовая
+                      руда - 0,5$</li>
                     <li><img src="static/img/market/Oge/Алмазная_руда.webp" alt="Алмазная_руда.webp">Алмазная
                       руда - 2$</li>
                     <li><img src="static/img/market/Oge/Изумрудная_руда.webp" alt="Изумрудная_руда.webp">Изумрудная
                       руда - 4$</li>
-                    <li><img src="static/img/market/Oge/Лазуритовая_руда.webp" alt="Лазуритовая.webp">Лазуритовая
-                      руда - 4-6$</li>
                     <li><img src="static/img/market/Oge/Древние_обломки.webp" alt="Древние_обломки.webp">Древние
-                      обломки - 6-10$</li>
+                      обломки - 5$</li>
                   </ul>
                 </div>
               </div>
@@ -1353,49 +1359,64 @@
   </div>
 
   <!-- ------------ modal-register -------- -->
-  <button class="register-btn">Зарегистрироваться</button>
   <div class="modal-register">
     <div class="register">
       <div class="register-form">
-        <button class="register-close"></button>
+        <button class="register-close">&times</button>
         <h3>Регистрация</h3>
-        <div id="res"></div>
+        <!--Имя-->
+        <input id="name" type="input" name="name" placeholder="lorem">
+        <label class='support-hover'
+          data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+        <span class="input-name">lorem</span>
         <!--Логин-->
-        <span>Логин</span>
-        <input id="login" type="input" name="login" placeholder="Логин он же ник"></p>
+        <input id="login" type="input" name="login" placeholder="lorem">
+        <label class='support-hover'
+          data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+        <span class="input-name">lorem</span>
         <!--Пароль-->
-        <span>Пароль</span>
-        <input id="password" type="input" name="password" placeholder="Пароль"></p>
+        <input id="password" type="input" name="password" placeholder="lorem">
+        <label class='support-hover'
+          data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+        <span class="input-name">lorem</span>
         <!--Discord tag-->
-        <span>Discord tag</span>
-        <input id="tag" type="input" name="tag" placeholder="Nick#0000"></p>
+        <input id="tag" type="input" name="tag" placeholder="lorem">
+        <label class='support-hover'
+          data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+        <span class="input-name">lorem</span>
         <!--Лицензия/пиратка-->
-        <span>Тип аккаунта</span>
-        <input id="type" type="input" name="type" placeholder="Лицензия/пиратка/бэдрок"></p>
+        <input id="tag" type="input" name="tag" placeholder="lorem">
+        <label class='support-hover'
+          data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+        <span class="input-name">lorem</span>
         <!--возраст-->
-        <span>Ваш возраст</span>
-        <input id="age" type="input" name="age" placeholder="16"></p>
+        <input id="tag" type="input" name="tag" placeholder="lorem">
+        <label class='support-hover'
+          data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+        <span class="input-name">lorem</span>
         <!--о проекте-->
-        <span>Откуда узнали о проекте</span>
-        <input id="servers" type="input" name="servers" placeholder="Опыт игры на других серверах"></p>
-        <span>Как узнали о проекте</span>
-        <input id="from_about" type="input" name="from_about" placeholder="На просторах интернета"></p>
-        <span>Расскажите о себе</span>
-        <input id="you_about" type="input" name="you_about" placeholder="Интересы в майкрафте"></p>
-        <button id="register" class="register-btn">Зарегистрироваться</button>
+        <textarea name="" id="" cols="auto" rows="auto"></textarea>
+        <label class='support-hover'
+          data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+        <span class="input-name">lorem</span>
+        <button class="register-btn-next">Зарегистрироваться</button>
       </div>
+      <!-- <div class="reg-form">
+        <img src="static/img/123.webp" alt="image">
+      </div> -->
     </div>
   </div>
 
   <!-- ---------- scripts --------- -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="static/js/functionToggle.js"></script>
-  <script src="static/js/fotorama.js"></script>
   <script src="static/js/navigation.js"></script>
   <script src="static/js/serverStatus.js"></script>
   <script src="static/js/accordeon.js"></script>
   <script src="static/js/register.js"></script>
   <script src="static/js/modal-open-close.js"></script>
+  <script src="static/js/InstagramFeed.min.js"></script>
+  <script src="static/js/InstagramFeed.min-start.js"></script>
 </body>
 
 </html>
