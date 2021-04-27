@@ -1353,30 +1353,13 @@
   </div>
 
   <!-- ------------ modal-register -------- -->
-  <section id="reg">
-    <div id="res"></div>
-    <form>
-      <p><b>Регистрация</b></p>
-      <input id="name" type="input" name="name" value="name">Имя<Br>
-      <input id="login" type="input" name="login" value="login">Логиг</p>
-      <input id="password" type="input" name="password" value="password">Пароль</p>
-      <input id="tag" type="input" name="tag" value="tag">Discord tag</p>
-      <input id="tag" type="input" name="tag" value="tag">Discord tag</p>
-      <input id="tag" type="input" name="tag" value="tag">Discord tag</p>
-    </form>
-    <button id="register" type="button">Зарегистрироваться</button>
-  </section>
-
-
   <button class="register-btn">Зарегистрироваться</button>
   <div class="modal-register">
     <div class="register">
       <div class="register-form">
         <button class="register-close"></button>
         <h3>Регистрация</h3>
-        <!--Имя-->
-        <span>Имя</span>
-        <input id="name" type="input" name="name" placeholder="Имя">
+        <div id="res"></div>
         <!--Логин-->
         <span>Логин</span>
         <input id="login" type="input" name="login" placeholder="Логин он же ник"></p>
@@ -1385,17 +1368,21 @@
         <input id="password" type="input" name="password" placeholder="Пароль"></p>
         <!--Discord tag-->
         <span>Discord tag</span>
-        <input id="tag" type="input" name="tag" placeholder="Discord#0000"></p>
+        <input id="tag" type="input" name="tag" placeholder="Nick#0000"></p>
         <!--Лицензия/пиратка-->
         <span>Тип аккаунта</span>
-        <input id="tag" type="input" name="tag" placeholder="Лицензия/пиратка/бэдрок"></p>
+        <input id="type" type="input" name="type" placeholder="Лицензия/пиратка/бэдрок"></p>
         <!--возраст-->
         <span>Ваш возраст</span>
-        <input id="tag" type="input" name="tag" placeholder="16"></p>
+        <input id="age" type="input" name="age" placeholder="16"></p>
         <!--о проекте-->
+        <span>Откуда узнали о проекте</span>
+        <input id="servers" type="input" name="servers" placeholder="Опыт игры на других серверах"></p>
         <span>Как узнали о проекте</span>
-        <input id="tag" type="input" name="tag" placeholder="На просторах интернета"></p>
-        <button class="register-btn">Зарегистрироваться</button>
+        <input id="from_about" type="input" name="from_about" placeholder="На просторах интернета"></p>
+        <span>Расскажите о себе</span>
+        <input id="you_about" type="input" name="you_about" placeholder="Интересы в майкрафте"></p>
+        <button id="register" class="register-btn">Зарегистрироваться</button>
       </div>
     </div>
   </div>

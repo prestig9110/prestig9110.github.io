@@ -1,5 +1,4 @@
-pip3 install Flask
-pip3 install flask-mysql
+pip3 install Flask flask-mysql requests flask_discord
 
 create database dbname character set utf8;
 create user 'dbuser'@'localhost' identified by 'userpassword';
