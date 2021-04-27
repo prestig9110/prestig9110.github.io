@@ -9,3 +9,7 @@ config.py:
     MYSQL_DATABASE_PASSWORD = 'root'
     MYSQL_DATABASE_DB = 'DB'
     MYSQL_DATABASE_HOST = 'localhost'
+    DISCORD_CLIENT_ID = 'id'
+    DISCORD_CLIENT_SECRET = 'secret'
+    DISCORD_REDIRECT_URI = 'http://site/callback'
+    DISCORD_BOT_TOKEN = 'токен'
