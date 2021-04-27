@@ -1,9 +1,14 @@
 $( document ).ready(function() {
     $( "#register" ).click( function() {
       let params = {
-        name: $("#name").val(),
-        login: $("#login").val(),
         password: $("#password").val(),
+        login: $("#login").val(),
+        tag: $("#tag").val(),
+        type: $("#type").val(),
+        age: $("#age").val(),
+        from_about: $("#from_about").val(),
+        you_about: $("#you_about").val(),
+        servers: $("#servers").val()
       };
 
       query(params);
