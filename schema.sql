@@ -9,5 +9,6 @@ CREATE TABLE users (
   age VARCHAR(10),
   from_about TEXT,
   you_about TEXT,
-  date DATETIME
+  status INT NOT NULL,
+  user_id VARCHAR(100) NOT NULL UNIQUE
 );
