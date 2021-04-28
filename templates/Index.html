@@ -19,7 +19,9 @@
 </head>
 
 <body>
-
+  <div class="warning">
+    <h5> Внимание! Сайт находится в стадии разработки. Все вопросы в Discord</h5>
+  </div>
   <div class="header">
     <!--     
         <a href="#the-default-view">the-default-view</a>
@@ -57,15 +59,15 @@
         </div>
         <div class="button-link">
           {% if auth_ok %}
-            <a href="/me" class="icon-button">
-              <img src="{{user.avatar_url}}" alt="instagram">
-            </a>
-            <span>{{user.name}}</span>
+          <a href="/me" class="icon-button">
+            <img src="{{user.avatar_url}}" alt="instagram">
+          </a>
+          <span>{{user.name}}</span>
           {% else %}
-            <a href="/login" class="icon-button">
-              <img src="static/img/register.svg" alt="instagram">
-            </a>
-            <span>Войти</span>
+          <a href="/login" class="icon-button">
+            <img src="static/img/register.svg" alt="instagram">
+          </a>
+          <span>Войти</span>
           {% endif %}
         </div>
       </div>
@@ -136,7 +138,8 @@
             <li>- Иметь аккаунт в Discord</li>
             <li>- <a href="/login">Авторизоваться на сайте</a></li>
             <li>- Заполнить заявку в <a href="/me">профиле</a></li>
-            <li>- Дождаться уведомления о добавлении на сервер от бот-аккаунта <span>Седьмая-из-девяти#3200</span> или проверять статус заявки в <a href="/me">профиле</a></li>
+            <li>- Дождаться уведомления о добавлении на сервер от бот-аккаунта <span>Седьмая-из-девяти#3200</span> или
+              проверять статус заявки в <a href="/me">профиле</a></li>
           </ul>
           <p>В случае затруднений со входом на сервер можно обратиться к игрокам @Dalandis (<span>Andrey#2445</span>)
             или
@@ -153,7 +156,8 @@
         <!-- ---------- support --------- -->
         <section id="support">
           <h2>Поддержать проект</h2>
-          <h4>Сервер GMGame является бесплатным и существует за счет пожертвований, <a href="https://new.donatepay.ru/@gmgame">Вы можете поддержать проект</a></h4>
+          <h4>Сервер GMGame является бесплатным и существует за счет пожертвований, <a
+              href="https://new.donatepay.ru/@gmgame">Вы можете поддержать проект</a></h4>
 
           <h4>Спасибо! Ваша поддержка очень важна.</h4>
         </section>
@@ -1351,6 +1355,7 @@
         </div>
       </div>
     </div>
+    <h6>GMGame Minecraft Server © 2020-2021</h6>
   </div>
 
   <!-- ---------- scripts --------- -->
