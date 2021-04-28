@@ -113,6 +113,15 @@
           {% if not gmg_ok %}
             <p style="color: red">Вы не зашли на дискорд сервер, для получения полного функционала, пожалуйста, присоединитесь к <a href="https://discord.gg/sPR62FDQQz" target="_blank">серверу</a></p>
           {% endif %}
+          {% if user_id[0] and user_id[1] == 1 %}
+            <p style="color: red">Ваша заявка рассматривается. По всем вопросам, пожалуйста, обращайтесь в <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a></p>
+          {% elif user_id[1] == 2 %}
+            <p>Ваша заявка принята. Приятной игры</p>
+          {% elif user_id[1] == 3 %}
+            <p>к сожалению вашей заявке отказано. За подробновстями вы можете обратиться в <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a></p>
+          {% else %}
+            <p>форма заявки</p>
+          {% endif %}
         </section>
       </main>
     </div>

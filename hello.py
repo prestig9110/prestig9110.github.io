@@ -67,19 +67,20 @@ def register():
         if not age:
             return jsonify( { 'error': 'Не указан возвраст' } )
 
-        cursor.execute("SELECT id FROM users WHERE username = %s", ( login, ))
+        user = oauth.fetch_user()
+        userJson = user.to_json()
+
+        cursor.execute("SELECT id FROM users WHERE username = %s", ( str(user.id), ))
         user_id = cursor.fetchone()
 
         if user_id is not None:
             return jsonify( { 'error': 'Такой пользователь уже существует' } )
 
-        user = oauth.fetch_user()
-        userJson = user.to_json()
-        pprint(userJson)
-        
+        # print(userJson['id'])
+
         cursor.execute( 
-            'INSERT INTO users (username, password, tag, type, age, from_about, you_about) VALUES (%s, %s, %s, %s, %s, %s, %s)', 
-                ( login, password, str(userJson), typeMc, age, from_about, you_about )
+            'INSERT INTO users (username, password, tag, type, age, from_about, you_about, status, user_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)', 
+                ( login, password, str(userJson), typeMc, age, from_about, you_about, 1, str(userJson['id']) )
         )  
         conn.commit()
         
@@ -149,7 +150,13 @@ def me():
         if guild['id'] == '723912565234728972':
             gmg_ok = 1
 
-    return render_template('me.html', gmg_ok=gmg_ok, user=user, auth_ok=1)
+    conn = mysql.connect()
+    cursor = conn.cursor()
+    cursor.execute("SELECT id, status FROM users WHERE user_id = %s", ( str(user.id), ))
+    user_id = cursor.fetchone()
+    print(user_id)
+
+    return render_template('me.html', gmg_ok=gmg_ok, user=user, auth_ok=1, user_id=user_id)
 
 if __name__ == '__main__':
     app.run(debug=True)
