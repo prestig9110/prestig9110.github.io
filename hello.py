@@ -86,7 +86,7 @@ def register():
         url = 'https://discord.com/api/webhooks/836649209067208735/znHwUvG2NJ2q93zFfFWfek_HJztFKCOpv4fcchPvfy2XvFhhje6sHm5pe0LsJ6t8_6CS'
 
         data = {
-            "content" : ticket,
+            "content" : "```" + ticket + "```",
             "username" : 'applicant'
         }
 
