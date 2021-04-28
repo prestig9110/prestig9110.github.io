@@ -9,9 +9,9 @@
   <title>GMGame</title>
 
   <!-- ---------- link style --------- -->
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <link rel="stylesheet" href="/static/css/reset.css" />
   <link rel="stylesheet" href="/static/css/fotorama.css" />
@@ -19,7 +19,6 @@
 </head>
 
 <body>
-
   <div class="header">
     <!--     
         <a href="#the-default-view">the-default-view</a>
@@ -39,41 +38,40 @@
       <div class="wrapper-link">
         <div class="button-link">
           <a href="https://discord.gg/sPR62FDQQz" class="icon-button">
-            <img src="/static/img/discord.svg" alt="discord">
+            <img src="/static/img/discord.svg" alt="discord" />
           </a>
           <span>Discord</span>
         </div>
         <div class="button-link">
           <a href="#support" class="icon-button">
-            <img src="/static/img/coin.svg" alt="coin">
+            <img src="/static/img/coin.svg" alt="coin" />
           </a>
           <span>Поддержать</span>
         </div>
         <div class="button-link">
           <a href="https://www.instagram.com/gmgameserver/" class="icon-button">
-            <img src="/static/img/instagram.svg" alt="instagram">
+            <img src="/static/img/instagram.svg" alt="instagram" />
           </a>
           <span>Instagram</span>
         </div>
         <div class="button-link">
           {% if auth_ok %}
-            <a href="/me" class="icon-button">
-              <img src="{{user.avatar_url}}" alt="instagram">
-            </a>
-            <span>{{user.name}}</span>
+          <a href="/me" class="icon-button">
+            <img src="{{user.avatar_url}}" alt="instagram" />
+          </a>
+          <span>{{user.name}}</span>
           {% else %}
-            <a href="/login" class="icon-button">
-              <img src="/static/img/register.svg" alt="instagram">
-            </a>
-            <span>Войти</span>
+          <a href="/login" class="icon-button">
+            <img src="/static/img/register.svg" alt="instagram" />
+          </a>
+          <span>Войти</span>
           {% endif %}
         </div>
       </div>
     </div>
 
     <div class="menu">
-      <div id="toggle" onclick="toggle()">
-      </div>
+      <div id="toggle" onclick="toggle()"></div>
       <div class="content-menu">
         <ul class="links" id="links">
           <li>
@@ -104,63 +102,64 @@
       </div>
     </div>
   </div>
-  
+
   <div class="body-center-container">
     <div class="container">
       <main role="main" class="app">
         <!-- ---------- the-default-view --------- -->
         <section id="the-default-view">
           {% if not gmg_ok %}
-            <p style="color: red">Вы не зашли на дискорд сервер, для получения полного функционала, пожалуйста, присоединитесь к <a href="https://discord.gg/sPR62FDQQz" target="_blank">серверу</a></p>
-          {% endif %}
-          {% if user_id[0] and user_id[1] == 1 %}
-            <p style="color: red">Ваша заявка рассматривается. По всем вопросам, пожалуйста, обращайтесь в <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a></p>
+          <p style="color: red">
+            Вы не зашли на дискорд сервер, для получения полного функционала,
+            пожалуйста, присоединитесь к
+            <a href="https://discord.gg/sPR62FDQQz" target="_blank">серверу</a>
+          </p>
+          {% endif %} {% if user_id[0] and user_id[1] == 1 %}
+          <p style="color: red">
+            Ваша заявка рассматривается. По всем вопросам, пожалуйста,
+            обращайтесь в
+            <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
+          </p>
           {% elif user_id[1] == 2 %}
-            <p>Ваша заявка принята. Приятной игры</p>
+          <p>Ваша заявка принята. Приятной игры</p>
           {% elif user_id[1] == 3 %}
-            <p>к сожалению вашей заявке отказано. За подробновстями вы можете обратиться в <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a></p>
+          <p>
+            к сожалению вашей заявке отказано. За подробновстями вы можете
+            обратиться в
+            <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
+          </p>
           {% else %}
-            <div class="register-form">
-              <button class="register-close">&times</button>
-              <h3>Заявка</h3>
-              <div id="res"></div>
-              <!--Логин-->
-              <input id="login" type="input" name="login" placeholder="lorem">
-              <label class='support-hover'
-                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
-              <span class="input-name">lorem</span>
-              <!--Пароль-->
-              <input id="password" type="input" name="password" placeholder="lorem">
-              <label class='support-hover'
-                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
-              <span class="input-name">lorem</span>
-              <!--Лицензия/пиратка-->
-              <input id="type" type="input" name="type" placeholder="lorem">
-              <label class='support-hover'
-                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
-              <span class="input-name">lorem</span>
-              <!--возраст-->
-              <input id="age" type="input" name="age" placeholder="lorem">
-              <label class='support-hover'
-                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
-              <span class="input-name">lorem</span>
-              <!--о проекте-->
-              <textarea name="from_about" id="from_about" cols="auto" rows="auto"></textarea>
-              <label class='support-hover'
-                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
-              <span class="input-name">lorem</span>
-              <!--о себе-->
-              <textarea name="you_about" id="you_about" cols="auto" rows="auto"></textarea>
-              <label class='support-hover'
-                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
-              <span class="input-name">lorem</span>
-              <!--опыт игры на других серверах-->
-              <textarea name="servers" id="servers" cols="auto" rows="auto"></textarea>
-              <label class='support-hover'
-                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
-              <span class="input-name">lorem</span>
-              <button id="register" class="register-btn-next">Отправить заявку</button>
-            </div>
+          <div class="register-form">
+            <h3>Заявка</h3>
+            <div id="res"></div>
+            <!--Логин-->
+            <span class="input-name">Логин</span>
+            <input id="login" type="input" name="login" placeholder="Игровой ник" />
+            <!--Пароль-->
+            <span class="input-name">Пароль</span>
+            <input id="password" type="input" name="password" placeholder="123456789" />
+            <!--Лицензия/пиратка-->
+            <span class="input-name">Тип акаунта</span> 
+            <select name="tupe" id="type">
+              <option value="1">Лицензия</option>
+              <option value="0">Пиратка</option>
+            </select>
+            <!--возраст-->
+            <span class="input-name">Возраст</span>
+            <input id="age" type="input" name="age" placeholder="16" />
+            <!--о проекте-->
+            <span class="input-name">Откуда узнали о проекте</span>
+            <textarea name="from_about" id="from_about" cols="auto" rows="auto"></textarea>
+            <!--о себе-->
+            <span class="input-name">О себе</span>
+            <textarea name="you_about" id="you_about" cols="auto" rows="auto"></textarea>
+            <!--опыт игры на других серверах-->
+            <span class="input-name">Прошлые сервера</span>
+            <textarea name="servers" id="servers" cols="auto" rows="auto"></textarea>
+            <button id="register" class="register-btn-next">
+              Отправить заявку
+            </button>
+          </div>
           {% endif %}
         </section>
       </main>
@@ -178,10 +177,11 @@
           </div>-->
         </div>
         <div class="card">
-          <div class="icon"><img src="https://pbs.twimg.com/profile_images/808180587605331969/u-CULTwl_400x400.jpg"
-              id="favicon"></div>
+          <div class="icon">
+            <img src="https://pbs.twimg.com/profile_images/808180587605331969/u-CULTwl_400x400.jpg" id="favicon" />
+          </div>
           <div class="player-header">
-            <div class="image"> <img src="/static/img/123.webp" alt="" /> </div>
+            <div class="image"><img src="/static/img/123.webp" alt="" /></div>
             <h3>mine.gmgame.ru</h3>
           </div>
           <div id="rest">Loading ...</div>
