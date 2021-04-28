@@ -41,7 +41,6 @@ def register():
 
         login      = request.form['login']
         password   = request.form['password']
-        tag        = request.form['tag']
         typeMc     = request.form['type']
         age        = request.form['age']
         from_about = request.form['from_about']
@@ -134,7 +133,7 @@ def me():
 
     guilds = oauth.request('/users/@me/guilds')
 
-    pprint(getmembers(guilds))
+    print(app.config["DISCORD_REDIRECT_URI"])
 
     gmg_ok = 0
 

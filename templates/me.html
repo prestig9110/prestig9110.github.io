@@ -120,7 +120,47 @@
           {% elif user_id[1] == 3 %}
             <p>к сожалению вашей заявке отказано. За подробновстями вы можете обратиться в <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a></p>
           {% else %}
-            <p>форма заявки</p>
+            <div class="register-form">
+              <button class="register-close">&times</button>
+              <h3>Заявка</h3>
+              <div id="res"></div>
+              <!--Логин-->
+              <input id="login" type="input" name="login" placeholder="lorem">
+              <label class='support-hover'
+                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+              <span class="input-name">lorem</span>
+              <!--Пароль-->
+              <input id="password" type="input" name="password" placeholder="lorem">
+              <label class='support-hover'
+                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+              <span class="input-name">lorem</span>
+              <!--Лицензия/пиратка-->
+              <input id="type" type="input" name="type" placeholder="lorem">
+              <label class='support-hover'
+                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+              <span class="input-name">lorem</span>
+              <!--возраст-->
+              <input id="age" type="input" name="age" placeholder="lorem">
+              <label class='support-hover'
+                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+              <span class="input-name">lorem</span>
+              <!--о проекте-->
+              <textarea name="from_about" id="from_about" cols="auto" rows="auto"></textarea>
+              <label class='support-hover'
+                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+              <span class="input-name">lorem</span>
+              <!--о себе-->
+              <textarea name="you_about" id="you_about" cols="auto" rows="auto"></textarea>
+              <label class='support-hover'
+                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+              <span class="input-name">lorem</span>
+              <!--опыт игры на других серверах-->
+              <textarea name="servers" id="servers" cols="auto" rows="auto"></textarea>
+              <label class='support-hover'
+                data-title='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere recusandae inventore eius pariatur voluptatum sed nobis quod sapiente, aperiam accusamus at. Explicabo consequatur optio error porro atque. Blanditiis, corrupti culpa.'><em>?</em></label>
+              <span class="input-name">lorem</span>
+              <button id="register" class="register-btn-next">Отправить заявку</button>
+            </div>
           {% endif %}
         </section>
       </main>
@@ -151,41 +191,6 @@
             height="max-content" allowtransparency="true" frameborder="0"
             sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ------------ modal-register -------- -->
-  <button class="register-btn">Зарегистрироваться</button>
-  <div class="modal-register">
-    <div class="register">
-      <div class="register-form">
-        <button class="register-close"></button>
-        <h3>Регистрация</h3>
-        <div id="res"></div>
-        <!--Логин-->
-        <span>Логин</span>
-        <input id="login" type="input" name="login" placeholder="Логин он же ник"></p>
-        <!--Пароль-->
-        <span>Пароль</span>
-        <input id="password" type="input" name="password" placeholder="Пароль"></p>
-        <!--Discord tag-->
-        <span>Discord tag</span>
-        <input id="tag" type="input" name="tag" placeholder="Nick#0000"></p>
-        <!--Лицензия/пиратка-->
-        <span>Тип аккаунта</span>
-        <input id="type" type="input" name="type" placeholder="Лицензия/пиратка/бэдрок"></p>
-        <!--возраст-->
-        <span>Ваш возраст</span>
-        <input id="age" type="input" name="age" placeholder="16"></p>
-        <!--о проекте-->
-        <span>Откуда узнали о проекте</span>
-        <input id="servers" type="input" name="servers" placeholder="Опыт игры на других серверах"></p>
-        <span>Как узнали о проекте</span>
-        <input id="from_about" type="input" name="from_about" placeholder="На просторах интернета"></p>
-        <span>Расскажите о себе</span>
-        <input id="you_about" type="input" name="you_about" placeholder="Интересы в майкрафте"></p>
-        <button id="register" class="register-btn">Зарегистрироваться</button>
       </div>
     </div>
   </div>
