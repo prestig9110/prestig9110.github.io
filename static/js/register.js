@@ -3,7 +3,6 @@ $( document ).ready(function() {
       let params = {
         password: $("#password").val(),
         login: $("#login").val(),
-        tag: $("#tag").val(),
         type: $("#type").val(),
         age: $("#age").val(),
         from_about: $("#from_about").val(),
@@ -25,10 +24,12 @@ $( document ).ready(function() {
           $("#res").css({ color: 'red' }).html(res.error).addClass('hint');
         } else {
           $("#res").css({ color: 'green' }).html(res.success).addClass('hint');
+          location.reload()
         }
       })
       .fail(function () {
         console.log("fail");
+        location.reload()
       });
     };
   });
