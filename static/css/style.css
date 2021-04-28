@@ -83,10 +83,21 @@ body {
   padding-top: 100px;
   padding-bottom: 100px;
   height: 100%;
-  min-height: 1100px;
+  min-height: 800px;
   width: 1800px;
   color: black;
   z-index: 100;
+}
+.warning {
+  display: flex;
+  position: absolute;
+  height: auto;
+  width: auto;
+  background: rgba(248, 104, 104, 0.877);
+  z-index: 9999999999999999;
+  color: black;
+  padding: 5px 20px;
+  text-align: center;
 }
 p {
   font-size: 18px;
@@ -170,13 +181,12 @@ h6 {
     rgba(143, 142, 143, 0.75) 100%
   );
   border: 0.2px solid rgba(143, 142, 143, 0.75);
-  border-radius: none;
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.35s ease-out;
+  transition: all 0.35s ease;
 }
 .wrapper-link .button-link:hover {
-  transition: all 0.35s ease-out;
+  transition: all 0.35s ease-in-out;
   width: max-content;
   padding-right: 25px;
 }
@@ -312,8 +322,8 @@ h6 {
 }
 #start ul li a {
   text-decoration: none;
-  color: #30679e;
-  font-style: italic;
+  color: black;
+  font-weight: 600;
 }
 /*---------------------------------------- support ----------------------------------------*/
 #support ul li a {
@@ -519,8 +529,13 @@ h6 {
   height: auto;
   width: 100%;
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   background: rgba(0, 0, 0, 0.5);
+}
+.main-link h6 {
+  margin: 0 auto;
+  margin-top: 15px;
+  text-align: center;
 }
 .container-link {
   width: 1800px;
@@ -628,7 +643,7 @@ h6 {
   flex-wrap: wrap;
   justify-content: start;
   text-align: center;
-  height: 100vh;
+  height: auto;
   width: 650px;
 }
 .register-form input,
@@ -688,7 +703,6 @@ h6 {
 .register-btn-next:hover {
   outline: none;
 }
-
 /*---------------------------------------- media ----------------------------------------*/
 @media screen and (max-width: 1700px) {
   /*---------- body ----------*/
@@ -720,6 +734,7 @@ h6 {
   /*---------- main-container ----------*/
   /*---------- card ----------*/
   /*---------- all ----------*/
+  /*---------- modal-register ----------*/
 }
 @media screen and (max-width: 1600px) {
   /*---------- body ----------*/
@@ -770,6 +785,7 @@ h6 {
   .linck-contact {
     width: 1200px;
   }
+  /*---------- modal-register ----------*/
 }
 @media screen and (max-width: 1400px) {
   /*---------- body ----------*/
@@ -798,13 +814,14 @@ h6 {
   .linck-contact {
     width: auto;
   }
+  /*---------- modal-register ----------*/
 }
 @media screen and (max-width: 1024px) {
   /*---------- body ----------*/
   /*---------- header ----------*/
   .header {
     height: 250px;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
   /*---------- header-menu-link ----------*/
   .wrapper-link {
@@ -948,6 +965,7 @@ h6 {
     width: 750px;
     height: 600px;
   }
+  /*---------- modal-register ----------*/
 }
 @media screen and (max-width: 767px) {
   /*---------- body ----------*/
@@ -1036,6 +1054,27 @@ h6 {
   .linck-discord iframe {
     width: 650px;
   }
+  /*---------- modal-register ----------*/
+  .register-form {
+    height: auto;
+    width: 100%;
+  }
+  .register-form input,
+  .register-form textarea,
+  .register-form select {
+    min-height: 45px;
+    max-height: 150px;
+    max-width: 95%;
+    min-width: 95%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 2px auto;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+    outline: none;
+  }
 }
 @media screen and (max-width: 640px) {
   /*---------- body ----------*/
@@ -1096,6 +1135,7 @@ h6 {
   .linck-discord iframe {
     width: 550px;
   }
+  /*---------- modal-register ----------*/
 }
 @media screen and (max-width: 480px) {
   /*---------- body ----------*/
@@ -1154,7 +1194,22 @@ h6 {
     min-width: 400px;
   }
   .wrapper-link .button-link:hover {
-    width: 210px;
+    width: 160px;
+  }
+  .wrapper-link .button-link {
+    height: 40px;
+    width: 43px;
+  }
+  .icon-button img {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+  }
+  .wrapper-link .button-link span {
+    height: 40px;
+    line-height: 40px;
+    margin-left: 5px;
+    font-size: 14px;
   }
   /*---------- menu ----------*/
   /*---------- the-default-view ----------*/
@@ -1201,6 +1256,7 @@ h6 {
   .linck-contact {
     margin-bottom: 30px;
   }
+  /*---------- modal-register ----------*/
 }
 @media screen and (max-width: 400px) {
   /*---------- body ----------*/
@@ -1232,4 +1288,5 @@ h6 {
   /*---------- main-container ----------*/
   /*---------- card ----------*/
   /*---------- all ----------*/
+  /*---------- modal-register ----------*/
 }
