@@ -15,6 +15,7 @@ from pprint import pprint
 from inspect import getmembers
 
 app = Flask(__name__)
+app._static_folder = 'static'
 
 mysql = MySQL()
 
@@ -22,7 +23,7 @@ app.config.from_pyfile('config.py', silent=True)
 
 mysql.init_app(app)
 
-app.secret_key = b"random bytes representing flask secret key1"
+app.secret_key = b"random bytes representing flask secret key2"
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "true"
 
 oauth = DiscordOAuth2Session(app)
@@ -108,7 +109,14 @@ def register():
 
 @app.route('/')
 def index():
-    return render_template('Index.html')
+    auth_ok = 0
+    user = {}
+
+    if oauth.authorized:
+        auth_ok = 1
+        user = oauth.fetch_user()
+
+    return render_template('Index.html', user=user, auth_ok=auth_ok)
 
 @app.route("/login/")
 def login():
@@ -141,7 +149,7 @@ def me():
         if guild['id'] == '723912565234728972':
             gmg_ok = 1
 
-    return render_template('me.html', gmg_ok=gmg_ok)
+    return render_template('me.html', gmg_ok=gmg_ok, user=user, auth_ok=1)
 
 if __name__ == '__main__':
     app.run(debug=True)
