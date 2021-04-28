@@ -1,16 +1,8 @@
-from flask import Flask
-from flask import render_template
-from flask import request
-from flask import jsonify
-from flask import escape
+from flask import Flask, redirect, url_for, render_template, request, jsonify, escape
 from flaskext.mysql import MySQL
-from webargs import flaskparser, fields
 import requests
-import re
 import os
-from flask import redirect, url_for
 from flask_discord import DiscordOAuth2Session, requires_authorization, Unauthorized
-import discord
 from pprint import pprint
 from inspect import getmembers
 
