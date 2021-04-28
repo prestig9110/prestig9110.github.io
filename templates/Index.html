@@ -55,11 +55,18 @@
           </a>
           <span>Instagram</span>
         </div>
-        <div class="button-link register-btn">
-          <a href="https://www.instagram.com/gmgameserver/" class="icon-button">
-            <img src="static/img/register.svg" alt="instagram">
-          </a>
-          <span>Зарегистрироваться</span>
+        <div class="button-link">
+          {% if auth_ok %}
+            <a href="/me" class="icon-button">
+              <img src="{{user.avatar_url}}" alt="instagram">
+            </a>
+            <span>{{user.name}}</span>
+          {% else %}
+            <a href="/login" class="icon-button">
+              <img src="static/img/register.svg" alt="instagram">
+            </a>
+            <span>Войти</span>
+          {% endif %}
         </div>
       </div>
     </div>
