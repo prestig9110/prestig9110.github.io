@@ -109,21 +109,21 @@
         <!-- ---------- the-default-view --------- -->
         <section id="the-default-view">
           {% if not gmg_ok %}
-          <p style="color: red">
+          <p  class="warning-help-1">
             Вы не зашли на дискорд сервер, для получения полного функционала,
             пожалуйста, присоединитесь к
             <a href="https://discord.gg/sPR62FDQQz" target="_blank">серверу</a>
           </p>
           {% endif %} {% if user_id[0] and user_id[1] == 1 %}
-          <p style="color: red">
+          <p class="warning-help-2">
             Ваша заявка рассматривается. По всем вопросам, пожалуйста,
             обращайтесь в
             <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
           </p>
           {% elif user_id[1] == 2 %}
-          <p>Ваша заявка принята. Приятной игры</p>
+          <p class="warning-help-2">Ваша заявка принята. Приятной игры</p>
           {% elif user_id[1] == 3 %}
-          <p>
+          <p class="warning-help-2">
             к сожалению вашей заявке отказано. За подробновстями вы можете
             обратиться в
             <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
@@ -146,7 +146,7 @@
             </select>
             <!--возраст-->
             <span class="input-name">Возраст</span>
-            <input id="age" type="input" name="age" placeholder="16" />
+            <input id="age" type="input" name="age" />
             <!--о проекте-->
             <span class="input-name">Откуда узнали о проекте</span>
             <textarea name="from_about" id="from_about" cols="auto" rows="auto"></textarea>
