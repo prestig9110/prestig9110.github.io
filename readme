@@ -13,3 +13,5 @@ config.py:
     DISCORD_CLIENT_SECRET = 'secret'
     DISCORD_REDIRECT_URI = 'http://site/callback'
     DISCORD_BOT_TOKEN = 'токен'
+    WEBHOOKURL = 'url'
+    DEV = "true"

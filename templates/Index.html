@@ -62,7 +62,7 @@
           <a href="/me" class="icon-button">
             <img src="{{user.avatar_url}}" alt="instagram">
           </a>
-          <span>{{user.name}}</span>
+          <span>{{user.name + "#" + user.discriminator}}</span>
           {% else %}
           <a href="/login" class="icon-button">
             <img src="static/img/register.svg" alt="instagram">

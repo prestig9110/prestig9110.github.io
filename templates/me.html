@@ -59,7 +59,7 @@
           <a href="/me" class="icon-button">
             <img src="{{user.avatar_url}}" alt="instagram" />
           </a>
-          <span>{{user.name}}</span>
+          <span>{{user.name + "#" + user.discriminator}}</span>
           {% else %}
           <a href="/login" class="icon-button">
             <img src="/static/img/register.svg" alt="instagram" />
@@ -109,6 +109,7 @@
         <!-- ---------- the-default-view --------- -->
         <section id="the-default-view">
           {% if not gmg_ok %}
+<<<<<<< HEAD
           <p  class="warning-help-1">
             Вы не зашли на дискорд сервер, для получения полного функционала,
             пожалуйста, присоединитесь к
@@ -160,6 +161,79 @@
               Отправить заявку
             </button>
           </div>
+=======
+            <p style="color: red">
+              Вы не зашли на дискорд сервер, для получения полного функционала,
+              пожалуйста, присоединитесь к
+              <a href="https://discord.gg/sPR62FDQQz" target="_blank">серверу</a>
+            </p>
+          {% endif %} 
+          {% if user_id[0] and user_id[3] == 1 %}
+            <p style="color: red">
+              Ваша заявка рассматривается. По всем вопросам, пожалуйста,
+              обращайтесь в
+              <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
+            </p>
+          {% elif user_id[3] == 2 %}
+            <p>Вы игрок сервера. Приятной игры {{user.name + "#" + user.discriminator}}</p>
+            <p>Адрес сервера - mine.gmgame.ru</p>
+
+            {% if users[0] %}
+              <p>Ожидающие заявки</p>
+              <table>
+                <tr>
+                  <th>ID</th>
+                  <th>Username</th>
+                  <th>Возраст</th>
+                </tr>
+                {% for us in users %}
+                  <tr>
+                    <td>{{ us[0] }}</td>
+                    <td>{{ us[1] }}</td>
+                    <td>{{ us[2] }}</td>
+                  </tr>
+                {% endfor %}
+              </table>
+            {% endif %} 
+          {% elif user_id[3] == 3 %}
+            <p>
+              к сожалению вашей заявке отказано. За подробновстями вы можете
+              обратиться в
+              <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
+            </p>
+          {% else %}
+            <div class="register-form">
+              <h3>Заявка</h3>
+              <div id="res"></div>
+              <!--Логин-->
+              <span class="input-name">Логин</span>
+              <input id="login" type="input" name="login" placeholder="Игровой ник" />
+              <!--Пароль-->
+              <span class="input-name">Пароль</span>
+              <input id="password" type="input" name="password" placeholder="123456789" />
+              <!--Лицензия/пиратка-->
+              <span class="input-name">Тип акаунта</span>
+              <select name="tupe" id="type">
+                <option value="1">Лицензия</option>
+                <option value="0">Пиратка</option>
+              </select>
+              <!--возраст-->
+              <span class="input-name">Возраст</span>
+              <input id="age" type="input" name="age" placeholder="16" />
+              <!--о проекте-->
+              <span class="input-name">Откуда узнали о проекте</span>
+              <textarea name="from_about" id="from_about" cols="auto" rows="auto"></textarea>
+              <!--о себе-->
+              <span class="input-name">Интересы в майнкрафт</span>
+              <textarea name="you_about" id="you_about" cols="auto" rows="auto"></textarea>
+              <!--опыт игры на других серверах-->
+              <span class="input-name">Прошлые сервера</span>
+              <textarea name="servers" id="servers" cols="auto" rows="auto"></textarea>
+              <button id="register" class="register-btn-next">
+                Отправить заявку
+              </button>
+            </div>
+>>>>>>> 0fe37143bb2887cffc1231af362dfe65c0e169c0
           {% endif %}
         </section>
       </main>
