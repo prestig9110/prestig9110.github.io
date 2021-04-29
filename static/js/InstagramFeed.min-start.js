@@ -13,6 +13,7 @@
         'items_per_row': 4,
         'margin': 1,
         'lazy_load': true,
-        'on_error': console.error
+        'on_error': console.error,
+        'host': "https://images" + ~~(Math.random() * 3333) + "-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=https://www.instagram.com/",
     });
 })();
