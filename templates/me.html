@@ -121,7 +121,7 @@
               обращайтесь в
               <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
             </p>
-          {% elif user_id[1] == 2 %}
+          {% elif user_id[3] == 2 %}
             <p>Вы игрок сервера. Приятной игры {{user.name + "#" + user.discriminator}}</p>
             <p>Адрес сервера - mine.gmgame.ru</p>
 
@@ -142,7 +142,7 @@
                 {% endfor %}
               </table>
             {% endif %} 
-          {% elif user_id[1] == 3 %}
+          {% elif user_id[3] == 3 %}
             <p>
               к сожалению вашей заявке отказано. За подробновстями вы можете
               обратиться в
@@ -171,7 +171,7 @@
               <span class="input-name">Откуда узнали о проекте</span>
               <textarea name="from_about" id="from_about" cols="auto" rows="auto"></textarea>
               <!--о себе-->
-              <span class="input-name">О себе</span>
+              <span class="input-name">Интересы в майнкрафт</span>
               <textarea name="you_about" id="you_about" cols="auto" rows="auto"></textarea>
               <!--опыт игры на других серверах-->
               <span class="input-name">Прошлые сервера</span>
