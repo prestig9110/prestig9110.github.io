@@ -170,7 +170,7 @@
                     </th>
                     <th>
                       <select name="id_type" id="id_type-{{ marker.id }}">
-                        <option value="base" {% if marker.id_type == 'base' %} selected="selected" {% endif %} >Базы игроков</option>
+                        <option value="basePlayers" {% if marker.id_type == 'basePlayers' %} selected="selected" {% endif %} >Базы игроков</option>
                         <option value="city" {% if marker.id_type == 'city' %} selected="selected" {% endif %} >Города</option>
                       </select>
                     </th>
@@ -195,7 +195,7 @@
                 </th>
                 <th>
                   <select name="add_id_type" id="add_id_type">
-                    <option value="base">Базы игроков</option>
+                    <option value="basePlayers">Базы игроков</option>
                     <option value="city">Города</option>
                   </select>
                 </th>

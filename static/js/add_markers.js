@@ -38,7 +38,7 @@ $( document ).ready(function() {
             cell9 = row.insertCell(8);
 
             cell1.innerHTML = '<select name="server" id="server-' + res.success + '"><option value="gmgame"' + ( params.server == 'gmgame' ? 'selected="selected"' : '' ) + '>Основной мир</option><option value="farm"' + ( params.server == 'farm' ? 'selected="selected"' : '' ) + '>Фермерский мир</option></select>';
-            cell2.innerHTML = '<select name="id_type" id="id_type-' + res.success + '"><option value="base"' + ( params.id_type == 'base' ? 'selected="selected"' : '' ) + '>Базы игроков</option><option value="city"' + ( params.id_type == 'city' ? 'selected="selected"' : '' ) + '>Города</option></select>';
+            cell2.innerHTML = '<select name="id_type" id="id_type-' + res.success + '"><option value="basePlayers"' + ( params.id_type == 'basePlayers' ? 'selected="selected"' : '' ) + '>Базы игроков</option><option value="city"' + ( params.id_type == 'city' ? 'selected="selected"' : '' ) + '>Города</option></select>';
             cell3.innerHTML = '<input type="text" placeholder="' + params.name + '" name="name" id="name-' + res.success + '" value="' + params.name + '">';
             cell4.innerHTML = '<input type="text" placeholder="' + params.x + '" name="x" id="x-' + res.success + '" value="' + params.x + '">';
             cell5.innerHTML = '<input type="text" placeholder="' + params.y + '" name="y" id="y-' + res.success + '" value="' + params.y + '">';
