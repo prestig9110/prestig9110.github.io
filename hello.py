@@ -1,5 +1,6 @@
 from flask import Flask, redirect, url_for, render_template, request, jsonify, escape
 from flaskext.mysql import MySQL
+from pymysql.cursors import DictCursor
 import requests
 import os
 from flask_discord import DiscordOAuth2Session, requires_authorization, Unauthorized
@@ -14,6 +15,7 @@ mysql = MySQL()
 
 app.config.from_pyfile('config.py', silent=True)
 
+mysql = MySQL(cursorclass=DictCursor)
 mysql.init_app(app)
 
 app.secret_key = b"random bytes representing flask secret key2"
@@ -140,7 +142,79 @@ def me():
 
         users = cursor.fetchall()
 
-    return render_template('me.html', gmg_ok=gmg_ok, user=user, auth_ok=1, user_id=user_id, users=users)
+    cursor.execute("SELECT * FROM markers WHERE user = '" + str(user.id) + "'")
+    markers = cursor.fetchall()
+
+    return render_template('me.html', gmg_ok=gmg_ok, user=user, auth_ok=1, user_id=user_id, users=users, markers=markers)
+
+@app.route('/add_marker', methods=['POST', 'GET'])
+@requires_authorization
+def add_marker():
+    if request.method == 'POST':
+        conn = mysql.connect()
+        cursor = conn.cursor()
+        error = None
+
+        server      = request.form['server']
+        id_type     = request.form['id_type']
+        name        = request.form['name']
+        x           = request.form['x']
+        y           = request.form['y']
+        z           = request.form['z']
+        description = request.form['description']
+
+        edit = 0
+        markerID = 0
+
+        if 'edit' in request.form:
+            edit        = request.form['edit']
+            markerID    = request.form['markerID']
+
+        if not server or not id_type or not name or not x or not y or not z:
+            return jsonify( { 'error': 'Не заполнены обязательные поля' } )
+
+        user = oauth.fetch_user()
+
+        if edit:
+            cursor.execute( 
+                'UPDATE markers SET id_type = %s, x = %s, y = %s, z = %s, name = %s, description = %s, server = %s, flag = %s WHERE id = %s AND user = %s',
+                    ( id_type, x, y, z, name, description, server, 1, markerID, str(user.id) )
+            )  
+        else:
+            cursor.execute( 
+                'INSERT INTO markers (id_type, x, y, z, name, description, user, server, flag) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)', 
+                    ( id_type, x, y, z, name, description, str(user.id), server, 1)
+            )  
+        
+        conn.commit()
+
+        return jsonify({'success': cursor.lastrowid})
+    
+    return jsonify({'error': 'При добавлении метки произошла ошибка'})
+
+@app.route('/del_marker', methods=['POST', 'GET'])
+@requires_authorization
+def del_marker():
+    if request.method == 'POST':
+        conn = mysql.connect()
+        cursor = conn.cursor()
+        error = None
+
+        idMarker = request.form['id']
+        print(idMarker)
+
+        if not idMarker:
+            return jsonify( { 'error': 'Нет ID' } )
+
+        user = oauth.fetch_user()
+
+        cursor.execute( 
+            'DELETE FROM markers WHERE id = %s AND user = %s', 
+                ( idMarker, str(user.id) )
+        )  
+        conn.commit()
+
+        return jsonify({'success': 'Маркер удален'})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
