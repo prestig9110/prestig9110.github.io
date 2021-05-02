@@ -721,6 +721,79 @@ h6 {
   font-weight: 600;
   background: transparent;
 }
+/*---------------------------------------- metki ----------------------------------------*/
+#metki,
+#add_metki {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  height: auto;
+  margin: 50px auto;
+}
+#metki thead tr th,
+#metki_tbody tr th,
+#add_metki tr th {
+  height: auto;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+}
+#table-one {
+  width: 130px;
+}
+#table-two {
+  width: 170px;
+}
+#table-three {
+  width: 140px;
+}
+#table-four,
+#table-five,
+#table-six  {
+  width: 75px;
+}
+#table-seven {
+  width: 400px;
+}
+#table-eight,
+#table-nine {
+  width: 100px;
+}
+#add_metki tr th input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  height: 35px;
+  margin: 0;
+  padding: 5px 15px;
+  outline: none;
+  font-size: 16px;
+}
+#add_metki tr th input:hover,
+#add_metki tr th input:active {
+  border: none;
+}
+#add_metki tr th select {
+  width: 100%;
+  height: 35px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+#add_metki tr th button {
+  width: 100%;
+  height: 35px;
+  margin: 0;
+  padding: auto;
+  outline: none;
+  background: none;
+  font-size: 16px;
+  border: none;
+  transition: all 0.5s ease;
+}
+#add_metki tr th button:hover {
+  background: rgba(158, 155, 147, 0.9);
+}
 /*---------------------------------------- media ----------------------------------------*/
 @media screen and (max-width: 1700px) {
   /*---------- body ----------*/
@@ -1326,52 +1399,4 @@ h6 {
   /*---------- all ----------*/
   /*---------- modal-register ----------*/
 }
-/* 
-#metki {
-  display: flex;
-  justify-content: center;
-  width: 90%;
-  height: auto;
-  margin: 50px auto;
-}
-#metki tr th {
-  height: auto;
-  width: 200px;
-  border: 2px solid rgba(0, 0, 0, 0.6);
-}
-#metki tr th input {
-  border: none;
-  background: transparent;
-  width: 100%;
-  height: 35px;
-  margin: 0;
-  padding: 15px;
-  outline: none;
-  font-size: 16px;
-}
-#metki tr th input:hover,
-#metki tr th input:active {
-  border: none;
-}
-#metki tr th select {
-  width: 100%;
-  height: 35px;
-  background: transparent;
-  border: none;
-  outline: none;
-  font-size: 16px;
-  cursor: pointer;
-}
-#metki tr th button {
-  width: 100%;
-  height: 35px;
-  margin: 0;
-  padding: auto;
-  outline: none;
-  background: none;
-  font-size: 16px;
-  border: none;
-}
-#metki tr th button:hover {
-  background: rgba(223, 221, 215, 0.75);
-} */
+
