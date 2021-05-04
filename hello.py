@@ -119,6 +119,7 @@ def redirect_unauthorized(e):
 def me():
     user = oauth.fetch_user()
 
+    #перенести на клиент
     guilds = oauth.request('/users/@me/guilds')
 
     gmg_ok = 0
