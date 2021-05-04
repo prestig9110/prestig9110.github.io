@@ -722,9 +722,9 @@ h6 {
   background: transparent;
 }
 /*---------------------------------------- metki ----------------------------------------*/
-#metki,
-#add_metki {
-  display: flex;
+
+#metki, #add_metki {
+  /* display: flex; */
   justify-content: center;
   width: 90%;
   height: auto;
@@ -757,7 +757,7 @@ h6 {
 #table-nine {
   width: 100px;
 }
-#add_metki tr th input {
+#metki_tbody tr th input, #add_metki tr th input {
   border: none;
   background: transparent;
   width: 100%;
@@ -767,11 +767,11 @@ h6 {
   outline: none;
   font-size: 16px;
 }
-#add_metki tr th input:hover,
-#add_metki tr th input:active {
+#metki_tbody tr th input, #add_metki tr th input:hover,
+#metki_tbody tr th input, #add_metki tr th input:active {
   border: none;
 }
-#add_metki tr th select {
+#metki_tbody tr th select, #add_metki tr th select {
   width: 100%;
   height: 35px;
   background: transparent;
@@ -780,7 +780,7 @@ h6 {
   font-size: 16px;
   cursor: pointer;
 }
-#add_metki tr th button {
+#metki_tbody tr th button, #add_metki tr th button {
   width: 100%;
   height: 35px;
   margin: 0;
@@ -791,7 +791,7 @@ h6 {
   border: none;
   transition: all 0.5s ease;
 }
-#add_metki tr th button:hover {
+#metki_tbody tr th button:hover, #add_metki tr th button:hover {
   background: rgba(158, 155, 147, 0.9);
 }
 /*---------------------------------------- media ----------------------------------------*/
