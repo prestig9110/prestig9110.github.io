@@ -14,6 +14,7 @@
         'margin': 1,
         'lazy_load': true,
         'on_error': console.error,
-        'host': "https://images" + ~~(Math.random() * 3333) + "-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=https://www.instagram.com/",
+        // 'host': "https://images" + ~~(Math.random() * 3333) + "-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=https://cdn.gmgame.ru/https://www.instagram.com/",
+        'host': "https://cdn.gmgame.ru/https://instagram.com/",
     });
 })();
