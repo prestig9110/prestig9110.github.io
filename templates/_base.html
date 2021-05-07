@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/static/img/logo.webp" type="image/png" />
+  <title>GMGame</title>
+
+  <!-- ---------- link style --------- -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/reset.css" />
+  <link rel="stylesheet" href="/static/css/fotorama.css" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+
+<body>
+  <div class="warning">
+    <h5> Внимание! Сайт находится в стадии разработки. Все вопросы в Discord</h5>
+  </div>
+  <div class="header">
+    <div class="body-center-container">
+      <div class="wrapper-link">
+        <div class="button-link">
+          <a href="https://discord.gg/sPR62FDQQz" class="icon-button">
+            <img src="/static/img/discord.svg" alt="discord">
+          </a>
+          <span>Discord</span>
+        </div>
+        <div class="button-link">
+          <a href="/#support" class="icon-button">
+            <img src="/static/img/coin.svg" alt="coin">
+          </a>
+          <span>Поддержать</span>
+        </div>
+        <div class="button-link">
+          <a href="https://www.instagram.com/gmgameserver/" class="icon-button">
+            <img src="/static/img/instagram.svg" alt="instagram">
+          </a>
+          <span>Instagram</span>
+        </div>
+        <div class="button-link">
+          {% if auth_ok %}
+          <a href="/me" class="icon-button">
+            <img src="{{user.avatar_url}}" alt="instagram">
+          </a>
+          <span>{{user.name + "#" + user.discriminator}}</span>
+          {% else %}
+          <a href="/login" class="icon-button">
+            <img src="/static/img/register.svg" alt="instagram">
+          </a>
+          <span>Войти</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="menu">
+      <div id="toggle" onclick="toggle()">
+      </div>
+      <div class="content-menu">
+        <ul class="links" id="links">
+          <li>
+            <a class="desktop-link" href="/#the-default-view">Главная</a>
+            <input type="checkbox" id="one-menu" />
+            <label for="one-menu">Главная</label>
+            <ul>
+              <li><a href="/#start">Как начать</a></li>
+              <li><a href="/#support">Помощь проекту</a></li>
+              <li><a href="/#maps">Карта</a></li>
+              <li><a href="/#gallery">Фотографии</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class="desktop-link" href="/">Полезное</a>
+            <input type="checkbox" id="two-menu" />
+            <label for="two-menu">Полезное</label>
+            <ul>
+              <li><a href="/#mods">Моды</a></li>
+              <li><a href="/#config-system">Система</a></li>
+              <li><a href="/#litematica">Лайтматики</a></li>
+              <li><a href="/#command">Команды</a></li>
+              <li><a href="/#resources">Ресурсы</a></li>
+              <li><a href="/#market">Магазин</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="body-center-container">
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+  </div>
+
+  <div class="main-link">
+    <div class="body-center-container">
+      <div class="container-link">
+        <div class="linck-contact">
+          <h2>С вопросами приходите к нам в Discord. Будем рады))</h2>
+        </div>
+        <div class="card">
+          <div class="icon"><img src="https://pbs.twimg.com/profile_images/808180587605331969/u-CULTwl_400x400.jpg"
+              id="favicon"></div>
+          <div class="player-header">
+            <div class="image"> <img src="/static/img/123.webp" alt="" /> </div>
+            <h3>mine.gmgame.ru</h3>
+          </div>
+          <div id="rest">Loading ...</div>
+        </div>
+        <div class="linck-discord">
+          <iframe src="https://discord.com/widget?id=723912565234728972&theme=dark" width="max-content"
+            height="max-content" allowtransparency="true" frameborder="0"
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </div>
+      </div>
+    </div>
+    <h6>GMGame Minecraft Server © 2020-2021</h6>
+  </div>
+
+  <!-- ---------- scripts --------- -->
+  {% block js_scripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="/static/js/functionToggle.js"></script>
+    <script src="/static/js/navigation.js"></script>
+    <script src="/static/js/serverStatus.js"></script>
+    <script src="/static/js/accordeon.js"></script>
+    <script src="/static/js/register.js"></script>
+    <script src="/static/js/modal-open-close.js"></script>
+    <script src="/static/js/InstagramFeed.min.js"></script>
+    <script src="/static/js/InstagramFeed.min-start.js"></script>
+  {% endblock %}
+</body>
+
+</html>
