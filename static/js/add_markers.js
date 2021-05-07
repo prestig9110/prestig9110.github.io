@@ -10,6 +10,8 @@ $( document ).ready(function() {
         description: $("#add_description").val()
       };
 
+      $("#add_name, #add_x, #add_y, #add_z, #add_description").val('');
+
       queryADD(params);
     });
 
@@ -53,7 +55,7 @@ $( document ).ready(function() {
             cell4 = row.insertCell(3).outerHTML = '<th><input type="text" placeholder="' + params.x + '" name="x" id="x-' + res.success + '" value="' + params.x + '"></th>';
             cell5 = row.insertCell(4).outerHTML = '<th><input type="text" placeholder="' + params.y + '" name="y" id="y-' + res.success + '" value="' + params.y + '"></th>';
             cell6 = row.insertCell(5).outerHTML = '<th><input type="text" placeholder="' + params.z + '" name="z" id="z-' + res.success + '" value="' + params.z + '"></th>';
-            cell7 = row.insertCell(6).outerHTML = '<th><input type="text" placeholder="' + params.description + '" name="description" id="description-' + res.success + '" value=' + params.description + '></input></th>';
+            cell7 = row.insertCell(6).outerHTML = '<th><input type="text" placeholder="' + params.description + '" name="description" id="description-' + res.success + '" value="' + params.description + '"></input></th>';
             cell8 = row.insertCell(7).outerHTML = '<th><button id="edit-' + res.success + '">Изменить</button></th>';
             cell9 = row.insertCell(8).outerHTML = '<th><button id="del-' + res.success + '">Удалить</button></th>';
 

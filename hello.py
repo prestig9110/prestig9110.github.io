@@ -101,13 +101,11 @@ def index():
 @app.route("/login/")
 def login():
     return oauth.create_session()
-	
 
 @app.route("/callback/")
 def callback():
     oauth.callback()
     return redirect(url_for(".me"))
-
 
 @app.errorhandler(Unauthorized)
 def redirect_unauthorized(e):
