@@ -234,7 +234,7 @@ def other_markers():
     conn = mysql.connect()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT markers.*, username FROM markers join users on user = user_id")
+    cursor.execute("SELECT markers.*, username FROM markers join users on user = user_id order by username")
     markers = cursor.fetchall()
 
     return render_template('other_markers.html', user=user,  markers=markers, opUser=1)
