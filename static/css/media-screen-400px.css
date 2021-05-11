@@ -1,0 +1,32 @@
+@media screen and (max-width: 400px) {
+  /*---------- body ----------*/
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+  }
+  /*---------- header ----------*/
+  /*---------- header-menu-link ----------*/
+  .wrapper-link {
+    min-width: 370px;
+  }
+  /*---------- menu ----------*/
+  /*---------- the-default-view ----------*/
+  /*---------- start ----------*/
+  /*---------- support ----------*/
+  /*---------- mods ----------*/
+  /*---------- config-system ----------*/
+  /*---------- maps ----------*/
+  /*---------- command ----------*/
+  /*---------- gallery ----------*/
+  /*---------- resources ----------*/
+  /*---------- litematica ----------*/
+  /*---------- market ----------*/
+  /*---------- accordion-2 ----------*/
+  /*---------- main-container ----------*/
+  /*---------- card ----------*/
+  /*---------- all ----------*/
+  /*---------- modal-register ----------*/
+}

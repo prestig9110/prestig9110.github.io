@@ -1,0 +1,61 @@
+@media screen and (max-width: 640px) {
+  /*---------- body ----------*/
+  /*---------- header ----------*/
+  /*---------- header-menu-link ----------*/
+  /*---------- menu ----------*/
+  .links {
+    max-width: 350px;
+    padding: 10px;
+    transform: translateX(-350px);
+  }
+  .active {
+    transform: translateX(0px);
+  }
+  .links ul {
+    width: 320px;
+  }
+  .links li a,
+  .links li label {
+    width: 320px;
+    font-size: 24px;
+  }
+  .links ul li a,
+  .links ul li label {
+    width: 300px;
+  }
+  /*---------- the-default-view ----------*/
+  /*---------- start ----------*/
+  /*---------- support ----------*/
+  /*---------- mods ----------*/
+  /*---------- config-system ----------*/
+  /*---------- maps ----------*/
+  /*---------- command ----------*/
+  /*---------- gallery ----------*/
+  /*---------- resources ----------*/
+  #resources .content {
+    padding-left: 0;
+  }
+  /*---------- litematica ----------*/
+  /*---------- market ----------*/
+  /*---------- accordion-2 ----------*/
+  /*---------- main-container ----------*/
+  /*---------- card ----------*/
+  .card {
+    width: 550px;
+    height: auto;
+  }
+  .player-header {
+    height: 250px;
+  }
+  .image {
+    height: 250px;
+  }
+  .icon {
+    top: 200px;
+  }
+  /*---------- all ----------*/
+  .linck-discord iframe {
+    width: 550px;
+  }
+  /*---------- modal-register ----------*/
+}

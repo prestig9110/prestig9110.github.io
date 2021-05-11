@@ -1,0 +1,130 @@
+@media screen and (max-width: 480px) {
+  /*---------- body ----------*/
+  p {
+    font-size: 14px;
+    padding-left: 20px;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 900;
+  }
+  h2 {
+    font-size: 24px;
+    font-weight: 900;
+  }
+  h3 {
+    font-size: 22px;
+    font-weight: 600;
+  }
+  h4 {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: start;
+    padding-left: 10px;
+  }
+  h5 {
+    font-size: 16px;
+    font-weight: normal;
+    padding-left: 20px;
+  }
+  h6 {
+    font-size: 14px;
+  }
+  .container ul {
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+  }
+  .container ul li {
+    font-size: 14px;
+    line-height: 2;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+  }
+  /*---------- header ----------*/
+  /*---------- header-menu-link ----------*/
+  .wrapper-link {
+    min-width: 400px;
+  }
+  .wrapper-link .button-link:hover {
+    width: 160px;
+  }
+  .wrapper-link .button-link {
+    height: 40px;
+    width: 43px;
+  }
+  .icon-button img {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+  }
+  .wrapper-link .button-link span {
+    height: 40px;
+    line-height: 40px;
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  /*---------- menu ----------*/
+  /*---------- the-default-view ----------*/
+  /*---------- start ----------*/
+  /*---------- support ----------*/
+  /*---------- mods ----------*/
+  /*---------- config-system ----------*/
+  /*---------- maps ----------*/
+  /*---------- command ----------*/
+  /*---------- gallery ----------*/
+  /*---------- resources ----------*/
+  /*---------- litematica ----------*/
+  /*---------- market ----------*/
+  /*---------- accordion-2 ----------*/
+  /*---------- main-container ----------*/
+  .main-link {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  /*---------- card ----------*/
+  .card {
+    width: 95%;
+    height: auto;
+    margin: 10px;
+  }
+  .player-header {
+    height: 215px;
+  }
+  .image {
+    height: 215px;
+  }
+  .icon {
+    top: 180px;
+  }
+  /*---------- all ----------*/
+  .linck-discord {
+    width: 95%;
+    margin: 10px;
+    margin-top: 4%;
+  }
+  .linck-discord iframe {
+    width: 100%;
+  }
+  .linck-contact {
+    margin-bottom: 30px;
+  }
+  /*---------- modal-register ----------*/
+  .warning-help-1 {
+    font-size: 16px;
+  }
+  .warning-help-2 {
+    font-size: 16px;
+  }
+  .warning-help-2 a:visited {
+    font-size: 16px;
+  }
+}
