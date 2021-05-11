@@ -17,7 +17,7 @@
     <p>Вы игрок сервера. Приятной игры {{user.name + "#" + user.discriminator}}</p>
     <p>Адрес сервера - mine.gmgame.ru</p>
 
-    {% if users["id"] %}
+    {% if users["id"] and opUser %}
       <p>Ожидающие заявки</p>
       <table>
         <tr>
@@ -123,7 +123,9 @@
       </tr>
     </table>
 
-
+    {% if opUser %}
+      <a href='/other_markers/'>Все метки</a>
+    {% endif %}
   {% elif user_id["status"] == 3 %}
     <p>
       к сожалению вашей заявке отказано. За подробновстями вы можете
