@@ -10,6 +10,8 @@ $( document ).ready(function() {
         description: $("#add_description").val()
       };
 
+      if ($("#opUser").data()) params.allmarkers = 1;
+
       $("#add_name, #add_x, #add_y, #add_z, #add_description").val('');
 
       queryADD(params);
@@ -100,12 +102,13 @@ $( document ).ready(function() {
         let params = {
           id: id[1]
         };
+
+        if ($("#opUser").data()) params.allmarkers = 1;
   
         queryDEL(params);
     });
 
     function queryDEL (params) {
-        console.log(params);
         $.ajax({
             type: "POST",
             url: '/del_marker',

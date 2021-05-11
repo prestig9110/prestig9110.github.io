@@ -117,8 +117,12 @@ def redirect_unauthorized(e):
 def me():
     user = oauth.fetch_user()
 
-    #перенести на клиент
-    guilds = oauth.request('/users/@me/guilds')
+    # перенести на клиент
+    # пока такой костыль что бы как минимум не падало с 500
+    try:
+        guilds = oauth.request('/users/@me/guilds')
+    except:
+        guilds = {}
 
     gmg_ok = 0
 
@@ -135,16 +139,19 @@ def me():
     # userJson = json.loads( user_id[2].replace("'",'"').replace("True", "true").replace("False", "false") )
 
     users = []
+    all_markers = []
+    opUser = 0
     
     if str(user.id) in app.config["PERMISSIONS"]:
         cursor.execute("SELECT id, username, age FROM users WHERE status = 1")
-
         users = cursor.fetchall()
+
+        opUser = 1
 
     cursor.execute("SELECT * FROM markers WHERE user = '" + str(user.id) + "'")
     markers = cursor.fetchall()
 
-    return render_template('me.html', gmg_ok=gmg_ok, user=user, auth_ok=1, user_id=user_id, users=users, markers=markers)
+    return render_template('me.html', gmg_ok=gmg_ok, user=user, auth_ok=1, user_id=user_id, users=users, markers=markers, opUser=opUser)
 
 @app.route('/add_marker', methods=['POST', 'GET'])
 @requires_authorization
@@ -176,8 +183,8 @@ def add_marker():
 
         if edit:
             cursor.execute( 
-                'UPDATE markers SET id_type = %s, x = %s, y = %s, z = %s, name = %s, description = %s, server = %s, flag = %s WHERE id = %s AND user = %s',
-                    ( id_type, x, y, z, name, description, server, 1, markerID, str(user.id) )
+                'UPDATE markers SET id_type = %s, x = %s, y = %s, z = %s, name = %s, description = %s, server = %s, flag = %s WHERE id = %s',
+                    ( id_type, x, y, z, name, description, server, 1, markerID )
             )  
         else:
             cursor.execute( 
@@ -200,20 +207,38 @@ def del_marker():
         error = None
 
         idMarker = request.form['id']
-        print(idMarker)
+        allmarkers = request.form['allmarkers'] if 'allmarkers' in request.form else 0
 
         if not idMarker:
             return jsonify( { 'error': 'Нет ID' } )
 
         user = oauth.fetch_user()
 
-        cursor.execute( 
-            'DELETE FROM markers WHERE id = %s AND user = %s', 
-                ( idMarker, str(user.id) )
-        )  
+        where = ' AND user = "' + str(user.id) + '"'
+
+        if str(user.id) in app.config["PERMISSIONS"] and allmarkers:
+            where = ''
+
+        cursor.execute( 'DELETE FROM markers WHERE id = ' + idMarker + where )  
         conn.commit()
 
         return jsonify({'success': 'Маркер удален'})
+
+@app.route("/other_markers/")
+def other_markers():
+    user = oauth.fetch_user()
+
+    if not str(user.id) in app.config["PERMISSIONS"]:
+        return 'Доступ запрещен'
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT markers.*, username FROM markers join users on user = user_id")
+    markers = cursor.fetchall()
+
+    return render_template('other_markers.html', user=user,  markers=markers, opUser=1)
+
 
 @app.route("/<page>/")
 def start(page):
