@@ -237,7 +237,7 @@ def other_markers():
     cursor.execute("SELECT markers.*, username FROM markers join users on user = user_id order by username")
     markers = cursor.fetchall()
 
-    return render_template('other_markers.html', user=user,  markers=markers, opUser=1)
+    return render_template('other_markers.html', user=user,  markers=markers, opUser=1, auth_ok=1)
 
 
 @app.route("/<page>/")
