@@ -96,7 +96,7 @@ def index():
         auth_ok = 1
         user = oauth.fetch_user()
 
-    return render_template('Index.html', user=user, auth_ok=auth_ok)
+    return render_template('index.html', user=user, auth_ok=auth_ok)
 
 @app.route("/login/")
 def login():
@@ -214,6 +214,22 @@ def del_marker():
         conn.commit()
 
         return jsonify({'success': 'Маркер удален'})
+
+@app.route("/<page>/")
+def start(page):
+    auth_ok = 0
+    user = {}
+
+    if oauth.authorized:
+        auth_ok = 1
+        user = oauth.fetch_user()
+    
+    template = 'start.html'
+
+    if page:
+        template = page + '.html'
+    
+    return render_template(template, user=user, auth_ok=auth_ok)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
