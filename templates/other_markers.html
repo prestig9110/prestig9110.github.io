@@ -1,72 +1,79 @@
 {% extends "_base.html" %}
 {% block meta %}
-    {{ super() }}
-    {% if opUser %}
-        <meta id="opUser" data-name="opUser" data-other="opUser">
-    {% endif %}
+{{ super() }}
+{% if opUser %}
+<meta id="opUser" data-name="opUser" data-other="opUser">
+{% endif %}
 {% endblock %}
 {% block content %}
-    <h4>Все метки</h4>
-    <div id="add_marker_res"></div>
-    <input type="hidden" name="allmarkers" value="1">
-    <table id="metki">
-      <thead>
-        <tr>
-          <th id="table-one">Мир</th>
-          <th id="table-two">Расположение</th>
-          <th id="table-three">Имя</th>
-          <th id="table-four">X</th>
-          <th id="table-five">Y</th>
-          <th id="table-six">Z</th>
-          <th id="table-seven">Описание</th>
-          <th id="table-eight">Добавить</th>
-          <th id="table-nine">Удалить</th>
-          <th id="table-nine">Никнейм</th>
-        </tr>
-      </thead>
-      <tbody id="metki_tbody">
-        {% for marker in markers %}
-        <tr id="tr-{{ marker.id }}">
-          <th id="table-one">
-            <select name="server" id="server-{{ marker.id }}">
-              <option value="gmgame" {% if marker.server=='gmgame' %} selected="selected" {% endif %}>Основной мир</option>
-              <option value="farm" {% if marker.server=='farm' %} selected="selected" {% endif %}>Фермерский мир</option>
-            </select>
-          </th>
-          <th id="table-two">
-            <select name="id_type" id="id_type-{{ marker.id }}">
-              <option value="basePlayers" {% if marker.id_type=='basePlayers' %} selected="selected" {% endif %}>Базыи гроков - over</option>
-              <option value="city" {% if marker.id_type=='city' %} selected="selected" {% endif %}>Города - over</option>
-              <option value="shopping_centers" {% if marker.id_type=='shopping_centers' %} selected="selected" {% endif %}>Торговые центры - over</option>
-              <option value="turquoise" {% if marker.id_type=='turquoise' %} selected="selected" {% endif %}>Бирюзовая - nether</option>
-              <option value="orange" {% if marker.id_type=='orange' %} selected="selected" {% endif %}>Оранжевая - nether</option>
-              <option value="lime" {% if marker.id_type=='lime' %} selected="selected" {% endif %}>Лаймовая - nether</option>
-              <option value="pink" {% if marker.id_type=='pink' %} selected="selected" {% endif %}>Розовая - nether</option>
-              <option value="farm" {% if marker.id_type=='farm' %} selected="selected" {% endif %}>Фермы - nether</option>
-              <option value="end_portals" {% if marker.id_type=='end_portals' %} selected="selected" {% endif %}>Энд порталы - nether</option>
-              <option value="pixel_arts" {% if marker.id_type=='pixel_arts' %} selected="selected" {% endif %}>Пиксель арты - end</option>
-            </select>
-          </th>
-          <th id="table-three"><input type="text" placeholder="{{ marker.name }}" name="name" id="name-{{ marker.id }}"
-              value="{{ marker.name }}"></th>
-          <th id="table-four"><input type="text" placeholder="{{ marker.x }}" name="x" id="x-{{ marker.id }}"
-              value="{{ marker.x }}"></th>
-          <th id="table-five"><input type="text" placeholder="{{ marker.y }}" name="y" id="y-{{ marker.id }}"
-              value="{{ marker.y }}"></th>
-          <th id="table-six"><input type="text" placeholder="{{ marker.z }}" name="z" id="z-{{ marker.id }}"
-              value="{{ marker.z }}"></th>
-          <th id="table-seven"><input type="text" placeholder="{{ marker.description }}" name="description"
-              id="description-{{ marker.id }}" {% if marker.description %} value="{{ marker.description }}" {% endif
-              %}></th>
-          <th id="table-eight"><button id="edit-{{ marker.id }}">Изменить</button></th>
-          <th id="table-nine"><button id="del-{{ marker.id }}">Удалить</button></th>
-          <th id="table-nine">{{ marker.username }}</th>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+<h4>Все метки</h4>
+<div id="add_marker_res"></div>
+<input type="hidden" name="allmarkers" value="1">
+<table id="metki">
+  <thead>
+    <tr>
+      <th id="table-one">Мир</th>
+      <th id="table-two">Расположение</th>
+      <th id="table-three">Имя</th>
+      <th id="table-four">X</th>
+      <th id="table-five">Y</th>
+      <th id="table-six">Z</th>
+      <th id="table-seven">Описание</th>
+      <th id="table-eight">Добавить</th>
+      <th id="table-nine">Удалить</th>
+      <th id="table-nine">Никнейм</th>
+    </tr>
+  </thead>
+  <tbody id="metki_tbody">
+    {% for marker in markers %}
+    <tr id="tr-{{ marker.id }}">
+      <th id="table-one">
+        <select name="server" id="server-{{ marker.id }}">
+          <option value="gmgame" {% if marker.server=='gmgame' %} selected="selected" {% endif %}>Основной мир</option>
+          <option value="farm" {% if marker.server=='farm' %} selected="selected" {% endif %}>Фермерский мир</option>
+        </select>
+      </th>
+      <th id="table-two">
+        <select name="id_type" id="id_type-{{ marker.id }}">
+          <option value="basePlayers" {% if marker.id_type=='basePlayers' %} selected="selected" {% endif %}>Базыи
+            гроков - over</option>
+          <option value="city" {% if marker.id_type=='city' %} selected="selected" {% endif %}>Города - over</option>
+          <option value="shopping_centers" {% if marker.id_type=='shopping_centers' %} selected="selected" {% endif %}>
+            Торговые центры - over</option>
+          <option value="turquoise" {% if marker.id_type=='turquoise' %} selected="selected" {% endif %}>Бирюзовая -
+            nether</option>
+          <option value="orange" {% if marker.id_type=='orange' %} selected="selected" {% endif %}>Оранжевая - nether
+          </option>
+          <option value="lime" {% if marker.id_type=='lime' %} selected="selected" {% endif %}>Лаймовая - nether
+          </option>
+          <option value="pink" {% if marker.id_type=='pink' %} selected="selected" {% endif %}>Розовая - nether</option>
+          <option value="farm" {% if marker.id_type=='farm' %} selected="selected" {% endif %}>Фермы - nether</option>
+          <option value="end_portals" {% if marker.id_type=='end_portals' %} selected="selected" {% endif %}>Энд порталы
+            - nether</option>
+          <option value="pixel_arts" {% if marker.id_type=='pixel_arts' %} selected="selected" {% endif %}>Пиксель арты
+            - end</option>
+        </select>
+      </th>
+      <th id="table-three"><input type="text" placeholder="{{ marker.name }}" name="name" id="name-{{ marker.id }}"
+          value="{{ marker.name }}"></th>
+      <th id="table-four"><input type="text" placeholder="{{ marker.x }}" name="x" id="x-{{ marker.id }}"
+          value="{{ marker.x }}"></th>
+      <th id="table-five"><input type="text" placeholder="{{ marker.y }}" name="y" id="y-{{ marker.id }}"
+          value="{{ marker.y }}"></th>
+      <th id="table-six"><input type="text" placeholder="{{ marker.z }}" name="z" id="z-{{ marker.id }}"
+          value="{{ marker.z }}"></th>
+      <th id="table-seven"><input type="text" placeholder="{{ marker.description }}" name="description"
+          id="description-{{ marker.id }}" {% if marker.description %} value="{{ marker.description }}" {% endif %}>
+      </th>
+      <th id="table-eight"><button id="edit-{{ marker.id }}">Изменить</button></th>
+      <th id="table-nine"><button id="del-{{ marker.id }}">Удалить</button></th>
+      <th id="table-nine">{{ marker.username }}</th>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
 {% block js_scripts %}
-    {{ super() }}
-    <script src="/static/js/add_markers.js"></script>
+{{ super() }}
+<script src="/static/js/add_markers.js"></script>
 {% endblock %}
