@@ -53,7 +53,7 @@ def register():
         user = oauth.fetch_user()
         userJson = user.to_json()
 
-        cursor.execute("SELECT id FROM users WHERE username = %s", ( str(user.id), ))
+        cursor.execute("SELECT id FROM users WHERE username = %s", ( str(user.id) ))
         user_id = cursor.fetchone()
 
         if user_id is not None:
@@ -143,9 +143,6 @@ def me():
     opUser = 0
     
     if str(user.id) in app.config["PERMISSIONS"]:
-        cursor.execute("SELECT id, username, age FROM users WHERE status = 1")
-        users = cursor.fetchall()
-
         opUser = 1
 
     cursor.execute("SELECT * FROM markers WHERE user = '" + str(user.id) + "'")
@@ -239,6 +236,51 @@ def other_markers():
 
     return render_template('other_markers.html', user=user,  markers=markers, opUser=1, auth_ok=1)
 
+@app.route("/list_players/")
+def list_players():
+    user = oauth.fetch_user()
+
+    if not str(user.id) in app.config["PERMISSIONS"]:
+        return 'Доступ запрещен'
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT id, username, age, status FROM users ORDER BY status")
+    users = cursor.fetchall()
+
+    return render_template('list_players.html', user=user, users=users, auth_ok=1)
+
+@app.route('/change_user', methods=['POST', 'GET'])
+@requires_authorization
+def change_user():
+    user = oauth.fetch_user()
+
+    if not str(user.id) in app.config["PERMISSIONS"]:
+        return 'Отказано в доступе'
+
+    userID = request.form['id']
+    action = request.form['action']
+
+    if not userID or not action:
+        return jsonify( { 'message': 'Нет обязательного параметра' } )
+
+    status = 1
+
+    if action == 'accept':
+        status = 2
+    elif action == 'not_accept' or action == 'unban':
+        status = 3
+    elif action == 'ban':
+        status = 4
+    
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    cursor.execute( "UPDATE users SET status = %s WHERE id = %s", (status, userID) )
+    conn.commit()
+
+    return jsonify( { 'message': 'Статус изменен' } )
 
 @app.route("/<page>/")
 def start(page):
