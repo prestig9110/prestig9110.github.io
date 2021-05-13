@@ -6,68 +6,6 @@
   font-family: Montserrat;
   line-height: 2;
 }
-/*---------------------------------------- keyframes ----------------------------------------*/
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  25% {
-    opacity: 0.25;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  75% {
-    opacity: 0.75;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes animate {
-  0% {
-    opacity: 0;
-    top: -10%;
-    transform: translateX(20px) rotate(0deg);
-  }
-  10% {
-    opacity: 1;
-  }
-  20% {
-    transform: translateX(-20px) rotate(45deg);
-  }
-  40% {
-    transform: translateX(-20px) rotate(90deg);
-  }
-  60% {
-    transform: translateX(20px) rotate(180deg);
-  }
-  80% {
-    transform: translateX(-20px) rotate(180deg);
-  }
-  100% {
-    top: 110%;
-    transform: translateX(-20px) rotate(225deg);
-  }
-}
-
-/*---------------------------------------- magic ----------------------------------------*/
-.app > * {
-  display: none;
-}
-
-.app > *:last-child {
-  display: block;
-}
-
-.app > *:target {
-  display: block;
-  animation: fade 300ms linear 1;
-}
-
-.app > *:target ~ * {
-  display: none;
-}
 /*---------------------------------------- body ----------------------------------------*/
 body {
   background: url(../img/bg-light-4869.webp);
@@ -313,8 +251,6 @@ h6 {
 #toggle.active::after {
   transform: translateY(0px) rotate(-45deg);
 }
-/*---------------------------------------- the-default-view ----------------------------------------*/
-
 /*---------------------------------------- start ----------------------------------------*/
 #start ul li span,
 #start p span {
@@ -722,75 +658,122 @@ h6 {
   background: transparent;
 }
 /*---------------------------------------- metki ----------------------------------------*/
-
-#metki, #add_metki {
-  /* display: flex; */
-  justify-content: center;
-  width: 90%;
+.metki,
+.add_metki {
+  width: 100%;
   height: auto;
-  margin: 50px auto;
+  border-collapse: collapse;
+  position: relative;
 }
-#metki thead tr th,
-#metki_tbody tr th,
-#add_metki tr th {
-  height: auto;
-  border: 2px solid rgba(0, 0, 0, 0.6);
+.metki thead,
+.add_metki thead {
+  background: rgba(143, 142, 143, 0.55);
+  width: 100%;
 }
-#table-one {
-  width: 130px;
+.metki thead tr th,
+.add_metki thead tr th {
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  color: white;
+  opacity: 1;
+  padding: 5px;
+  vertical-align: middle;
+  border: 1px solid black;
 }
-#table-two {
-  width: 170px;
+.metki tbody tr th,
+.add_metki tbody tr th {
+  font-weight: 600;
+  letter-spacing: 0.35px;
+  color: white;
+  background: rgba(255, 255, 255, 0.699);
+  vertical-align: middle;
+  border: 1px solid black;
 }
-#table-three {
-  width: 140px;
-}
-#table-four,
-#table-five,
-#table-six  {
-  width: 75px;
-}
-#table-seven {
-  width: 400px;
-}
-#table-eight,
-#table-nine {
-  width: 100px;
-}
-#metki_tbody tr th input, #add_metki tr th input {
-  border: none;
+.metki tbody tr th input,
+.metki tbody tr th select,
+.metki tbody tr th button,
+.add_metki tbody tr th input,
+.add_metki tbody tr th select,
+.add_metki tbody tr th button {
+  height: 100%;
+  width: 100%;
   background: transparent;
-  width: 100%;
-  height: 35px;
-  margin: 0;
-  padding: 5px 15px;
-  outline: none;
-  font-size: 16px;
-}
-#metki_tbody tr th input, #add_metki tr th input:hover,
-#metki_tbody tr th input, #add_metki tr th input:active {
+  padding: 5px;
   border: none;
-}
-#metki_tbody tr th select, #add_metki tr th select {
-  width: 100%;
-  height: 35px;
-  background: transparent;
-  border: none;
+  border-radius: none;
   outline: none;
-  font-size: 16px;
-  cursor: pointer;
-}
-#metki_tbody tr th button, #add_metki tr th button {
-  width: 100%;
-  height: 35px;
-  margin: 0;
-  padding: auto;
-  outline: none;
-  background: none;
-  font-size: 16px;
-  border: none;
   transition: all 0.5s ease;
 }
-#metki_tbody tr th button:hover, #add_metki tr th button:hover {
-  background: rgba(158, 155, 147, 0.9);
+.metki tbody tr th button:hover {
+  background: rgba(141, 141, 141, 0.589);
+}
+.header-metki {
+  width: 100%;
+  height: auto;
+  background: rgba(143, 142, 143, 0.75);
+  text-align: center;
+  padding: 5px;
+  border: 1px solid black;
+  border-bottom: none;
+}
+.metki::before{
+   content: "* После добавления метки нужно обновить страницу что бы метка отобразилась в таблице";
+   position: absolute;
+   bottom: -27px;
+   right: 0;
+   font-size: 13px;
+
+}
+@media screen and (max-width: 1024px) {
+  .metki thead {
+    display: none;
+  }
+  .metki,
+  .metki tbody,
+  .metki tbody tr,
+  .metki tbody tr th {
+    display: block;
+    width: 100%;
+  }
+  .metki tbody tr {
+    margin-bottom: 15px;
+  }
+  .metki tbody tr th {
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    width: 100%;
+    right: 0;
+    text-align: right;
+    position: relative;
+  }
+  .metki tbody tr th::before {
+    content: attr(data-label);
+    color: black;
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
+  }
+  .metki tbody tr th input,
+  .metki tbody tr th select,
+  .metki tbody tr th button {
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    width: 70%;
+    right: 0;
+    text-align: start;
+    border-left: 1px solid black;
+  }
+  .display-none {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 640px) {
+  .metki tbody tr th input,
+  .metki tbody tr th select,
+  .metki tbody tr th button {
+    width: 60%;
+    }
+  
 }
