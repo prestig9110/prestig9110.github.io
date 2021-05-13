@@ -48,7 +48,6 @@
     min-width: 550px;
   }
   /*---------- menu ----------*/
-  /*---------- the-default-view ----------*/
   /*---------- start ----------*/
   /*---------- support ----------*/
   /*---------- mods ----------*/
@@ -85,7 +84,7 @@
   .linck-discord iframe {
     width: 650px;
   }
-  /*---------- modal-register ----------*/
+  /*---------- register ----------*/
   .register-form {
     height: auto;
     width: 100%;
@@ -114,5 +113,23 @@
   }
   .warning-help-2 a:visited {
     font-size: 20px;
+  }
+  /*---------- profile ----------*/
+  .profile {
+    flex-direction: column;
+  }
+  .me-photo,
+  .me-info-profile {
+    height: auto;
+    width: 100%;
+    padding: 10px;
+  }
+  .me-photo img {
+    width: 50%;
+    margin: 10px auto;
+  }
+  /*---------- metki ----------*/
+  .metki::before {
+    bottom: -57px;
   }
 }

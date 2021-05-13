@@ -23,7 +23,6 @@
   .links ul li label {
     width: 300px;
   }
-  /*---------- the-default-view ----------*/
   /*---------- start ----------*/
   /*---------- support ----------*/
   /*---------- mods ----------*/
@@ -57,5 +56,12 @@
   .linck-discord iframe {
     width: 550px;
   }
-  /*---------- modal-register ----------*/
+  /*---------- register ----------*/
+  /*---------- profile ----------*/
+  /*---------- metki ----------*/ 
+  .metki tbody tr th input,
+  .metki tbody tr th select,
+  .metki tbody tr th button {
+    width: 60%;
+  }
 }

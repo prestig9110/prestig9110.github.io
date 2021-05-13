@@ -8,7 +8,8 @@
 }
 /*---------------------------------------- body ----------------------------------------*/
 body {
-  background: url(../img/bg-light-4869.webp);
+  /* background: url(../img/bg-light-4869.webp); */
+  background: #27292d;
 }
 .body-center-container {
   display: flex;
@@ -23,7 +24,7 @@ body {
   height: 100%;
   min-height: 800px;
   width: 1800px;
-  color: black;
+  color: #f4f4f4;
   z-index: 100;
 }
 .warning {
@@ -31,9 +32,9 @@ body {
   position: absolute;
   height: auto;
   width: auto;
-  background: rgba(255, 255, 255, 0.692);
+  background: rgba(0, 0, 0, 0.692);
   z-index: 9999999999999999;
-  color: black;
+  color: #f4f4f4;
   padding: 5px 20px;
   text-align: center;
 }
@@ -48,7 +49,8 @@ h1 {
 }
 h2 {
   font-size: 30px;
-  font-weight: 900;
+  font-weight: 650;
+  color: #f4f4f4;
 }
 h3 {
   font-size: 26px;
@@ -90,7 +92,7 @@ h6 {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background: url(../img/header.webp) no-repeat center;
+  background: url(../img/header2.webp) no-repeat center;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1000;
   transition: all 0.35s ease;
@@ -113,12 +115,13 @@ h6 {
   float: left;
   margin: 10px;
   overflow: hidden;
+  color: #f4f4f4;
   background: radial-gradient(
     circle,
-    rgba(223, 221, 215, 0.75) 0%,
-    rgba(143, 142, 143, 0.75) 100%
+    rgba(70, 70, 70, 1) 0%,
+    rgba(101, 101, 101, 1) 100%
   );
-  border: 0.2px solid rgba(143, 142, 143, 0.75);
+  border: 0.2px solid rgba(70, 70, 70, 1);
   cursor: pointer;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.35s ease;
@@ -128,10 +131,12 @@ h6 {
   width: max-content;
   padding-right: 25px;
 }
+.icon-button svg,
 .icon-button img {
   height: 35px;
   width: 35px;
   margin: 12.5px;
+  fill: #f4f4f4;
 }
 .wrapper-link .button-link span {
   height: 60px;
@@ -149,7 +154,7 @@ h6 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75);
   transition: all 0.35s ease;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
   border: 0.2px solid black;
@@ -173,7 +178,7 @@ h6 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: white;
+  color: #f4f4f4;
   font-size: 26px;
   font-weight: 500;
   height: 100%;
@@ -186,14 +191,14 @@ h6 {
 .links li a:hover,
 .links li label:hover {
   border-radius: 10px;
-  background: rgba(0, 0, 0, 0.65);
+  background: #3a3b3d;
 }
 .links li label {
   display: none;
 }
 .links ul {
   position: absolute;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.65);
   top: 0;
   opacity: 0;
   transition: all 0.35s ease-out;
@@ -214,7 +219,7 @@ h6 {
 #toggle {
   width: 50px;
   height: 50px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -230,21 +235,21 @@ h6 {
   position: absolute;
   width: 28px;
   height: 2px;
-  background: white;
+  background: #f4f4f4;
   transition: 0.3s ease;
   transform: translateY(-10px);
-  box-shadow: 0 10px 0 white;
+  box-shadow: 0 10px 0 #f4f4f4;
 }
 #toggle.active::before {
   transform: translateY(0px) rotate(45deg);
-  box-shadow: 0 0 0 white;
+  box-shadow: 0 0 0 #f4f4f4;
 }
 #toggle::after {
   content: "";
   position: absolute;
   width: 28px;
   height: 2px;
-  background: white;
+  background: #f4f4f4;
   transition: 0.3s ease;
   transform: translateY(10px);
 }
@@ -258,28 +263,28 @@ h6 {
 }
 .start-block ul li a {
   text-decoration: none;
-  color: black;
+  color: #f4f4f4;
   font-weight: 600;
   transition: all 0.35s ease;
 }
 .start-block ul li a:hover {
-  color: rgba(0, 0, 0, 0.6);
+  color: #3a3b3d;
 }
 .start-block ul li a:visited {
-  color: black;
+  color: #f4f4f4;
 }
 /*---------------------------------------- support ----------------------------------------*/
 .support-block ul li a,
 .support-block ul li span {
   font-weight: 600;
-  color: black;
+  color: #f4f4f4;
   transition: all 0.35s ease;
 }
 .support-block ul li a:hover {
-  color: rgba(0, 0, 0, 0.6);
+  color: #3a3b3d;
 }
 .support-block ul li a:visited {
-  color: black;
+  color: #f4f4f4;
 }
 /*---------------------------------------- mods ----------------------------------------*/
 .mods-block ul li a {
@@ -315,7 +320,7 @@ h6 {
   height: 60px;
   line-height: 60px;
   text-align: center;
-  color: black;
+  color: #f4f4f4;
   letter-spacing: 2px;
   margin: 20px;
   padding: 20px;
@@ -387,7 +392,7 @@ h6 {
 }
 .info-litematic ul li a {
   font-size: 16px;
-  color: black;
+  color: #f4f4f4;
   text-transform: none;
   font-weight: 500;
   font-style: italic;
@@ -403,8 +408,8 @@ h6 {
 .accordion-item {
   background: radial-gradient(
     circle,
-    rgba(223, 221, 215, 0.75) 0%,
-    rgba(143, 142, 143, 0.75) 100%
+    rgba(70, 70, 70, 1) 0%,
+    rgba(101, 101, 101, 1) 100%
   );
   border: 0.1px solid rgba(143, 142, 143, 0.75);
   color: #111;
@@ -422,6 +427,7 @@ h6 {
   align-items: center;
   position: relative;
   cursor: pointer;
+  color: #f4f4f4;
 }
 .accordion-item-header img {
   width: 35px;
@@ -445,6 +451,7 @@ h6 {
   transition: max-height 0.35s ease-out;
 }
 .accordion-item-body-content {
+  color: #f4f4f4;
   padding: 16px;
   line-height: 24px;
   border-top: 1px solid;
@@ -481,12 +488,13 @@ h6 {
   width: 100%;
   padding-top: 100px;
   padding-bottom: 50px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.1);
 }
 .main-link h6 {
   margin: 0 auto;
-  margin-top: 15px;
+  margin-top: 20px;
   text-align: center;
+  color: #f4f4f4;
 }
 .container-link {
   width: 1800px;
@@ -500,12 +508,16 @@ h6 {
   padding: 0;
   height: 450px;
   width: 550px;
-  background: url(../img/bg-light-4869.webp);
+  color: #f4f4f4;
+  background: #202225;
   border-radius: 8px;
   box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
-  -webkit-animation: fadein 2s;
   animation: fadein 2s;
   overflow: hidden;
+}
+.linck-discord {
+  height: 450px;
+  box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
 }
 .player-header {
   position: relative;
@@ -528,26 +540,11 @@ h6 {
   overflow: hidden;
 }
 .image:hover img {
-  -webkit-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
-}
-.player-header h3 {
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  width: 100%;
-  padding: 0 15px;
-  color: white;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.65) 100%
-  );
 }
 .icon {
   position: absolute;
-  background: white;
+  background: #f4f4f4;
   padding: 8px;
   right: 10px;
   top: 135px;
@@ -586,45 +583,7 @@ h6 {
   width: 550px;
   height: 450px;
 }
-/*---------------------------------------- profile ----------------------------------------*/
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 140px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -75px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-/* ---------------------------------------- modal-register ----------------------------------------
+/*---------------------------------------- register ----------------------------------------*/
 .register-form {
   margin: 0 auto;
   display: flex;
@@ -638,6 +597,7 @@ h6 {
 .register-form input,
 .register-form textarea,
 .register-form select {
+  height: 45px;
   min-height: 45px;
   max-height: 150px;
   max-width: 70%;
@@ -648,8 +608,10 @@ h6 {
   padding-left: 15px;
   padding-right: 15px;
   margin: 2px auto;
+  color: #f4f4f4;
   border-radius: 10px;
-  border: 1px solid lightgray;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(134, 134, 134);
   outline: none;
 }
 .register-form input:active,
@@ -658,12 +620,16 @@ h6 {
 .register-form textarea:focus,
 .register-form select:active,
 .register-form select:focus {
-  border: 1px solid black;
+  border: 1px solid #f4f4f4;
 }
-.register-form input placeholder,
-.register-form input placeholder:hover {
+.register-form input [placeholder],
+.register-form input [placeholder]:hover {
+  color: #f4f4f4;
   font-size: 16px;
   background: none;
+}
+.register-form select option {
+  background: #3a3b3d;
 }
 .input-name {
   position: relative;
@@ -674,22 +640,23 @@ h6 {
   left: 50%;
   transform: translateX(-50%);
 }
-
 .register-btn-next {
+  color: #f4f4f4;
   margin: 20px auto;
   padding: 20px auto;
-  background: lightblue;
   height: 50px;
   width: 300px;
+  font-size: 18px;
   background: radial-gradient(
     circle,
-    rgba(223, 221, 215, 0.75) 0%,
-    rgba(143, 142, 143, 0.75) 100%
+    rgba(70, 70, 70, 1) 0%,
+    rgba(101, 101, 101, 1) 100%
   );
-  border: 0.2px solid rgba(143, 142, 143, 0.75);
+  border: 0.2px solid rgba(70, 70, 70, 1);
   outline: none;
 }
-.register-btn-next:hover {
+.register-btn-next:hover,
+.register-btn-next:visited {
   outline: none;
 }
 .warning-help-1 {
@@ -709,165 +676,191 @@ h6 {
   color: black;
   font-weight: 600;
   background: transparent;
-} */
+}
+/*---------------------------------------- profile ----------------------------------------*/
+.profile {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(141, 141, 141, 0.589);
+  border-radius: 20px;
+  margin-bottom: 50px;
+}
+.me-photo,
+.me-info-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  height: auto;
+  width: 50%;
+  padding: 25px;
+}
+.me-photo img {
+  width: 25%;
+  height: auto;
+  margin: 15px auto;
+}
+.me-photo p {
+  height: auto;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+}
+.me-photo-wg {
+  height: auto;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+  background: rgba(72, 255, 0, 0.438);
+  border-radius: 20px;
+}
+.me-info-profile p {
+  height: auto;
+  padding: 5px;
+}
+.me-info-profile h3 {
+  height: auto;
+  padding: 5px;
+  text-align: center;
+}
+.me-info-profile a:visited {
+  color: #f4f4f4;
+}
+.link-ip {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+.link-ip input {
+  display: flex;
+  color: #f4f4f4;
+  padding: 5px;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  width: 180px;
+}
+.link-ip button {
+  display: flex;
+  font-weight: 600;
+  font-size: 18px;
+  width: auto;
+  cursor: pointer;
+  padding: 5px;
+  color: #f4f4f4;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: #555;
+  color: #f4f4f4;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 110%;
+  left: 50%;
+  margin-left: -125px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
 /*---------------------------------------- metki ----------------------------------------*/
-.metki,
-.add_metki {
+.metki {
   width: 100%;
   height: auto;
   border-collapse: collapse;
   position: relative;
 }
-.metki thead,
-.add_metki thead {
-  background: rgba(143, 142, 143, 0.55);
+.metki thead {
+  background: rgba(61, 61, 61, 0.55);
   width: 100%;
 }
-.metki thead tr th,
-.add_metki thead tr th {
+.metki thead tr th {
   font-weight: 600;
   letter-spacing: 0.35px;
-  color: white;
+  color: #f4f4f4;
   opacity: 1;
   padding: 5px;
   vertical-align: middle;
   border: 1px solid black;
 }
-.metki tbody tr th,
-.add_metki tbody tr th {
+.metki tbody tr th {
   font-weight: 600;
   letter-spacing: 0.35px;
-  color: white;
-  background: rgba(255, 255, 255, 0.699);
+  color: #f4f4f4;
+  background: rgba(100, 100, 100, 0.699);
   vertical-align: middle;
   border: 1px solid black;
 }
 .metki tbody tr th input,
 .metki tbody tr th select,
-.metki tbody tr th button,
-.add_metki tbody tr th input,
-.add_metki tbody tr th select,
-.add_metki tbody tr th button {
+.metki tbody tr th button {
+  color: #f4f4f4;
   height: 100%;
   width: 100%;
   background: transparent;
   padding: 5px;
   border: none;
-  border-radius: none;
+  border-radius: 0;
   outline: none;
   transition: all 0.5s ease;
 }
+.metki tbody tr th select option{
+  background: #3a3b3d;
+}
+.metki tbody tr th span {
+  padding:0 8px ;
+}
 .metki tbody tr th button:hover {
-  background: rgba(141, 141, 141, 0.589);
+  background: rgba(168, 168, 168, 0.589);
 }
 .header-metki {
   width: 100%;
   height: auto;
-  background: rgba(143, 142, 143, 0.75);
+  background: rgba(56, 56, 56, 0.75);
   text-align: center;
   padding: 5px;
   border: 1px solid black;
   border-bottom: none;
 }
-/* .metki::before {
-  content: "* После добавления метки нужно обновить страницу что бы метка отобразилась в таблице";
+.metki::before {
+  content: "* После добавления или удаления метки нужно обновить страницу что бы изминения отобразились в таблице";
   position: absolute;
   bottom: -27px;
   right: 0;
   font-size: 13px;
-} */
-@media screen and (max-width: 1024px) {
-  .metki thead {
-    display: none;
-  }
-  .metki,
-  .metki tbody,
-  .metki tbody tr,
-  .metki tbody tr th {
-    display: block;
-    width: 100%;
-  }
-  .metki tbody tr {
-    margin-bottom: 15px;
-  }
-  .metki tbody tr th {
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-top: 0;
-    width: 100%;
-    right: 0;
-    text-align: right;
-    position: relative;
-  }
-  .metki tbody tr th::before {
-    content: attr(data-label);
-    color: black;
-    position: absolute;
-    left: 0;
-    padding-left: 10px;
-  }
-  .metki tbody tr th input,
-  .metki tbody tr th select,
-  .metki tbody tr th button {
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-top: 0;
-    width: 70%;
-    right: 0;
-    text-align: start;
-    border-left: 1px solid black;
-  }
-  .display-none {
-    display: none !important;
-  }
 }
-@media screen and (max-width: 640px) {
-  .metki tbody tr th input,
-  .metki tbody tr th select,
-  .metki tbody tr th button {
-    width: 60%;
-  }
-}
-.tadle-test {
-  margin-top: 50px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.tadle-test-head,
-.tadle-test-body {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.tadle-test-head div,
-.tadle-test-body div {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  padding: 5px;
-  margin: 0;
-  border-collapse: collapse;
-  border: 0.5px solid black;
-}
-.tadle-test-head div select,
-.tadle-test-head div input,
-.tadle-test-head div button,
-.tadle-test-body div select,
-.tadle-test-body div input,
-.tadle-test-body div button {
-  width: 100%;
-  height: 100%;
-  padding: 5px;
-  margin: 0;
-  border: none;
-  outline: none;
-  background: none;
-}
+
