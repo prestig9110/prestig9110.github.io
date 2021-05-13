@@ -7,7 +7,7 @@ $( document ).ready(function() {
           action: id[1]
         };
 
-        console.log(params)
+        if ( !proverka() ) return;
 
         change_user(params);
     });
@@ -26,4 +26,12 @@ $( document ).ready(function() {
             console.log("fail");
         });
     };
+
+    function proverka() {
+        if (confirm("Подтвердить")) {
+            return true;
+        } else {
+            return false;
+        }
+      }; 
 });

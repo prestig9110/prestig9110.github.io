@@ -932,10 +932,10 @@ h6 {
   border: 1px solid black;
   border-bottom: none;
 }
-.metki::before {
+/* .metki::before {
   content: "* После добавления или удаления метки нужно обновить страницу что бы изминения отобразились в таблице";
   position: absolute;
   bottom: -27px;
   right: 0;
   font-size: 13px;
-}
+} */

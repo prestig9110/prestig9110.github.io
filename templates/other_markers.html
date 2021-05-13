@@ -1,8 +1,8 @@
 {% extends "_base.html" %}
 {% block meta %}
 {{ super() }}
-{% if opUser %}
-<meta id="opUser" data-name="opUser" data-other="opUser">
+  {% if opUser %}
+  <meta id="opUser" data-name="opUser" data-other="opUser">
 {% endif %}
 {% endblock %}
 {% block content %}

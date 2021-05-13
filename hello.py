@@ -176,6 +176,9 @@ def add_marker():
         if not server or not id_type or not name or not x or not y or not z:
             return jsonify( { 'error': 'Не заполнены обязательные поля' } )
 
+        if not _is_numb(x) or not _is_numb(y) or not _is_numb(z):
+            return jsonify( { 'error': 'Координаты могут быть только число' } )
+
         user = oauth.fetch_user()
 
         if edit:
@@ -297,6 +300,9 @@ def start(page):
         template = page + '.html'
     
     return render_template(template, user=user, auth_ok=auth_ok)
+
+def _is_numb ( digit ):
+    return digit.isdigit() if digit[:1] != '-' else digit[1:].isdigit()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
