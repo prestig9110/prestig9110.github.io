@@ -41,7 +41,7 @@
       <th>Удалить</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="metki_tbody">
     {% for marker in markers %}
     <tr id="tr-{{ marker.id }}">
       <th data-label="Мир">
@@ -146,58 +146,58 @@
 </table>  -->
 
 {% if opUser %}
-<p><a href='/other_markers/'>Все метки</a></p>
-<p><a href='/list_players/'>Заявки</a></p>
+  <p><a href='/other_markers/'>Все метки</a></p>
+  <p><a href='/list_players/'>Заявки</a></p>
 {% endif %}
 {% elif user_id["status"] == 3 %}
-<p>
-  К сожалению вашей заявке отказано. За подробновстями вы можете
-  обратиться в
-  <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
-</p>
-<p>Статус - Отказано</p>
+  <p>
+    К сожалению вашей заявке отказано. За подробновстями вы можете
+    обратиться в
+    <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
+  </p>
+  <p>Статус - Отказано</p>
 {% elif user_id["status"] == 4 %}
-<p>Статус - Забанен</p>
-<p>
-  К сожалению вы забанены на этом сервере. За подробновстями вы можете
-  обратиться в
-  <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
-</p>
+  <p>Статус - Забанен</p>
+  <p>
+    К сожалению вы забанены на этом сервере. За подробновстями вы можете
+    обратиться в
+    <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
+  </p>
 {% else %}
-<div class="register-form">
-  <h3>Заявка</h3>
-  <div id="res"></div>
-  <!--Логин-->
-  <span class="input-name">Логин</span>
-  <input id="login" type="input" name="login" placeholder="Игровой ник" />
-  <!--Пароль-->
-  <span class="input-name">Пароль</span>
-  <input id="password" type="input" name="password" placeholder="123456789" />
-  <!--Лицензия/пиратка-->
-  <span class="input-name">Тип акаунта</span>
-  <select name="tupe" id="type">
-    <option value="1">Лицензия</option>
-    <option value="0">Пиратка</option>
-  </select>
-  <!--возраст-->
-  <span class="input-name">Возраст</span>
-  <input id="age" type="input" name="age" placeholder="16" />
-  <!--о проекте-->
-  <span class="input-name">Откуда узнали о проекте</span>
-  <textarea name="from_about" id="from_about" cols="auto" rows="auto"></textarea>
-  <!--о себе-->
-  <span class="input-name">Интересы в майнкрафт</span>
-  <textarea name="you_about" id="you_about" cols="auto" rows="auto"></textarea>
-  <!--опыт игры на других серверах-->
-  <span class="input-name">Прошлые сервера</span>
-  <textarea name="servers" id="servers" cols="auto" rows="auto"></textarea>
-  <button id="register" class="register-btn-next">
-    Отправить заявку
-  </button>
-</div>
+  <div class="register-form">
+    <h3>Заявка</h3>
+    <div id="res"></div>
+    <!--Логин-->
+    <span class="input-name">Логин</span>
+    <input id="login" type="input" name="login" placeholder="Игровой ник" />
+    <!--Пароль-->
+    <span class="input-name">Пароль</span>
+    <input id="password" type="input" name="password" placeholder="123456789" />
+    <!--Лицензия/пиратка-->
+    <span class="input-name">Тип акаунта</span>
+    <select name="tupe" id="type">
+      <option value="1">Лицензия</option>
+      <option value="0">Пиратка</option>
+    </select>
+    <!--возраст-->
+    <span class="input-name">Возраст</span>
+    <input id="age" type="input" name="age" placeholder="16" />
+    <!--о проекте-->
+    <span class="input-name">Откуда узнали о проекте</span>
+    <textarea name="from_about" id="from_about" cols="auto" rows="auto"></textarea>
+    <!--о себе-->
+    <span class="input-name">Интересы в майнкрафт</span>
+    <textarea name="you_about" id="you_about" cols="auto" rows="auto"></textarea>
+    <!--опыт игры на других серверах-->
+    <span class="input-name">Прошлые сервера</span>
+    <textarea name="servers" id="servers" cols="auto" rows="auto"></textarea>
+    <button id="register" class="register-btn-next">
+      Отправить заявку
+    </button>
+  </div>
 {% endif %}
 {% endblock %}
 {% block js_scripts %}
-{{ super() }}
-<script src="/static/js/add_markers.js"></script>
+  {{ super() }}
+  <script src="/static/js/add_markers.js"></script>
 {% endblock %}
