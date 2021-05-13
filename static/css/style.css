@@ -684,7 +684,7 @@ h6 {
 .add_metki tbody tr th {
   font-weight: 600;
   letter-spacing: 0.35px;
-  color: white;
+  color: rgb(0, 0, 0);
   background: rgba(255, 255, 255, 0.699);
   vertical-align: middle;
   border: 1px solid black;
@@ -717,7 +717,6 @@ h6 {
   border-bottom: none;
 }
 .metki::before{
-   content: "* После добавления метки нужно обновить страницу что бы метка отобразилась в таблице";
    position: absolute;
    bottom: -27px;
    right: 0;

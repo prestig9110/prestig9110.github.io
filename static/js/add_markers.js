@@ -104,6 +104,8 @@ $( document ).ready(function() {
         };
 
         if ($("#opUser").data()) params.allmarkers = 1;
+        
+        if ( !proverka() ) return;
   
         queryDEL(params);
     });
@@ -136,7 +138,17 @@ $( document ).ready(function() {
           edit: 1,
           markerID: id[1]
         };
+
+        if ( !proverka() ) return;
   
         queryADD(params);
     });
+
+    function proverka() {
+      if (confirm("Подтвердить")) {
+          return true;
+      } else {
+          return false;
+      }
+    }; 
   });

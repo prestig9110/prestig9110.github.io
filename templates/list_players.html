@@ -2,36 +2,36 @@
 {% block content %}
     <p>Список пользователей</p>
     <p>Внимание. Это только управление пользователями на сайте. Никакого влияния на сервер это не оказывает</p>
-    <table id="metki">
-    <thead>
-        <tr>
-            <th id="table-one">Username</th>
-            <th id="table-one">Возраст</th>
-            <th id="table-one">Статус</th>
-        </tr>
-    </thead>
-    <tbody id="metki_tbody">
-        {% for us in users %}
-        <tr>
-            <th id="table-one">{{ us.username }}</th>
-            <th id="table-one">{{ us.age }}</th>
-            {% if us.status == 1 %}
-                <th id="table-one" style="color:red">Ожидает</th>
-                <th id="table-one"><button id="accept-{{ us.id }}">Принять</button></th>
-                <th id="table-one"><button id="not_accept-{{ us.id }}">Отказать</button></th>
-            {% elif us.status == 2 %}
-                <th id="table-one">Принят</th>
-                <th id="table-one"><button id="ban-{{ us.id }}">Забанить</button></th>
-            {% elif us.status == 3 %}
-                <th id="table-one">Не принят</th>
-                <th id="table-one"><button id="accept-{{ us.id }}">Принять</button></th>
-            {% elif us.status == 4 %}
-                <th id="table-one">Забанен</th>
-                <th id="table-one"><button id="unban-{{ us.id }}">Разбанить</button></th>
-            {% endif %}
-        </tr>
-        {% endfor %}
-    </tbody>
+    <table class="metki">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Возраст</th>
+                <th>Статус</th>
+            </tr>
+        </thead>
+        <tbody id="metki_tbody">
+            {% for us in users %}
+            <tr>
+                <th>{{ us.username }}</th>
+                <th>{{ us.age }}</th>
+                {% if us.status == 1 %}
+                    <th style="color:red">Ожидает</th>
+                    <th><button id="accept-{{ us.id }}">Принять</button></th>
+                    <th><button id="not_accept-{{ us.id }}">Отказать</button></th>
+                {% elif us.status == 2 %}
+                    <th>Принят</th>
+                    <th><button id="ban-{{ us.id }}">Забанить</button></th>
+                {% elif us.status == 3 %}
+                    <th>Не принят</th>
+                    <th><button id="accept-{{ us.id }}">Принять</button></th>
+                {% elif us.status == 4 %}
+                    <th>Забанен</th>
+                    <th><button id="unban-{{ us.id }}">Разбанить</button></th>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 {% endblock %}
 {% block js_scripts %}
