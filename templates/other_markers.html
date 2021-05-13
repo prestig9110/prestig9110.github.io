@@ -7,35 +7,35 @@
 {% endblock %}
 {% block content %}
 <div class="markers-block">
-  <h4>Все метки</h4>
+  <h4 class="header-metki">Все метки</h4>
   <div id="add_marker_res"></div>
   <input type="hidden" name="allmarkers" value="1">
-  <table id="metki">
+  <table id="metki" class="metki">
     <thead>
       <tr>
-        <th id="table-one">Мир</th>
-        <th id="table-two">Расположение</th>
-        <th id="table-three">Имя</th>
-        <th id="table-four">X</th>
-        <th id="table-five">Y</th>
-        <th id="table-six">Z</th>
-        <th id="table-seven">Описание</th>
-        <th id="table-eight">Добавить</th>
-        <th id="table-nine">Удалить</th>
-        <th id="table-nine">Никнейм</th>
+        <th>Мир</th>
+        <th>Расположение</th>
+        <th>Имя</th>
+        <th>X</th>
+        <th>Y</th>
+        <th>Z</th>
+        <th>Описание</th>
+        <th>Добавить</th>
+        <th>Удалить</th>
+        <th>Никнейм</th>
       </tr>
     </thead>
     <tbody id="metki_tbody">
       {% for marker in markers %}
       <tr id="tr-{{ marker.id }}">
-        <th id="table-one">
+        <th data-label="Мир">
           <select name="server" id="server-{{ marker.id }}">
             <option value="gmgame" {% if marker.server=='gmgame' %} selected="selected" {% endif %}>Основной мир
             </option>
             <option value="farm" {% if marker.server=='farm' %} selected="selected" {% endif %}>Фермерский мир</option>
           </select>
         </th>
-        <th id="table-two">
+        <th data-label="Расположение">
           <select name="id_type" id="id_type-{{ marker.id }}">
             <option value="basePlayers" {% if marker.id_type=='basePlayers' %} selected="selected" {% endif %}>Базыи
               гроков - over</option>
@@ -60,20 +60,20 @@
               - end</option>
           </select>
         </th>
-        <th id="table-three"><input type="text" placeholder="{{ marker.name }}" name="name" id="name-{{ marker.id }}"
+        <th data-label="Имя"><input type="text" placeholder="{{ marker.name }}" name="name" id="name-{{ marker.id }}"
             value="{{ marker.name }}"></th>
-        <th id="table-four"><input type="text" placeholder="{{ marker.x }}" name="x" id="x-{{ marker.id }}"
+        <th data-label="X"><input type="text" placeholder="{{ marker.x }}" name="x" id="x-{{ marker.id }}"
             value="{{ marker.x }}"></th>
-        <th id="table-five"><input type="text" placeholder="{{ marker.y }}" name="y" id="y-{{ marker.id }}"
+        <th data-label="Y"><input type="text" placeholder="{{ marker.y }}" name="y" id="y-{{ marker.id }}"
             value="{{ marker.y }}"></th>
-        <th id="table-six"><input type="text" placeholder="{{ marker.z }}" name="z" id="z-{{ marker.id }}"
+        <th data-label="Z"><input type="text" placeholder="{{ marker.z }}" name="z" id="z-{{ marker.id }}"
             value="{{ marker.z }}"></th>
-        <th id="table-seven"><input type="text" placeholder="{{ marker.description }}" name="description"
+        <th data-label="Описание"><input type="text" placeholder="{{ marker.description }}" name="description"
             id="description-{{ marker.id }}" {% if marker.description %} value="{{ marker.description }}" {% endif %}>
         </th>
-        <th id="table-eight"><button id="edit-{{ marker.id }}">Изменить</button></th>
-        <th id="table-nine"><button id="del-{{ marker.id }}">Удалить</button></th>
-        <th id="table-nine">{{ marker.username }}</th>
+        <th data-label="Добавить"><button id="edit-{{ marker.id }}">Изменить</button></th>
+        <th data-label="Удалить"><button id="del-{{ marker.id }}">Удалить</button></th>
+        <th data-label="Игрок"><span>{{ marker.username }}</span></th>
       </tr>
       {% endfor %}
     </tbody>

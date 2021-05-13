@@ -14,7 +14,7 @@
   .links {
     display: block;
     position: absolute;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.9);
     height: 100%;
     min-height: 1000px;
     width: 100%;
@@ -81,7 +81,6 @@
     position: relative;
     cursor: pointer;
   }
-  /*---------- the-default-view ----------*/
   /*---------- start ----------*/
   /*---------- support ----------*/
   /*---------- mods ----------*/
@@ -112,6 +111,9 @@
   }
   .info-litematic ul li a {
     font-size: 14px;
+  }
+  .accordion-item-body-content img{
+    margin: 0;
   }
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
@@ -147,5 +149,51 @@
     width: 750px;
     height: 600px;
   }
-  /*---------- modal-register ----------*/
+  /*---------- register ----------*/
+  /*---------- profile ----------*/
+  /*---------- metki ----------*/
+  .metki thead {
+    display: none;
+  }
+  .metki,
+  .metki tbody,
+  .metki tbody tr,
+  .metki tbody tr th {
+    display: block;
+    width: 100%;
+  }
+  .metki tbody tr {
+    margin-bottom: 15px;
+  }
+  .metki tbody tr th {
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    width: 100%;
+    right: 0;
+    text-align: right;
+    position: relative;
+  }
+  .metki tbody tr th::before {
+    content: attr(data-label);
+    color: #f4f4f4;
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
+  }
+  .metki tbody tr th input,
+  .metki tbody tr th select,
+  .metki tbody tr th button,
+  .metki tbody tr th span {
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    right:  0;
+    width: 70%;
+    text-align: start;
+    border-left: 1px solid #f4f4f4;
+  }
+  .display-none {
+    display: none !important;
+  }
 }

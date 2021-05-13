@@ -10,7 +10,7 @@
     font-weight: 900;
   }
   h2 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 900;
   }
   h3 {
@@ -55,13 +55,15 @@
     min-width: 400px;
   }
   .wrapper-link .button-link:hover {
-    width: 160px;
+    width: auto;
   }
   .wrapper-link .button-link {
     height: 40px;
     width: 43px;
+    flex-wrap: wrap;
   }
-  .icon-button img {
+  .icon-button img,
+  .icon-button svg {
     height: 30px;
     width: 30px;
     margin: 5px;
@@ -73,7 +75,6 @@
     font-size: 14px;
   }
   /*---------- menu ----------*/
-  /*---------- the-default-view ----------*/
   /*---------- start ----------*/
   /*---------- support ----------*/
   /*---------- mods ----------*/
@@ -83,6 +84,9 @@
   /*---------- gallery ----------*/
   /*---------- resources ----------*/
   /*---------- litematica ----------*/
+  .info-litematic ul li {
+    text-overflow: ellipsis ;
+  }
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
   /*---------- main-container ----------*/
@@ -117,7 +121,7 @@
   .linck-contact {
     margin-bottom: 30px;
   }
-  /*---------- modal-register ----------*/
+  /*---------- register ----------*/
   .warning-help-1 {
     font-size: 16px;
   }
@@ -126,5 +130,11 @@
   }
   .warning-help-2 a:visited {
     font-size: 16px;
+  }
+  /*---------- profile ----------*/
+  /*---------- metki ----------*/ 
+  .metki::before {
+    bottom: -50px;
+    font-size: 10px;
   }
 }
