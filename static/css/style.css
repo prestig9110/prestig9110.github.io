@@ -252,27 +252,47 @@ h6 {
   transform: translateY(0px) rotate(-45deg);
 }
 /*---------------------------------------- start ----------------------------------------*/
-#start ul li span,
-#start p span {
+.start-block ul li span,
+.start-block p span {
   font-style: italic;
 }
-#start ul li a {
+.start-block ul li a {
   text-decoration: none;
   color: black;
   font-weight: 600;
+  transition: all 0.35s ease;
+}
+.start-block ul li a:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+.start-block ul li a:visited {
+  color: black;
 }
 /*---------------------------------------- support ----------------------------------------*/
-#support ul li a {
-  color: #30679e;
+.support-block ul li a,
+.support-block ul li span {
+  font-weight: 600;
+  color: black;
+  transition: all 0.35s ease;
+}
+.support-block ul li a:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+.support-block ul li a:visited {
+  color: black;
 }
 /*---------------------------------------- mods ----------------------------------------*/
-#mods ul li a {
+.mods-block ul li a {
+  color: #30679e;
+  transition: all 0.35s ease;
+}
+.mods-block li a:visited {
   color: #30679e;
 }
-#modsul li a:visited {
-  color: #30679e;
+.mods-block li a:hover {
+  color: #2c5a88a9;
 }
-#mods ul li::before {
+.mods-block ul li::before {
   content: "";
   display: inline-block;
   width: 10px;
@@ -281,17 +301,16 @@ h6 {
   background: url(../img/check-mark.svg) no-repeat center;
   background-size: cover;
 }
-#mods h4 span {
+.mods-block h4 span {
   font-weight: 900;
 }
 /*---------------------------------------- config-system ----------------------------------------*/
-#config-system ul li span {
+.config-block ul li span {
   font-style: italic;
   font-weight: 500;
 }
 /*---------------------------------------- maps ----------------------------------------*/
-.cd-btn-1,
-.cd-btn-2 {
+.cd-btn {
   width: 180px;
   height: 60px;
   line-height: 60px;
@@ -301,37 +320,31 @@ h6 {
   margin: 20px;
   padding: 20px;
   transition: 0.35s;
-}
-.cd-btn-1 {
   border: 2px solid #ffba00;
 }
-.cd-btn-2 {
-  border: 2px solid #ff74fa;
-}
-.cd-btn-1:hover {
-  background-color: #ffba00;
+.cd-btn:hover {
+  background-color: #ffbb009d;
   border-color: #ffba00;
 }
-.cd-btn-2:hover {
-  background-color: #ff74fa;
-  border-color: #ff74fa;
-}
 /*---------------------------------------- command ----------------------------------------*/
-#command ul li span {
+.command-block ul li span {
   font-weight: 800;
   font-style: italic;
+}
+.command-block h3 {
+  padding-left: 20px;
 }
 /*---------------------------------------- gallery ----------------------------------------*/
 
 /*---------------------------------------- resources ----------------------------------------*/
-#resources .content {
+.resourses-block h4 span {
+  font-style: italic;
+}
+.resourses-block .content {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-}
-#resources h4 span {
-  font-style: italic;
 }
 .download-files {
   text-decoration: none;
@@ -345,7 +358,7 @@ h6 {
   color: #ff74fa;
 }
 /*---------------------------------------- litematica ----------------------------------------*/
-#litematica .accordion-item-body-content {
+.litematica-block .accordion-item-body-content {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -378,6 +391,7 @@ h6 {
   text-transform: none;
   font-weight: 500;
   font-style: italic;
+  text-overflow: ellipsis;
 }
 /*---------------------------------------- market ----------------------------------------*/
 
@@ -456,6 +470,7 @@ h6 {
   display: flex;
   flex-direction: row;
   justify-content: start;
+  text-overflow: ellipsis;
 }
 /*---------------------------------------- main-container ----------------------------------------*/
 .main-link {
@@ -571,7 +586,45 @@ h6 {
   width: 550px;
   height: 450px;
 }
-/*---------------------------------------- modal-register ----------------------------------------*/
+/*---------------------------------------- profile ----------------------------------------*/
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+/* ---------------------------------------- modal-register ----------------------------------------
 .register-form {
   margin: 0 auto;
   display: flex;
@@ -656,7 +709,7 @@ h6 {
   color: black;
   font-weight: 600;
   background: transparent;
-}
+} */
 /*---------------------------------------- metki ----------------------------------------*/
 .metki,
 .add_metki {
@@ -716,14 +769,13 @@ h6 {
   border: 1px solid black;
   border-bottom: none;
 }
-.metki::before{
-   content: "* После добавления метки нужно обновить страницу что бы метка отобразилась в таблице";
-   position: absolute;
-   bottom: -27px;
-   right: 0;
-   font-size: 13px;
-
-}
+/* .metki::before {
+  content: "* После добавления метки нужно обновить страницу что бы метка отобразилась в таблице";
+  position: absolute;
+  bottom: -27px;
+  right: 0;
+  font-size: 13px;
+} */
 @media screen and (max-width: 1024px) {
   .metki thead {
     display: none;
@@ -774,6 +826,48 @@ h6 {
   .metki tbody tr th select,
   .metki tbody tr th button {
     width: 60%;
-    }
-  
+  }
+}
+.tadle-test {
+  margin-top: 50px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.tadle-test-head,
+.tadle-test-body {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tadle-test-head div,
+.tadle-test-body div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  margin: 0;
+  border-collapse: collapse;
+  border: 0.5px solid black;
+}
+.tadle-test-head div select,
+.tadle-test-head div input,
+.tadle-test-head div button,
+.tadle-test-body div select,
+.tadle-test-body div input,
+.tadle-test-body div button {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  margin: 0;
+  border: none;
+  outline: none;
+  background: none;
 }
