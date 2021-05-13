@@ -8,94 +8,85 @@
 </p>
 {% endif %}
 {% if user_id["status"] == 1 %}
-  <p style="color: red">
-    Ваша заявка рассматривается. По всем вопросам, пожалуйста,
-    обращайтесь в
-    <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
-  </p>
-  <p>Статус - Заявка на рассмотрении</p>
-  <p>Не забудьте прочитать <a>правила</a></p>
+<p style="color: red">
+  Ваша заявка рассматривается. По всем вопросам, пожалуйста,
+  обращайтесь в
+  <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
+</p>
+<p>Статус - Заявка на рассмотрении</p>
+<p>Не забудьте прочитать <a>правила</a></p>
 {% elif user_id["status"] == 2 %}
-  <p>Приятной игры {{user.name + "#" + user.discriminator}}</p>
-  <p>Адрес сервера - mine.gmgame.ru</p>
-  <p>Статус - Игрок сервера</p>
-  <p>Ваш ник на сервере - {{ user_id.username }}</p>
-  <p>Не забудьте прочитать <a>правила</a> или освежить их в памяти</p>
-  <p>Сервер является абсолютно бесплатным. Он существует и развивается только за счет активных игроков, ламповой атмосферы и ваших <a href="/support/">пожертвований</a></p>
-  <p>Спасибо за участие!</p>
+<p>Приятной игры {{user.name + "#" + user.discriminator}}</p>
+<p>Адрес сервера - mine.gmgame.ru</p>
+<p>Статус - Игрок сервера</p>
+<p>Ваш ник на сервере - {{ user_id.username }}</p>
+<p>Не забудьте прочитать <a>правила</a> или освежить их в памяти</p>
+<p>Сервер является абсолютно бесплатным. Он существует и развивается только за счет активных игроков, ламповой атмосферы
+  и ваших <a href="/support/">пожертвований</a></p>
+<p>Спасибо за участие!</p>
 
-  <h4>Мои метки</h4>
-  <div id="add_marker_res"></div>
-  <table id="metki">
-    <thead>
-      <tr>
-        <th id="table-one">Мир</th>
-        <th id="table-two">Расположение</th>
-        <th id="table-three">Имя</th>
-        <th id="table-four">X</th>
-        <th id="table-five">Y</th>
-        <th id="table-six">Z</th>
-        <th id="table-seven">Описание</th>
-        <th id="table-eight">Добавить</th>
-        <th id="table-nine">Удалить</th>
-      </tr>
-    </thead>
-    <tbody id="metki_tbody">
-      {% for marker in markers %}
-      <tr id="tr-{{ marker.id }}">
-        <th id="table-one">
-          <select name="server" id="server-{{ marker.id }}">
-            <option value="gmgame" {% if marker.server=='gmgame' %} selected="selected" {% endif %}>Основной мир</option>
-            <option value="farm" {% if marker.server=='farm' %} selected="selected" {% endif %}>Фермерский мир</option>
-          </select>
-        </th>
-        <th id="table-two">
-          <select name="id_type" id="id_type-{{ marker.id }}">
-            <option value="basePlayers" {% if marker.id_type=='basePlayers' %} selected="selected" {% endif %}>Базыи
-              гроков - over</option>
-            <option value="city" {% if marker.id_type=='city' %} selected="selected" {% endif %}>Города - over</option>
-            <option value="shopping_centers" {% if marker.id_type=='shopping_centers' %} selected="selected" {% endif %}>
-              Торговые центры - over</option>
-            <option value="turquoise" {% if marker.id_type=='turquoise' %} selected="selected" {% endif %}>Бирюзовая -
-              nether</option>
-            <option value="orange" {% if marker.id_type=='orange' %} selected="selected" {% endif %}>Оранжевая - nether
-            </option>
-            <option value="lime" {% if marker.id_type=='lime' %} selected="selected" {% endif %}>Лаймовая - nether
-            </option>
-            <option value="pink" {% if marker.id_type=='pink' %} selected="selected" {% endif %}>Розовая - nether</option>
-            <option value="farm" {% if marker.id_type=='farm' %} selected="selected" {% endif %}>Фермы - nether</option>
-            <option value="end_portals" {% if marker.id_type=='end_portals' %} selected="selected" {% endif %}>Энд порталы
-              - nether</option>
-            <option value="pixel_arts" {% if marker.id_type=='pixel_arts' %} selected="selected" {% endif %}>Пиксель арты
-              - end</option>
-          </select>
-        </th>
-        <th id="table-three"><input type="text" placeholder="{{ marker.name }}" name="name" id="name-{{ marker.id }}"
-            value="{{ marker.name }}"></th>
-        <th id="table-four"><input type="text" placeholder="{{ marker.x }}" name="x" id="x-{{ marker.id }}"
-            value="{{ marker.x }}"></th>
-        <th id="table-five"><input type="text" placeholder="{{ marker.y }}" name="y" id="y-{{ marker.id }}"
-            value="{{ marker.y }}"></th>
-        <th id="table-six"><input type="text" placeholder="{{ marker.z }}" name="z" id="z-{{ marker.id }}"
-            value="{{ marker.z }}"></th>
-        <th id="table-seven"><input type="text" placeholder="{{ marker.description }}" name="description"
-            id="description-{{ marker.id }}" {% if marker.description %} value="{{ marker.description }}" {% endif %}>
-        </th>
-        <th id="table-eight"><button id="edit-{{ marker.id }}">Изменить</button></th>
-        <th id="table-nine"><button id="del-{{ marker.id }}">Удалить</button></th>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  <table id="add_metki">
+<h4  class="header-metki">Мои метки</h4>
+<div id="add_marker_res"></div>
+<table class="metki">
+  <thead>
     <tr>
-      <th id="table-one">
+      <th>Мир</th>
+      <th>Расположение</th>
+      <th>Имя</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Z</th>
+      <th>Описание</th>
+      <th>Добавить</th>
+      <th>Удалить</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for marker in markers %}
+    <tr id="tr-{{ marker.id }}">
+      <th data-label="Мир">
+        <select name="server" id="server-{{ marker.id }}">
+          <option value="gmgame" {% if marker.server=='gmgame' %} selected="selected" {% endif %}>Основной мир</option>
+          <option value="farm" {% if marker.server=='farm' %} selected="selected" {% endif %}>Фермерский мир</option>
+        </select>
+      </th>
+      <th data-label="Расположение">
+        <select name="id_type" id="id_type-{{ marker.id }}">
+          <option value="basePlayers" {% if marker.id_type=='basePlayers' %} selected="selected" {% endif %}>Базыи гроков - over</option>
+          <option value="city" {% if marker.id_type=='city' %} selected="selected" {% endif %}>Города - over</option>
+          <option value="shopping_centers" {% if marker.id_type=='shopping_centers' %} selected="selected" {% endif %}>Торговые центры - over</option>
+          <option value="turquoise" {% if marker.id_type=='turquoise' %} selected="selected" {% endif %}>Бирюзовая - nether</option>
+          <option value="orange" {% if marker.id_type=='orange' %} selected="selected" {% endif %}>Оранжевая - nether</option>
+          <option value="lime" {% if marker.id_type=='lime' %} selected="selected" {% endif %}>Лаймовая - nether</option>
+          <option value="pink" {% if marker.id_type=='pink' %} selected="selected" {% endif %}>Розовая - nether</option>
+          <option value="farm" {% if marker.id_type=='farm' %} selected="selected" {% endif %}>Фермы - nether</option>
+          <option value="end_portals" {% if marker.id_type=='end_portals' %} selected="selected" {% endif %}>Энд порталы - nether</option>
+          <option value="pixel_arts" {% if marker.id_type=='pixel_arts' %} selected="selected" {% endif %}>Пиксель арты - end</option>
+        </select>
+      </th>
+      <th data-label="Имя"><input type="text" placeholder="{{ marker.name }}" name="name" id="name-{{ marker.id }}"
+          value="{{ marker.name }}"></th>
+      <th data-label="X"><input type="text" placeholder="{{ marker.x }}" name="x" id="x-{{ marker.id }}"
+          value="{{ marker.x }}"></th>
+      <th data-label="Y"><input type="text" placeholder="{{ marker.y }}" name="y" id="y-{{ marker.id }}"
+          value="{{ marker.y }}"></th>
+      <th data-label="Z"><input type="text" placeholder="{{ marker.z }}" name="z" id="z-{{ marker.id }}"
+          value="{{ marker.z }}"></th>
+      <th data-label="Описание"><input type="text" placeholder="{{ marker.description }}" name="description"
+          id="description-{{ marker.id }}" {% if marker.description %} value="{{ marker.description }}" {% endif %}>
+      </th>
+      <th data-label="Добавить"><button id="edit-{{ marker.id }}">Изменить</button></th>
+      <th data-label="Удалить"><button id="del-{{ marker.id }}">Удалить</button></th>
+    </tr>
+    {% endfor %}
+    <tr>
+      <th data-label="Мир">
         <select name="add_server" id="add_server">
           <option value="gmgame">Основной мир</option>
           <option value="farm">Фермерский мир</option>
         </select>
       </th>
-      <th id="table-two">
+      <th data-label="Расположение">
         <select name="add_id_type" id="add_id_type">
           <option value="basePlayers">Базы игроков</option>
           <option value="city">Города</option>
@@ -109,66 +100,101 @@
           <option value="pixel_arts">Пиксель арты - end</option>
         </select>
       </th>
-      <th id="table-three"><input type="text" placeholder="text" name="add_name" id="add_name"></th>
-      <th id="table-four"><input type="text" placeholder="0000" name="add_x" id="add_x"></th>
-      <th id="table-five"><input type="text" placeholder="0000" name="add_y" id="add_y"></th>
-      <th id="table-six"><input type="text" placeholder="0000" name="add_z" id="add_z"></th>
-      <th id="table-seven"><input type="text" placeholder="text-text" name="add_description" id="add_description"></th>
-      <th id="table-eight"><button id="add">Добавить</button></th>
-      <th id="table-nine"></th>
+      <th data-label="Имя"><input type="text" placeholder="text" name="add_name" id="add_name"></th>
+      <th data-label="X"><input type="text" placeholder="0000" name="add_x" id="add_x"></th>
+      <th data-label="Y"><input type="text" placeholder="0000" name="add_y" id="add_y"></th>
+      <th data-label="Z"><input type="text" placeholder="0000" name="add_z" id="add_z"></th>
+      <th data-label="Описание"><input type="text" placeholder="text-text" name="add_description" id="add_description"></th>
+      <th data-label="Добавить"><button id="add">Добавить</button></th>
+      <th data-label="Удалить" class="display-none"></th>
     </tr>
-  </table>
+  </tbody>
+</table>
 
-  {% if opUser %}
-    <p><a href='/other_markers/'>Все метки</a></p>
-    <p><a href='/list_players/'>Заявки</a></p>
-  {% endif %}
+ <!-- <table class="add_metki">
+    <tbody>
+    <tr>
+      <th data-label="Мир">
+        <select name="add_server" id="add_server">
+          <option value="gmgame">Основной мир</option>
+          <option value="farm">Фермерский мир</option>
+        </select>
+      </th>
+      <th data-label="Расположение">
+        <select name="add_id_type" id="add_id_type">
+          <option value="basePlayers">Базы игроков</option>
+          <option value="city">Города</option>
+          <option value="shopping_centers">Торговые центры - over</option>
+          <option value="turquoise">Бирюзовая - nether</option>
+          <option value="orange">Оранжевая - nether</option>
+          <option value="lime">Лаймовая - nether</option>
+          <option value="pink">Розовая - nether</option>
+          <option value="farm">Фермы - nether</option>
+          <option value="end_portals">Энд порталы - nether</option>
+          <option value="pixel_arts">Пиксель арты - end</option>
+        </select>
+      </th>
+      <th data-label="Имя"><input type="text" placeholder="text" name="add_name" id="add_name"></th>
+      <th data-label="X"><input type="text" placeholder="0000" name="add_x" id="add_x"></th>
+      <th data-label="Y"><input type="text" placeholder="0000" name="add_y" id="add_y"></th>
+      <th data-label="Z"><input type="text" placeholder="0000" name="add_z" id="add_z"></th>
+      <th data-label="Описание"><input type="text" placeholder="text-text" name="add_description" id="add_description"></th>
+      <th data-label="Добавить"><button id="add">Добавить</button></th>
+      <th data-label="Удалить"><button id="add">Добавить</button></th>
+    </tr>
+  </tbody>
+</table>  -->
+
+{% if opUser %}
+<p><a href='/other_markers/'>Все метки</a></p>
+<p><a href='/list_players/'>Заявки</a></p>
+{% endif %}
 {% elif user_id["status"] == 3 %}
-  <p>
-    К сожалению вашей заявке отказано. За подробновстями вы можете
-    обратиться в
-    <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
-  </p>
-  <p>Статус - Отказано</p>
+<p>
+  К сожалению вашей заявке отказано. За подробновстями вы можете
+  обратиться в
+  <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
+</p>
+<p>Статус - Отказано</p>
 {% elif user_id["status"] == 4 %}
-  <p>Статус - Забанен</p>
-  <p>
-    К сожалению вы забанены на этом сервере. За подробновстями вы можете
-    обратиться в
-    <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
-  </p>
+<p>Статус - Забанен</p>
+<p>
+  К сожалению вы забанены на этом сервере. За подробновстями вы можете
+  обратиться в
+  <a href="https://discord.gg/sPR62FDQQz" target="_blank">дискорд</a>
+</p>
 {% else %}
-  <div class="register-form">
-    <h3>Заявка</h3>
-    <div id="res"></div>
-    <!--Логин-->
-    <span class="input-name">Логин</span>
-    <input id="login" type="input" name="login" placeholder="Игровой ник" />
-    <!--Пароль-->
-    <span class="input-name">Пароль</span>
-    <input id="password" type="input" name="password" placeholder="123456789" />
-    <!--Лицензия/пиратка-->
-    <span class="input-name">Тип акаунта</span>
-    <select name="tupe" id="type">
-      <option value="1">Лицензия</option>
-      <option value="0">Пиратка</option>
-    </select>
-    <!--возраст-->
-    <span class="input-name">Возраст</span>
-    <input id="age" type="input" name="age" placeholder="16" />
-    <!--о проекте-->
-    <span class="input-name">Откуда узнали о проекте</span>
-    <textarea name="from_about" id="from_about" cols="auto" rows="auto"></textarea>
-    <!--о себе-->
-    <span class="input-name">Интересы в майнкрафт</span>
-    <textarea name="you_about" id="you_about" cols="auto" rows="auto"></textarea>
-    <!--опыт игры на других серверах-->
-    <span class="input-name">Прошлые сервера</span>
-    <textarea name="servers" id="servers" cols="auto" rows="auto"></textarea>
-    <button id="register" class="register-btn-next">
-      Отправить заявку
-    </button>
-  </div>
+<div class="register-form">
+  <h3>Заявка</h3>
+  <div id="res"></div>
+  <!--Логин-->
+  <span class="input-name">Логин</span>
+  <input id="login" type="input" name="login" placeholder="Игровой ник" />
+  <!--Пароль-->
+  <span class="input-name">Пароль</span>
+  <input id="password" type="input" name="password" placeholder="123456789" />
+  <!--Лицензия/пиратка-->
+  <span class="input-name">Тип акаунта</span>
+  <select name="tupe" id="type">
+    <option value="1">Лицензия</option>
+    <option value="0">Пиратка</option>
+  </select>
+  <!--возраст-->
+  <span class="input-name">Возраст</span>
+  <input id="age" type="input" name="age" placeholder="16" />
+  <!--о проекте-->
+  <span class="input-name">Откуда узнали о проекте</span>
+  <textarea name="from_about" id="from_about" cols="auto" rows="auto"></textarea>
+  <!--о себе-->
+  <span class="input-name">Интересы в майнкрафт</span>
+  <textarea name="you_about" id="you_about" cols="auto" rows="auto"></textarea>
+  <!--опыт игры на других серверах-->
+  <span class="input-name">Прошлые сервера</span>
+  <textarea name="servers" id="servers" cols="auto" rows="auto"></textarea>
+  <button id="register" class="register-btn-next">
+    Отправить заявку
+  </button>
+</div>
 {% endif %}
 {% endblock %}
 {% block js_scripts %}
