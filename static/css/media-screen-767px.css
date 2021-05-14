@@ -115,18 +115,29 @@
     font-size: 20px;
   }
   /*---------- profile ----------*/
-  .profile {
-    flex-direction: column;
-  }
-  .me-photo,
   .me-info-profile {
-    height: auto;
     width: 100%;
-    padding: 10px;
   }
-  .me-photo img {
-    width: 50%;
-    margin: 10px auto;
+  .border-line {
+    margin-left: 45px;
+    margin-right: 45px;
+    margin-bottom: 15px;
+    padding-bottom: 0;
+    border-bottom: 1px solid #f4f4f450;
+  }
+  .profile-help {
+    width: 100%;
+    padding-top: 10px;
+  }
+  .profile-help a {
+    margin-top: 5px;
+    padding-left: 45px;
+  }
+  .link-support-profile {
+    width: 100%;
+    padding: 0 30px;
+    padding-left: 50px;
+    padding-bottom: 50px;
   }
   /*---------- metki ----------*/
 }

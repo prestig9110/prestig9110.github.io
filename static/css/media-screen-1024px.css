@@ -112,7 +112,7 @@
   .info-litematic ul li a {
     font-size: 14px;
   }
-  .accordion-item-body-content img{
+  .accordion-item-body-content img {
     margin: 0;
   }
   /*---------- market ----------*/
@@ -151,6 +151,24 @@
   }
   /*---------- register ----------*/
   /*---------- profile ----------*/
+  .me-info-profile {
+    width: 60%;
+  }
+  .border-line {
+    margin-left: 45px;
+    margin-bottom: 15px;
+    padding-bottom: 0;
+    border-bottom: 1px solid #f4f4f450;
+  }
+  .profile-help {
+    width: 40%;
+  }
+  .link-support-profile {
+    width: 100%;
+    padding: 0 30px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+  }
   /*---------- metki ----------*/
   .metki thead {
     display: none;
@@ -188,7 +206,7 @@
     padding-right: 0;
     padding-bottom: 0;
     padding-top: 0;
-    right:  0;
+    right: 0;
     width: 70%;
     text-align: start;
     border-left: 1px solid #f4f4f4;
