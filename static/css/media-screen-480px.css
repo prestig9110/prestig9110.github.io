@@ -85,7 +85,7 @@
   /*---------- resources ----------*/
   /*---------- litematica ----------*/
   .info-litematic ul li {
-    text-overflow: ellipsis ;
+    text-overflow: ellipsis;
   }
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
@@ -132,9 +132,5 @@
     font-size: 16px;
   }
   /*---------- profile ----------*/
-  /*---------- metki ----------*/ 
-  .metki::before {
-    bottom: -50px;
-    font-size: 10px;
-  }
+  /*---------- metki ----------*/
 }
