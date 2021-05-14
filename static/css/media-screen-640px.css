@@ -58,7 +58,42 @@
   }
   /*---------- register ----------*/
   /*---------- profile ----------*/
-  /*---------- metki ----------*/ 
+  .border-line {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 0;
+    border-bottom: 1px solid #f4f4f450;
+  }
+  .profile-help a {
+    margin-top: 5px;
+    padding-left: 20px;
+  }
+  .flex-tabs {
+    flex-direction: row;
+  }
+  .flex-tabs .tab:last-of-type {
+    border-bottom: none;
+  }
+  .link-support-profile {
+    padding: 0 30px;
+    padding-left: 30px;
+    padding-bottom: 30px;
+  }
+  .profile-tabs .flex-tabs .tab {
+    width: auto;
+  }
+  #tab-one:checked ~ .tabs #tab-one-label::before,
+  #tab-two:checked ~ .tabs #tab-two-label::before,
+  #tab-three:checked ~ .tabs #tab-three-label::before {
+    content: none;
+  }
+  #tab-one:checked ~ .tabs #tab-one-label::after,
+  #tab-two:checked ~ .tabs #tab-two-label::after,
+  #tab-three:checked ~ .tabs #tab-three-label::after {
+    content: none;
+  }
+  /*---------- metki ----------*/
   .metki tbody tr th input,
   .metki tbody tr th select,
   .metki tbody tr th button {
