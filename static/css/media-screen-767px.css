@@ -129,7 +129,4 @@
     margin: 10px auto;
   }
   /*---------- metki ----------*/
-  .metki::before {
-    bottom: -57px;
-  }
 }

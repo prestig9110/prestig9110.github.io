@@ -1,8 +1,8 @@
 {% extends "_base.html" %}
 {% block meta %}
 {{ super() }}
-  {% if opUser %}
-  <meta id="opUser" data-name="opUser" data-other="opUser">
+{% if opUser %}
+<meta id="opUser" data-name="opUser" data-other="opUser">
 {% endif %}
 {% endblock %}
 {% block content %}
@@ -62,11 +62,11 @@
         </th>
         <th data-label="Имя"><input type="text" placeholder="{{ marker.name }}" name="name" id="name-{{ marker.id }}"
             value="{{ marker.name }}"></th>
-        <th data-label="X"><input type="text" placeholder="{{ marker.x }}" name="x" id="x-{{ marker.id }}"
+        <th data-label="X"><input class="x-y-z" type="text" placeholder="{{ marker.x }}" name="x" id="x-{{ marker.id }}"
             value="{{ marker.x }}"></th>
-        <th data-label="Y"><input type="text" placeholder="{{ marker.y }}" name="y" id="y-{{ marker.id }}"
+        <th data-label="Y"><input class="x-y-z" type="text" placeholder="{{ marker.y }}" name="y" id="y-{{ marker.id }}"
             value="{{ marker.y }}"></th>
-        <th data-label="Z"><input type="text" placeholder="{{ marker.z }}" name="z" id="z-{{ marker.id }}"
+        <th data-label="Z"><input class="x-y-z" type="text" placeholder="{{ marker.z }}" name="z" id="z-{{ marker.id }}"
             value="{{ marker.z }}"></th>
         <th data-label="Описание"><input type="text" placeholder="{{ marker.description }}" name="description"
             id="description-{{ marker.id }}" {% if marker.description %} value="{{ marker.description }}" {% endif %}>
