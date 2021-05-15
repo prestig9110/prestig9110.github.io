@@ -313,12 +313,6 @@ def add_territories():
         if not _is_numb(xStart) or not _is_numb(zStart) or not _is_numb(xStop) or not _is_numb(zStop):
             return jsonify( { 'error': 'Координаты могут быть только число' } )
 
-        cursor.execute("SELECT id FROM territories WHERE name = %s", ( name ) )
-        terr = cursor.fetchone()
-
-        if terr is not None:
-            return jsonify( { 'error': 'Такая метка уже существует' } )
-
         user = oauth.fetch_user()
 
         if edit:
@@ -327,6 +321,12 @@ def add_territories():
                     ( xStart, zStart, xStop, name, zStop, markerID )
             )  
         else:
+            cursor.execute("SELECT id FROM territories WHERE name = %s", ( name ) )
+            terr = cursor.fetchone()
+
+            if terr is not None:
+                return jsonify( { 'error': 'Такая метка уже существует' } )
+
             cursor.execute( 
                 'INSERT INTO territories (xStart, zStart, xStop, zStop, name, user) VALUES (%s, %s, %s, %s, %s, %s)', 
                     ( xStart, zStart, xStop, zStop, name, str(user.id))
