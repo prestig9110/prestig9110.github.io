@@ -1,0 +1,52 @@
+{% extends "_base.html" %}
+{% block content %}
+<table class="metki">
+    <thead>
+      <tr>
+        <th>Название</th>
+        <th>Start X</th>
+        <th>Start Z</th>
+        <th>Stop X</th>
+        <th>Stop Z</th>
+        <th>Добавить</th>
+        <th>Удалить</th>
+      </tr>
+    </thead>
+    <tbody id="metki_tbody">
+      {% for marker in markers %}
+      <tr id="tr-{{ marker.id }}">
+        <th data-label="Название"><input type="text" placeholder="{{ marker.name }}" name="name"
+            id="name-{{ marker.id }}" value="{{ marker.name }}"></th>
+        <th data-label="Start X"><input class="x-y-z" type="text" placeholder="{{ marker.xStart }}" name="xStart"
+            id="xStart-{{ marker.id }}" value="{{ marker.xStart }}"></th>
+        <th data-label="Start Z"><input class="x-y-z" type="text" placeholder="{{ marker.zStart }}" name="zStart"
+            id="zStart-{{ marker.id }}" value="{{ marker.zStart }}"></th>
+        <th data-label="Stop X"><input class="x-y-z" type="text" placeholder="{{ marker.xStop }}" name="xStop"
+            id="xStop-{{ marker.id }}" value="{{ marker.xStop }}"></th>
+        <th data-label="Stop Z"><input class="x-y-z" type="text" placeholder="{{ marker.zStop }}" name="zStop"
+            id="zStop-{{ marker.id }}" value="{{ marker.zStop }}"></th>
+        <th data-label="Добавить"><button id="edit-{{ marker.id }}">Изменить</button></th>
+        <th data-label="Удалить"><button id="del-{{ marker.id }}">Удалить</button></th>
+      </tr>
+      {% endfor %}
+      <tr>
+        <th data-label="Название"><input type="text" placeholder="Имя" name="name"
+            id="name-add"></th>
+        <th data-label="Start X"><input class="x-y-z" type="text" placeholder="000" name="xStart"
+            id="xStart-add"></th>
+        <th data-label="Start Z"><input class="x-y-z" type="text" placeholder="000" name="zStart"
+            id="zStart-add"></th>
+        <th data-label="Stop X"><input class="x-y-z" type="text" placeholder="000" name="xStop"
+            id="xStop-add"></th>
+        <th data-label="Stop Z"><input class="x-y-z" type="text" placeholder="000" name="zStop"
+            id="zStop-add"></th>
+        <th data-label="Добавить"><button id="add">Добавить</button></th>
+        <th data-label="Удалить" class="display-none"></th>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}
+{% block js_scripts %}
+{{ super() }}
+<script src="/static/js/add_territories.js"></script>
+{% endblock %}
