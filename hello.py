@@ -285,6 +285,108 @@ def change_user():
 
     return jsonify( { 'message': 'Статус изменен' } )
 
+
+@app.route('/add_territories', methods=['POST', 'GET'])
+@requires_authorization
+def add_territories():
+    if request.method == 'POST':
+        conn = mysql.connect()
+        cursor = conn.cursor()
+        error = None
+
+        name   = request.form['name']
+        xStart = request.form['xStart']
+        zStart = request.form['zStart']
+        xStop  = request.form['xStop']
+        zStop  = request.form['zStop']
+
+        edit = 0
+        markerID = 0
+
+        if 'edit' in request.form:
+            edit        = request.form['edit']
+            markerID    = request.form['markerID']
+
+        if not name or not xStart or not zStart or not xStop or not zStop:
+            return jsonify( { 'error': 'Не заполнены обязательные поля' } )
+
+        if not _is_numb(xStart) or not _is_numb(zStart) or not _is_numb(xStop) or not _is_numb(zStop):
+            return jsonify( { 'error': 'Координаты могут быть только число' } )
+
+        user = oauth.fetch_user()
+
+        if edit:
+            cursor.execute( 
+                'UPDATE territories SET xStart = %s, zStart = %s, xStop = %s, name = %s, zStop = %s WHERE id = %s',
+                    ( xStart, zStart, xStop, name, zStop, markerID )
+            )  
+        else:
+            cursor.execute( 
+                'INSERT INTO territories (xStart, zStart, xStop, zStop, name, user) VALUES (%s, %s, %s, %s, %s, %s)', 
+                    ( xStart, zStart, xStop, zStop, name, str(user.id))
+            )  
+        
+        conn.commit()
+
+        return jsonify({'success': cursor.lastrowid})
+    
+    return jsonify({'error': 'При добавлении метки произошла ошибка'})
+
+@app.route('/del_territories', methods=['POST', 'GET'])
+@requires_authorization
+def del_territories():
+    if request.method == 'POST':
+        conn = mysql.connect()
+        cursor = conn.cursor()
+        error = None
+
+        idMarker = request.form['id']
+
+        if not idMarker:
+            return jsonify( { 'error': 'Нет ID' } )
+
+        user = oauth.fetch_user()
+
+        cursor.execute( 'DELETE FROM territories WHERE id = ' + idMarker + ' AND user = "' + str(user.id) + '"' )  
+        conn.commit()
+
+        return jsonify({'success': 'Маркер удален'})
+
+@app.route('/territories', methods=['POST', 'GET'])
+@requires_authorization
+def territories():
+    user = oauth.fetch_user()
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM territories WHERE user = '" + str(user.id) + "'")
+    markers = cursor.fetchall()
+
+    return render_template('territories.html', user=user, auth_ok=1, markers=markers)
+
+@app.route('/locations')
+def location_markers():
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM territories")
+    markers = cursor.fetchall()
+
+    terrs = {}
+
+    for marker in markers:
+        terrs[marker["name"]] = { 'territory': "'" + marker["name"] + "'", "guild":"", "acquired":"2021-05-05 02:24:09", "attacker":'null', "location":{"startX": marker["xStart"], "startY": marker["zStart"], "endX": marker["xStop"], "endY": marker["zStop"]} }
+    
+    terr = { 'territories': terrs }
+    # resp = jsonify({"territories":{"Территория Даландиса":{"territory":"Территория Даландиса","guild":"","acquired":"2021-05-05 02:24:09","attacker":'null',"location":{"startX":-3700,"startY":6600,"endX":-4600,"endY":7100}}}} )
+    resp = jsonify(terr)
+
+    # resp.headers['Access-Control-Allow-Origin'] = 'http://map.gmgame.ru'
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+
+    return resp
+
 @app.route("/<page>/")
 def start(page):
     auth_ok = 0
