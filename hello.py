@@ -23,6 +23,7 @@ os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = app.config["DEV"]
 
 oauth = DiscordOAuth2Session(app)
 
+#Регистрация
 @app.route('/register', methods=['POST', 'GET'])
 @requires_authorization
 def register():
@@ -313,12 +314,6 @@ def add_territories():
         if not _is_numb(xStart) or not _is_numb(zStart) or not _is_numb(xStop) or not _is_numb(zStop):
             return jsonify( { 'error': 'Координаты могут быть только число' } )
 
-        cursor.execute("SELECT id FROM territories WHERE name = %s", ( name ) )
-        terr = cursor.fetchone()
-
-        if terr is not None:
-            return jsonify( { 'error': 'Такая метка уже существует' } )
-
         user = oauth.fetch_user()
 
         if edit:
@@ -327,6 +322,12 @@ def add_territories():
                     ( xStart, zStart, xStop, name, zStop, markerID )
             )  
         else:
+            cursor.execute("SELECT id FROM territories WHERE name = %s", ( name ) )
+            terr = cursor.fetchone()
+
+            if terr is not None:
+                return jsonify( { 'error': 'Такая метка уже существует' } )
+
             cursor.execute( 
                 'INSERT INTO territories (xStart, zStart, xStop, zStop, name, user) VALUES (%s, %s, %s, %s, %s, %s)', 
                     ( xStart, zStart, xStop, zStop, name, str(user.id))
@@ -385,10 +386,9 @@ def location_markers():
         terrs[marker["name"]] = { 'territory': "'" + marker["name"] + "'", "guild":"", "acquired":"2021-05-05 02:24:09", "attacker":'null', "location":{"startX": marker["xStart"], "startY": marker["zStart"], "endX": marker["xStop"], "endY": marker["zStop"]} }
     
     terr = { 'territories': terrs }
-    # resp = jsonify({"territories":{"Территория Даландиса":{"territory":"Территория Даландиса","guild":"","acquired":"2021-05-05 02:24:09","attacker":'null',"location":{"startX":-3700,"startY":6600,"endX":-4600,"endY":7100}}}} )
+    
     resp = jsonify(terr)
 
-    # resp.headers['Access-Control-Allow-Origin'] = 'http://map.gmgame.ru'
     resp.headers['Access-Control-Allow-Origin'] = '*'
 
     return resp
