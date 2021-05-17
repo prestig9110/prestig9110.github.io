@@ -3,15 +3,11 @@
   /*---------- header ----------*/
   .header {
     height: 250px;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+    justify-content: flex-end;
   }
   /*---------- header-menu-link ----------*/
   .wrapper-link {
     min-width: 900px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
   /*---------- menu ----------*/
@@ -27,24 +23,16 @@
     margin-left: 0;
     padding: 15px;
     overflow-y: auto;
-    -webkit-transition: all 0.35s ease;
     transition: all 0.35s ease;
-    -webkit-transform: translateX(-450px);
-            transform: translateX(-450px);
+    transform: translateX(-450px);
     border: none;
   }
   .active {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
   .links li {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
     text-align: start;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -79,20 +67,16 @@
     opacity: 0;
     max-height: 0px;
     overflow: hidden;
-    -webkit-transition: height ease 0.35s;
     transition: height ease 0.35s;
   }
   .links #one-menu:checked ~ ul,
   .links #two-menu:checked ~ ul,
   .links #three-menu:checked ~ ul {
-    -webkit-transition: height ease 0.35s;
     transition: height ease 0.35s;
     max-height: 100vh;
     opacity: 1;
   }
   #toggle {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     position: relative;
     cursor: pointer;
@@ -107,40 +91,21 @@
   /*---------- resources ----------*/
   /*---------- litematica ----------*/
   #litematica .accordion-item-body-content {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: start;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: start;
+    flex-wrap: wrap;
   }
   .info-litematic {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: auto;
   }
   .info-litematic-img {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    justify-content: center;
     width: 100%;
     height: auto;
   }
@@ -155,19 +120,11 @@
   /*---------- main-container ----------*/
   .container-link {
     width: 900px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     padding: 0 auto;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
   }
      .card {
     margin: 0 auto 65px auto;

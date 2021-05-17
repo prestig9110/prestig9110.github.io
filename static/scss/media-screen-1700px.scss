@@ -1,16 +1,16 @@
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 1700px) {
   /*---------- body ----------*/
   .container {
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 100%;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    width: 1600px;
   }
   /*---------- header ----------*/
   /*---------- header-menu-link ----------*/
   .wrapper-link {
-    min-width: 370px;
+    width: 1550px;
   }
   /*---------- menu ----------*/
   /*---------- start ----------*/
@@ -28,12 +28,5 @@
       
   /*---------- register ----------*/
   /*---------- profile ----------*/
-  .me-photo img {
-    width: 75%;
-    margin: 10px auto;
-  }
-  .me-info-profile h3 {
-    font-size: 16px;
-  }
-  /*---------- metki ----------*/
+  /*---------- metki ----------*/  
 }
