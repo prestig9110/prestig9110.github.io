@@ -1412,11 +1412,13 @@ h6 {
   height: auto;
   border-collapse: collapse;
   position: relative;
+  border: 2px solid #1f2124;
 }
 
 .metki thead {
   background: rgba(61, 61, 61, 0.55);
   width: 100%;
+  text-align: left;
 }
 
 .metki thead tr th {
@@ -1426,7 +1428,8 @@ h6 {
   opacity: 1;
   padding: 5px;
   vertical-align: middle;
-  border: 1px solid #f4f4f438;
+  border: 1px solid #f4f4f40c;
+  padding: 5px;
 }
 
 .metki tbody tr th {
@@ -1435,7 +1438,8 @@ h6 {
   color: #f4f4f4;
   background: transparent;
   vertical-align: middle;
-  border: 1px solid #f4f4f438;
+  border: 1px solid #f4f4f40c;
+  padding: 5px;
 }
 
 .metki tbody tr th input,
@@ -1454,7 +1458,9 @@ h6 {
 }
 
 .x-y-z {
-  text-align: right;
+  text-align: center;
+  /* padding: 5px; */
+  width: 7%;
 }
 
 .metki tbody tr th select option {
