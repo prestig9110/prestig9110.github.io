@@ -23,6 +23,7 @@ os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = app.config["DEV"]
 
 oauth = DiscordOAuth2Session(app)
 
+#Регистрация
 @app.route('/register', methods=['POST', 'GET'])
 @requires_authorization
 def register():
@@ -385,10 +386,9 @@ def location_markers():
         terrs[marker["name"]] = { 'territory': "'" + marker["name"] + "'", "guild":"", "acquired":"2021-05-05 02:24:09", "attacker":'null', "location":{"startX": marker["xStart"], "startY": marker["zStart"], "endX": marker["xStop"], "endY": marker["zStop"]} }
     
     terr = { 'territories': terrs }
-    # resp = jsonify({"territories":{"Территория Даландиса":{"territory":"Территория Даландиса","guild":"","acquired":"2021-05-05 02:24:09","attacker":'null',"location":{"startX":-3700,"startY":6600,"endX":-4600,"endY":7100}}}} )
+    
     resp = jsonify(terr)
 
-    # resp.headers['Access-Control-Allow-Origin'] = 'http://map.gmgame.ru'
     resp.headers['Access-Control-Allow-Origin'] = '*'
 
     return resp
