@@ -8,8 +8,10 @@
 	and the HTML5 Boilerplate	:: https://html5boilerplate.com
 
 -------------------------------------------------------------------------------*/
+
 /* Let's default this puppy out
 -------------------------------------------------------------------------------*/
+
 html,
 body,
 body div,
@@ -100,18 +102,17 @@ summary {
 /* Handle box-sizing while better addressing child elements:
    https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 /* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+
 /* Responsive images and other embedded objects
 */
 img,
@@ -129,6 +130,7 @@ embed {
 		max-width: none;
 }
 */
+
 /* force a vertical scrollbar to prevent a jumpy page */
 html {
   overflow-y: scroll;
@@ -202,14 +204,10 @@ select {
 }
 
 pre {
-  white-space: pre;
-  /* CSS2 */
-  white-space: pre-wrap;
-  /* CSS 2.1 */
-  white-space: pre-line;
-  /* CSS 3 (and 2.1 as well, actually) */
-  word-wrap: break-word;
-  /* IE */
+  white-space: pre; /* CSS2 */
+  white-space: pre-wrap; /* CSS 2.1 */
+  white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word; /* IE */
 }
 
 input[type="radio"] {
@@ -310,6 +308,7 @@ input[type="button"] {
    (commented out as usage is rare, and the filter syntax messes with some pre-processors)
 .ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
 */
+
 /* let's clear some floats */
 .clearfix:before,
 .clearfix:after {

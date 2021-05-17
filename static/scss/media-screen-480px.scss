@@ -1,4 +1,4 @@
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 480px) {
   /*---------- body ----------*/
   p {
     font-size: 14px;
@@ -6,15 +6,15 @@
     font-weight: 600;
   }
   h1 {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 900;
   }
   h2 {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 900;
   }
   h3 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
   }
   h4 {
@@ -42,10 +42,37 @@
     text-decoration: none;
     font-weight: 600;
   }
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+  }
   /*---------- header ----------*/
   /*---------- header-menu-link ----------*/
   .wrapper-link {
-    min-width: 550px;
+    min-width: 400px;
+  }
+  .wrapper-link .button-link:hover {
+    width: auto;
+  }
+  .wrapper-link .button-link {
+    height: 40px;
+    width: 42px;
+    flex-wrap: wrap;
+  }
+  .icon-button img,
+  .icon-button svg {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+  }
+  .wrapper-link .button-link span {
+    height: 40px;
+    line-height: 40px;
+    margin-left: 5px;
+    font-size: 14px;
   }
   /*---------- menu ----------*/
   /*---------- start ----------*/
@@ -57,86 +84,81 @@
   /*---------- gallery ----------*/
   /*---------- resources ----------*/
   /*---------- litematica ----------*/
+  .info-litematic ul li {
+    text-overflow: ellipsis;
+  }
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
   /*---------- main-container ----------*/
   .main-link {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
      .card {
-    width: 650px;
+    width: 95%;
+    height: auto;
+    margin: 10px;
   }
   .player-header {
-    height: 300px;
+    height: 215px;
   }
   .image {
-    height: 300px;
+    height: 215px;
   }
   .icon {
-    top: 235px;
+    top: 180px;
   }
    
   .linck-discord {
-    margin: 0 auto;
+    width: 95%;
+    margin: 10px;
+    margin-top: 4%;
   }
   .linck-discord iframe {
-    width: 650px;
+    width: 100%;
+  }
+  .linck-contact {
+    margin-bottom: 30px;
   }
   /*---------- register ----------*/
-  .register-form {
-    height: auto;
-    width: 100%;
-  }
-  .register-form input,
-  .register-form textarea,
-  .register-form select {
-    min-height: 45px;
-    max-height: 150px;
-    max-width: 95%;
-    min-width: 95%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 2px auto;
-    border-radius: 10px;
-    border: 1px solid lightgray;
-    outline: none;
-  }
   .warning-help-1 {
-    font-size: 20px;
+    font-size: 16px;
   }
   .warning-help-2 {
-    font-size: 20px;
+    font-size: 16px;
   }
   .warning-help-2 a:visited {
-    font-size: 20px;
+    font-size: 16px;
   }
   /*---------- profile ----------*/
-  .me-info-profile {
-    width: 100%;
-  }
   .border-line {
-    margin-left: 45px;
-    margin-right: 45px;
-    margin-bottom: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 10px;
     padding-bottom: 0;
     border-bottom: 1px solid #f4f4f450;
   }
-  .profile-help {
-    width: 100%;
-    padding-top: 10px;
-  }
   .profile-help a {
     margin-top: 5px;
-    padding-left: 45px;
+    padding-left: 5px;
+  }
+  .flex-tabs {
+    flex-direction: row;
   }
   .link-support-profile {
-    width: 100%;
     padding: 0 30px;
-    padding-left: 50px;
+    padding-left: 10px;
     padding-bottom: 50px;
+  }
+  .profile-tabs .flex-tabs .tab span {
+    display: none;
+  }
+  .profile-tabs .flex-tabs .tab {
+    width: 60px;
+    height: 60px;
+  }
+  .profile-tabs .flex-tabs .tab svg {
+    margin: auto;
   }
   /*---------- metki ----------*/
 }

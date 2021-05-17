@@ -6,12 +6,10 @@
   .links {
     max-width: 350px;
     padding: 10px;
-    -webkit-transform: translateX(-350px);
-            transform: translateX(-350px);
+    transform: translateX(-350px);
   }
   .active {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
   .links ul {
     width: 320px;
@@ -71,10 +69,7 @@
     padding-left: 20px;
   }
   .flex-tabs {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
   .flex-tabs .tab:last-of-type {
     border-bottom: none;
