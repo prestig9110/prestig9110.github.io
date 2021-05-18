@@ -40,7 +40,7 @@
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
   /*---------- main-container ----------*/
-     .card {
+  .card {
     width: 550px;
     height: auto;
   }
@@ -53,7 +53,6 @@
   .icon {
     top: 200px;
   }
-   
   .linck-discord iframe {
     width: 550px;
   }

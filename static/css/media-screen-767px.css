@@ -64,7 +64,7 @@
     padding-top: 50px;
     padding-bottom: 50px;
   }
-     .card {
+  .card {
     width: 650px;
   }
   .player-header {
@@ -76,7 +76,6 @@
   .icon {
     top: 235px;
   }
-   
   .linck-discord {
     margin: 0 auto;
   }

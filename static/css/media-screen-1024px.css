@@ -169,7 +169,7 @@
         -ms-flex-pack: center;
             justify-content: center;
   }
-     .card {
+  .card {
     margin: 0 auto 65px auto;
     height: 550px;
     width: 750px;
@@ -183,7 +183,6 @@
   .icon {
     top: 235px;
   }
-   
   .linck-discord {
     margin: 0 auto;
   }
