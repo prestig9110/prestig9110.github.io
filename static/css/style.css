@@ -1078,6 +1078,21 @@ h6 {
 }
 
 .profile-tabs .flex-tabs .tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  background-color: rgba(61, 61, 61, 0.55);
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
   width: 150px;
   height: 60px;
 }
@@ -1097,6 +1112,10 @@ h6 {
   fill: #f4f4f4;
 }
 
+.profile-tabs .flex-tabs .tab:hover {
+  background-color: #b8b8b8;
+}
+
 .profile-tabs .flex-tabs .panel {
   display: none;
   background: rgba(0, 0, 0, 0.2);
@@ -1107,7 +1126,11 @@ h6 {
   padding-top: 15px;
 }
 
-.profile-tabs .tab {
+.profile-tabs .flex-tabs .panel .h3-spam {
+  margin: 15px;
+}
+
+.profile-tabs .flex-tabs .panel .profile {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1115,18 +1138,243 @@ h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
-  background-color: rgba(61, 61, 61, 0.55);
-  cursor: pointer;
-  position: relative;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  width: 100%;
+  height: 100%;
 }
 
-.profile-tabs .tab:hover {
-  background-color: #b8b8b8;
+.profile-tabs .flex-tabs .panel .profile .me-info-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: auto;
+  width: 75%;
+  padding: 30px;
+  position: relative;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-info-profile .border-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  background: transparent;
+  width: auto;
+  height: 65px;
+  margin-left: 80px;
+  margin-bottom: 15px;
+  padding-bottom: 0;
+  border-bottom: 1px solid #f4f4f450;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-info-profile .border-line p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  background: transparent;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  margin-left: 70px;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-info-profile .border-line span {
+  position: absolute;
+  background: transparent;
+  width: 100%;
+  height: auto;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 30px;
+  margin-left: 70px;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-info-profile .border-line label {
+  position: absolute;
+  background: transparent;
+  width: 35px;
+  height: 35px;
+  fill: #f4f4f4;
+  margin-top: 12px;
+  margin-left: 15px;
+  cursor: default;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-info-profile .border-line .me-1 {
+  color: rgba(238, 255, 0, 0.658);
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-info-profile .border-line .me-2 {
+  color: rgba(72, 255, 0, 0.616);
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-info-profile .border-line .me-3 {
+  color: rgba(255, 28, 28, 0.603);
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-info-profile .border-line .me-4 {
+  color: red;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-info-profile .border-line input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #f4f4f4;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  font-weight: 750;
+  font-size: 18px;
+}
+
+.profile-tabs .flex-tabs .panel .profile .profile-help {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  width: 25%;
+  height: auto;
+  padding: 30px;
+  padding-top: 42px;
+}
+
+.profile-tabs .flex-tabs .panel .profile .profile-help a {
+  color: #f4f4f4;
+  margin-top: 10px;
+  position: relative;
+}
+
+.profile-tabs .flex-tabs .panel .profile .profile-help a label {
+  position: absolute;
+  height: auto;
+  width: 25px;
+}
+
+.profile-tabs .flex-tabs .panel .profile .profile-help a label svg {
+  width: auto;
+  height: auto;
+  fill: #f4f4f4;
+}
+
+.profile-tabs .flex-tabs .panel .profile .link-support-profile {
+  height: auto;
+  width: 80%;
+  padding: 0 30px;
+  padding-left: 90px;
+  padding-bottom: 50px;
+}
+
+.profile-tabs .flex-tabs .panel .profile .link-support-profile p {
+  height: auto;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.profile-tabs .flex-tabs .panel .profile .link-support-profile p a {
+  height: auto;
+  width: 100%;
+  padding: 10px;
+  margin-top: 50px;
+  border: 1px solid black;
+  background: rgba(0, 0, 0, 0.2);
+  color: #f4f4f4;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-register {
+  height: auto;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  background: transparent;
+  width: auto;
+  height: 65px;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-bottom: 15px;
+  padding-bottom: 0;
+  border-bottom: 1px solid #f4f4f450;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line input,
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line textarea,
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line select {
+  position: relative;
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  min-height: 25px;
+  height: 100%;
+  color: #f4f4f4;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  padding: 5px 20px;
+  font-size: 18px;
+  bottom: 0;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line input:focus,
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line textarea:focus,
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line select:focus {
+  background: rgba(59, 59, 59, 0.623);
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line input option,
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line textarea option,
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line select option {
+  background: rgba(59, 59, 59, 0.623);
+  color: #f4f4f4;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line span {
+  position: absolute;
+  margin: 38px;
 }
 
 #tab-one:checked ~ .tabs #tab-one-label,
@@ -1177,248 +1425,17 @@ h6 {
   display: block;
 }
 
-.profile {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  width: 100%;
-  height: 100%;
-}
-
-.me-info-profile {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: auto;
-  width: 75%;
-  padding: 30px;
-  position: relative;
-}
-
-.border-line {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  background: transparent;
-  width: auto;
-  height: 65px;
-  margin-left: 80px;
-  margin-bottom: 15px;
-  padding-bottom: 0;
-  border-bottom: 1px solid #f4f4f450;
-}
-
-.border-line p {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  background: transparent;
-  width: 100%;
-  height: auto;
-  padding: 0;
-  margin-left: 70px;
-  font-size: 18px;
-  font-weight: 750;
-}
-
-.border-line span {
-  position: absolute;
-  background: transparent;
-  width: 100%;
-  height: auto;
-  font-size: 12px;
-  font-weight: 500;
-  margin-top: 30px;
-  margin-left: 70px;
-}
-
-.border-line label {
-  position: absolute;
-  background: transparent;
-  width: 35px;
-  height: 35px;
-  fill: #f4f4f4;
-  margin-top: 12px;
-  margin-left: 15px;
-  cursor: default;
-}
-
-.me-1 {
-  color: rgba(238, 255, 0, 0.658);
-}
-
-.me-2 {
-  color: rgba(72, 255, 0, 0.616);
-}
-
-.me-3 {
-  color: rgba(255, 28, 28, 0.603);
-}
-
-.me-4 {
-  color: red;
-}
-
-.border-line input {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: #f4f4f4;
-  border: none;
-  border-radius: 0;
-  outline: none;
-  background: transparent;
-  font-weight: 750;
-  font-size: 18px;
-}
-
-.tooltip {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: 225px;
-  margin-top: -25px;
-  cursor: pointer;
-}
-
-.tooltip svg {
-  fill: #f4f4f4;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 250px;
-  background-color: #555;
-  color: #f4f4f4;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 110%;
-  left: 50%;
-  margin-left: -125px;
-  opacity: 0;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
-}
-
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-.profile-help {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  width: 25%;
-  height: auto;
-  padding: 30px;
-  padding-top: 42px;
-}
-
-.profile-help a {
-  color: #f4f4f4;
-  margin-top: 10px;
-  position: relative;
-}
-
-.profile-help a label {
-  position: absolute;
-  height: auto;
-  width: 25px;
-}
-
-.profile-help a label svg {
-  width: auto;
-  height: auto;
-  fill: #f4f4f4;
-}
-
-.link-support-profile {
-  height: auto;
-  width: 80%;
-  padding: 0 30px;
-  padding-left: 90px;
-  padding-bottom: 50px;
-}
-
-.link-support-profile p {
-  height: auto;
-  margin-top: 10px;
-  width: 100%;
-}
-
-.link-support-profile p a {
-  height: auto;
-  width: 100%;
-  padding: 10px;
-  margin-top: 50px;
-  border: 1px solid black;
-  background: rgba(0, 0, 0, 0.2);
-  color: #f4f4f4;
-}
-
-.h3-spam {
-  margin: 15px;
-}
-
 /*---------------------------------------- metki ----------------------------------------*/
 .metki {
   width: 100%;
   height: auto;
   border-collapse: collapse;
   position: relative;
-  border: 2px solid #1f2124;
 }
 
 .metki thead {
   background: rgba(61, 61, 61, 0.55);
   width: 100%;
-  text-align: left;
 }
 
 .metki thead tr th {
@@ -1428,8 +1445,7 @@ h6 {
   opacity: 1;
   padding: 5px;
   vertical-align: middle;
-  border: 1px solid #f4f4f40c;
-  padding: 5px;
+  border: 1px solid #f4f4f438;
 }
 
 .metki tbody tr th {
@@ -1438,8 +1454,7 @@ h6 {
   color: #f4f4f4;
   background: transparent;
   vertical-align: middle;
-  border: 1px solid #f4f4f40c;
-  padding: 5px;
+  border: 1px solid #f4f4f438;
 }
 
 .metki tbody tr th input,
@@ -1458,9 +1473,7 @@ h6 {
 }
 
 .x-y-z {
-  text-align: center;
-  /* padding: 5px; */
-  width: 7%;
+  text-align: right;
 }
 
 .metki tbody tr th select option {
