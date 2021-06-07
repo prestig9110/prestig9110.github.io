@@ -191,7 +191,14 @@ def add_marker():
             cursor.execute( 
                 'INSERT INTO markers (id_type, x, y, z, name, description, user, server, flag) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)', 
                     ( id_type, x, y, z, name, description, str(user.id), server, 1)
-            )  
+            )
+
+        conn.commit()
+
+        cursor.execute(
+            'INSERT INTO queue (task, status, object) VALUES (%s, %s, %s)',
+                ( 'update', 'new', id_type )
+        )
         
         conn.commit()
 
