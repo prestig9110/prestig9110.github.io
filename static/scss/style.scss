@@ -526,7 +526,7 @@ h6 {
 /*---------- accordion-2 ----------*/
 .accordion-2 {
   max-width: 1500px;
-  width: auto;
+  width: 100%;
   .accordion-item {
     background: radial-gradient(circle, rgba(70, 70, 70, 1) 0%, rgba(70, 70, 70, 1) 100%);
     border: 0.1px solid rgba(143, 142, 143, 0.75);
@@ -574,7 +574,7 @@ h6 {
         padding: 16px;
         line-height: 24px;
         border-top: 1px solid;
-        border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+        border-image: linear-gradient(to right, transparent, rgba(143, 142, 143, 0.75), transparent) 1;
         img {
           display: flex;
           flex-direction: column;
@@ -582,6 +582,15 @@ h6 {
           height: 36px;
           width: 36px;
           margin-right: 10px;
+        }
+        p {
+          label {
+            color: limegreen;
+            cursor: default;
+          }
+          span {
+            text-decoration: underline;
+          }
         }
         .prev-img {
           display: flex;
@@ -697,78 +706,7 @@ h6 {
     }
   }
 }
-/*---------------------------------------- register ----------------------------------------*/
-.register-form {
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: start;
-  text-align: center;
-  height: auto;
-  width: 650px;
-}
-.register-form input,
-.register-form textarea,
-.register-form select {
-  height: 45px;
-  min-height: 45px;
-  max-height: 150px;
-  max-width: 70%;
-  min-width: 70%;
-  font-size: 16px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 2px auto;
-  color: #f4f4f4;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgb(134, 134, 134);
-  outline: none;
-}
-.register-form input:active,
-.register-form input:focus,
-.register-form textarea:active,
-.register-form textarea:focus,
-.register-form select:active,
-.register-form select:focus {
-  border: 1px solid #f4f4f4;
-}
-.register-form input [placeholder],
-.register-form input [placeholder]:hover {
-  color: #f4f4f4;
-  font-size: 16px;
-  background: none;
-}
-.register-form select option {
-  background: #3a3b3d;
-}
-.input-name {
-  position: relative;
-  width: 250px;
-  background: transparent;
-  padding-left: 20px;
-  padding-right: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.register-btn-next {
-  color: #f4f4f4;
-  margin: 20px auto;
-  padding: 20px auto;
-  height: 50px;
-  width: 300px;
-  font-size: 18px;
-  background: radial-gradient(circle, rgba(70, 70, 70, 1) 0%, rgba(101, 101, 101, 1) 100%);
-  border: 0.2px solid rgba(70, 70, 70, 1);
-  outline: none;
-}
-.register-btn-next:hover,
-.register-btn-next:visited {
-  outline: none;
-}
+/*---------------------------------------- profile ----------------------------------------*/
 .warning-help-1 {
   font-size: 24px;
   color: red;
@@ -787,23 +725,6 @@ h6 {
   font-weight: 600;
   background: transparent;
 }
-/*---------------------------------------- profile ----------------------------------------*/
-@-webkit-keyframes fake {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fake {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .profile-tabs {
   width: 100%;
   height: 100%;
@@ -821,7 +742,7 @@ h6 {
     .tab {
       display: flex;
       flex-direction: row;
-      justify-content: start;
+      justify-content: center;
       background-color: rgba(61, 61, 61, 0.55);
       cursor: pointer;
       position: relative;
@@ -841,9 +762,9 @@ h6 {
         margin: auto 10px auto 0;
         fill: #f4f4f4;
       }
-    }
-    .tab:hover {
-      background-color: rgb(184, 184, 184);
+      &:hover {
+        background-color: rgb(184, 184, 184);
+      }
     }
     .panel {
       display: none;
@@ -851,9 +772,10 @@ h6 {
       min-height: 500px;
       width: 100%;
       flex-basis: auto;
-      padding-top: 15px;
+      padding-top: 35px;
       .h3-spam {
         margin: 15px;
+        margin-left: 50px;
       }
       .profile {
         display: flex;
@@ -936,6 +858,12 @@ h6 {
             }
           }
         }
+        .me-info-profile-wight {
+          width: 100% !important;
+          .border-line {
+            margin-right: 80px;
+          }
+        }
         .profile-help {
           display: flex;
           flex-direction: column;
@@ -960,6 +888,9 @@ h6 {
             }
           }
         }
+        .profile-help-display-none {
+          display: none;
+        }
         .link-support-profile {
           height: auto;
           width: 80%;
@@ -982,7 +913,7 @@ h6 {
           }
         }
         .me-register {
-          height: auto;
+          height: 300px;
           width: 50%;
           display: flex;
           flex-direction: column;
@@ -993,10 +924,10 @@ h6 {
             justify-content: start;
             background: transparent;
             width: auto;
-            height: 65px;
+            height: 75px;
             margin-left: 80px;
             margin-right: 80px;
-            margin-bottom: 15px;
+            margin-bottom: 0;
             padding-bottom: 0;
             border-bottom: 1px solid #f4f4f450;
             input,
@@ -1009,22 +940,91 @@ h6 {
               width: 100%;
               min-height: 25px;
               height: 100%;
-              color: #f4f4f4;
+              color: lightgreen;
               transition: all 0.35s ease;
               padding: 5px 20px;
               font-size: 18px;
               bottom: 0;
-              &:focus {
+              z-index: 2;
+              &:focus,
+              &:active {
                 background: rgba(59, 59, 59, 0.623);
+                color: lightgreen;
               }
               option {
                 background: rgba(59, 59, 59, 0.623);
                 color: #f4f4f4;
               }
             }
+            textarea {
+              margin: 0;
+              min-height: 100px;
+              max-height: 100px;
+            }
             span {
               position: absolute;
-              margin: 38px;
+              margin: 45px;
+              margin-left: 60px;
+              color: rgba(255, 255, 255, 0.35);
+              z-index: 1;
+            }
+          }
+        }
+        .me-register-custom {
+          justify-content: center !important;
+          .border-line {
+            min-height: 100px;
+            max-height: 100px;
+            span {
+              position: absolute;
+              margin: 70px;
+              margin-left: 60px;
+              color: rgba(255, 255, 255, 0.35);
+              z-index: 1;
+            }
+          }
+        }
+        .faq-block {
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          width: 100%;
+          padding-left: 80px;
+          padding-right: 80px;
+          padding-top: 50px;
+          padding-bottom: 10px;
+        }
+        .regulations-block {
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          width: 100%;
+          padding-left: 80px;
+          padding-right: 80px;
+          padding-top: 10px;
+          padding-bottom: 25px;
+        }
+        .register-block {
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          width: 100%;
+          padding-top: 10px;
+          padding-bottom: 25px;
+          .register-btn-next {
+            color: #f4f4f4;
+            margin: 20px auto;
+            padding: 20px auto;
+            height: 50px;
+            width: 300px;
+            font-size: 18px;
+            background: radial-gradient(circle, rgba(70, 70, 70, 1) 0%, rgba(101, 101, 101, 1) 100%);
+            border: 0.2px solid rgba(70, 70, 70, 1);
+            border-radius: 5px;
+            outline: none;
+            &:hover,
+            &:visited {
+              outline: none;
             }
           }
         }
