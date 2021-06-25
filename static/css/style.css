@@ -679,7 +679,7 @@ h6 {
 /*---------- accordion-2 ----------*/
 .accordion-2 {
   max-width: 1500px;
-  width: auto;
+  width: 100%;
 }
 
 .accordion-2 .accordion-item {
@@ -749,9 +749,9 @@ h6 {
   padding: 16px;
   line-height: 24px;
   border-top: 1px solid;
-  -o-border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
-     border-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#34495e), to(transparent)) 1;
-     border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
+  -o-border-image: linear-gradient(to right, transparent, rgba(143, 142, 143, 0.75), transparent) 1;
+     border-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(rgba(143, 142, 143, 0.75)), to(transparent)) 1;
+     border-image: linear-gradient(to right, transparent, rgba(143, 142, 143, 0.75), transparent) 1;
 }
 
 .accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content img {
@@ -768,6 +768,15 @@ h6 {
   height: 36px;
   width: 36px;
   margin-right: 10px;
+}
+
+.accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content p label {
+  color: limegreen;
+  cursor: default;
+}
+
+.accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content p span {
+  text-decoration: underline;
 }
 
 .accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content .prev-img {
@@ -924,95 +933,7 @@ h6 {
   height: 450px;
 }
 
-/*---------------------------------------- register ----------------------------------------*/
-.register-form {
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
-  text-align: center;
-  height: auto;
-  width: 650px;
-}
-
-.register-form input,
-.register-form textarea,
-.register-form select {
-  height: 45px;
-  min-height: 45px;
-  max-height: 150px;
-  max-width: 70%;
-  min-width: 70%;
-  font-size: 16px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 2px auto;
-  color: #f4f4f4;
-  border-radius: 10px;
-  background: rgba(0, 0, 0, 0.1);
-  border: 1px solid #868686;
-  outline: none;
-}
-
-.register-form input:active,
-.register-form input:focus,
-.register-form textarea:active,
-.register-form textarea:focus,
-.register-form select:active,
-.register-form select:focus {
-  border: 1px solid #f4f4f4;
-}
-
-.register-form input [placeholder],
-.register-form input [placeholder]:hover {
-  color: #f4f4f4;
-  font-size: 16px;
-  background: none;
-}
-
-.register-form select option {
-  background: #3a3b3d;
-}
-
-.input-name {
-  position: relative;
-  width: 250px;
-  background: transparent;
-  padding-left: 20px;
-  padding-right: 20px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.register-btn-next {
-  color: #f4f4f4;
-  margin: 20px auto;
-  padding: 20px auto;
-  height: 50px;
-  width: 300px;
-  font-size: 18px;
-  background: radial-gradient(circle, #464646 0%, #656565 100%);
-  border: 0.2px solid #464646;
-  outline: none;
-}
-
-.register-btn-next:hover,
-.register-btn-next:visited {
-  outline: none;
-}
-
+/*---------------------------------------- profile ----------------------------------------*/
 .warning-help-1 {
   font-size: 24px;
   color: red;
@@ -1032,25 +953,6 @@ h6 {
   color: black;
   font-weight: 600;
   background: transparent;
-}
-
-/*---------------------------------------- profile ----------------------------------------*/
-@-webkit-keyframes fake {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fake {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .profile-tabs {
@@ -1085,9 +987,9 @@ h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: rgba(61, 61, 61, 0.55);
   cursor: pointer;
   position: relative;
@@ -1123,11 +1025,12 @@ h6 {
   width: 100%;
   -ms-flex-preferred-size: auto;
       flex-basis: auto;
-  padding-top: 15px;
+  padding-top: 35px;
 }
 
 .profile-tabs .flex-tabs .panel .h3-spam {
   margin: 15px;
+  margin-left: 50px;
 }
 
 .profile-tabs .flex-tabs .panel .profile {
@@ -1248,6 +1151,14 @@ h6 {
   font-size: 18px;
 }
 
+.profile-tabs .flex-tabs .panel .profile .me-info-profile-wight {
+  width: 100% !important;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-info-profile-wight .border-line {
+  margin-right: 80px;
+}
+
 .profile-tabs .flex-tabs .panel .profile .profile-help {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1283,6 +1194,10 @@ h6 {
   fill: #f4f4f4;
 }
 
+.profile-tabs .flex-tabs .panel .profile .profile-help-display-none {
+  display: none;
+}
+
 .profile-tabs .flex-tabs .panel .profile .link-support-profile {
   height: auto;
   width: 80%;
@@ -1308,7 +1223,7 @@ h6 {
 }
 
 .profile-tabs .flex-tabs .panel .profile .me-register {
-  height: auto;
+  height: 300px;
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1333,10 +1248,10 @@ h6 {
           justify-content: start;
   background: transparent;
   width: auto;
-  height: 65px;
+  height: 75px;
   margin-left: 80px;
   margin-right: 80px;
-  margin-bottom: 15px;
+  margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: 1px solid #f4f4f450;
 }
@@ -1351,18 +1266,22 @@ h6 {
   width: 100%;
   min-height: 25px;
   height: 100%;
-  color: #f4f4f4;
+  color: lightgreen;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
   padding: 5px 20px;
   font-size: 18px;
   bottom: 0;
+  z-index: 2;
 }
 
-.profile-tabs .flex-tabs .panel .profile .me-register .border-line input:focus,
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line input:focus, .profile-tabs .flex-tabs .panel .profile .me-register .border-line input:active,
 .profile-tabs .flex-tabs .panel .profile .me-register .border-line textarea:focus,
-.profile-tabs .flex-tabs .panel .profile .me-register .border-line select:focus {
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line textarea:active,
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line select:focus,
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line select:active {
   background: rgba(59, 59, 59, 0.623);
+  color: lightgreen;
 }
 
 .profile-tabs .flex-tabs .panel .profile .me-register .border-line input option,
@@ -1372,9 +1291,106 @@ h6 {
   color: #f4f4f4;
 }
 
+.profile-tabs .flex-tabs .panel .profile .me-register .border-line textarea {
+  margin: 0;
+  min-height: 100px;
+  max-height: 100px;
+}
+
 .profile-tabs .flex-tabs .panel .profile .me-register .border-line span {
   position: absolute;
-  margin: 38px;
+  margin: 45px;
+  margin-left: 60px;
+  color: rgba(255, 255, 255, 0.35);
+  z-index: 1;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-register-custom {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-register-custom .border-line {
+  min-height: 100px;
+  max-height: 100px;
+}
+
+.profile-tabs .flex-tabs .panel .profile .me-register-custom .border-line span {
+  position: absolute;
+  margin: 70px;
+  margin-left: 60px;
+  color: rgba(255, 255, 255, 0.35);
+  z-index: 1;
+}
+
+.profile-tabs .flex-tabs .panel .profile .faq-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+
+.profile-tabs .flex-tabs .panel .profile .regulations-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 10px;
+  padding-bottom: 25px;
+}
+
+.profile-tabs .flex-tabs .panel .profile .register-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 25px;
+}
+
+.profile-tabs .flex-tabs .panel .profile .register-block .register-btn-next {
+  color: #f4f4f4;
+  margin: 20px auto;
+  padding: 20px auto;
+  height: 50px;
+  width: 300px;
+  font-size: 18px;
+  background: radial-gradient(circle, #464646 0%, #656565 100%);
+  border: 0.2px solid #464646;
+  border-radius: 5px;
+  outline: none;
+}
+
+.profile-tabs .flex-tabs .panel .profile .register-block .register-btn-next:hover, .profile-tabs .flex-tabs .panel .profile .register-block .register-btn-next:visited {
+  outline: none;
 }
 
 #tab-one:checked ~ .tabs #tab-one-label,
