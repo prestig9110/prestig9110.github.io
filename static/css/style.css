@@ -1461,7 +1461,12 @@ h6 {
   opacity: 1;
   padding: 5px;
   vertical-align: middle;
-  border: 1px solid #f4f4f438;
+  border: 1px solid #f4f4f415;
+}
+
+.metki thead tr .x-y-z {
+  text-align: center;
+  width: 7%;
 }
 
 .metki tbody tr th {
@@ -1470,7 +1475,8 @@ h6 {
   color: #f4f4f4;
   background: transparent;
   vertical-align: middle;
-  border: 1px solid #f4f4f438;
+  border: 1px solid #f4f4f415;
+  padding: 5px;
 }
 
 .metki tbody tr th input,
@@ -1488,20 +1494,28 @@ h6 {
   transition: all 0.5s ease;
 }
 
-.x-y-z {
-  text-align: right;
+.metki tbody tr th input select,
+.metki tbody tr th select select,
+.metki tbody tr th button select {
+  padding: 0 8px;
 }
 
-.metki tbody tr th select option {
+.metki tbody tr th input select option,
+.metki tbody tr th select select option,
+.metki tbody tr th button select option {
   background: #3a3b3d;
+}
+
+.metki tbody tr th buttonhover {
+  background: rgba(168, 168, 168, 0.589);
 }
 
 .metki tbody tr th span {
   padding: 0 8px;
 }
 
-.metki tbody tr th button:hover {
-  background: rgba(168, 168, 168, 0.589);
+.metki tbody tr .x-y-z {
+  text-align: center;
 }
 
 .header-metki {
@@ -1510,6 +1524,6 @@ h6 {
   background: rgba(56, 56, 56, 0.75);
   text-align: center;
   padding: 5px;
-  border: 1px solid #f4f4f438;
+  border: 1px solid #f4f4f415;
   border-bottom: none;
 }

@@ -19,14 +19,16 @@
 </head>
 
 <body>
+
   <div class="warning">
     <h5> Внимание! Сайт находится в стадии разработки. Все вопросы в Discord</h5>
   </div>
+
   <div class="header">
     <div class="body-center-container">
       <div class="wrapper-link">
-        <div class="button-link">
-          <a href="https://discord.gg/sPR62FDQQz" class="icon-button">
+        <div class="button-link" onclick="window.open('https://discord.gg/sPR62FDQQz');">
+          <a href="#" class="icon-button">
             <svg id="Bold" height:auto viewBox="0 0 24 24" width:auto xmlns="http://www.w3.org/2000/svg">
               <path
                 d="m3.58 21.196h14.259l-.681-2.205 1.629 1.398 1.493 1.338 2.72 2.273v-21.525c-.068-1.338-1.22-2.475-2.648-2.475l-16.767.003c-1.427 0-2.585 1.139-2.585 2.477v16.24c0 1.411 1.156 2.476 2.58 2.476zm10.548-15.513-.033.012.012-.012zm-7.631 1.269c1.833-1.334 3.532-1.27 3.532-1.27l.137.135c-2.243.535-3.26 1.537-3.26 1.537s.272-.133.747-.336c3.021-1.188 6.32-1.102 9.374.402 0 0-1.019-.937-3.124-1.537l.186-.183c.291.001 1.831.055 3.479 1.26 0 0 1.844 3.15 1.844 7.02-.061-.074-1.144 1.666-3.931 1.726 0 0-.472-.534-.808-1 1.63-.468 2.24-1.404 2.24-1.404-.535.337-1.023.537-1.419.737-.609.268-1.219.4-1.828.535-2.884.468-4.503-.315-6.033-.936l-.523-.266s.609.936 2.174 1.404c-.411.469-.818 1.002-.818 1.002-2.786-.066-3.802-1.806-3.802-1.806 0-3.876 1.833-7.02 1.833-7.02z" />
@@ -38,8 +40,8 @@
           </a>
           <span>Discord</span>
         </div>
-        <div class="button-link">
-          <a href="/support/" class="icon-button">
+        <div class="button-link" onclick="window.open('/support/');">
+          <a href="#" class="icon-button">
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
               x="0px" y="0px" viewBox="0 0 501.9 501.9" width:auto height:auto xml:space="preserve">
               <g>
@@ -82,8 +84,8 @@
           </a>
           <span>Поддержать</span>
         </div>
-        <div class="button-link">
-          <a href="https://www.instagram.com/gmgameserver/" class="icon-button">
+        <div class="button-link" onclick="window.open('https://www.instagram.com/gmgameserver/');">
+          <a href="#" class="icon-button">
             <svg viewBox="0 0 512.00096 512.00096" xmlns="http://www.w3.org/2000/svg" width:auto height:auto>
               <path
                 d="m373.40625 0h-234.8125c-76.421875 0-138.59375 62.171875-138.59375 138.59375v234.816406c0 76.417969 62.171875 138.589844 138.59375 138.589844h234.816406c76.417969 0 138.589844-62.171875 138.589844-138.589844v-234.816406c0-76.421875-62.171875-138.59375-138.59375-138.59375zm108.578125 373.410156c0 59.867188-48.707031 108.574219-108.578125 108.574219h-234.8125c-59.871094 0-108.578125-48.707031-108.578125-108.574219v-234.816406c0-59.871094 48.707031-108.578125 108.578125-108.578125h234.816406c59.867188 0 108.574219 48.707031 108.574219 108.578125zm0 0" />
@@ -95,9 +97,9 @@
           </a>
           <span>Instagram</span>
         </div>
-        <div class="button-link">
+        <div class="button-link" onclick="window.open('/me');">
           {% if auth_ok %}
-          <a href="/me" class="icon-button">
+          <a href="#" class="icon-button">
             <img src="{{user.avatar_url}}" alt="instagram">
           </a>
           <span>{{user.name}}</span>
