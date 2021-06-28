@@ -1,6 +1,7 @@
 {% extends "_base.html" %}
 {% block content %}
-<table class="metki">
+<div class="territories-block">
+  <table class="metki">
     <thead>
       <tr>
         <th>Название</th>
@@ -30,29 +31,27 @@
       </tr>
       {% endfor %}
       <tr>
-        <th data-label="Название"><input type="text" placeholder="Имя" name="name"
-            id="name-add"></th>
-        <th data-label="Start X"><input class="x-y-z" type="text" placeholder="000" name="xStart"
-            id="xStart-add"></th>
-        <th data-label="Start Z"><input class="x-y-z" type="text" placeholder="000" name="zStart"
-            id="zStart-add"></th>
-        <th data-label="Stop X"><input class="x-y-z" type="text" placeholder="000" name="xStop"
-            id="xStop-add"></th>
-        <th data-label="Stop Z"><input class="x-y-z" type="text" placeholder="000" name="zStop"
-            id="zStop-add"></th>
+        <th data-label="Название"><input type="text" placeholder="Имя" name="name" id="name-add"></th>
+        <th data-label="Start X"><input class="x-y-z" type="text" placeholder="000" name="xStart" id="xStart-add"></th>
+        <th data-label="Start Z"><input class="x-y-z" type="text" placeholder="000" name="zStart" id="zStart-add"></th>
+        <th data-label="Stop X"><input class="x-y-z" type="text" placeholder="000" name="xStop" id="xStop-add"></th>
+        <th data-label="Stop Z"><input class="x-y-z" type="text" placeholder="000" name="zStop" id="zStop-add"></th>
         <th data-label="Добавить"><button id="add">Добавить</button></th>
         <th data-label="Удалить" class="display-none"></th>
       </tr>
     </tbody>
   </table>
-  <p>Эти метки выделяют на <a href="http://map.gmgame.ru">карте</a> территорию, указывая что она занята вами.</p>
-  <p>Что бы другие игроки видели, что территория занята и на ней ведется строительство.
-  Обычно выделяются территории под какие то масштабные постройки или фермы.</p>
+  <div class="territories-content">
+    <p>Эти метки выделяют на <a href="http://map.gmgame.ru">карте</a> территорию, указывая что она занята вами.</p>
+    <p>Что бы другие игроки видели, что территория занята и на ней ведется строительство.
+      Обычно выделяются территории под какие то масштабные постройки или фермы.</p>
+    <p>Для разметки территории введите начальные координаты в Start X и Start Z и конечные в Stop X и Stop Z. Имя это
+      название территории и оно должно быть уникальным,
+      но должно связывать территорию с вами, например ник игрока или "Территория Пети".</p>
 
-  <p>Для разметки территории введите начальные координаты в Start X и Start Z и конечные в Stop X и Stop Z. Имя это название территории и оно должно быть уникальным,
-  но должно связывать территорию с вами, например ник игрока или "Территория Пети".</p>
-
-  <p><img src="/static/img/wiki/territories.png"></p>
+    <p><img src="/static/img/wiki/territories.png"></p>
+  </div>
+</div>
 {% endblock %}
 {% block js_scripts %}
 {{ super() }}
