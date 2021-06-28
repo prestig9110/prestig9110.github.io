@@ -94,7 +94,7 @@ h6 {
   justify-content: flex-end;
   background: url(../img/header2.webp) no-repeat center;
   background-color: rgba(0, 0, 0, 0.4);
-  z-index: 1000;
+  z-index: 1500;
   transition: all 0.35s ease;
 }
 /*---------------------------------------- header-menu-link ----------------------------------------*/
@@ -104,7 +104,6 @@ h6 {
   flex-direction: row;
   margin-left: 10px;
   z-index: 1000;
-
   .button-link {
     display: flex;
     flex-direction: row;
@@ -121,6 +120,7 @@ h6 {
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.35s ease;
+    text-decoration: none;
     .icon-button svg,
     .icon-button img {
       height: 35px;
@@ -142,7 +142,6 @@ h6 {
     }
   }
 }
-
 /*---------- menu ----------*/
 .menu input[type="checkbox"] {
   display: none;
@@ -157,7 +156,7 @@ h6 {
       justify-content: center;
       align-items: center;
       background: rgba(0, 0, 0, 0.75);
-      transition: all 0.35s ease;
+      transition: all 0.15s ease;
       box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
       border: 0.2px solid black;
       z-index: 1000;
@@ -184,7 +183,7 @@ h6 {
           height: 100%;
           width: 100%;
           min-width: 220px;
-          transition: all 0.35s ease;
+          transition: all 0.15s ease;
           text-decoration: none;
           cursor: pointer;
         }
@@ -201,7 +200,7 @@ h6 {
           background: rgba(0, 0, 0, 0.65);
           top: 0;
           opacity: 0;
-          transition: all 0.35s ease-out;
+          transition: all 0.15s ease-out;
           visibility: hidden;
           border-radius: 10px;
           li {
@@ -260,7 +259,6 @@ h6 {
 #toggle.active::after {
   transform: translateY(0px) rotate(-45deg);
 }
-
 /*---------------------------------------- start ----------------------------------------*/
 .start-block {
   ul {
@@ -391,78 +389,112 @@ h6 {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    .gallery-item {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 350px;
-      height: auto;
-      margin: 10px;
-      overflow: hidden;
-      box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.4);
-      .gallery-image {
-        transition: transform 400ms ease-out;
-      }
-      .gallery-image:hover {
-        transform: scale(1.15);
-      }
-    }
   }
-  .port {
+  .modal-container-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: fixed;
     width: 100%;
     height: 100%;
-    top: 0;
     left: 0;
-    padding-top: 100px;
-    background: #27292d;
-    visibility: hidden;
-    transform: translateY(-100%);
-    border-bottom: 1px solid #d0d0d0;
-    transition: all 0.65s ease-in-out;
-    z-index: 2000 !important;
-    .row {
-      width: 80%;
-      height: 80vh;
-      margin: 0 auto;
-      padding: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.25);
+    pointer-events: none;
+    z-index: 99999 !important;
+    transition: opacity 0.3s ease;
+    .modal-content {
+      position: relative;
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
-      background: rgba(0, 0, 0, 0.1);
-      z-index: 200000000 !important;
-      .description {
+      justify-content: center;
+      background-color: #27292d;
+      width: 90%;
+      height: 90%;
+      margin: 0 auto;
+      padding: 25px;
+      .content-gallery-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
         width: 50%;
         height: auto;
-        padding: 10px;
-        padding-top: 50px;
-        overflow: auto;
+        padding: 15px;
+        margin: 15px;
+        p,
+        a {
+          margin: 5px;
+          margin-top: 15px;
+          font-size: 20px;
+          text-transform: none;
+          color: #f4f4f4;
+        }
+        a {
+          height: auto;
+          width: auto;
+          margin: 20px;
+          font-size: 20px;
+          text-transform: none;
+          color: #f4f4f4;
+          transform: all 0.3s ease;
+          &:hover {
+            color: #ff74fa;
+          }
+        }
+      }
+      .content-gallery-photo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        height: auto;
+        padding: 15px;
+        margin: 15px;
+        .fotorama-block {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          width: auto;
+          height: auto;
+          padding: 15px !important;
+        }
+      }
+      button {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+        top: 10px;
+        right: 10px;
+        background: transparent;
+        font-size: 24px;
+        padding: 5px auto;
+        outline: none;
+        color: #ffba00;
+        &:hover {
+          color: #ff74fa;
+        }
       }
     }
   }
-  .port.item_open {
-    visibility: visible;
-    transform: translateY(0%);
-    transition: all 0.4s ease-in-out;
-  }
-  .close {
-    margin: 50px;
-    width: 21px;
-    height: 21px;
-    background: url(data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2017.1.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%0A%3Csvg%20version%3D%221.1%22%0A%09%20id%3D%22svg2%22%20xmlns%3Adc%3D%22http%3A//purl.org/dc/elements/1.1/%22%20xmlns%3Acc%3D%22http%3A//creativecommons.org/ns%23%22%20xmlns%3Ardf%3D%22http%3A//www.w3.org/1999/02/22-rdf-syntax-ns%23%22%20xmlns%3Asvg%3D%22http%3A//www.w3.org/2000/svg%22%0A%09%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%2021%2021%22%0A%09%20enable-background%3D%22new%200%200%2021%2021%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cg%20id%3D%22layer1%22%20transform%3D%22translate%280%2C-1031.3622%29%22%3E%0A%09%3Cpath%20id%3D%22path2987%22%20fill%3D%22none%22%20stroke%3D%22%23000000%22%20d%3D%22M0%2C1031.4l21%2C21%22/%3E%0A%09%3Cpath%20id%3D%22path2989%22%20fill%3D%22none%22%20stroke%3D%22%23000000%22%20d%3D%22M21%2C1031.4l-21%2C21%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A%0A)
-      no-repeat;
-    position: absolute;
-    right: 60px;
-    top: 80px;
-    opacity: 1;
-    z-index: 100004 !important;
-    transition: all 0.1s ease-in-out;
-  }
 }
-.item_open .close {
+.modalContainer0001.show,
+.modalContainer0002.show,
+.modalContainer0003.show,
+.modalContainer0004.show,
+.modalContainer0005.show,
+.modalContainer0006.show,
+.modalContainer0007.show,
+.modalContainer0008.show,
+.modalContainer0009.show,
+.modalContainer0010.show {
+  pointer-events: auto;
   opacity: 1;
-  top: 0px;
-  transition: all 0.3s ease-in-out;
 }
 /*---------------------------------------- resources ----------------------------------------*/
 .resourses-block {
@@ -1093,7 +1125,7 @@ h6 {
       }
       .x-y-z {
         text-align: center;
-        width: 7% ;
+        width: 7%;
       }
     }
   }

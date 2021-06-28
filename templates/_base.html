@@ -15,6 +15,7 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/fotorama.css" />
   <link rel="stylesheet" href="/static/css/main-link.css" />
 </head>
 
@@ -27,8 +28,8 @@
   <div class="header">
     <div class="body-center-container">
       <div class="wrapper-link">
-        <div class="button-link" onclick="window.open('https://discord.gg/sPR62FDQQz');">
-          <a href="#" class="icon-button">
+        <a class="button-link" href="https://discord.gg/sPR62FDQQz">
+          <label class="icon-button">
             <svg id="Bold" height:auto viewBox="0 0 24 24" width:auto xmlns="http://www.w3.org/2000/svg">
               <path
                 d="m3.58 21.196h14.259l-.681-2.205 1.629 1.398 1.493 1.338 2.72 2.273v-21.525c-.068-1.338-1.22-2.475-2.648-2.475l-16.767.003c-1.427 0-2.585 1.139-2.585 2.477v16.24c0 1.411 1.156 2.476 2.58 2.476zm10.548-15.513-.033.012.012-.012zm-7.631 1.269c1.833-1.334 3.532-1.27 3.532-1.27l.137.135c-2.243.535-3.26 1.537-3.26 1.537s.272-.133.747-.336c3.021-1.188 6.32-1.102 9.374.402 0 0-1.019-.937-3.124-1.537l.186-.183c.291.001 1.831.055 3.479 1.26 0 0 1.844 3.15 1.844 7.02-.061-.074-1.144 1.666-3.931 1.726 0 0-.472-.534-.808-1 1.63-.468 2.24-1.404 2.24-1.404-.535.337-1.023.537-1.419.737-.609.268-1.219.4-1.828.535-2.884.468-4.503-.315-6.033-.936l-.523-.266s.609.936 2.174 1.404c-.411.469-.818 1.002-.818 1.002-2.786-.066-3.802-1.806-3.802-1.806 0-3.876 1.833-7.02 1.833-7.02z" />
@@ -37,11 +38,11 @@
               <path
                 d="m9.69 12.771c.711 0 1.29-.6 1.29-1.34 0-.735-.575-1.335-1.286-1.335l-.004.003c-.711 0-1.29.598-1.29 1.338 0 .734.579 1.334 1.29 1.334z" />
             </svg>
-          </a>
+          </label>
           <span>Discord</span>
-        </div>
-        <div class="button-link" onclick="window.open('/support/');">
-          <a href="#" class="icon-button">
+        </a>
+        <a class="button-link" href="/support/">
+          <label class="icon-button">
             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
               x="0px" y="0px" viewBox="0 0 501.9 501.9" width:auto height:auto xml:space="preserve">
               <g>
@@ -81,11 +82,11 @@
                 </g>
               </g>
             </svg>
-          </a>
+          </label>
           <span>Поддержать</span>
-        </div>
-        <div class="button-link" onclick="window.open('https://www.instagram.com/gmgameserver/');">
-          <a href="#" class="icon-button">
+        </a>
+        <a class="button-link" href="https://www.instagram.com/gmgameserver/">
+          <label class="icon-button">
             <svg viewBox="0 0 512.00096 512.00096" xmlns="http://www.w3.org/2000/svg" width:auto height:auto>
               <path
                 d="m373.40625 0h-234.8125c-76.421875 0-138.59375 62.171875-138.59375 138.59375v234.816406c0 76.417969 62.171875 138.589844 138.59375 138.589844h234.816406c76.417969 0 138.589844-62.171875 138.589844-138.589844v-234.816406c0-76.421875-62.171875-138.59375-138.59375-138.59375zm108.578125 373.410156c0 59.867188-48.707031 108.574219-108.578125 108.574219h-234.8125c-59.871094 0-108.578125-48.707031-108.578125-108.574219v-234.816406c0-59.871094 48.707031-108.578125 108.578125-108.578125h234.816406c59.867188 0 108.574219 48.707031 108.574219 108.578125zm0 0" />
@@ -94,17 +95,19 @@
               <path
                 d="m399.34375 66.285156c-22.8125 0-41.367188 18.558594-41.367188 41.367188 0 22.8125 18.554688 41.371094 41.367188 41.371094s41.371094-18.558594 41.371094-41.371094-18.558594-41.367188-41.371094-41.367188zm0 52.71875c-6.257812 0-11.351562-5.09375-11.351562-11.351562 0-6.261719 5.09375-11.351563 11.351562-11.351563 6.261719 0 11.355469 5.089844 11.355469 11.351563 0 6.257812-5.09375 11.351562-11.355469 11.351562zm0 0" />
             </svg>
-          </a>
+          </label>
           <span>Instagram</span>
-        </div>
-        <div class="button-link" onclick="window.open('/me');">
-          {% if auth_ok %}
-          <a href="#" class="icon-button">
+        </a>
+        {% if auth_ok %}
+        <a class="button-link" href="/me">
+          <label class="icon-button">
             <img src="{{user.avatar_url}}" alt="instagram">
-          </a>
+          </label>
           <span>{{user.name}}</span>
-          {% else %}
-          <a href="/login" class="icon-button">
+        </a>
+        {% else %}
+        <a class="button-link" href="/login">
+          <label class="icon-button">
             <svg xmlns="http://www.w3.org/2000/svg" id="outline" viewBox="0 0 512 512" width:auto height:auto>
               <path
                 d="M32,96H96v16a16.02085,16.02085,0,0,0,16,16H272a16.02085,16.02085,0,0,0,16-16V96h64V200h16V96a16.02085,16.02085,0,0,0-16-16H282.07129a15.77035,15.77035,0,0,0-1.19629-1.03125l-20.4375-13.625A8.00771,8.00771,0,0,0,256,64H240V52a16.04729,16.04729,0,0,0-6.40625-12.79688l-26.65625-20A16.11552,16.11552,0,0,0,197.33594,16H186.66406a16.07518,16.07518,0,0,0-9.59375,3.20312L150.41406,39.19531A16.05841,16.05841,0,0,0,144,52V64H128a8.00771,8.00771,0,0,0-4.4375,1.34375l-20.4375,13.625A15.77035,15.77035,0,0,0,101.92871,80H32A16.02085,16.02085,0,0,0,16,96V480a16.02085,16.02085,0,0,0,16,16H312V480H32Zm80-3.71875L130.42188,80H152a7.99539,7.99539,0,0,0,8-8V52l26.66406-20h10.67188L224,52V72a7.99539,7.99539,0,0,0,8,8h21.57812L272,92.28125V112l-160,.01562Z" />
@@ -126,10 +129,10 @@
               <path
                 d="M495.5625,309.39844a7.99629,7.99629,0,0,0-4.125-4.625L456,287.89844V273.28906a24.0689,24.0689,0,0,0-12.09375-20.84375l-41.22656-23.55469a23.8759,23.8759,0,0,0-20.82031-1.45312l-28.709,11.48486L323.4375,224.77344a7.90536,7.90536,0,0,0-5.96875-.35938l-24,8a7.99315,7.99315,0,0,0-5.05469,10.11719l8,24a7.994,7.994,0,0,0,4.14844,4.69531l29.96338,14.26758A23.71272,23.71272,0,0,0,328,296v54.10938a16.14018,16.14018,0,0,0,1.6875,7.15624L344,385.89062V496h16V385.89062a16.14018,16.14018,0,0,0-1.6875-7.15624L344,350.10938V296a8,8,0,0,1,16,0v27.3125l26.34375,26.34375,11.3125-11.3125L376,316.6875v-9.53809l64,30.47608v7.95263a39.52769,39.52769,0,0,1-6.65625,21.98438A55.49954,55.49954,0,0,0,424,398.42188V496h16V398.42188a39.52769,39.52769,0,0,1,6.65625-21.98438A55.49954,55.49954,0,0,0,456,345.57812v-.33349l12.5625,5.98193a8.00806,8.00806,0,0,0,10.59375-3.64844l16-32A7.97885,7.97885,0,0,0,495.5625,309.39844ZM387.79688,242.29688a8.01072,8.01072,0,0,1,6.94531.48437l41.22656,23.55469A8.0305,8.0305,0,0,1,440,273.28906v6.99024l-67.18066-31.99073Zm80.55468,91.10937-93.562-44.56006a23.75878,23.75878,0,0,0-31.69141-15.0918l-32.58252-15.5122-4.39843-13.17969,13.35156-4.45312,157.72656,75.10937Z" />
             </svg>
-          </a>
+          </label>
           <span>Войти</span>
-          {% endif %}
-        </div>
+        </a>
+        {% endif %}
       </div>
     </div>
 
@@ -179,7 +182,9 @@
 
   <div class="body-center-container">
     <div class="container">
-      {% block content %}{% endblock %}
+      {% block content %}
+      
+      {% endblock %}
     </div>
   </div>
 
@@ -188,9 +193,8 @@
       <div class="container-link">
         <div class="card">
           <div class="icon">
-            <img src="/static/img/logo.webp"
-              id="favicon">
-            </div>
+            <img src="/static/img/logo.webp" id="favicon">
+          </div>
           <div class="player-header">
             <div class="image"> <img src="/static/img/123.webp" alt="" /> </div>
           </div>
@@ -209,7 +213,7 @@
   <!-- ---------- scripts --------- -->
   {% block js_scripts %}
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="/static/js/functionToggle.js"></script>  
+  <script src="/static/js/functionToggle.js"></script>
   <script src="/static/js/serverStatus.js"></script>
   <script src="/static/js/accordeon.js"></script>
   <script src="/static/js/register.js"></script>
