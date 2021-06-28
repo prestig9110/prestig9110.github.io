@@ -123,7 +123,7 @@ h6 {
           justify-content: flex-end;
   background: url(../img/header2.webp) no-repeat center;
   background-color: rgba(0, 0, 0, 0.4);
-  z-index: 1000;
+  z-index: 1500;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
@@ -168,6 +168,7 @@ h6 {
           box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
+  text-decoration: none;
 }
 
 .wrapper-link .button-link .icon-button svg,
@@ -220,8 +221,8 @@ h6 {
       -ms-flex-align: center;
           align-items: center;
   background: rgba(0, 0, 0, 0.75);
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
   -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
   border: 0.2px solid black;
@@ -262,8 +263,8 @@ h6 {
   height: 100%;
   width: 100%;
   min-width: 220px;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
   text-decoration: none;
   cursor: pointer;
 }
@@ -283,8 +284,8 @@ h6 {
   background: rgba(0, 0, 0, 0.65);
   top: 0;
   opacity: 0;
-  -webkit-transition: all 0.35s ease-out;
-  transition: all 0.35s ease-out;
+  -webkit-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
   visibility: hidden;
   border-radius: 10px;
 }
@@ -493,7 +494,7 @@ h6 {
           justify-content: center;
 }
 
-.gallery-block .gallery .gallery-item {
+.gallery-block .modal-container-main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -504,48 +505,25 @@ h6 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 350px;
-  height: auto;
-  margin: 10px;
-  overflow: hidden;
-  -webkit-box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.4);
-          box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.4);
-}
-
-.gallery-block .gallery .gallery-item .gallery-image {
-  -webkit-transition: -webkit-transform 400ms ease-out;
-  transition: -webkit-transform 400ms ease-out;
-  transition: transform 400ms ease-out;
-  transition: transform 400ms ease-out, -webkit-transform 400ms ease-out;
-}
-
-.gallery-block .gallery .gallery-item .gallery-image:hover {
-  -webkit-transform: scale(1.15);
-          transform: scale(1.15);
-}
-
-.gallery-block .port {
   position: fixed;
   width: 100%;
   height: 100%;
-  top: 0;
   left: 0;
-  padding-top: 100px;
-  background: #27292d;
-  visibility: hidden;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  border-bottom: 1px solid #d0d0d0;
-  -webkit-transition: all 0.65s ease-in-out;
-  transition: all 0.65s ease-in-out;
-  z-index: 2000 !important;
+  top: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  border: 2px solid black;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.25);
+          box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+  z-index: 99999 !important;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
-.gallery-block .port .row {
-  width: 80%;
-  height: 80vh;
-  margin: 0 auto;
-  padding: 0;
+.gallery-block .modal-container-main .modal-content {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -553,47 +531,121 @@ h6 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  background: rgba(0, 0, 0, 0.1);
-  z-index: 200000000 !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #27292d;
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  padding: 25px;
 }
 
-.gallery-block .port .row .description {
+.gallery-block .modal-container-main .modal-content .content-gallery-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   width: 50%;
   height: auto;
-  padding: 10px;
-  padding-top: 50px;
-  overflow: auto;
+  padding: 15px;
+  margin: 15px;
 }
 
-.gallery-block .port.item_open {
-  visibility: visible;
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%);
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+.gallery-block .modal-container-main .modal-content .content-gallery-text p,
+.gallery-block .modal-container-main .modal-content .content-gallery-text a {
+  margin: 5px;
+  margin-top: 15px;
+  font-size: 20px;
+  text-transform: none;
+  color: #f4f4f4;
 }
 
-.gallery-block .close {
-  margin: 50px;
-  width: 21px;
-  height: 21px;
-  background: url(data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2017.1.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%0A%3Csvg%20version%3D%221.1%22%0A%09%20id%3D%22svg2%22%20xmlns%3Adc%3D%22http%3A//purl.org/dc/elements/1.1/%22%20xmlns%3Acc%3D%22http%3A//creativecommons.org/ns%23%22%20xmlns%3Ardf%3D%22http%3A//www.w3.org/1999/02/22-rdf-syntax-ns%23%22%20xmlns%3Asvg%3D%22http%3A//www.w3.org/2000/svg%22%0A%09%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%2021%2021%22%0A%09%20enable-background%3D%22new%200%200%2021%2021%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cg%20id%3D%22layer1%22%20transform%3D%22translate%280%2C-1031.3622%29%22%3E%0A%09%3Cpath%20id%3D%22path2987%22%20fill%3D%22none%22%20stroke%3D%22%23000000%22%20d%3D%22M0%2C1031.4l21%2C21%22/%3E%0A%09%3Cpath%20id%3D%22path2989%22%20fill%3D%22none%22%20stroke%3D%22%23000000%22%20d%3D%22M21%2C1031.4l-21%2C21%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A%0A) no-repeat;
+.gallery-block .modal-container-main .modal-content .content-gallery-text a {
+  height: auto;
+  width: auto;
+  margin: 20px;
+  font-size: 20px;
+  text-transform: none;
+  color: #f4f4f4;
+  -webkit-transform: all 0.3s ease;
+          transform: all 0.3s ease;
+}
+
+.gallery-block .modal-container-main .modal-content .content-gallery-text a:hover {
+  color: #ff74fa;
+}
+
+.gallery-block .modal-container-main .modal-content .content-gallery-photo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50%;
+  height: auto;
+  padding: 15px;
+  margin: 15px;
+}
+
+.gallery-block .modal-container-main .modal-content .content-gallery-photo .fotorama-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: auto;
+  height: auto;
+  padding: 15px !important;
+}
+
+.gallery-block .modal-container-main .modal-content button {
   position: absolute;
-  right: 60px;
-  top: 80px;
-  opacity: 1;
-  z-index: 100004 !important;
-  -webkit-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  font-size: 24px;
+  padding: 5px auto;
+  outline: none;
+  color: #ffba00;
 }
 
-.item_open .close {
+.gallery-block .modal-container-main .modal-content button:hover {
+  color: #ff74fa;
+}
+
+.modalContainer0001.show,
+.modalContainer0002.show,
+.modalContainer0003.show,
+.modalContainer0004.show,
+.modalContainer0005.show,
+.modalContainer0006.show,
+.modalContainer0007.show,
+.modalContainer0008.show,
+.modalContainer0009.show,
+.modalContainer0010.show {
+  pointer-events: auto;
   opacity: 1;
-  top: 0px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
 }
 
 /*---------------------------------------- resources ----------------------------------------*/

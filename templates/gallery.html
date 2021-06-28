@@ -1,162 +1,96 @@
 {% extends "_base.html" %} {% block content %}
-<!-- <div
-  class="embedsocial-instagram"
-  data-ref="5d21afb1230fd3430d83b2c5b715d395dd74e454"
-></div>
-<script>
-    (function (d, s, id) {
-      var js;
-      if (d.getElementById(id)) {
-        return;
-      }
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://embedsocial.com/embedscript/in.js";
-      d.getElementsByTagName("head")[0].appendChild(js);
-    })(document, "script", "EmbedSocialInstagramScript");
-  </script>  -->
-
 <div class="gallery-block">
-    <div id="top"></div>
+
+    <!-- gallery owerview-->
     <div class="gallery">
-        <a href="#item0007" class="gallery-item">
-            <img class="gallery-image" src="/static/img/gallery/25.jpg" alt="Lorem" />
-        </a>
-        <a href="#item0006" class="gallery-item">
-            <img class="gallery-image" src="/static/img/gallery/22.jpg" alt="Lorem" />
-        </a>
-        <a href="#item0005" class="gallery-item">
-            <img class="gallery-image" src="/static/img/gallery/18.jpg" alt="Lorem" />
-        </a>
-        <a href="#item0004" class="gallery-item">
-            <img class="gallery-image" src="/static/img/gallery/15.jpg" alt="Lorem" />
-        </a>
-        <a href="#item0003" class="gallery-item">
-            <img class="gallery-image" src="/static/img/gallery/8.jpg" alt="Lorem" />
-        </a>
-        <a href="#item0002" class="gallery-item">
-            <img class="gallery-image" src="/static/img/gallery/5.jpg" alt="Lorem" />
-        </a>
-        <a href="#item0001" class="gallery-item">
-            <img class="gallery-image" src="/static/img/gallery/1.jpg" alt="Lorem" />
-        </a>
+        <img id="openModal0001" src="/static/img/gallery/1.jpg" alt="">
+        <img id="openModal0002" src="/static/img/gallery/5.jpg" alt="">
+        <img id="openModal0003" src="/static/img/gallery/8.jpg" alt="">
+        <img id="openModal0004" src="/static/img/gallery/15.jpg" alt="">
+        <img id="openModal0005" src="/static/img/gallery/18.jpg" alt="">
+        <img id="openModal0006" src="/static/img/gallery/22.jpg" alt="">
+        <img id="openModal0007" src="/static/img/gallery/25.jpg" alt="">
+        <img id="openModal0008" src="/static/img/gallery/1.jpg" alt="">
+        <img id="openModal0009" src="/static/img/gallery/1.jpg" alt="">
+        <img id="openModal0010" src="/static/img/gallery/1.jpg" alt="">
     </div>
 
-    <div id="item0001" class="port">
-        <div class="row">
-            <div class="description">
-                <p>Основание нашего сервера пришлось на предновогоднее время. Однако праздничная суета не помешала нам
+    <!-- gallery modal owerview-->
+    <div class="modal-container-main modalContainer0001" id="modalContainer0001">
+        <div class="modal-content">
+            <div class="content-gallery-text">
+                <p>
+                    Основание нашего сервера пришлось на предновогоднее время. Однако праздничная суета не помешала нам
                     достойно подготовиться к празднику, нарядить шикарную ёлочку, обменяться тёплыми памятными
-                    подарками, весело покутить в санях и насладиться впечатляющим фейерверком в компании друзей.</p>
+                    подарками, весело покутить в санях и насладиться впечатляющим фейерверком в компании друзей.
+                </p>
+                <a href="https://www.instagram.com/p/CJqKyfiLOVi/" target="_blank">Открыть публикацию в instagram</a>
             </div>
-            <img src="/static/img/gallery/1.jpg" alt="">
+            <div class="content-gallery-photo">
+                <div class="fotorama-block">
+                    <div class="fotorama" data-minwidth="auto" data-maxwidth="100%" data-minheight="auto"
+                        data-maxheight="auto" data-loop="true" data-transition="slide" data-autoplay="true"
+                        data-keyboard="true" data-shuffle="true" data-allowfullscreen="true"
+                        data-clicktransition="crossfade">
+                        <img src="/static/img/gallery/1.jpg" alt="">
+                        <img src="/static/img/gallery/2.jpg" alt="">
+                        <img src="/static/img/gallery/3.jpg" alt="">
+                        <img src="/static/img/gallery/4.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <button id="close0001">&#128473;</button>
         </div>
-        <a href="#" class="close"></a>
+    </div>
+    <div class="modal-container-main modalContainer0002" id="modalContainer0002">
+        <div class="modal-content">
+            <button id="close0002"> &#128473;</button>
+        </div>
+    </div>
+    <div class="modal-container-main modalContainer0003" id="modalContainer0003">
+        <div class="modal-content">
+            <button id="close0003"> &#128473;</button>
+        </div>
+    </div>
+    <div class="modal-container-main modalContainer0004" id="modalContainer0004">
+        <div class="modal-content">
+            <button id="close0004"> &#128473;</button>
+        </div>
+    </div>
+    <div class="modal-container-main modalContainer0005" id="modalContainer0005">
+        <div class="modal-content">
+            <button id="close0005"> &#128473;</button>
+        </div>
+    </div>
+    <div class="modal-container-main modalContainer0006" id="modalContainer0006">
+        <div class="modal-content">
+            <button id="close0006"> &#128473;</button>
+        </div>
+    </div>
+    <div class="modal-container-main modalContainer0007" id="modalContainer0007">
+        <div class="modal-content">
+            <button id="close0007"> &#128473;</button>
+        </div>
+    </div>
+    <div class="modal-container-main modalContainer0008" id="modalContainer0008">
+        <div class="modal-content">
+            <button id="close0008"> &#128473;</button>
+        </div>
+    </div>
+    <div class="modal-container-main modalContainer0009" id="modalContainer0009">
+        <div class="modal-content">
+            <button id="close0009"> &#128473;</button>
+        </div>
+    </div>
+    <div class="modal-container-main modalContainer0010" id="modalContainer0010">
+        <div class="modal-content">
+            <button id="close0010"> &#128473;</button>
+        </div>
     </div>
 
-    <div id="item0002" class="port">
-        <div class="row">
-            <div class="description">
-                <p>Строительство новой спокойной жизни на сервере началось с выбора территории, для этого идеально
-                    подошла равнина, окружённая заснеженной тундрой, тайгой и горами.
-                    Наша дружная компания решила обосноваться на общем складе под землёй, а сверху основать деревушку.
-                    И началось все с Писательского домика Блэки и Сомика, в котором Блэки ведёт летопись сервера, а
-                    Сомик ведёт деятельность, направленную на сохранение реликвий сервера.
-                    Сам домик излучает уют и тепло, а камин, размещенный в нем вызывает непреодолимое желание в него
-                    залезть, чем несомненно пользуются гости домика )</p>
-            </div>
-            <img src="/static/img/gallery/5.jpg" alt="">
-        </div>
-        <a href="#" class="close"></a>
-    </div>
-
-    <div id="item0003" class="port">
-        <div class="row">
-            <div class="description">
-                <p>В первые дни наша деревенька обрастала сельхоз фермами различного профиля, однако их размещение
-                    происходило далеко не всегда упорядочено. Но в конце концов стараниями Блэки на территории поселка
-                    появилась самая настоящая ферма с конюшней, курятником, крольчатней и загонами для коров, овец и
-                    свинюшек.</p>
-            </div>
-            <img src="/static/img/gallery/8.jpg" alt="">
-        </div>
-        <a href="#" class="close"></a>
-    </div>
-
-    <div id="item0004" class="port">
-        <div class="row">
-            <div class="description">
-                <p>В поселении появился домик травника, в котором наш мастер-зельевар творит свои зельеварские делишки.
-                    Стандартные приемы украшения интерьера прекрасно разбавили предметы обихода, размещенные на
-                    интерактивных стойках, любезно предоставленных хранителем нашего мира Даландисом ;)</p>
-            </div>
-            <img src="/static/img/gallery/15.jpg" alt="">
-        </div>
-        <a href="#" class="close"></a>
-    </div>
-
-    <div id="item0005" class="port">
-        <div class="row">
-            <div class="description">
-                <p>Иногда дизайн и ведение хозяйства отступают на второй план, в этот момент на сервере тут и там
-                    появляются фермы. Наш лагерь располагается в зимних биомах и недалеко от базы теперь размещена
-                    высокопроизводительная ферма льда.</p>
-            </div>
-            <img src="/static/img/gallery/18.jpg" alt="">
-        </div>
-        <a href="#" class="close"></a>
-    </div>
-
-    <div id="item0006" class="port">
-        <div class="row">
-            <div class="description">
-                <p>Этот эндермен имеет немного растерянный вид. И я его понимаю, ведь ферма визер-роз, на спавн-площадке
-                    которой он появился, состоит полностью из золотых блоков.
-                    Откуда столько золота? Об этом в следующих постах, посвященных фермостроительной стороне нашего
-                    сервера )</p>
-            </div>
-            <img src="/static/img/gallery/22.jpg" alt="">
-        </div>
-        <a href="#" class="close"></a>
-    </div>
-
-    <div id="item0007" class="port">
-        <div class="row">
-            <div class="description">
-                <p>Наш город постепенно разрастается. И хотя население столицы остается неизменным, тут и там появляются
-                    новые уютные домики. Каждый житель постепенно обзаводится собственным жилищем, где можно провести
-                    время с друзьями или просто отдохнуть.
-                    Наблюдать за порядком в уже далеко не маленьком городе лучше всего с мини-дирижабля, стремительно
-                    рассекающего небесный свод. На борту судна помимо рулевой системы располагается система хранения и
-                    несколько полок с навигационными картами и пособиями по пилотному мастерству.
-                    Автор строения: VessAy</p>
-            </div>
-            <img src="/static/img/gallery/25.jpg" alt="">
-        </div>
-        <a href="#" class="close"></a>
-    </div>
 </div>
 
 {% endblock %} {% block js_scripts %} {{ super() }}
-<script>
-    $(".gallery-item").click(function () {
-        var itemID = $(this).attr("href");
-        $(".gallery-item").addClass("item_open");
-        $(itemID).addClass("item_open");
-        return false;
-    });
-    $(".close").click(function () {
-        $(".port, .gallery-item").removeClass("item_open");
-        return false;
-    });
-
-    // $(".gallery-item").click(function () {
-    //     $("html, body").animate(
-    //         {
-    //             scrollTop: parseInt($("#top").offset().top),
-    //         },
-    //         300
-    //     );
-    // });
-</script>
+<script src="/static/js/modal-window-open.js"></script>
+<script src="/static/js/fotorama.js"></script>
 {% endblock %}
