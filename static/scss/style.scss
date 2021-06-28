@@ -385,10 +385,26 @@ h6 {
 /*---------------------------------------- gallery ----------------------------------------*/
 .gallery-block {
   .gallery {
+    height: auto;
+    width: 100%;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
+    margin: 0 auto;
+    .block-img {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 1%;
+      width: 23%;
+      height: auto;
+      border: 2px solid rgba(0, 0, 0, 0.25);
+      .link-img-modal {
+        height: 100%;
+        width: 100%;
+        border-radius: 2px;
+      }
+    }
   }
   .modal-container-main {
     display: flex;
@@ -565,7 +581,8 @@ h6 {
     margin: 1rem 0;
     border-radius: 0.5rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
-    min-width: 350px;
+    width: auto;
+    min-width: 400px;
     .accordion-item-header {
       padding: 8px 48px 8px 16px;
       min-height: 52px;
@@ -599,13 +616,29 @@ h6 {
       transition: max-height 0.35s ease-out;
       .accordion-item-body-content {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         color: #f4f4f4;
         padding: 16px;
         line-height: 24px;
         border-top: 1px solid;
         border-image: linear-gradient(to right, transparent, rgba(143, 142, 143, 0.75), transparent) 1;
+        ul {
+          li {
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            text-overflow: ellipsis;
+          }
+        }
+        .prev-img {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: auto ;
+          width: 366px ;
+          margin: 0 auto ;
+        }
         img {
           display: flex;
           flex-direction: column;
@@ -614,6 +647,7 @@ h6 {
           width: 36px;
           margin-right: 10px;
         }
+
         p {
           label {
             color: limegreen;
@@ -623,27 +657,11 @@ h6 {
             text-decoration: underline;
           }
         }
-        .prev-img {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          height: 250px !important;
-          width: 250px !important;
-          margin: 0 auto !important;
-        }
         .info-litematic-img {
           img {
             width: 100%;
             height: auto;
             border-radius: 10px;
-          }
-        }
-        ul {
-          li {
-            display: flex;
-            flex-direction: row;
-            justify-content: start;
-            text-overflow: ellipsis;
           }
         }
       }
@@ -1181,4 +1199,26 @@ h6 {
   padding: 5px;
   border: 1px solid #f4f4f415;
   border-bottom: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .gallery {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .main .gallery {
+    display: block;
+  }
+  .main .gallery .img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 2% 0;
+  }
+  .main .gallery .img img {
+    display: block;
+    filter: brightness(1) grayscale(0);
+  }
 }
