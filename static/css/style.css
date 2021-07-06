@@ -1300,6 +1300,22 @@ h6 {
   border: 1px solid black;
   background: rgba(0, 0, 0, 0.2);
   color: #f4f4f4;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+
+.profile-tabs .flex-tabs .panel .profile .link-support-profile .BuTtOn a {
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.profile-tabs .flex-tabs .panel .profile .link-support-profile .BuTtOn a:visited, .profile-tabs .flex-tabs .panel .profile .link-support-profile .BuTtOn a:focus {
+  color: #f4f4f4;
+}
+
+.profile-tabs .flex-tabs .panel .profile .link-support-profile .BuTtOn:hover {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .profile-tabs .flex-tabs .panel .profile .link-support-profile p {
