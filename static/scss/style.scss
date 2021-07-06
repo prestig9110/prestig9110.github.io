@@ -960,6 +960,18 @@ h6 {
             border: 1px solid black;
             background: rgba(0, 0, 0, 0.2);
             color: #f4f4f4;
+            transition: all 0.35s ease;
+            cursor: pointer;
+            a{
+              transition: all 0.35s ease;
+              &:visited,
+              &:focus{
+                color: #f4f4f4;
+              }
+            }
+            &:hover{
+              background: rgba(0, 0, 0, 0.5);
+            }
           }
           p {
             height: auto;
@@ -1230,3 +1242,4 @@ h6 {
     filter: brightness(1) grayscale(0);
   }
 }
+
