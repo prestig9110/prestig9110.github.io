@@ -873,13 +873,13 @@ h6 {
   margin-right: 10px;
 }
 
-.accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content p label {
-  color: limegreen;
-  cursor: default;
-}
-
 .accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content p span {
   text-decoration: underline;
+}
+
+.accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content p a {
+  text-decoration: underline;
+  color: #f4f4f4;
 }
 
 .accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content .info-litematic-img img {
@@ -1272,27 +1272,40 @@ h6 {
 }
 
 .profile-tabs .flex-tabs .panel .profile .link-support-profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: auto;
-  width: 80%;
+  width: 100%;
   padding: 0 30px;
   padding-left: 90px;
+  padding-right: 90px;
   padding-bottom: 50px;
+}
+
+.profile-tabs .flex-tabs .panel .profile .link-support-profile .BuTtOn {
+  text-align: center;
+  height: auto;
+  width: 100%;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: 1px solid black;
+  background: rgba(0, 0, 0, 0.2);
+  color: #f4f4f4;
 }
 
 .profile-tabs .flex-tabs .panel .profile .link-support-profile p {
   height: auto;
   margin-top: 10px;
   width: 100%;
-}
-
-.profile-tabs .flex-tabs .panel .profile .link-support-profile p a {
-  height: auto;
-  width: 100%;
-  padding: 10px;
-  margin-top: 50px;
-  border: 1px solid black;
-  background: rgba(0, 0, 0, 0.2);
-  color: #f4f4f4;
 }
 
 .profile-tabs .flex-tabs .panel .profile .me-register {
@@ -1366,6 +1379,8 @@ h6 {
 
 .profile-tabs .flex-tabs .panel .profile .me-register .border-line textarea {
   margin: 0;
+  min-width: 100%;
+  max-width: 100%;
   min-height: 100px;
   max-height: 100px;
 }
@@ -1395,24 +1410,6 @@ h6 {
   margin-left: 60px;
   color: rgba(255, 255, 255, 0.35);
   z-index: 1;
-}
-
-.profile-tabs .flex-tabs .panel .profile .faq-block {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  width: 100%;
-  padding-left: 80px;
-  padding-right: 80px;
-  padding-top: 50px;
-  padding-bottom: 10px;
 }
 
 .profile-tabs .flex-tabs .panel .profile .regulations-block {
@@ -1464,6 +1461,24 @@ h6 {
 
 .profile-tabs .flex-tabs .panel .profile .register-block .register-btn-next:hover, .profile-tabs .flex-tabs .panel .profile .register-block .register-btn-next:visited {
   outline: none;
+}
+
+.profile-tabs .flex-tabs .panel .faq-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-top: 0;
+  padding-bottom: 10px;
 }
 
 #tab-one:checked ~ .tabs #tab-one-label,

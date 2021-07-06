@@ -13,7 +13,7 @@ $.getJSON(url, function (r) {
    }
    $("#rest").html(
       r.description.replace(/§(.+?)/gi, "") +
-      "<br><b>Версия: Yatopia 1.16.4 - 1.16.5 </b> " +
+      "<br><b>Версия: Paper - 1.17 </b> " +
       "<br><b>Режим игры: Выживание </b> " +
       "<br><b>Игроков онлайн: </b> " +
       r.players.online +
