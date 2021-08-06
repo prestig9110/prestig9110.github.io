@@ -77,6 +77,7 @@
             <div class="border-line">
               <label> </label>
               <select name="tupe" id="type">
+                <option value=""></option>
                 <option value="1">Лицензия</option>
                 <option value="0">Пиратка</option>
               </select>
@@ -102,7 +103,7 @@
             <div class="border-line">
               <label> </label>
               <textarea name="servers" id="servers" cols="auto" rows="auto"></textarea>
-              <span>Прошлые сервера</span>
+              <span>Прошлые серверы</span>
             </div>
           </div>
           <div class="regulations-block">
@@ -122,6 +123,8 @@
   </div>
   {% endif %}
 </div>
-{% endblock %} {% block js_scripts %} {{ super() }}
+{% endblock %} 
+{% block js_scripts %} 
+{{ super() }}
 <script src="/static/js/add_markers.js"></script>
 {% endblock %}

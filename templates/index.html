@@ -1,9 +1,10 @@
 {% extends "_base.html" %}
 {% block content %}
 <div class="index-block">
-    <h1>GMGame</h1>
+    <div class="word ">GmGame</div>
+    <div class="overlay"></div>
     <h4>GMGame — развивающийся строительный minecraft-сервер с элементами лёгкого ролеплея.</h4>
-    <h4>Сервер функционирует на ядре Yatopia версии 1.16.5 с плагинами, повышающими комфортность игры и, вместе с
+    <h4>Сервер функционирует на ядре Tuinity версии 1.17.1 с плагинами, повышающими комфортность игры и, вместе с
         тем,
         позволяющими не потерять полуванильный облик игрового процесса.</h4>
     <h4>Доступ на сервер осуществляется бесплатно, есть возможность играть с лицензионных/нелицензионных учётных
@@ -18,4 +19,9 @@
         поведения
         и общения. На игровом сервере запрещено гриферство, воровство и читерство.</h4>
 </div>
+{% endblock %}
+{% block js_scripts %} 
+{{ super() }}
+<script src='http://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js'></script>
+<script src="/static/js/randomGmGame.js"></script>
 {% endblock %}

@@ -67,7 +67,7 @@ def register():
         conn.commit()
         
         ticket = 'Игровой ник: ' + login + '\n'
-        ticket = ticket + 'Аккаунт: ' + ('Лицензия' if type else 'Пиратка') + '\n'
+        ticket = ticket + 'Аккаунт: ' + ('Лицензия' if typeMc else 'Пиратка') + '\n'
         ticket = ticket + 'Ваш возраст: ' + age + '\n'
         ticket = ticket + 'Предыдущие сервера: ' + servers + '\n'
         ticket = ticket + 'Откуда узнали о проекте: ' + from_about + '\n'
