@@ -26,7 +26,8 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  background: #4e5e6e;
+  background: #2e3741;
+  backdrop-filter: blur(9px);
   align-items: center;
   justify-content: center;
   z-index: 500000000000;
@@ -78,19 +79,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-
-
-
-
-
-
-
 /*---------------------------------------- body ----------------------------------------*/
 .customBg {
   background: url(../img/bg.png);
   background-position-x: center;
-  background-attachment: fixed ;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -101,7 +94,7 @@
   width: 100%;
   position: absolute;
   height: 100%;
-  background: rgba(0, 0, 0, 0.550);
+  background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(9px);
 }
 .body-center-container {
@@ -112,7 +105,7 @@
 .container {
   padding-left: 150px;
   padding-right: 150px;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 100px;
   height: 100%;
   min-height: 800px;
@@ -174,7 +167,7 @@ h6 {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  z-index: 1500;
+  z-index: 150;
   transition: all 0.35s ease;
 }
 /*---------------------------------------- header-menu-link ----------------------------------------*/
@@ -182,7 +175,7 @@ h6 {
   display: flex;
   flex-direction: row;
   margin-left: 10px;
-  z-index: 1000;
+  z-index: 150;
   .button-link {
     display: flex;
     flex-direction: row;
@@ -194,7 +187,7 @@ h6 {
     margin: 10px;
     overflow: hidden;
     color: #f4f4f4;
-    border: 0.2px solid rgba(70, 70, 70, 1);
+    border: 0.2px solid rgb(146, 146, 146);
     cursor: pointer;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.35s ease;
@@ -234,7 +227,7 @@ h6 {
       justify-content: center;
       align-items: center;
       transition: all 0.15s ease;
-      z-index: 1100;
+      z-index: 150;
       li {
         position: relative;
         display: flex;
@@ -242,11 +235,11 @@ h6 {
         list-style: none;
         height: 50px;
         line-height: 50px;
-        width: 300px;
+        width: 240px;
         margin-left: 17px;
         margin-right: 17px;
-        border-radius: 10px;
-        z-index: 1000;
+        // border-radius: 10px;
+        z-index: 1800;
         a,
         label {
           display: flex;
@@ -264,20 +257,20 @@ h6 {
         }
         a:hover,
         label:hover {
-          border-radius: 10px;
-          background: #3a3b3d;
+          // border-radius: 10px;
+          background: #555a66;
         }
         label {
           display: none;
         }
         ul {
           position: absolute;
-          background: rgba(0, 0, 0, 0.65);
+          background: rgba(48, 52, 73, 0.65);
           top: 0;
           opacity: 0;
           transition: all 0.15s ease-out;
           visibility: hidden;
-          border-radius: 10px;
+          // border-radius: 10px;
           li {
             margin-left: 0;
             margin-right: 0;
@@ -297,7 +290,7 @@ h6 {
 #toggle {
   width: 50px;
   height: 50px;
-  background: rgba(0, 0, 0, 0.8);
+  // background: rgba(0, 0, 0, 0.8);
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -306,7 +299,8 @@ h6 {
   display: none;
 }
 #toggle.active {
-  background: rgba(0, 0, 0, 0.7);
+  // background: rgba(0, 0, 0, 0.7);
+  background: rgba(48, 52, 73, 0.95);
 }
 #toggle::before {
   content: "";
@@ -335,23 +329,23 @@ h6 {
   transform: translateY(0px) rotate(-45deg);
 }
 /*---------------------------------------- index ----------------------------------------*/
-.index-block{
+.index-block {
   .word {
     bottom: 0;
     color: #fff;
-    font-size: 50px;
-    height: 30px;
+    font-size: 65px;
+    height: auto;
+    text-align: center;
     left: 0;
     line-height: 30px;
     margin: auto;
     right: 0;
-    position: absolute;
     text-shadow: 0 0 10px rgba(50, 255, 50, 0.5), 0 0 5px rgba(100, 255, 100, 0.5);
     top: 0;
     span {
       display: inline-block;
       -webkit-transform: translateX(100%) scale(0.9);
-              transform: translateX(100%) scale(0.9);
+      transform: translateX(100%) scale(0.9);
       -webkit-transition: -webkit-transform 500ms;
       transition: -webkit-transform 500ms;
       transition: transform 500ms;
@@ -360,7 +354,7 @@ h6 {
     .done {
       color: #6f6;
       -webkit-transform: translateX(0) scale(1);
-              transform: translateX(0) scale(1);
+      transform: translateX(0) scale(1);
     }
   }
   .overlay {
@@ -368,11 +362,20 @@ h6 {
     background-image: linear-gradient(transparent 0%, rgba(10, 16, 10, 0.5) 50%);
     background-size: 1000px 2px;
     bottom: 0;
-    content: '';
+    content: "";
     left: 0;
-    position: absolute;
     right: 0;
     top: 0;
+  }
+  .center {
+    font-size: 26px;
+    text-align: center;
+    padding: 25px;
+  }
+  h4 {
+    padding: 12px 0 12px 0;
+    width: 100%;
+    height: auto;
   }
 }
 /*---------------------------------------- start ----------------------------------------*/
@@ -384,15 +387,15 @@ h6 {
       }
       a {
         text-decoration: none;
-        color: #30679e;
+        color: #0080ff;
         font-weight: 600;
         transition: all 0.35s ease;
       }
       a:hover {
-        color: #2c5a88a9;
+        color: #70b8ffa9;
       }
       a:visited {
-        color: #30679e;
+        color: #0080ff;
       }
     }
   }
@@ -413,14 +416,14 @@ h6 {
       }
       a {
         font-weight: 600;
-        color: #30679e;
+        color: #0080ff;
         transition: all 0.35s ease;
       }
       a:hover {
-        color: #2c5a88a9;
+        color: #70b8ffa9;
       }
       a:visited {
-        color: #30679e;
+        color: #0080ff;
       }
     }
   }
@@ -430,14 +433,14 @@ h6 {
   ul {
     li {
       a {
-        color: #30679e;
+        color: #0080ff;
         transition: all 0.35s ease;
       }
       a:visited {
-        color: #30679e;
+        color: #0080ff;
       }
       a:hover {
-        color: #2c5a88a9;
+        color: #70b8ffa9;
       }
     }
     li::before {
@@ -479,10 +482,10 @@ h6 {
   padding: 20px;
   transition: 0.35s;
   border: 2px solid #ffba00;
-}
-.cd-btn:hover {
-  background-color: #ffbb009d;
-  border-color: #ffba00;
+  &:hover {
+    background-color: #ffbb009d;
+    border-color: #ffba00;
+  }
 }
 /*---------------------------------------- command ----------------------------------------*/
 .command-block {
@@ -514,7 +517,8 @@ h6 {
       margin: 1%;
       width: 23%;
       height: auto;
-      border: 2px solid rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      cursor: pointer;
       .link-img-modal {
         height: 100%;
         width: 100%;
@@ -533,11 +537,11 @@ h6 {
     top: 0;
     background: rgba(0, 0, 0, 0.6);
     opacity: 0;
-    border: 2px solid black;
-    border-radius: 10px;
+    // border: 2px solid black;
+    // border-radius: 10px;
     box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.25);
     pointer-events: none;
-    z-index: 99999 !important;
+    // z-index: 99999 !important;
     transition: opacity 0.3s ease;
     .modal-content {
       position: relative;
@@ -546,7 +550,7 @@ h6 {
       justify-content: center;
       background-color: #27292d;
       width: 90%;
-      height: 90%;
+      height: 72%;
       margin: 0 auto;
       padding: 25px;
       .content-gallery-text {
@@ -554,14 +558,14 @@ h6 {
         flex-direction: column;
         justify-content: space-evenly;
         width: 50%;
-        height: auto;
+        height: 100%;
         padding: 15px;
         margin: 15px;
         p,
         a {
           margin: 5px;
           margin-top: 15px;
-          font-size: 20px;
+          font-size: 18px;
           text-transform: none;
           color: #f4f4f4;
         }
@@ -569,10 +573,11 @@ h6 {
           height: auto;
           width: auto;
           margin: 20px;
-          font-size: 20px;
+          font-size: 18px;
           text-transform: none;
+          text-align: right;
           color: #f4f4f4;
-          transform: all 0.3s ease;
+          transition: all 0.3s ease;
           &:hover {
             color: #ff74fa;
           }
@@ -624,7 +629,10 @@ h6 {
 .modalContainer0007.show,
 .modalContainer0008.show,
 .modalContainer0009.show,
-.modalContainer0010.show {
+.modalContainer0010.show,
+.modalContainer0011.show,
+.modalContainer0012.show {
+  z-index: 2500 !important;
   pointer-events: auto;
   opacity: 1;
 }
@@ -654,35 +662,41 @@ h6 {
   }
 }
 /*---------------------------------------- litematica ----------------------------------------*/
-.info-litematic {
+.litem {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 50%;
+  width: 100%;
   height: auto;
-  ul {
-    li {
-      font-size: 16px;
-      a {
+  flex-direction: row;
+  .info-litematic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: auto;
+    ul {
+      li {
         font-size: 16px;
-        color: #30679e;
-        text-transform: none;
-        font-weight: 500;
-        font-style: italic;
-        text-overflow: ellipsis;
-      }
-      a:hover {
-        color: #2c5a88a9;
-        transition: all 0.35s ease;
+        a {
+          font-size: 16px;
+          color: #0080ff;
+          text-transform: none;
+          font-weight: 500;
+          font-style: italic;
+          text-overflow: ellipsis;
+        }
+        a:hover {
+          color: #70b8ffa9;
+          transition: all 0.35s ease;
+        }
       }
     }
   }
-}
-.info-litematic-img {
-  display: flex;
-  justify-content: center;
-  width: 50%;
-  height: auto;
+  .info-litematic-img {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: auto;
+  }
 }
 /*---------------------------------------- market ----------------------------------------*/
 
@@ -691,8 +705,8 @@ h6 {
   max-width: 1500px;
   width: 100%;
   .accordion-item {
-    background: radial-gradient(circle, rgba(70, 70, 70, 1) 0%, rgba(70, 70, 70, 1) 100%);
-    border: 0.1px solid rgba(143, 142, 143, 0.75);
+    background: radial-gradient(circle, rgba(90, 90, 90, 0.719) 0%, rgbrgb(80, 80, 80) 0%);
+    border: 0.1px solid rgba(80, 80, 80, 0.75);
     color: #111;
     margin: 1rem 0;
     border-radius: 0.5rem;
@@ -745,6 +759,15 @@ h6 {
             flex-direction: row;
             justify-content: start;
             text-overflow: ellipsis;
+            font-weight: 500;
+          }
+          .liWar {
+            padding-left: 10px;
+            .ban {
+              color: rgb(255, 67, 67);
+              font-size: 18px;
+              font-weight: 500;
+            }
           }
         }
         .prev-img {
@@ -793,82 +816,11 @@ h6 {
   width: 100%;
   padding-top: 100px;
   padding-bottom: 50px;
-  background: rgba(0, 0, 0, 0.1);
   h6 {
     margin: 0 auto;
     margin-top: 20px;
     text-align: center;
     color: #f4f4f4;
-  }
-  .body-center-container {
-    .container-link {
-      width: 1800px;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around;
-      .card {
-        position: relative;
-        padding: 0;
-        height: 450px;
-        width: 550px;
-        color: #f4f4f4;
-        background: #202225;
-        border-radius: 8px;
-        box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
-        animation: fadein 2s;
-        overflow: hidden;
-        .icon {
-          position: absolute;
-          background: #f4f4f4;
-          padding: 8px;
-          right: 10px;
-          top: 135px;
-          width: 110px;
-          height: 110px;
-          border-radius: 25%;
-          overflow: hidden;
-          box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.6);
-          z-index: 9;
-        }
-        img {
-          width: 100%;
-          transition: all 0.35s ease;
-          z-index: 0;
-        }
-        .player-header {
-          position: relative;
-          z-index: 1;
-          width: 100%;
-          height: 200px;
-          box-shadow: 0 4px 3px #0002;
-          overflow: hidden;
-          .image {
-            width: 100%;
-            height: 200px;
-            cursor: crosshair;
-            overflow: hidden;
-          }
-          .image:hover img {
-            transform: scale(1.2, 1.2);
-          }
-        }
-        .rest {
-          padding: 40px 15px 30px 15px;
-          line-height: 30px;
-          font-size: 20px;
-          font-weight: 700;
-        }
-      }
-      .linck-discord {
-        height: 450px;
-        box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
-        iframe {
-          width: 550px;
-          height: 450px;
-        }
-      }
-    }
   }
 }
 /*---------------------------------------- profile ----------------------------------------*/
@@ -928,12 +880,12 @@ h6 {
         fill: #f4f4f4;
       }
       &:hover {
-        background-color: rgb(184, 184, 184);
+        background-color: rgb(114, 114, 114);
       }
     }
     .panel {
       display: none;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.4);
       min-height: 500px;
       width: 100%;
       flex-basis: auto;
@@ -1220,7 +1172,7 @@ h6 {
 #tab-one:checked ~ .tabs #tab-one-label,
 #tab-two:checked ~ .tabs #tab-two-label,
 #tab-three:checked ~ .tabs #tab-three-label {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   cursor: default;
   transition: all 0.2s ease;
 }
@@ -1236,7 +1188,7 @@ h6 {
   margin: 0;
   top: -20px;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 #tab-one:checked ~ .tabs #tab-one-label::after,
@@ -1337,27 +1289,6 @@ h6 {
   border-bottom: none;
 }
 
-@media only screen and (max-width: 768px) {
-  .gallery {
-    display: grid;
-    grid-template-columns: auto auto auto;
-  }
-}
-@media only screen and (max-width: 430px) {
-  .main .gallery {
-    display: block;
-  }
-  .main .gallery .img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 2% 0;
-  }
-  .main .gallery .img img {
-    display: block;
-    filter: brightness(1) grayscale(0);
-  }
-}
 @media screen and (max-width: 1700px) {
   /*---------- body ----------*/
   .container {
@@ -1367,28 +1298,10 @@ h6 {
     padding-bottom: 80px;
     width: 1600px;
   }
-  /*---------- header ----------*/
   /*---------- header-menu-link ----------*/
   .wrapper-link {
     width: 1550px;
   }
-  /*---------- menu ----------*/
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
-  /*---------- litematica ----------*/
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-
-  /*---------- register ----------*/
-  /*---------- profile ----------*/
-  /*---------- metki ----------*/
 }
 @media screen and (max-width: 1600px) {
   /*---------- body ----------*/
@@ -1399,7 +1312,6 @@ h6 {
     padding-bottom: 80px;
     width: 1550px;
   }
-  /*---------- header ----------*/
   /*---------- header-menu-link ----------*/
   .wrapper-link {
     width: auto;
@@ -1410,56 +1322,17 @@ h6 {
     width: 310px;
     margin-left: 14px;
     margin-right: 14px;
+    a,
+    label {
+      font-size: 25px;
+    }
   }
-  .links li a,
-  .links li label {
-    font-size: 25px;
-  }
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
-  /*---------- litematica ----------*/
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-  .container-link {
-    width: 1550px;
-  }
-  .linck-contact {
-    width: 1200px;
-  }
-  /*---------- register ----------*/
-  /*---------- profile ----------*/
-  /*---------- metki ----------*/
 }
 @media screen and (max-width: 1400px) {
-  /*---------- body ----------*/
-  /*---------- header ----------*/
   /*---------- header-menu-link ----------*/
   .wrapper-link {
     width: auto;
     min-width: 1200px;
-  }
-  /*---------- menu ----------*/
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
-  /*---------- litematica ----------*/
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-  .linck-contact {
-    width: auto;
   }
   /*---------- register ----------*/
   .panel {
@@ -1476,10 +1349,10 @@ h6 {
   /*---------- metki ----------*/
 }
 @media screen and (max-width: 1024px) {
-  /*---------- body ----------*/
   /*---------- header ----------*/
   .header {
-    height: 250px;
+    // height: 50px;
+    flex-direction: column-reverse;
     justify-content: flex-end;
   }
   /*---------- header-menu-link ----------*/
@@ -1488,109 +1361,152 @@ h6 {
     display: flex;
   }
   /*---------- menu ----------*/
-  .links {
-    display: block;
-    position: absolute;
-    background: rgba(0, 0, 0, 0.9);
-    height: 100%;
-    min-height: 1000px;
-    width: 100%;
-    max-width: 450px;
-    top: 250px;
-    margin-left: 0;
-    padding: 15px;
-    overflow-y: auto;
-    transition: all 0.35s ease;
-    transform: translateX(-450px);
-    border: none;
-  }
-  .active {
-    transform: translateX(0px);
-  }
-  .links li {
-    display: flex;
-    flex-direction: column;
-    text-align: start;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 0;
-    margin-right: 0;
-    cursor: pointer;
-    height: auto;
-  }
-  .links li a.desktop-link {
-    display: none;
-  }
-  .links li a,
-  .links li label {
-    width: 410px;
-    display: block;
-    padding-left: 15px;
-    font-size: 26px;
-  }
-  .links ul li a,
-  .links ul li label {
-    width: 350px;
-  }
-  .links ul li {
-    margin: 7px 20px;
-  }
-  .links ul {
-    position: static;
-    opacity: 1;
-    width: 380px;
-    visibility: visible;
-    background: none;
-    opacity: 0;
-    max-height: 0px;
-    overflow: hidden;
-    transition: height ease 0.35s;
-  }
-  .links #one-menu:checked ~ ul,
-  .links #two-menu:checked ~ ul,
-  .links #three-menu:checked ~ ul {
-    transition: height ease 0.35s;
-    max-height: 100vh;
-    opacity: 1;
+  .menu {
+    .content-menu {
+      .links {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        position: absolute;
+        background: rgba(48, 52, 73, 0.95);
+        height: auto;
+        width: 100%;
+        max-width: 450px;
+        top: 130px;
+        margin-left: 0;
+        padding: 15px;
+        overflow-y: auto;
+        transition: all 0.35s ease;
+        transform: translateX(-450px);
+        border: none;
+        align-items: start;
+        li {
+          display: flex;
+          flex-direction: column;
+          text-align: start;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          margin-left: 0;
+          margin-right: 0;
+          cursor: pointer;
+          height: auto !important;
+          a,
+          label {
+            width: auto;
+            display: block;
+            padding-left: 15px;
+            font-size: 26px;
+            height: auto;
+          }
+          .desktop-link {
+            display: none;
+          }
+          ul {
+            position: static !important;
+            // width: 380px;
+            visibility: visible;
+            background: none;
+            // opacity: 0;
+            max-height: 0px;
+            overflow: hidden;
+            transition: height ease 0.35s;
+            li {
+              margin: 7px 20px;
+              width: auto;
+              a,
+              label {
+                width: 350px;
+              }
+            }
+          }
+        }
+
+        #one-menu:checked ~ ul,
+        #two-menu:checked ~ ul,
+        #three-menu:checked ~ ul {
+          transition: height ease 0.35s;
+          max-height: 100vh;
+          opacity: 1 !important;
+        }
+      }
+      .active {
+        transform: translateX(0px);
+      }
+    }
   }
   #toggle {
     display: flex;
     position: relative;
     cursor: pointer;
   }
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
   /*---------- litematica ----------*/
-  #litematica .accordion-item-body-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    flex-wrap: wrap;
+  .litem {
+    .info-litematic {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+      ul {
+        li {
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .info-litematic-img {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: auto;
+    }
   }
-  .info-litematic {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: auto;
-  }
-  .info-litematic-img {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: auto;
-  }
-  .info-litematic ul li a {
-    font-size: 14px;
-  }
-  .accordion-item-body-content img {
-    margin: 0;
+  /*---------- gallery ----------*/
+  .gallery-block {
+    .gallery {
+      .block-img {
+        width: 48%;
+      }
+    }
+    .modal-container-main {
+      .modal-content {
+        display: flex;
+        flex-direction: column-reverse;
+        // justify-content: center;
+        padding: 0;
+        width: 90%;
+        height: 80%;
+        .content-gallery-text {
+          display: flex;
+          width: 95%;
+          height: 100%;
+          overflow: auto;
+          p,
+          a {
+            margin: 5px;
+            margin-top: 5px;
+            font-size: 16px;
+            text-transform: none;
+            color: #f4f4f4;
+          }
+        }
+        .content-gallery-photo {
+          display: flex;
+          width: 95%;
+          height: 100%;
+          .fotorama-block {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            width: auto;
+            height: auto;
+            padding: 15px !important;
+          }
+        }
+      }
+    }
   }
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
@@ -1603,89 +1519,96 @@ h6 {
     flex-wrap: wrap;
     justify-content: center;
   }
-  .card {
-    margin: 0 auto 65px auto;
-    height: 550px;
-    width: 750px;
-  }
-  .player-header {
-    height: 320px;
-  }
-  .image {
-    height: 320px;
-  }
-  .icon {
-    top: 235px;
-  }
-
-  .linck-discord {
-    margin: 0 auto;
-  }
-  .linck-discord iframe {
-    width: 750px;
-    height: 600px;
-  }
   /*---------- register ----------*/
+  .profile-tabs {
+    .flex-tabs {
+      .panel {
+        .profile {
+          .me-info-profile {
+            padding: 0;
+            padding-top: 15px;
+            width: 65%;
+            .border-line {
+              margin-left: 40px;
+            }
+          }
+          .me-info-profile-wight {
+            .border-line {
+              margin-right: 40px;
+            }
+          }
+          .profile-help {
+            width: 35%;
+          }
+          .me-register {
+            .border-line {
+              margin-left: 40px;
+              margin-right: 40px;
+            }
+          }
+          .regulations-block {
+            padding-left: 40px;
+            padding-right: 40px;
+          }
+          .link-support-profile {
+            padding-left: 30px;
+            padding-right: 30px;
+          }
+        }
+        .faq-block {
+          padding-left: 40px;
+          padding-right: 40px;
+        }
+      }
+    }
+  }
   /*---------- profile ----------*/
-  .me-info-profile {
-    width: 60%;
-  }
-  .border-line {
-    margin-left: 45px;
-    margin-bottom: 15px;
-    padding-bottom: 0;
-    border-bottom: 1px solid #f4f4f450;
-  }
-  .profile-help {
-    width: 40%;
-  }
-  .link-support-profile {
-    width: 100%;
-    padding: 0 30px;
-    padding-left: 50px;
-    padding-bottom: 50px;
-  }
   /*---------- metki ----------*/
-  .metki thead {
-    display: none;
-  }
-  .metki,
-  .metki tbody,
-  .metki tbody tr,
-  .metki tbody tr th {
+  .metki {
     display: block;
     width: 100%;
-  }
-  .metki tbody tr {
-    margin-bottom: 15px;
-  }
-  .metki tbody tr th {
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-top: 0;
-    width: 100%;
-    right: 0;
-    text-align: right;
-    position: relative;
-  }
-  .metki tbody tr th::before {
-    content: attr(data-label);
-    color: #f4f4f4;
-    position: absolute;
-    left: 0;
-    padding-left: 10px;
-  }
-  .metki tbody tr th input,
-  .metki tbody tr th select,
-  .metki tbody tr th button,
-  .metki tbody tr th span {
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-top: 0;
-    right: 0;
-    width: 70%;
-    text-align: start;
-    border-left: 1px solid #f4f4f4;
+    thead {
+      display: none;
+    }
+    tbody {
+      display: block;
+      width: 100%;
+      tr {
+        display: block;
+        width: 100%;
+        margin-bottom: 15px;
+        th {
+          display: block;
+          width: 100%;
+          padding-right: 0;
+          padding-bottom: 0;
+          padding-top: 0;
+          width: 100%;
+          right: 0;
+          text-align: right;
+          position: relative;
+          &::before {
+            content: attr(data-label);
+            color: #f4f4f4;
+            position: absolute;
+            left: 0;
+            padding-left: 10px;
+          }
+          input,
+          select,
+          button,
+          span {
+            padding-right: 0;
+            padding-bottom: 0;
+            padding-top: 0;
+            right: 0;
+            width: 70%;
+            text-align: start;
+            border-left: 1px solid #f4f4f4;
+          }
+        }
+      }
+    }
   }
   .display-none {
     display: none !important;
@@ -1735,162 +1658,87 @@ h6 {
     text-decoration: none;
     font-weight: 600;
   }
-  /*---------- header ----------*/
   /*---------- header-menu-link ----------*/
   .wrapper-link {
     min-width: 550px;
   }
-  /*---------- menu ----------*/
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
   /*---------- litematica ----------*/
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-  .main-link {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  .card {
-    width: 650px;
-  }
-  .player-header {
-    height: 300px;
-  }
-  .image {
-    height: 300px;
-  }
-  .icon {
-    top: 235px;
-  }
-
-  .linck-discord {
-    margin: 0 auto;
-  }
-  .linck-discord iframe {
-    width: 650px;
-  }
-  /*---------- register ----------*/
-  .register-form {
-    height: auto;
-    width: 100%;
-  }
-  .register-form input,
-  .register-form textarea,
-  .register-form select {
-    min-height: 45px;
-    max-height: 150px;
-    max-width: 95%;
-    min-width: 95%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 2px auto;
-    border-radius: 10px;
-    border: 1px solid lightgray;
-    outline: none;
-  }
-  .warning-help-1 {
-    font-size: 20px;
-  }
-  .warning-help-2 {
-    font-size: 20px;
-  }
-  .warning-help-2 a:visited {
-    font-size: 20px;
+  .litem {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: start;
   }
   /*---------- profile ----------*/
-  .me-info-profile {
-    width: 100%;
+  .profile-tabs {
+    .flex-tabs {
+      .panel {
+        .profile {
+          display: flex;
+          flex-direction: column;
+          .me-info-profile {
+            width: 100%;
+            .border-line {
+              span {
+                width: auto;
+              }
+            }
+          }
+          .profile-help {
+            width: 100%;
+            padding-top: 10px;
+            a {
+              margin-top: 5px;
+              padding-left: 45px;
+            }
+          }
+          .link-support-profile {
+            width: 100%;
+            padding: 0 30px;
+            padding-left: 50px;
+            padding-bottom: 50px;
+          }
+          .me-register {
+            width: 100%;
+          }
+        }
+        .border-line {
+          margin-left: 45px;
+          margin-right: 45px;
+          margin-bottom: 15px;
+          padding-bottom: 0;
+          border-bottom: 1px solid #f4f4f450;
+        }
+      }
+    }
   }
-  .border-line {
-    margin-left: 45px;
-    margin-right: 45px;
-    margin-bottom: 15px;
-    padding-bottom: 0;
-    border-bottom: 1px solid #f4f4f450;
-  }
-  .profile-help {
-    width: 100%;
-    padding-top: 10px;
-  }
-  .profile-help a {
-    margin-top: 5px;
-    padding-left: 45px;
-  }
-  .link-support-profile {
-    width: 100%;
-    padding: 0 30px;
-    padding-left: 50px;
-    padding-bottom: 50px;
-  }
-  /*---------- metki ----------*/
 }
 @media screen and (max-width: 640px) {
-  /*---------- body ----------*/
-  /*---------- header ----------*/
-  /*---------- header-menu-link ----------*/
+  .container {
+    width: 100%;
+  }
   /*---------- menu ----------*/
   .links {
     max-width: 350px;
     padding: 10px;
     transform: translateX(-350px);
+    a,
+    label {
+      width: 320px;
+      font-size: 24px;
+    }
+    ul {
+      width: 320px;
+      li {
+        a,
+        label {
+          width: 300px;
+        }
+      }
+    }
   }
   .active {
     transform: translateX(0px);
   }
-  .links ul {
-    width: 320px;
-  }
-  .links li a,
-  .links li label {
-    width: 320px;
-    font-size: 24px;
-  }
-  .links ul li a,
-  .links ul li label {
-    width: 300px;
-  }
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
-  #resources .content {
-    padding-left: 0;
-  }
-  /*---------- litematica ----------*/
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-  .card {
-    width: 550px;
-    height: auto;
-  }
-  .player-header {
-    height: 250px;
-  }
-  .image {
-    height: 250px;
-  }
-  .icon {
-    top: 200px;
-  }
-
-  .linck-discord iframe {
-    width: 550px;
-  }
-  /*---------- register ----------*/
   /*---------- profile ----------*/
   .border-line {
     margin-left: 20px;
@@ -1932,6 +1780,27 @@ h6 {
   .metki tbody tr th select,
   .metki tbody tr th button {
     width: 60%;
+  }
+  .accordion-2 {
+    .accordion-item {
+      width: 100%;
+      min-width: auto;
+      .accordion-item-body {
+        .accordion-item-body-content {
+          ul {
+            .liWar {
+              img {
+                width: 22px;
+                height: 22px;
+              }
+              .ban {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 @media screen and (max-width: 480px) {
@@ -1985,76 +1854,45 @@ h6 {
     padding-bottom: 10px;
     width: 100%;
   }
-  /*---------- header ----------*/
   /*---------- header-menu-link ----------*/
+  .header {
+    height: 110px;
+  }
+  .menu {
+    .content-menu {
+      .links {
+        top: 110px;
+      }
+    }
+  }
   .wrapper-link {
-    min-width: 400px;
+    min-width: auto;
+    .button-link {
+      height: 40px;
+      width: 42px;
+      flex-wrap: wrap;
+      &:hover {
+        width: auto;
+      }
+      .icon-button {
+        img,
+        svg {
+          height: 30px;
+          width: 30px;
+          margin: 5px;
+        }
+      }
+      span {
+        height: 40px;
+        line-height: 40px;
+        margin-left: 5px;
+        font-size: 14px;
+      }
+    }
   }
-  .wrapper-link .button-link:hover {
-    width: auto;
-  }
-  .wrapper-link .button-link {
-    height: 40px;
-    width: 42px;
-    flex-wrap: wrap;
-  }
-  .icon-button img,
-  .icon-button svg {
-    height: 30px;
-    width: 30px;
-    margin: 5px;
-  }
-  .wrapper-link .button-link span {
-    height: 40px;
-    line-height: 40px;
-    margin-left: 5px;
-    font-size: 14px;
-  }
-  /*---------- menu ----------*/
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
   /*---------- litematica ----------*/
   .info-litematic ul li {
     text-overflow: ellipsis;
-  }
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-  .main-link {
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-  .card {
-    width: 95%;
-    height: auto;
-    margin: 10px;
-  }
-  .player-header {
-    height: 215px;
-  }
-  .image {
-    height: 215px;
-  }
-  .icon {
-    top: 180px;
-  }
-
-  .linck-discord {
-    width: 95%;
-    margin: 10px;
-    margin-top: 4%;
-  }
-  .linck-discord iframe {
-    width: 100%;
-  }
-  .linck-contact {
-    margin-bottom: 30px;
   }
   /*---------- register ----------*/
   .warning-help-1 {
@@ -2097,6 +1935,66 @@ h6 {
     margin: auto;
   }
   /*---------- metki ----------*/
+  .accordion-2 {
+    .accordion-item {
+      width: 100%;
+      min-width: auto;
+      .accordion-item-body {
+        .accordion-item-body-content {
+          ul {
+            .liWar {
+              display: flex;
+              flex-direction: column;
+              padding-left: 0;
+              padding-bottom: 20px;
+              img {
+                display: none;
+              }
+              .ban {
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  /*---------- profile ----------*/
+  .profile-tabs {
+    .flex-tabs {
+      .panel {
+        .profile {
+          .me-info-profile {
+            .border-line {
+              margin-left: 10px;
+              margin-right: 10px;
+            }
+          }
+          .profile-help{
+            padding: 0;
+          }
+          .regulations-block {
+            padding-left: 15px;
+            padding-right: 15px;
+          }
+          .link-support-profile{
+            padding-left: 15px;
+            padding-right: 15px;
+          }
+        }
+        .faq-block{
+          padding-left: 15px;
+            padding-right: 15px;
+        }
+      }
+    }
+  }
+  .gallery-block {
+    .gallery {
+      .block-img {
+        width: 98%;
+      }
+    }}
 }
 @media screen and (max-width: 400px) {
   /*---------- body ----------*/
@@ -2107,26 +2005,6 @@ h6 {
     padding-bottom: 10px;
     width: 100%;
   }
-  /*---------- header ----------*/
-  /*---------- header-menu-link ----------*/
-  .wrapper-link {
-    min-width: 370px;
-  }
-  /*---------- menu ----------*/
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
-  /*---------- litematica ----------*/
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-
-  /*---------- register ----------*/
   /*---------- profile ----------*/
   .me-photo img {
     width: 75%;
