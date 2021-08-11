@@ -32,7 +32,9 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  background: #4e5e6e;
+  background: #2e3741;
+  -webkit-backdrop-filter: blur(9px);
+          backdrop-filter: blur(9px);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -144,7 +146,7 @@
 .container {
   padding-left: 150px;
   padding-right: 150px;
-  padding-top: 100px;
+  padding-top: 50px;
   padding-bottom: 100px;
   height: 100%;
   min-height: 800px;
@@ -224,7 +226,7 @@ h6 {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
-  z-index: 1500;
+  z-index: 150;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
@@ -239,7 +241,7 @@ h6 {
       -ms-flex-direction: row;
           flex-direction: row;
   margin-left: 10px;
-  z-index: 1000;
+  z-index: 150;
 }
 
 .wrapper-link .button-link {
@@ -261,7 +263,7 @@ h6 {
   margin: 10px;
   overflow: hidden;
   color: #f4f4f4;
-  border: 0.2px solid #464646;
+  border: 0.2px solid #929292;
   cursor: pointer;
   -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -321,7 +323,7 @@ h6 {
           align-items: center;
   -webkit-transition: all 0.15s ease;
   transition: all 0.15s ease;
-  z-index: 1100;
+  z-index: 150;
 }
 
 .menu .content-menu .links li {
@@ -333,11 +335,10 @@ h6 {
   list-style: none;
   height: 50px;
   line-height: 50px;
-  width: 300px;
+  width: 240px;
   margin-left: 17px;
   margin-right: 17px;
-  border-radius: 10px;
-  z-index: 1000;
+  z-index: 1800;
 }
 
 .menu .content-menu .links li a,
@@ -366,8 +367,7 @@ h6 {
 
 .menu .content-menu .links li a:hover,
 .menu .content-menu .links li label:hover {
-  border-radius: 10px;
-  background: #3a3b3d;
+  background: #555a66;
 }
 
 .menu .content-menu .links li label {
@@ -376,13 +376,12 @@ h6 {
 
 .menu .content-menu .links li ul {
   position: absolute;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(48, 52, 73, 0.65);
   top: 0;
   opacity: 0;
   -webkit-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
   visibility: hidden;
-  border-radius: 10px;
 }
 
 .menu .content-menu .links li ul li {
@@ -402,7 +401,6 @@ h6 {
 #toggle {
   width: 50px;
   height: 50px;
-  background: rgba(0, 0, 0, 0.8);
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -419,7 +417,7 @@ h6 {
 }
 
 #toggle.active {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(48, 52, 73, 0.95);
 }
 
 #toggle::before {
@@ -464,13 +462,13 @@ h6 {
 .index-block .word {
   bottom: 0;
   color: #fff;
-  font-size: 50px;
-  height: 30px;
+  font-size: 65px;
+  height: auto;
+  text-align: center;
   left: 0;
   line-height: 30px;
   margin: auto;
   right: 0;
-  position: absolute;
   text-shadow: 0 0 10px rgba(50, 255, 50, 0.5), 0 0 5px rgba(100, 255, 100, 0.5);
   top: 0;
 }
@@ -496,11 +494,22 @@ h6 {
   background-image: linear-gradient(transparent 0%, rgba(10, 16, 10, 0.5) 50%);
   background-size: 1000px 2px;
   bottom: 0;
-  content: '';
+  content: "";
   left: 0;
-  position: absolute;
   right: 0;
   top: 0;
+}
+
+.index-block .center {
+  font-size: 26px;
+  text-align: center;
+  padding: 25px;
+}
+
+.index-block h4 {
+  padding: 12px 0 12px 0;
+  width: 100%;
+  height: auto;
 }
 
 /*---------------------------------------- start ----------------------------------------*/
@@ -510,18 +519,18 @@ h6 {
 
 .start-block ul li a {
   text-decoration: none;
-  color: #30679e;
+  color: #0080ff;
   font-weight: 600;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
 
 .start-block ul li a:hover {
-  color: #2c5a88a9;
+  color: #70b8ffa9;
 }
 
 .start-block ul li a:visited {
-  color: #30679e;
+  color: #0080ff;
 }
 
 .start-block p span {
@@ -538,32 +547,32 @@ h6 {
 
 .support-block ul li a {
   font-weight: 600;
-  color: #30679e;
+  color: #0080ff;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
 
 .support-block ul li a:hover {
-  color: #2c5a88a9;
+  color: #70b8ffa9;
 }
 
 .support-block ul li a:visited {
-  color: #30679e;
+  color: #0080ff;
 }
 
 /*---------------------------------------- mods ----------------------------------------*/
 .mods-block ul li a {
-  color: #30679e;
+  color: #0080ff;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
 
 .mods-block ul li a:visited {
-  color: #30679e;
+  color: #0080ff;
 }
 
 .mods-block ul li a:hover {
-  color: #2c5a88a9;
+  color: #70b8ffa9;
 }
 
 .mods-block ul li::before {
@@ -643,7 +652,8 @@ h6 {
   margin: 1%;
   width: 23%;
   height: auto;
-  border: 2px solid rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  cursor: pointer;
 }
 
 .gallery-block .gallery .block-img .link-img-modal {
@@ -670,12 +680,9 @@ h6 {
   top: 0;
   background: rgba(0, 0, 0, 0.6);
   opacity: 0;
-  border: 2px solid black;
-  border-radius: 10px;
   -webkit-box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.25);
           box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.25);
   pointer-events: none;
-  z-index: 99999 !important;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
 }
@@ -694,7 +701,7 @@ h6 {
           justify-content: center;
   background-color: #27292d;
   width: 90%;
-  height: 90%;
+  height: 72%;
   margin: 0 auto;
   padding: 25px;
 }
@@ -711,7 +718,7 @@ h6 {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   width: 50%;
-  height: auto;
+  height: 100%;
   padding: 15px;
   margin: 15px;
 }
@@ -720,7 +727,7 @@ h6 {
 .gallery-block .modal-container-main .modal-content .content-gallery-text a {
   margin: 5px;
   margin-top: 15px;
-  font-size: 20px;
+  font-size: 18px;
   text-transform: none;
   color: #f4f4f4;
 }
@@ -729,11 +736,12 @@ h6 {
   height: auto;
   width: auto;
   margin: 20px;
-  font-size: 20px;
+  font-size: 18px;
   text-transform: none;
+  text-align: right;
   color: #f4f4f4;
-  -webkit-transform: all 0.3s ease;
-          transform: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .gallery-block .modal-container-main .modal-content .content-gallery-text a:hover {
@@ -801,7 +809,10 @@ h6 {
 .modalContainer0007.show,
 .modalContainer0008.show,
 .modalContainer0009.show,
-.modalContainer0010.show {
+.modalContainer0010.show,
+.modalContainer0011.show,
+.modalContainer0012.show {
+  z-index: 2500 !important;
   pointer-events: auto;
   opacity: 1;
 }
@@ -840,7 +851,19 @@ h6 {
 }
 
 /*---------------------------------------- litematica ----------------------------------------*/
-.info-litematic {
+.litem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.litem .info-litematic {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -855,26 +878,26 @@ h6 {
   height: auto;
 }
 
-.info-litematic ul li {
+.litem .info-litematic ul li {
   font-size: 16px;
 }
 
-.info-litematic ul li a {
+.litem .info-litematic ul li a {
   font-size: 16px;
-  color: #30679e;
+  color: #0080ff;
   text-transform: none;
   font-weight: 500;
   font-style: italic;
   text-overflow: ellipsis;
 }
 
-.info-litematic ul li a:hover {
-  color: #2c5a88a9;
+.litem .info-litematic ul li a:hover {
+  color: #70b8ffa9;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
 
-.info-litematic-img {
+.litem .info-litematic-img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -893,8 +916,8 @@ h6 {
 }
 
 .accordion-2 .accordion-item {
-  background: radial-gradient(circle, #464646 0%, #464646 100%);
-  border: 0.1px solid rgba(143, 142, 143, 0.75);
+  background: radial-gradient(circle, rgba(90, 90, 90, 0.719) 0%, rgbrgb(80, 80, 80) 0%);
+  border: 0.1px solid rgba(80, 80, 80, 0.75);
   color: #111;
   margin: 1rem 0;
   border-radius: 0.5rem;
@@ -977,6 +1000,17 @@ h6 {
       -ms-flex-pack: start;
           justify-content: start;
   text-overflow: ellipsis;
+  font-weight: 500;
+}
+
+.accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content ul .liWar {
+  padding-left: 10px;
+}
+
+.accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content ul .liWar .ban {
+  color: #ff4343;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content .prev-img {
@@ -1042,7 +1076,6 @@ h6 {
   width: 100%;
   padding-top: 100px;
   padding-bottom: 50px;
-  background: rgba(0, 0, 0, 0.1);
 }
 
 .main-link h6 {
@@ -1050,98 +1083,6 @@ h6 {
   margin-top: 20px;
   text-align: center;
   color: #f4f4f4;
-}
-
-.main-link .body-center-container .container-link {
-  width: 1800px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.main-link .body-center-container .container-link .card {
-  position: relative;
-  padding: 0;
-  height: 450px;
-  width: 550px;
-  color: #f4f4f4;
-  background: #202225;
-  border-radius: 8px;
-  -webkit-box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
-  -webkit-animation: fadein 2s;
-          animation: fadein 2s;
-  overflow: hidden;
-}
-
-.main-link .body-center-container .container-link .card .icon {
-  position: absolute;
-  background: #f4f4f4;
-  padding: 8px;
-  right: 10px;
-  top: 135px;
-  width: 110px;
-  height: 110px;
-  border-radius: 25%;
-  overflow: hidden;
-  -webkit-box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.6);
-          box-shadow: 0px 0px 5px 4px rgba(0, 0, 0, 0.6);
-  z-index: 9;
-}
-
-.main-link .body-center-container .container-link .card img {
-  width: 100%;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
-  z-index: 0;
-}
-
-.main-link .body-center-container .container-link .card .player-header {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 200px;
-  -webkit-box-shadow: 0 4px 3px #0002;
-          box-shadow: 0 4px 3px #0002;
-  overflow: hidden;
-}
-
-.main-link .body-center-container .container-link .card .player-header .image {
-  width: 100%;
-  height: 200px;
-  cursor: crosshair;
-  overflow: hidden;
-}
-
-.main-link .body-center-container .container-link .card .player-header .image:hover img {
-  -webkit-transform: scale(1.2, 1.2);
-          transform: scale(1.2, 1.2);
-}
-
-.main-link .body-center-container .container-link .card .rest {
-  padding: 40px 15px 30px 15px;
-  line-height: 30px;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.main-link .body-center-container .container-link .linck-discord {
-  height: 450px;
-  -webkit-box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
-}
-
-.main-link .body-center-container .container-link .linck-discord iframe {
-  width: 550px;
-  height: 450px;
 }
 
 /*---------------------------------------- profile ----------------------------------------*/
@@ -1226,12 +1167,12 @@ h6 {
 }
 
 .profile-tabs .flex-tabs .tab:hover {
-  background-color: #b8b8b8;
+  background-color: #727272;
 }
 
 .profile-tabs .flex-tabs .panel {
   display: none;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
   min-height: 500px;
   width: 100%;
   -ms-flex-preferred-size: auto;
@@ -1638,7 +1579,7 @@ h6 {
 #tab-one:checked ~ .tabs #tab-one-label,
 #tab-two:checked ~ .tabs #tab-two-label,
 #tab-three:checked ~ .tabs #tab-three-label {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   cursor: default;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
@@ -1657,7 +1598,7 @@ h6 {
   margin: 0;
   top: -20px;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 
@@ -1770,32 +1711,6 @@ h6 {
   border-bottom: none;
 }
 
-@media only screen and (max-width: 768px) {
-  .gallery {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: auto auto auto;
-        grid-template-columns: auto auto auto;
-  }
-}
-
-@media only screen and (max-width: 430px) {
-  .main .gallery {
-    display: block;
-  }
-  .main .gallery .img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    margin: 2% 0;
-  }
-  .main .gallery .img img {
-    display: block;
-    -webkit-filter: brightness(1) grayscale(0);
-            filter: brightness(1) grayscale(0);
-  }
-}
-
 @media screen and (max-width: 1700px) {
   /*---------- body ----------*/
   .container {
@@ -1805,27 +1720,10 @@ h6 {
     padding-bottom: 80px;
     width: 1600px;
   }
-  /*---------- header ----------*/
   /*---------- header-menu-link ----------*/
   .wrapper-link {
     width: 1550px;
   }
-  /*---------- menu ----------*/
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
-  /*---------- litematica ----------*/
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-  /*---------- register ----------*/
-  /*---------- profile ----------*/
-  /*---------- metki ----------*/
 }
 
 @media screen and (max-width: 1600px) {
@@ -1837,7 +1735,6 @@ h6 {
     padding-bottom: 80px;
     width: 1550px;
   }
-  /*---------- header ----------*/
   /*---------- header-menu-link ----------*/
   .wrapper-link {
     width: auto;
@@ -1853,52 +1750,13 @@ h6 {
   .links li label {
     font-size: 25px;
   }
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
-  /*---------- litematica ----------*/
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-  .container-link {
-    width: 1550px;
-  }
-  .linck-contact {
-    width: 1200px;
-  }
-  /*---------- register ----------*/
-  /*---------- profile ----------*/
-  /*---------- metki ----------*/
 }
 
 @media screen and (max-width: 1400px) {
-  /*---------- body ----------*/
-  /*---------- header ----------*/
   /*---------- header-menu-link ----------*/
   .wrapper-link {
     width: auto;
     min-width: 1200px;
-  }
-  /*---------- menu ----------*/
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
-  /*---------- litematica ----------*/
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-  .linck-contact {
-    width: auto;
   }
   /*---------- register ----------*/
   .panel .profile .me-register .border-line {
@@ -1910,10 +1768,12 @@ h6 {
 }
 
 @media screen and (max-width: 1024px) {
-  /*---------- body ----------*/
   /*---------- header ----------*/
   .header {
-    height: 250px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
@@ -1926,15 +1786,23 @@ h6 {
     display: flex;
   }
   /*---------- menu ----------*/
-  .links {
-    display: block;
+  .menu .content-menu .links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
     position: absolute;
-    background: rgba(0, 0, 0, 0.9);
-    height: 100%;
-    min-height: 1000px;
+    background: rgba(48, 52, 73, 0.95);
+    height: auto;
     width: 100%;
     max-width: 450px;
-    top: 250px;
+    top: 130px;
     margin-left: 0;
     padding: 15px;
     overflow-y: auto;
@@ -1943,12 +1811,11 @@ h6 {
     -webkit-transform: translateX(-450px);
             transform: translateX(-450px);
     border: none;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
   }
-  .active {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-  .links li {
+  .menu .content-menu .links li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1962,44 +1829,47 @@ h6 {
     margin-left: 0;
     margin-right: 0;
     cursor: pointer;
-    height: auto;
+    height: auto !important;
   }
-  .links li a.desktop-link {
-    display: none;
-  }
-  .links li a,
-  .links li label {
-    width: 410px;
+  .menu .content-menu .links li a,
+  .menu .content-menu .links li label {
+    width: auto;
     display: block;
     padding-left: 15px;
     font-size: 26px;
+    height: auto;
   }
-  .links ul li a,
-  .links ul li label {
-    width: 350px;
+  .menu .content-menu .links li .desktop-link {
+    display: none;
   }
-  .links ul li {
-    margin: 7px 20px;
-  }
-  .links ul {
-    position: static;
-    opacity: 1;
-    width: 380px;
+  .menu .content-menu .links li ul {
+    position: static !important;
     visibility: visible;
     background: none;
-    opacity: 0;
     max-height: 0px;
     overflow: hidden;
     -webkit-transition: height ease 0.35s;
     transition: height ease 0.35s;
   }
-  .links #one-menu:checked ~ ul,
-  .links #two-menu:checked ~ ul,
-  .links #three-menu:checked ~ ul {
+  .menu .content-menu .links li ul li {
+    margin: 7px 20px;
+    width: auto;
+  }
+  .menu .content-menu .links li ul li a,
+  .menu .content-menu .links li ul li label {
+    width: 350px;
+  }
+  .menu .content-menu .links #one-menu:checked ~ ul,
+  .menu .content-menu .links #two-menu:checked ~ ul,
+  .menu .content-menu .links #three-menu:checked ~ ul {
     -webkit-transition: height ease 0.35s;
     transition: height ease 0.35s;
     max-height: 100vh;
-    opacity: 1;
+    opacity: 1 !important;
+  }
+  .menu .content-menu .active {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
   }
   #toggle {
     display: -webkit-box;
@@ -2008,30 +1878,8 @@ h6 {
     position: relative;
     cursor: pointer;
   }
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
   /*---------- litematica ----------*/
-  #litematica .accordion-item-body-content {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: start;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  .info-litematic {
+  .litem .info-litematic {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2045,21 +1893,75 @@ h6 {
     width: 100%;
     height: auto;
   }
-  .info-litematic-img {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    width: 100%;
-    height: auto;
-  }
-  .info-litematic ul li a {
+  .litem .info-litematic ul li a {
     font-size: 14px;
   }
-  .accordion-item-body-content img {
-    margin: 0;
+  .litem .info-litematic-img {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    height: auto;
+  }
+  /*---------- gallery ----------*/
+  .gallery-block .gallery .block-img {
+    width: 48%;
+  }
+  .gallery-block .modal-container-main .modal-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    padding: 0;
+    width: 90%;
+    height: 80%;
+  }
+  .gallery-block .modal-container-main .modal-content .content-gallery-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 95%;
+    height: 100%;
+    overflow: auto;
+  }
+  .gallery-block .modal-container-main .modal-content .content-gallery-text p,
+  .gallery-block .modal-container-main .modal-content .content-gallery-text a {
+    margin: 5px;
+    margin-top: 5px;
+    font-size: 16px;
+    text-transform: none;
+    color: #f4f4f4;
+  }
+  .gallery-block .modal-container-main .modal-content .content-gallery-photo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 95%;
+    height: 100%;
+  }
+  .gallery-block .modal-container-main .modal-content .content-gallery-photo .fotorama-block {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    width: auto;
+    height: auto;
+    padding: 15px !important;
   }
   /*---------- market ----------*/
   /*---------- accordion-2 ----------*/
@@ -2080,62 +1982,58 @@ h6 {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .card {
-    margin: 0 auto 65px auto;
-    height: 550px;
-    width: 750px;
-  }
-  .player-header {
-    height: 320px;
-  }
-  .image {
-    height: 320px;
-  }
-  .icon {
-    top: 235px;
-  }
-  .linck-discord {
-    margin: 0 auto;
-  }
-  .linck-discord iframe {
-    width: 750px;
-    height: 600px;
-  }
   /*---------- register ----------*/
+  .profile-tabs .flex-tabs .panel .profile .me-info-profile {
+    padding: 0;
+    padding-top: 15px;
+    width: 65%;
+  }
+  .profile-tabs .flex-tabs .panel .profile .me-info-profile .border-line {
+    margin-left: 40px;
+  }
+  .profile-tabs .flex-tabs .panel .profile .me-info-profile-wight .border-line {
+    margin-right: 40px;
+  }
+  .profile-tabs .flex-tabs .panel .profile .profile-help {
+    width: 35%;
+  }
+  .profile-tabs .flex-tabs .panel .profile .me-register .border-line {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .profile-tabs .flex-tabs .panel .profile .regulations-block {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  .profile-tabs .flex-tabs .panel .profile .link-support-profile {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .profile-tabs .flex-tabs .panel .faq-block {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
   /*---------- profile ----------*/
-  .me-info-profile {
-    width: 60%;
-  }
-  .border-line {
-    margin-left: 45px;
-    margin-bottom: 15px;
-    padding-bottom: 0;
-    border-bottom: 1px solid #f4f4f450;
-  }
-  .profile-help {
-    width: 40%;
-  }
-  .link-support-profile {
-    width: 100%;
-    padding: 0 30px;
-    padding-left: 50px;
-    padding-bottom: 50px;
-  }
   /*---------- metki ----------*/
+  .metki {
+    display: block;
+    width: 100%;
+  }
   .metki thead {
     display: none;
   }
-  .metki,
-  .metki tbody,
-  .metki tbody tr,
-  .metki tbody tr th {
+  .metki tbody {
     display: block;
     width: 100%;
   }
   .metki tbody tr {
+    display: block;
+    width: 100%;
     margin-bottom: 15px;
   }
   .metki tbody tr th {
+    display: block;
+    width: 100%;
     padding-right: 0;
     padding-bottom: 0;
     padding-top: 0;
@@ -2212,108 +2110,69 @@ h6 {
     text-decoration: none;
     font-weight: 600;
   }
-  /*---------- header ----------*/
   /*---------- header-menu-link ----------*/
   .wrapper-link {
     min-width: 550px;
   }
-  /*---------- menu ----------*/
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
   /*---------- litematica ----------*/
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-  .main-link {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  .card {
-    width: 650px;
-  }
-  .player-header {
-    height: 300px;
-  }
-  .image {
-    height: 300px;
-  }
-  .icon {
-    top: 235px;
-  }
-  .linck-discord {
-    margin: 0 auto;
-  }
-  .linck-discord iframe {
-    width: 650px;
-  }
-  /*---------- register ----------*/
-  .register-form {
-    height: auto;
-    width: 100%;
-  }
-  .register-form input,
-  .register-form textarea,
-  .register-form select {
-    min-height: 45px;
-    max-height: 150px;
-    max-width: 95%;
-    min-width: 95%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 2px auto;
-    border-radius: 10px;
-    border: 1px solid lightgray;
-    outline: none;
-  }
-  .warning-help-1 {
-    font-size: 20px;
-  }
-  .warning-help-2 {
-    font-size: 20px;
-  }
-  .warning-help-2 a:visited {
-    font-size: 20px;
+  .litem {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
   }
   /*---------- profile ----------*/
-  .me-info-profile {
+  .profile-tabs .flex-tabs .panel .profile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .profile-tabs .flex-tabs .panel .profile .me-info-profile {
     width: 100%;
   }
-  .border-line {
+  .profile-tabs .flex-tabs .panel .profile .me-info-profile .border-line span {
+    width: auto;
+  }
+  .profile-tabs .flex-tabs .panel .profile .profile-help {
+    width: 100%;
+    padding-top: 10px;
+  }
+  .profile-tabs .flex-tabs .panel .profile .profile-help a {
+    margin-top: 5px;
+    padding-left: 45px;
+  }
+  .profile-tabs .flex-tabs .panel .profile .link-support-profile {
+    width: 100%;
+    padding: 0 30px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+  }
+  .profile-tabs .flex-tabs .panel .profile .me-register {
+    width: 100%;
+  }
+  .profile-tabs .flex-tabs .panel .border-line {
     margin-left: 45px;
     margin-right: 45px;
     margin-bottom: 15px;
     padding-bottom: 0;
     border-bottom: 1px solid #f4f4f450;
   }
-  .profile-help {
-    width: 100%;
-    padding-top: 10px;
-  }
-  .profile-help a {
-    margin-top: 5px;
-    padding-left: 45px;
-  }
-  .link-support-profile {
-    width: 100%;
-    padding: 0 30px;
-    padding-left: 50px;
-    padding-bottom: 50px;
-  }
-  /*---------- metki ----------*/
 }
 
 @media screen and (max-width: 640px) {
-  /*---------- body ----------*/
-  /*---------- header ----------*/
-  /*---------- header-menu-link ----------*/
+  .container {
+    width: 100%;
+  }
   /*---------- menu ----------*/
   .links {
     max-width: 350px;
@@ -2321,54 +2180,22 @@ h6 {
     -webkit-transform: translateX(-350px);
             transform: translateX(-350px);
   }
-  .active {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
+  .links a,
+  .links label {
+    width: 320px;
+    font-size: 24px;
   }
   .links ul {
     width: 320px;
-  }
-  .links li a,
-  .links li label {
-    width: 320px;
-    font-size: 24px;
   }
   .links ul li a,
   .links ul li label {
     width: 300px;
   }
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
-  #resources .content {
-    padding-left: 0;
+  .active {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
   }
-  /*---------- litematica ----------*/
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-  .card {
-    width: 550px;
-    height: auto;
-  }
-  .player-header {
-    height: 250px;
-  }
-  .image {
-    height: 250px;
-  }
-  .icon {
-    top: 200px;
-  }
-  .linck-discord iframe {
-    width: 550px;
-  }
-  /*---------- register ----------*/
   /*---------- profile ----------*/
   .border-line {
     margin-left: 20px;
@@ -2413,6 +2240,17 @@ h6 {
   .metki tbody tr th select,
   .metki tbody tr th button {
     width: 60%;
+  }
+  .accordion-2 .accordion-item {
+    width: 100%;
+    min-width: auto;
+  }
+  .accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content ul .liWar img {
+    width: 22px;
+    height: 22px;
+  }
+  .accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content ul .liWar .ban {
+    font-size: 14px;
   }
 }
 
@@ -2467,13 +2305,15 @@ h6 {
     padding-bottom: 10px;
     width: 100%;
   }
-  /*---------- header ----------*/
   /*---------- header-menu-link ----------*/
-  .wrapper-link {
-    min-width: 400px;
+  .header {
+    height: 110px;
   }
-  .wrapper-link .button-link:hover {
-    width: auto;
+  .menu .content-menu .links {
+    top: 110px;
+  }
+  .wrapper-link {
+    min-width: auto;
   }
   .wrapper-link .button-link {
     height: 40px;
@@ -2481,8 +2321,11 @@ h6 {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  .icon-button img,
-  .icon-button svg {
+  .wrapper-link .button-link:hover {
+    width: auto;
+  }
+  .wrapper-link .button-link .icon-button img,
+  .wrapper-link .button-link .icon-button svg {
     height: 30px;
     width: 30px;
     margin: 5px;
@@ -2493,50 +2336,9 @@ h6 {
     margin-left: 5px;
     font-size: 14px;
   }
-  /*---------- menu ----------*/
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
   /*---------- litematica ----------*/
   .info-litematic ul li {
     text-overflow: ellipsis;
-  }
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-  .main-link {
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
-  .card {
-    width: 95%;
-    height: auto;
-    margin: 10px;
-  }
-  .player-header {
-    height: 215px;
-  }
-  .image {
-    height: 215px;
-  }
-  .icon {
-    top: 180px;
-  }
-  .linck-discord {
-    width: 95%;
-    margin: 10px;
-    margin-top: 4%;
-  }
-  .linck-discord iframe {
-    width: 100%;
-  }
-  .linck-contact {
-    margin-bottom: 30px;
   }
   /*---------- register ----------*/
   .warning-help-1 {
@@ -2582,6 +2384,50 @@ h6 {
     margin: auto;
   }
   /*---------- metki ----------*/
+  .accordion-2 .accordion-item {
+    width: 100%;
+    min-width: auto;
+  }
+  .accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content ul .liWar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding-left: 0;
+    padding-bottom: 20px;
+  }
+  .accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content ul .liWar img {
+    display: none;
+  }
+  .accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content ul .liWar .ban {
+    font-size: 14px;
+  }
+  /*---------- profile ----------*/
+  .profile-tabs .flex-tabs .panel .profile .me-info-profile .border-line {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .profile-tabs .flex-tabs .panel .profile .profile-help {
+    padding: 0;
+  }
+  .profile-tabs .flex-tabs .panel .profile .regulations-block {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .profile-tabs .flex-tabs .panel .profile .link-support-profile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .profile-tabs .flex-tabs .panel .faq-block {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .gallery-block .gallery .block-img {
+    width: 98%;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -2593,25 +2439,6 @@ h6 {
     padding-bottom: 10px;
     width: 100%;
   }
-  /*---------- header ----------*/
-  /*---------- header-menu-link ----------*/
-  .wrapper-link {
-    min-width: 370px;
-  }
-  /*---------- menu ----------*/
-  /*---------- start ----------*/
-  /*---------- support ----------*/
-  /*---------- mods ----------*/
-  /*---------- config-system ----------*/
-  /*---------- maps ----------*/
-  /*---------- command ----------*/
-  /*---------- gallery ----------*/
-  /*---------- resources ----------*/
-  /*---------- litematica ----------*/
-  /*---------- market ----------*/
-  /*---------- accordion-2 ----------*/
-  /*---------- main-container ----------*/
-  /*---------- register ----------*/
   /*---------- profile ----------*/
   .me-photo img {
     width: 75%;

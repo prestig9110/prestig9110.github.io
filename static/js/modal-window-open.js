@@ -8,6 +8,8 @@ const openModal0007 = document.getElementById("openModal0007");
 const openModal0008 = document.getElementById("openModal0008");
 const openModal0009 = document.getElementById("openModal0009");
 const openModal0010 = document.getElementById("openModal0010");
+const openModal0011 = document.getElementById("openModal0011");
+const openModal0012 = document.getElementById("openModal0012");
 
 const modalContainer0001 = document.getElementById("modalContainer0001");
 const modalContainer0002 = document.getElementById("modalContainer0002");
@@ -19,6 +21,8 @@ const modalContainer0007 = document.getElementById("modalContainer0007");
 const modalContainer0008 = document.getElementById("modalContainer0008");
 const modalContainer0009 = document.getElementById("modalContainer0009");
 const modalContainer0010 = document.getElementById("modalContainer0010");
+const modalContainer0011 = document.getElementById("modalContainer0011");
+const modalContainer0012 = document.getElementById("modalContainer0012");
 
 const close0001 = document.getElementById("close0001");
 const close0002 = document.getElementById("close0002");
@@ -30,6 +34,8 @@ const close0007 = document.getElementById("close0007");
 const close0008 = document.getElementById("close0008");
 const close0009 = document.getElementById("close0009");
 const close0010 = document.getElementById("close0010");
+const close0011 = document.getElementById("close0011");
+const close0012 = document.getElementById("close0012");
 
 
 
@@ -43,6 +49,8 @@ openModal0007.addEventListener("click", () => { modalContainer0007.classList.add
 openModal0008.addEventListener("click", () => { modalContainer0008.classList.add("show"); });
 openModal0009.addEventListener("click", () => { modalContainer0009.classList.add("show"); });
 openModal0010.addEventListener("click", () => { modalContainer0010.classList.add("show"); });
+openModal0011.addEventListener("click", () => { modalContainer0011.classList.add("show"); });
+openModal0012.addEventListener("click", () => { modalContainer0012.classList.add("show"); });
 
 close0001.addEventListener("click", () => { modalContainer0001.classList.remove("show"); });
 close0002.addEventListener("click", () => { modalContainer0002.classList.remove("show"); });
@@ -54,3 +62,5 @@ close0007.addEventListener("click", () => { modalContainer0007.classList.remove(
 close0008.addEventListener("click", () => { modalContainer0008.classList.remove("show"); });
 close0009.addEventListener("click", () => { modalContainer0009.classList.remove("show"); });
 close0010.addEventListener("click", () => { modalContainer0010.classList.remove("show"); });
+close0011.addEventListener("click", () => { modalContainer0011.classList.remove("show"); });
+close0012.addEventListener("click", () => { modalContainer0012.classList.remove("show"); });
