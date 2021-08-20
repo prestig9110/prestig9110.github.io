@@ -275,6 +275,13 @@ h6 {
   font-weight: 600;
 }
 
+.wrapper-link .classHover {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding-right: 25px;
+}
+
 /*---------- menu ----------*/
 .menu input[type="checkbox"] {
   display: none;
