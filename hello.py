@@ -7,6 +7,7 @@ from flask_discord import DiscordOAuth2Session, requires_authorization, Unauthor
 from pprint import pprint
 from inspect import getmembers
 import json
+import pika
 
 app = Flask(__name__)
 app._static_folder = 'static'
@@ -399,6 +400,39 @@ def location_markers():
     resp.headers['Access-Control-Allow-Origin'] = '*'
 
     return resp
+
+@app.route('/change_password', methods=['POST', 'GET'])
+@requires_authorization
+def change_password():
+    user = oauth.fetch_user()
+
+    if request.method == 'POST':
+
+        password = request.form['password']
+
+        if not password:
+            return jsonify( { 'error': 'Не указан пароль' } )
+        if len(password) < 8:
+            return jsonify( { 'error': 'Пароль должен быть минимум из 8 символов' } )
+
+        credentials = pika.PlainCredentials(app.config["MQ_USER"], app.config["MQ_PASS"])
+        connection = pika.BlockingConnection(pika.ConnectionParameters(host=app.config["MQ_HOST"], credentials=credentials))
+        channel = connection.channel()
+        properties = pika.BasicProperties(delivery_mode = 2);
+
+        channel.queue_declare(queue='tasks', durable=True)
+
+        channel.basic_publish(
+            exchange='',
+            properties=properties,
+            routing_key='tasks',
+            body=json.dumps( { "task" : "change_password", "user" : str(user.id) } )
+        )
+        connection.close()
+
+        return jsonify({'ok': 'Пароль будет изменен в ближайшее время'})
+
+    return render_template('change_password.html', user=user)
 
 @app.route("/<page>/")
 def start(page):
