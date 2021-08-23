@@ -7,7 +7,7 @@
   line-height: 2;
 }
 // *::-webkit-scrollbar {
-//   width: 10px;
+//   width: 7px;
 //   background-color: rgb(32, 42, 48);
 // }
 // *::-webkit-scrollbar-track {
@@ -21,6 +21,56 @@
 // *::-webkit-scrollbar-thumb:hover {
 //   background-color: rgb(23, 55, 75);
 // }
+:root {
+  --scrollbar-size: 7.5px ;
+  --scrollbar-minlength: 10px; /* Minimum length of scrollbar thumb (width of horizontal, height of vertical) */
+  --scrollbar-ff-width: thin; /* FF-only accepts auto, thin, none */
+  --scrollbar-track-color: transparent;
+  --scrollbar-color: rgba(0,0,0,.2);
+  --scrollbar-color-hover: rgba(0,0,0,.3);
+  --scrollbar-color-active: rgb(0,0,0);
+}
+
+/* Use .layout-scrollbar-obtrusive to only use overflow if scrollbars don’t overlay */
+* {
+  overscroll-behavior: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  scrollbar-width: var(--scrollbar-ff-width);
+}
+
+/* This class controls what elements have the new fancy scrollbar CSS */
+* {
+  scrollbar-color: var(--scrollbar-color) var(--scrollbar-track-color);
+}
+/* Only apply height/width to ::-webkit-scrollbar if is obtrusive */
+*::-webkit-scrollbar {
+  height: var(--scrollbar-size);
+  width: var(--scrollbar-size);
+}
+*::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-color);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: 3px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-color-hover);
+}
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-color-active);
+}
+*::-webkit-scrollbar-thumb:vertical,
+*::-webkit-scrollbar-thumb:vertical {
+  min-height: var(--scrollbar-minlength);
+}
+*::-webkit-scrollbar-thumb:horizontal,
+*::-webkit-scrollbar-thumb:horizontal {
+  min-width: var(--scrollbar-minlength);
+}
+
 /*---------------------------------------- preloader ----------------------------------------*/
 .preloader {
   position: fixed;
@@ -213,7 +263,7 @@ h6 {
       font-weight: 600;
     }
   }
-  .classHover{
+  .classHover {
     width: max-content;
     padding-right: 25px;
   }
