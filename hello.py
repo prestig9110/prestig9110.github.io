@@ -307,7 +307,16 @@ def list_players():
     cursor.execute("SELECT id, username, age, status FROM users ORDER BY status")
     users = cursor.fetchall()
 
-    return render_template('list_players.html', user=user, users=users, auth_ok=1)
+    usersResult = {}
+
+    for user in users:
+        if user['status'] in usersResult:
+            pprint(user["status"])
+            usersResult[user["status"]].append(user)
+        else:
+            usersResult[user['status']] = [user]
+
+    return render_template('list_players.html', user=user, users=users, auth_ok=1, usersResult = usersResult)
 
 @app.route('/change_user', methods=['POST', 'GET'])
 @requires_authorization
@@ -565,6 +574,12 @@ def _sendRequest(url, data):
     pprint(response.content)
 
     return response.json()
+
+@app.route("/logout")
+@requires_authorization
+def logout():
+    oauth.revoke()
+    return redirect(url_for("index"))
 
 @app.route("/<page>/")
 def start(page):
