@@ -1,13 +1,16 @@
 {% extends "_base.html" %}
 {% block content %}
 <div class="players-block">    
-    <p>Внимание. Это только управление пользователями на сайте. Никакого влияния на сервер это не оказывает</p>
     <p class="header-metki">Список пользователей</p>
 
     {% for key in usersResult.keys() %}
         <div class="accordion-2">
             <div class="accordion-item">
-                <div class="accordion-item-header">
+                {% if loop.index == 1 %}
+                    <div class="accordion-item-header active">
+                {% else %}
+                    <div class="accordion-item-header">
+                {% endif %}
                     {% if key == 1 %}
                         <p>Ожидающие</p>
                     {% elif key == 2 %}
@@ -20,7 +23,11 @@
                         <p>Неактивные</p>
                     {% endif %}
                 </div>
-                <div class="accordion-item-body">
+                {% if loop.index == 1 %}
+                    <div class="accordion-item-body" style="max-height: 1241px">
+                {% else %}
+                    <div class="accordion-item-body">
+                {% endif %}
                     <div class="accordion-item-body-content">
                         <table id="metki" class="metki">
                             <thead>
