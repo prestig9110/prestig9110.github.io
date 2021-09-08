@@ -295,6 +295,7 @@ def other_markers():
     return render_template('other_markers.html', user=user,  markers=markers, opUser=1, auth_ok=1)
 
 @app.route("/list_players/")
+@requires_authorization
 def list_players():
     user = oauth.fetch_user()
 
@@ -309,13 +310,13 @@ def list_players():
 
     usersResult = {}
 
-    for user in users:
-        if user['status'] in usersResult:
-            usersResult[user["status"]].append(user)
+    for item in users:
+        if item['status'] in usersResult:
+            usersResult[item["status"]].append(item)
         else:
-            usersResult[user['status']] = [user]
+            usersResult[item['status']] = [item]
 
-    return render_template('list_players.html', user=user, users=users, auth_ok=1, usersResult = usersResult)
+    return render_template('list_players.html', user=user, auth_ok=1, usersResult = usersResult)
 
 @app.route('/change_user', methods=['POST', 'GET'])
 @requires_authorization
