@@ -24,6 +24,52 @@ os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = app.config["DEV"]
 
 oauth = DiscordOAuth2Session(app)
 
+# global jwt_token
+# global jwt_refresh_token
+
+def get_token(refresh):
+    if refresh:
+        pprint(refresh)
+
+        # headers = 'Authorization' : "'" + Bearer + " " + jwt_refresh_token + "'"
+
+        try:
+            result = requests.post(
+                app.config["JWT_URL"] + 'refresh', 
+                data = {}, 
+                headers = { 'Authorization' : 'Bearer ' + jwt_refresh_token }
+            )
+        except:
+            return 'error_'
+
+        if result.status_code == 401:
+            get_token(refresh=0)
+        
+        tokens = result.json()
+
+        pprint(tokens['access_token'])
+
+        return tokens['access_token']
+    else:
+        data = {
+            "username" : app.config["JWT_LOGIN"],
+            "password" : app.config["JWT_PASS"]
+        }
+
+        try:
+            result = requests.post(app.config["JWT_URL"] + 'login', json = data)
+        except:
+            return 'error_', 'error_'
+
+        tokens = result.json()
+        
+        return tokens['access_token'], tokens['refresh_token']
+
+jwt_token, jwt_refresh_token = get_token(refresh=0)
+#jwt_token = get_token(refresh=1)
+
+# pprint(jwt_token)
+
 #Регистрация
 @app.route('/register', methods=['POST', 'GET'])
 @requires_authorization
@@ -55,7 +101,7 @@ def register():
         user = oauth.fetch_user()
         userJson = user.to_json()
 
-        cursor.execute("SELECT id FROM users WHERE username = %s", ( str(user.id) ))
+        cursor.execute("SELECT id FROM users WHERE user_id = %s", ( str(user.id) ))
         user_id = cursor.fetchone()
 
         if user_id is not None:
@@ -273,21 +319,54 @@ def change_user():
 
     userID = request.form['id']
     action = request.form['action']
+    username = request.form['username']
 
     if not userID or not action:
         return jsonify( { 'message': 'Нет обязательного параметра' } )
 
     status = 1
 
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
     if action == 'accept':
+        if not username:
+            return jsonify( { 'message': 'Нет обязательного параметра' } )
+
         status = 2
+
+        cursor.execute("SELECT password FROM users WHERE id = %s", ( str(userID) ))
+        password = cursor.fetchone()
+
+        data = {
+            "username" : username,
+            "password" : password['password']
+        }
+
+        response = _sendRequest('add_user', data)
+
+        if 'error' in response:
+            return jsonify( { 'error': 'Не удалось добавить' } )
+    
+    elif action == 'del_wl':
+        if not username:
+            return jsonify( { 'message': 'Нет обязательного параметра' } )
+
+        status = 5
+
+        data = {
+            "username" : username
+        }
+
+        response = _sendRequest('del_wl', data)
+
+        if 'error' in response:
+            return jsonify( { 'error': 'Не удалось удалить' } )
+
     elif action == 'not_accept' or action == 'unban':
         status = 3
     elif action == 'ban':
         status = 4
-    
-    conn = mysql.connect()
-    cursor = conn.cursor()
 
     cursor.execute( "UPDATE users SET status = %s WHERE id = %s", (status, userID) )
     conn.commit()
@@ -299,9 +378,9 @@ def change_user():
 @requires_authorization
 def add_territories():
     if request.method == 'POST':
-        conn = mysql.connect()
+        conn   = mysql.connect()
         cursor = conn.cursor()
-        error = None
+        error  = None
 
         name   = request.form['name']
         xStart = request.form['xStart']
@@ -391,7 +470,18 @@ def location_markers():
     terrs = {}
 
     for marker in markers:
-        terrs[marker["name"]] = { 'territory': "'" + marker["name"] + "'", "guild":"", "acquired":"2021-05-05 02:24:09", "attacker":'null', "location":{"startX": marker["xStart"], "startY": marker["zStart"], "endX": marker["xStop"], "endY": marker["zStop"]} }
+        terrs[marker["name"]] = { 
+            'territory': "'" + marker["name"] + "'", 
+            "guild":"", 
+            "acquired":"2021-05-05 02:24:09", 
+            "attacker":'null', 
+            "location":{
+                "startX": marker["xStart"], 
+                "startY": marker["zStart"], 
+                "endX": marker["xStop"], 
+                "endY": marker["zStop"]
+            } 
+        }
     
     terr = { 'territories': terrs }
     
@@ -406,33 +496,75 @@ def location_markers():
 def change_password():
     user = oauth.fetch_user()
 
-    if request.method == 'POST':
+    # if request.method == 'POST':
 
-        password = request.form['password']
+    #     password = request.form['password']
 
-        if not password:
-            return jsonify( { 'error': 'Не указан пароль' } )
-        if len(password) < 8:
-            return jsonify( { 'error': 'Пароль должен быть минимум из 8 символов' } )
+    #     if not password:
+    #         return jsonify( { 'error': 'Не указан пароль' } )
+    #     if len(password) < 8:
+    #         return jsonify( { 'error': 'Пароль должен быть минимум из 8 символов' } )
 
-        credentials = pika.PlainCredentials(app.config["MQ_USER"], app.config["MQ_PASS"])
-        connection = pika.BlockingConnection(pika.ConnectionParameters(host=app.config["MQ_HOST"], credentials=credentials))
-        channel = connection.channel()
-        properties = pika.BasicProperties(delivery_mode = 2);
+    #     conn = mysql.connect()
+    #     cursor = conn.cursor()
 
-        channel.queue_declare(queue='tasks', durable=True)
+    #     cursor.execute( 
+    #         'UPDATE users SET password = %s WHERE user_id = %s', ( password, str(user.id) )
+    #     )
 
-        channel.basic_publish(
-            exchange='',
-            properties=properties,
-            routing_key='tasks',
-            body=json.dumps( { "task" : "change_password", "user" : str(user.id) } )
-        )
-        connection.close()
+    #     conn.commit
 
-        return jsonify({'ok': 'Пароль будет изменен в ближайшее время'})
+    #     cursor.execute("SELECT username FROM users WHERE user_id = %s", ( str(user.id) ))
+    #     username = cursor.fetchone()
+
+    #     data = {
+    #         "password" : password,
+    #         "login" : username['username']
+    #     }
+
+    #     response = _sendRequest('change_password', data)
+
+    #     return response
+
+        # credentials = pika.PlainCredentials(app.config["MQ_USER"], app.config["MQ_PASS"])
+        # connection = pika.BlockingConnection(pika.ConnectionParameters(host=app.config["MQ_HOST"], credentials=credentials))
+        # channel = connection.channel()
+        # properties = pika.BasicProperties(delivery_mode = 2);
+
+        # channel.queue_declare(queue='tasks', durable=True)
+
+        # channel.basic_publish(
+        #     exchange='',
+        #     properties=properties,
+        #     routing_key='tasks',
+        #     body=json.dumps( { "task" : "change_password", "user" : str(user.id) } )
+        # )
+        # connection.close()
+
+        # return jsonify({'ok': 'Пароль будет изменен в ближайшее время'})
 
     return render_template('change_password.html', user=user)
+
+def _sendRequest(url, data):
+    global jwt_token
+
+    try:
+        response = requests.post(
+            app.config["JWT_URL"] + url, 
+            json = data, 
+            headers = { 'Authorization' : 'Bearer ' + jwt_token }
+        )
+    except:
+        return jsonify({'error': 'Какие то неполадки, попробуйте, пожалуйста, позже'})
+
+    if response.status_code == 401:
+        jwt_token = get_token(refresh=1)
+
+        _sendRequest(url, data)
+
+    pprint(response.content)
+
+    return response.json()
 
 @app.route("/<page>/")
 def start(page):
