@@ -311,7 +311,6 @@ def list_players():
 
     for user in users:
         if user['status'] in usersResult:
-            pprint(user["status"])
             usersResult[user["status"]].append(user)
         else:
             usersResult[user['status']] = [user]
