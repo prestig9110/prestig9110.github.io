@@ -14,21 +14,22 @@
         <tbody id="metki_tbody">
             {% for us in users %}
             <tr>
-                <th data-label=" ">{{ us.username }}</th>
+                <th id="username-{{ us.id }}" data-label=" ">{{ us.username }}</th>
                 <th data-label=" ">{{ us.age }}</th>
                 {% if us.status == 1 %}
-                <th data-label=" " style="color:red">Ожидает</th>
-                <th data-label=" "><button id="accept-{{ us.id }}">Принять</button></th>
-                <th data-label=" "><button id="not_accept-{{ us.id }}">Отказать</button></th>
+                    <th data-label=" " style="color:red">Ожидает</th>
+                    <th data-label=" "><button id="accept-{{ us.id }}">Принять</button></th>
+                    <th data-label=" "><button id="not_accept-{{ us.id }}">Отказать</button></th>
                 {% elif us.status == 2 %}
-                <th data-label=" ">Принят</th>
-                <th data-label=" "><button id="ban-{{ us.id }}">Забанить</button></th>
+                    <th data-label=" ">Принят</th>
+                    <th data-label=" "><button id="ban-{{ us.id }}">Забанить</button></th>
+                    <th data-label=" "><button id="del_wl-{{ us.id }}">Удалить из ВЛ</button></th>
                 {% elif us.status == 3 %}
-                <th data-label=" ">Не принят</th>
-                <th data-label=" "><button id="accept-{{ us.id }}">Принять</button></th>
+                    <th data-label=" ">Не принят</th>
+                    <th data-label=" "><button id="accept-{{ us.id }}">Принять</button></th>
                 {% elif us.status == 4 %}
-                <th data-label=" ">Забанен</th>
-                <th data-label=" "><button id="unban-{{ us.id }}">Разбанить</button></th>
+                    <th data-label=" ">Забанен</th>
+                    <th data-label=" "><button id="unban-{{ us.id }}">Разбанить</button></th>
                 {% endif %}
             </tr>
             {% endfor %}
