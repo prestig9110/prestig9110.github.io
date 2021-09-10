@@ -1,0 +1,21 @@
+{# {% extends "_base.html" %}
+{% block content %} #}
+    <table id="example" class="display" style="width:100%,color:black">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Время игры</th>
+                <th>Смертей</th>
+                <th>Убито мобов</th>
+            </tr>
+        </thead>
+    </table>
+{# {% endblock %}
+{% block js_scripts %}
+{{ super() }} #}
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
+<script src="/static/js/table.js"></script>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css" />
+{# {% endblock %} #}
