@@ -1,14 +1,17 @@
 $(document).ready(function() {
+  $.fn.dataTable.ext.errMode = 'none';
     $('#example').DataTable( {
         "ajax": "/getStats",
         "columns": [
             { "data": "name" },
-            { "data": "active_playtime", "render": dhm, "orderData": 4 },
+            { "data": "active_playtime", "render": dhm, "orderData": 6 },
             { "data": "deaths" },
             { "data": "mobs" },
+            { "data": "broken" },
+            { "data": "supplied" },
             { "data": "active_playtime", "visible": false }
         ],
-        order: [[ 4, 'desc' ]],
+        order: [[ 6, 'desc' ]],
         pageLength : 20,
         "bLengthChange": false,
         "bInfo": false,
