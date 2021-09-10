@@ -1,6 +1,7 @@
-{# {% extends "_base.html" %}
-{% block content %} #}
-    <table id="example" class="display" style="width:100%,color:black">
+{% extends "_base.html" %}
+{% block content %}
+<div class="stats-block">
+    <table id="example" class="display">
         <thead>
             <tr>
                 <th>Имя</th>
@@ -12,12 +13,10 @@
             </tr>
         </thead>
     </table>
-{# {% endblock %}
+</div>
+{% endblock %}
 {% block js_scripts %}
-{{ super() }} #}
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+{{ super() }}
 <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
 <script src="/static/js/table.js"></script>
-
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.min.css" />
-{# {% endblock %} #}
+{% endblock %}

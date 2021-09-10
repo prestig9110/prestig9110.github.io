@@ -3,13 +3,13 @@ $(document).ready(function() {
   $('#example').DataTable( {
     "ajax": "/getStats",
     "columns": [
-        { "data": "name" },
-        { "data": "active_playtime", "render": dhm, "orderData": 6 },
-        { "data": "deaths" },
-        { "data": "mobs" },
-        { "data": "broken" },
-        { "data": "supplied" },
-        { "data": "active_playtime", "visible": false }
+        { "data": "name", "className": "dt-head-left" },
+        { "data": "active_playtime", "render": dhm, "orderData": 6 , "className": "dt-head-left" },
+        { "data": "deaths" , "className": "dt-head-left" },
+        { "data": "mobs" , "className": "dt-head-left" },
+        { "data": "broken" , "className": "dt-head-left" },
+        { "data": "supplied" , "className": "dt-head-left" },
+        { "data": "active_playtime", "className": "dt-head-left", "visible": false }
     ],
     order: [[ 6, 'desc' ]],
     pageLength : 20,
