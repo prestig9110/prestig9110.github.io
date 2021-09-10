@@ -1,8 +1,9 @@
 $(document).ready(function() {
-  $.fn.dataTable.ext.errMode = 'none';
-  $('#example').DataTable( {
+  // $.fn.dataTable.ext.errMode = 'none';
+  var t = $('#example').DataTable( {
     "ajax": "/getStats",
     "columns": [
+        { "data": null, "className": "dt-head-left" },
         { "data": "name", "className": "dt-head-left" },
         { "data": "active_playtime", "render": dhm, "orderData": 6 , "className": "dt-head-left" },
         { "data": "deaths" , "className": "dt-head-left" },
@@ -11,7 +12,7 @@ $(document).ready(function() {
         { "data": "supplied" , "className": "dt-head-left" },
         { "data": "active_playtime", "className": "dt-head-left", "visible": false }
     ],
-    order: [[ 6, 'desc' ]],
+    order: [[ 7, 'desc' ]],
     pageLength : 20,
     "bLengthChange": false,
     "bInfo": false,
@@ -19,14 +20,19 @@ $(document).ready(function() {
       "url": "https://cdn.datatables.net/plug-ins/1.11.1/i18n/ru.json"
     }
   } );
+  t.on( 'order.dt search.dt', function () {
+    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+      cell.innerHTML = i+1;
+    } );
+  } ).draw();
 } );
 
 function dhm(t){
   var cd = 24 * 60 * 60 * 1000,
     ch = 60 * 60 * 1000,
     d = Math.floor(t / cd),
-    h = Math.floor( (t - d * cd) / ch),
-    m = Math.round( (t - d * cd - h * ch) / 60000),
+    h = Math.floor((t - d * cd) / ch),
+    m = Math.round((t - d * cd - h * ch) / 60000),
     pad = function(n){ return n < 10 ? '0' + n : n; };
   if( m === 60 ){
     h++;
