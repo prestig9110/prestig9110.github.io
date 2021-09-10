@@ -1333,6 +1333,10 @@ h6 {
   padding-top: 42px;
 }
 
+.profile-tabs .flex-tabs .panel .profile .profile-help .otstup {
+  padding-bottom: 50px;
+}
+
 .profile-tabs .flex-tabs .panel .profile .profile-help a {
   color: #f4f4f4;
   margin-top: 10px;
