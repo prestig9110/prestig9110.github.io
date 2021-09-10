@@ -145,12 +145,11 @@
           <span>Instagram</span>
         </a>
         {% if auth_ok %}
-        <a class="button-link" href="/me">
+        <a class="button-link classHover" href="/me">
           <label class="icon-button">
-            <img src="{{user.avatar_url}}" alt="instagram">
+            <img src="{{user.avatar_url}}" alt="none">
           </label>
           <span>{{user.name}}</span>
-          <span><a href="/logout">Выйти</a></span>
         </a>
         {% else %}
         <a class="button-link classHover" href="/login">
@@ -180,7 +179,6 @@
           <span>Войти</span>
         </a>
         {% endif %}
-
       </div>
     </div>
 
