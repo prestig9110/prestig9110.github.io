@@ -569,9 +569,7 @@ def _sendRequest(url, data):
     if response.status_code == 401:
         jwt_token = get_token(refresh=1)
 
-        _sendRequest(url, data)
-
-    pprint(response.content)
+        return _sendRequest(url, data)
 
     return response.json()
 
@@ -580,6 +578,22 @@ def _sendRequest(url, data):
 def logout():
     oauth.revoke()
     return redirect(url_for("index"))
+
+@app.route("/getStats")
+def stats():
+    auth_ok = 0
+    user = {}
+
+    if oauth.authorized:
+        auth_ok = 1
+        user = oauth.fetch_user()
+
+    response = _sendRequest('getStats', {})
+
+    return jsonify({'data': response})
+
+    # return render_template('stats.html', user=user, auth_ok=auth_ok)
+
 
 @app.route("/<page>/")
 def start(page):
