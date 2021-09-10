@@ -569,9 +569,7 @@ def _sendRequest(url, data):
     if response.status_code == 401:
         jwt_token = get_token(refresh=1)
 
-        _sendRequest(url, data)
-
-    pprint(response.content)
+        return _sendRequest(url, data)
 
     return response.json()
 
@@ -580,6 +578,34 @@ def _sendRequest(url, data):
 def logout():
     oauth.revoke()
     return redirect(url_for("index"))
+
+@app.route("/getStats")
+def stats():
+    auth_ok = 0
+    user = {}
+
+    if oauth.authorized:
+        auth_ok = 1
+        user = oauth.fetch_user()
+
+    if app.config["DEV"] == "true":
+        return jsonify({'data': [
+            {"name": "*minemax34700", "active_playtime": "168424", "deaths": "1", "mobs": "0", "broken": "300", "supplied": "237867254"}, 
+            {"name": "xFothis", "active_playtime": "158113", "deaths": "0", "mobs": "0"}, 
+            {"name": "Mabotlz", "active_playtime": "153849", "deaths": "0", "mobs": "0"}, 
+            {"name": "Spibble", "active_playtime": "150592", "deaths": "0", "mobs": "0"}, 
+            {"name": "*OrangeNebula699", "active_playtime": "147768", "deaths": "0", "mobs": "0"}, 
+            {"name": "*Dannylpro", "active_playtime": "144836", "deaths": "0", "mobs": "0"}, 
+            {"name": "*ScrewyFriend355", "active_playtime": "120177", "deaths": "0", "mobs": "0"}, 
+            {"name": "*folgakmg001", "active_playtime": "114871", "deaths": "0", "mobs": "0"}, 
+            {"name": "Neorgan1ka", "active_playtime": "88861", "deaths": "0", "mobs": "0"}, 
+            {"name": "PegucoH", "active_playtime": "50744", "deaths": "0", "mobs": "0"}, 
+            {"name": "zerosc", "active_playtime": "17548", "deaths": "0", "mobs": "0"}
+        ]})
+
+    response = _sendRequest('getStats', {})
+
+    return jsonify({'data': response})
 
 @app.route("/<page>/")
 def start(page):
