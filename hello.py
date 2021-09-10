@@ -590,7 +590,7 @@ def stats():
 
     if app.config["DEV"] == "true":
         return jsonify({'data': [
-            {"name": "*minemax34700", "active_playtime": "168424", "deaths": "1", "mobs": "0", "broken": "300", "supplied": "237867254"}, 
+            {"name": "*minemax34700", "active_playtime": "675665554", "deaths": "1", "mobs": "0", "broken": "300", "supplied": "237867254"}, 
             {"name": "xFothis", "active_playtime": "158113", "deaths": "0", "mobs": "0"}, 
             {"name": "Mabotlz", "active_playtime": "153849", "deaths": "0", "mobs": "0"}, 
             {"name": "Spibble", "active_playtime": "150592", "deaths": "0", "mobs": "0"}, 
