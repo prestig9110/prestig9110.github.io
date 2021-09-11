@@ -1051,7 +1051,7 @@ h6 {
 }
 
 .accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content p span {
-  text-decoration: underline;
+  color: limegreen;
 }
 
 .accordion-2 .accordion-item .accordion-item-body .accordion-item-body-content p a {
