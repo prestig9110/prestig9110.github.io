@@ -1,19 +1,21 @@
 $(document).ready(function() {
-  // $.fn.dataTable.ext.errMode = 'none';
+  $.fn.dataTable.ext.errMode = 'none';
   var t = $('#example').DataTable( {
     "ajax": "/getStats",
     "columns": [
         { "data": null, "className": "dt-head-left" },
         { "data": "name", "className": "dt-head-left" },
-        { "data": "active_playtime", "render": dhm, "orderData": 6 , "className": "dt-head-left" },
+        { "data": "active_playtime", "render": dhm, "orderData": 8 , "className": "dt-head-left" },
+        { "data": "afk", "render": dhm, "orderData": 9 , "className": "dt-head-left" },
         { "data": "deaths" , "className": "dt-head-left" },
         { "data": "mobs" , "className": "dt-head-left" },
         { "data": "broken" , "className": "dt-head-left" },
         { "data": "supplied" , "className": "dt-head-left" },
-        { "data": "active_playtime", "className": "dt-head-left", "visible": false }
+        { "data": "active_playtime", "className": "dt-head-left", "visible": false },
+        { "data": "afk", "className": "dt-head-left", "visible": false }
     ],
-    order: [[ 7, 'desc' ]],
-    pageLength : 20,
+    order: [[ 8, 'desc' ]],
+    pageLength : 15,
     "bLengthChange": false,
     "bInfo": false,
     "language": {
