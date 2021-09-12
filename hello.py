@@ -113,7 +113,7 @@ def register():
         user = oauth.fetch_user()
         userJson = user.to_json()
 
-        cursor.execute("SELECT id FROM users WHERE user_id = %s", ( str(user.id) ))
+        cursor.execute("SELECT id FROM users WHERE user_id = %s OR username = %s", ( str(user.id), login ))
         user_id = cursor.fetchone()
 
         if user_id is not None:
