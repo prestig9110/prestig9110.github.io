@@ -4,6 +4,7 @@
   <table class="metki">
     <thead>
       <tr>
+        <th>Ник</th>
         <th>Название</th>
         <th>Start X</th>
         <th>Start Z</th>
@@ -16,6 +17,8 @@
     <tbody id="metki_tbody">
       {% for marker in markers %}
       <tr id="tr-{{ marker.id }}">
+        <th data-label="Название"><input type="text" placeholder="{{ marker.username }}" name="username"
+            id="username-{{ marker.id }}" value="{{ marker.username }}"></th>
         <th data-label="Название"><input type="text" placeholder="{{ marker.name }}" name="name"
             id="name-{{ marker.id }}" value="{{ marker.name }}"></th>
         <th data-label="Start X"><input class="x-y-z" type="text" placeholder="{{ marker.xStart }}" name="xStart"

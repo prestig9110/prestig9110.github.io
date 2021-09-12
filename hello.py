@@ -494,7 +494,7 @@ def other_territories():
     conn = mysql.connect()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM territories join users on user = user_id order by name")
+    cursor.execute("SELECT * FROM territories join users on user = user_id order by username")
     territories = cursor.fetchall()
 
     return render_template('other_territories.html', user=user,  markers=territories, opUser=1, auth_ok=1)
