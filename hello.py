@@ -242,8 +242,13 @@ def add_marker():
         user = oauth.fetch_user()
 
         if edit:
+            where = ' AND user = "' + str(user.id) + '"'
+
+            if str(user.id) in app.config["PERMISSIONS"]:
+                where = ''
+
             cursor.execute( 
-                'UPDATE markers SET id_type = %s, x = %s, y = %s, z = %s, name = %s, description = %s, server = %s, flag = %s WHERE id = %s',
+                'UPDATE markers SET id_type = %s, x = %s, y = %s, z = %s, name = %s, description = %s, server = %s, flag = %s WHERE id = %s' + where,
                     ( id_type, x, y, z, name, description, server, 1, markerID )
             )  
         else:
@@ -292,6 +297,7 @@ def del_marker():
         return jsonify({'success': 'Маркер удален'})
 
 @app.route("/other_markers/")
+@requires_authorization
 def other_markers():
     user = oauth.fetch_user()
 
@@ -425,8 +431,13 @@ def add_territories():
         user = oauth.fetch_user()
 
         if edit:
+            where = ' AND user = "' + str(user.id) + '"'
+
+            if str(user.id) in app.config["PERMISSIONS"]:
+                where = ''
+
             cursor.execute( 
-                'UPDATE territories SET xStart = %s, zStart = %s, xStop = %s, name = %s, zStop = %s WHERE id = %s',
+                'UPDATE territories SET xStart = %s, zStart = %s, xStop = %s, name = %s, zStop = %s WHERE id = %s' + where,
                     ( xStart, zStart, xStop, name, zStop, markerID )
             )  
         else:
@@ -462,10 +473,31 @@ def del_territories():
 
         user = oauth.fetch_user()
 
-        cursor.execute( 'DELETE FROM territories WHERE id = ' + idMarker + ' AND user = "' + str(user.id) + '"' )  
+        where = ' AND user = "' + str(user.id) + '"'
+
+        if str(user.id) in app.config["PERMISSIONS"]:
+            where = ''
+
+        cursor.execute( 'DELETE FROM territories WHERE id = ' + idMarker + where )  
         conn.commit()
 
         return jsonify({'success': 'Маркер удален'})
+
+@app.route("/other_territories/")
+@requires_authorization
+def other_territories():
+    user = oauth.fetch_user()
+
+    if not str(user.id) in app.config["PERMISSIONS"]:
+        return 'Доступ запрещен'
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM territories join users on user = user_id order by name")
+    territories = cursor.fetchall()
+
+    return render_template('other_territories.html', user=user,  markers=territories, opUser=1, auth_ok=1)
 
 @app.route('/territories', methods=['POST', 'GET'])
 @requires_authorization
