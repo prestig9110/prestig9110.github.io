@@ -8,6 +8,8 @@ $( document ).ready(function() {
         zStop: $("#zStop-add").val()
       };
 
+      if ( !proverka() ) return;
+
       queryADD(params);
     });
 
@@ -56,6 +58,8 @@ $( document ).ready(function() {
                 edit: 1,
                 markerID: res.success
             };
+
+            if ( !proverka() ) return;
         
             queryADD(paramsUpdate);
           } );
@@ -72,7 +76,9 @@ $( document ).ready(function() {
         let params = {
           id: id[1]
         };
-  
+        
+        if ( !proverka() ) return;
+
         queryDEL(params);
     });
 
@@ -93,6 +99,8 @@ $( document ).ready(function() {
     $( "[id^=edit-]" ).click( function() {
         id = $(this)[0].id.match(/^edit-(\d+)$/);
 
+        if ( !proverka() ) return;
+
         let params = {
           name: $("#name-" + id[1]).val(),
           xStart: $("#xStart-" + id[1]).val(),
@@ -105,4 +113,12 @@ $( document ).ready(function() {
   
         queryADD(params);
     });
+
+    function proverka() {
+      if (confirm("Подтвердить")) {
+          return true;
+      } else {
+          return false;
+      }
+    }; 
   });
