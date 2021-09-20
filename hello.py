@@ -9,6 +9,7 @@ from inspect import getmembers
 import json
 import pika
 from flask_caching import Cache
+import re
 
 app = Flask(__name__)
 app._static_folder = 'static'
@@ -99,14 +100,14 @@ def register():
         you_about  = request.form['you_about']
         servers    = request.form['servers']
 
-        if not login:
-            return jsonify( { 'error': 'Не указан логин' } )
-        if not password:
-            return jsonify( { 'error': 'Не указан пароль' } )
+        if not login or re.search("\s|@", login):
+            return jsonify( { 'error': 'Не указан или не корректный логин' } )
+        if not password or re.search("\s", password):
+            return jsonify( { 'error': 'Не указан или не корректный пароль' } )
         if not typeMc:
             return jsonify( { 'error': 'Не указан тип аккаунта' } )
-        if not age:
-            return jsonify( { 'error': 'Не указан возвраст' } )
+        if not age or not re.match("\d+$", age):
+            return jsonify( { 'error': 'Не указан или указан не корректно возвраст' } )
         if len(password) < 8:
             return jsonify( { 'error': 'Пароль должен быть минимум из 8 символов' } )
 
@@ -126,7 +127,7 @@ def register():
         conn.commit()
         
         ticket = 'Игровой ник: ' + login + '\n'
-        ticket = ticket + 'Аккаунт: ' + ('Лицензия' if typeMc else 'Пиратка') + '\n'
+        ticket = ticket + 'Аккаунт: ' + ('Лицензия' if typeMc == 1 else 'Пиратка') + '\n'
         ticket = ticket + 'Ваш возраст: ' + age + '\n'
         ticket = ticket + 'Предыдущие сервера: ' + servers + '\n'
         ticket = ticket + 'Откуда узнали о проекте: ' + from_about + '\n'
