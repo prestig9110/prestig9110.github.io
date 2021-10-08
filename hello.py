@@ -517,30 +517,35 @@ def territories():
 
 @app.route('/locations')
 def location_markers():
-    conn = mysql.connect()
-    cursor = conn.cursor()
+    terrs = cache.get('responseLocation')
 
-    cursor.execute("SELECT * FROM territories")
-    markers = cursor.fetchall()
+    if terrs is None:
+        conn = mysql.connect()
+        cursor = conn.cursor()
 
-    terrs = {}
+        cursor.execute("SELECT * FROM territories")
+        markers = cursor.fetchall()
 
-    for marker in markers:
-        terrs[marker["name"]] = { 
-            'territory': "'" + marker["name"] + "'", 
-            "guild":"", 
-            "acquired":"2021-05-05 02:24:09", 
-            "attacker":'null', 
-            "location":{
-                "startX": marker["xStart"], 
-                "startY": marker["zStart"], 
-                "endX": marker["xStop"], 
-                "endY": marker["zStop"]
-            } 
-        }
-    
+        terrs = {}
+
+        for marker in markers:
+            terrs[marker["name"]] = { 
+                'territory': "'" + marker["name"] + "'", 
+                "guild":"", 
+                "acquired":"2021-05-05 02:24:09", 
+                "attacker":'null', 
+                "location":{
+                    "startX": marker["xStart"], 
+                    "startY": marker["zStart"], 
+                    "endX": marker["xStop"], 
+                    "endY": marker["zStop"]
+                } 
+            }
+        
+        cache.set('responseLocation', terrs, timeout=600)
+        
     terr = { 'territories': terrs }
-    
+        
     resp = jsonify(terr)
 
     resp.headers['Access-Control-Allow-Origin'] = '*'
@@ -659,11 +664,6 @@ def stats():
 
 @app.route('/vote_handler', methods=['POST', 'GET'])
 def vote_handler():
-    print(request.form['sign'])
-    print(request.form['nick'])
-    print(request.form['time'])
-    print(str(app.config["SECRET_KEY_FOR_VOTE"]))
-    print(hashlib.sha1((request.form['nick'] + request.form['time'] + str(app.config["SECRET_KEY"])).encode('utf-8')).hexdigest())
     if (request.form['nick'] and request.form['time'] and request.form['sign']):
         if (request.form['sign'] != hashlib.sha1((request.form['nick'] + request.form['time'] + str(app.config["SECRET_KEY_FOR_VOTE"])).encode('utf-8')).hexdigest()):
             return 'Переданные данные не прошли проверку.'
