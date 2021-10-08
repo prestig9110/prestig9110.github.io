@@ -10,6 +10,8 @@ import json
 import pika
 from flask_caching import Cache
 import re
+import random
+import hashlib
 
 app = Flask(__name__)
 app._static_folder = 'static'
@@ -654,6 +656,32 @@ def stats():
     # response = _sendRequest('getStats', {})
 
     return jsonify({'data': resposeCache})
+
+@app.route('/vote_handler', methods=['POST', 'GET'])
+def vote_handler():
+    print(request.form['sign'])
+    print(request.form['nick'])
+    print(request.form['time'])
+    print(str(app.config["SECRET_KEY_FOR_VOTE"]))
+    print(hashlib.sha1((request.form['nick'] + request.form['time'] + str(app.config["SECRET_KEY"])).encode('utf-8')).hexdigest())
+    if (request.form['nick'] and request.form['time'] and request.form['sign']):
+        if (request.form['sign'] != hashlib.sha1((request.form['nick'] + request.form['time'] + str(app.config["SECRET_KEY_FOR_VOTE"])).encode('utf-8')).hexdigest()):
+            return 'Переданные данные не прошли проверку.'
+    else:
+        return 'Не переданы необходимые данные.'
+
+    data = {
+        "content" : request.form['nick'] + ", " + random.choice(app.config["MESSAGES_FOR_VOTE"]) + "!\n\
+Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
+Твоя поддержка очень важна для нас",
+        "username" : 'vote'
+    }
+
+    print (data)
+
+    result = requests.post(app.config["WEBHOOKURL_FOR_VOTE"], json = data)
+
+    return 'ok'
 
 @app.route("/<page>/")
 def start(page):
