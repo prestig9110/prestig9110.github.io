@@ -673,7 +673,9 @@ def vote_handler():
     data = {
         "content" : request.form['nick'] + ", " + random.choice(app.config["MESSAGES_FOR_VOTE"]) + "!\n\
 Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
-Твоя поддержка очень важна для нас",
+Твоя поддержка очень важна для нас.\n\
+Также можете принять участие в розыгрыше <https://hotmc.ru/casino-205185>\n\
+Поддержать проект другим способом <https://gmgame.ru/support/>",
         "username" : 'vote'
     }
 

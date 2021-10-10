@@ -22,3 +22,6 @@ config.py:
     JWT_LOGIN = "login"
     JWT_PASS = "pass"
     JWT_URL = "url"
+    SECRET_KEY_FOR_VOTE = "123"
+    MESSAGES_FOR_VOTE = ["роцмалоцумароц"]
+    WEBHOOKURL_FOR_VOTE = 'url'
