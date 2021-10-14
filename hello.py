@@ -20,7 +20,7 @@ mysql = MySQL()
 
 app.config.from_pyfile('config.py', silent=True)
 
-mysql = MySQL(cursorclass=DictCursor)
+mysql = MySQL(cursorclass=DictCursor, init_command='SET NAMES utf8mb4')
 mysql.init_app(app)
 
 app.secret_key = b"random bytes representing flask secret key2"
