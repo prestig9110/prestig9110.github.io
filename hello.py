@@ -129,19 +129,23 @@ def register():
         conn.commit()
         
         ticket = 'Игровой ник: ' + login + '\n'
-        ticket = ticket + 'Аккаунт: ' + ('Лицензия' if typeMc == 1 else 'Пиратка') + '\n'
+        ticket = ticket + 'Аккаунт: ' + ('Лицензия' if typeMc == '1' else 'Пиратка') + '\n'
         ticket = ticket + 'Ваш возраст: ' + age + '\n'
         ticket = ticket + 'Предыдущие сервера: ' + servers + '\n'
         ticket = ticket + 'Откуда узнали о проекте: ' + from_about + '\n'
         ticket = ticket + 'Интересы в Minecraft: ' + you_about + '\n'
-        ticket = ticket + 'Дискорд тэг: ' + userJson['username'] + '#' + userJson['discriminator']
+        ticket = ticket + 'Дискорд тэг: ' + userJson['username'] + '#' + userJson['discriminator'] + '\n'
 
         if app.config["DEV"] == "true":
             ticket = ticket + "\nЭто тестовая заявка"
 
         data = {
-            "content" : "```" + ticket + "```",
-            "username" : 'applicant'
+            "content" : "```" + ticket + "```" + '<@' + userJson['id'] + '>',
+            "username" : 'applicant',
+            "allowed_mentions": {
+                "parse": ["users"],
+                "users": []
+            }
         }
 
         result = requests.post(app.config["WEBHOOKURL"], json = data)
