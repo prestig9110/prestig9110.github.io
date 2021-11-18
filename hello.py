@@ -521,8 +521,8 @@ def territories():
     return render_template('territories.html', user=user, auth_ok=1, markers=markers)
 
 @app.route('/locations/<world>')
-def location_markers():
-    terrs = cache.get('responseLocation')
+def location_markers(world):
+    terrs = cache.get('responseLocation_' + world)
 
     if terrs is None:
         conn = mysql.connect()
@@ -547,7 +547,7 @@ def location_markers():
                 } 
             }
         
-        cache.set('responseLocation', terrs, timeout=600)
+        cache.set('responseLocation_' + world, terrs, timeout=600)
         
     terr = { 'territories': terrs }
         
