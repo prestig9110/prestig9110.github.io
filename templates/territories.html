@@ -5,6 +5,7 @@
     <thead>
       <tr>
         <th>Название</th>
+        <th>Мир</th>
         <th>Start X</th>
         <th>Start Z</th>
         <th>Stop X</th>
@@ -18,6 +19,12 @@
       <tr id="tr-{{ marker.id }}">
         <th data-label="Название"><input type="text" placeholder="{{ marker.name }}" name="name"
             id="name-{{ marker.id }}" value="{{ marker.name }}"></th>
+        <th data-label="Мир">
+          <select name="world" id="world-{{ marker.id }}">
+            <option value="gmgame" {% if marker.world=='gmgame' %} selected="selected" {% endif %}>Основной</option>
+            <option value="farm" {% if marker.world=='farm' %} selected="selected" {% endif %}>Фермерский</option>
+          </select>
+        </th>
         <th data-label="Start X"><input class="x-y-z" type="text" placeholder="{{ marker.xStart }}" name="xStart"
             id="xStart-{{ marker.id }}" value="{{ marker.xStart }}"></th>
         <th data-label="Start Z"><input class="x-y-z" type="text" placeholder="{{ marker.zStart }}" name="zStart"
@@ -32,6 +39,12 @@
       {% endfor %}
       <tr>
         <th data-label="Название"><input type="text" placeholder="Имя" name="name" id="name-add"></th>
+        <th data-label="Расположение">
+          <select name="world" id="world-add">
+            <option value="gmgame">Основной</option>
+            <option value="farm">Фермерский</option>
+          </select>
+        </th>
         <th data-label="Start X"><input class="x-y-z" type="text" placeholder="000" name="xStart" id="xStart-add"></th>
         <th data-label="Start Z"><input class="x-y-z" type="text" placeholder="000" name="zStart" id="zStart-add"></th>
         <th data-label="Stop X"><input class="x-y-z" type="text" placeholder="000" name="xStop" id="xStop-add"></th>
