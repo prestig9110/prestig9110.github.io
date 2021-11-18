@@ -5,7 +5,8 @@ $( document ).ready(function() {
         xStart: $("#xStart-add").val(),
         zStart: $("#zStart-add").val(),
         xStop: $("#xStop-add").val(),
-        zStop: $("#zStop-add").val()
+        zStop: $("#zStop-add").val(),
+        world: $("#world-add").val()
       };
 
       if ( !proverka() ) return;
@@ -28,12 +29,19 @@ $( document ).ready(function() {
             var table = document.getElementById( 'metki_tbody' );
             row = table.insertRow(0);
             cell1 = row.insertCell(0).outerHTML = '<th><input type="text" placeholder="' + params.name + '" name="name" id="name-' + res.success + '" value="' + params.name + '"></th>';
-            cell2 = row.insertCell(1).outerHTML = '<th><input type="text" placeholder="' + params.xStart + '" name="xStart" id="xStart-' + res.success + '" value="' + params.xStart + '"></th>';
-            cell3 = row.insertCell(2).outerHTML = '<th><input type="text" placeholder="' + params.zStart + '" name="zStart" id="zStart-' + res.success + '" value="' + params.zStart + '"></th>';
-            cell4 = row.insertCell(3).outerHTML = '<th><input type="text" placeholder="' + params.xStop + '" name="xStop" id="xStop-' + res.success + '" value="' + params.xStop + '"></th>';
-            cell5 = row.insertCell(4).outerHTML = '<th><input type="text" placeholder="' + params.zStop + '" name="zStop" id="zStop-' + res.success + '" value="' + params.zStop + '"></th>';
-            cell6 = row.insertCell(5).outerHTML = '<th><button id="edit-' + res.success + '">Изменить</button></th>';
-            cell7 = row.insertCell(6).outerHTML = '<th><button id="del-' + res.success + '">Удалить</button></th>';
+            cell2 = row.insertCell(1).outerHTML = '\
+              <th>\
+                <select name="world" id="world' + res.success + '">\
+                  <option value="' + params.world + '"' + ( params.world == 'gmgame' ? 'selected="selected"' : '' ) + '>Основной</option>\
+                  <option value="' + params.world + '"' + ( params.world == 'farm' ? 'selected="selected"' : '' ) + '>Фермерский</option></select>\
+                </select>\
+              </th>';
+            cell3 = row.insertCell(2).outerHTML = '<th><input type="text" placeholder="' + params.xStart + '" name="xStart" id="xStart-' + res.success + '" value="' + params.xStart + '"></th>';
+            cell4 = row.insertCell(3).outerHTML = '<th><input type="text" placeholder="' + params.zStart + '" name="zStart" id="zStart-' + res.success + '" value="' + params.zStart + '"></th>';
+            cell5 = row.insertCell(4).outerHTML = '<th><input type="text" placeholder="' + params.xStop + '" name="xStop" id="xStop-' + res.success + '" value="' + params.xStop + '"></th>';
+            cell6 = row.insertCell(5).outerHTML = '<th><input type="text" placeholder="' + params.zStop + '" name="zStop" id="zStop-' + res.success + '" value="' + params.zStop + '"></th>';
+            cell7 = row.insertCell(6).outerHTML = '<th><button id="edit-' + res.success + '">Изменить</button></th>';
+            cell8 = row.insertCell(7).outerHTML = '<th><button id="del-' + res.success + '">Удалить</button></th>';
 
             row.setAttribute("id", "tr-" + res.success);
           }
@@ -55,6 +63,7 @@ $( document ).ready(function() {
                 zStart: $("#zStart-" + res.success).val(),
                 xStop: $("#xStop-" + res.success).val(),
                 zStop: $("#zStop-" + res.success).val(),
+                world: $("#world-" + res.success).val(),
                 edit: 1,
                 markerID: res.success
             };
@@ -107,6 +116,7 @@ $( document ).ready(function() {
           zStart: $("#zStart-" + id[1]).val(),
           xStop: $("#xStop-" + id[1]).val(),
           zStop: $("#zStop-" + id[1]).val(),
+          world: $("#world-" + id[1]).val(),
           edit: 1,
           markerID: id[1]
         };

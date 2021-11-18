@@ -421,6 +421,7 @@ def add_territories():
         zStart = request.form['zStart']
         xStop  = request.form['xStop']
         zStop  = request.form['zStop']
+        world  = request.form['world']
 
         edit = 0
         markerID = 0
@@ -444,8 +445,8 @@ def add_territories():
                 where = ''
 
             cursor.execute( 
-                'UPDATE territories SET xStart = %s, zStart = %s, xStop = %s, name = %s, zStop = %s WHERE id = %s' + where,
-                    ( xStart, zStart, xStop, name, zStop, markerID )
+                'UPDATE territories SET xStart = %s, zStart = %s, xStop = %s, name = %s, zStop = %s, world = %s WHERE id = %s' + where,
+                    ( xStart, zStart, xStop, name, zStop, world, markerID )
             )  
         else:
             cursor.execute("SELECT id FROM territories WHERE name = %s", ( name ) )
@@ -455,8 +456,8 @@ def add_territories():
                 return jsonify( { 'error': 'Такая метка уже существует' } )
 
             cursor.execute( 
-                'INSERT INTO territories (xStart, zStart, xStop, zStop, name, user) VALUES (%s, %s, %s, %s, %s, %s)', 
-                    ( xStart, zStart, xStop, zStop, name, str(user.id))
+                'INSERT INTO territories (xStart, zStart, xStop, zStop, name, user, world) VALUES (%s, %s, %s, %s, %s, %s, %s)', 
+                    ( xStart, zStart, xStop, zStop, name, str(user.id), world)
             )  
         
         conn.commit()
@@ -519,7 +520,7 @@ def territories():
 
     return render_template('territories.html', user=user, auth_ok=1, markers=markers)
 
-@app.route('/locations')
+@app.route('/locations/<world>')
 def location_markers():
     terrs = cache.get('responseLocation')
 
@@ -527,7 +528,7 @@ def location_markers():
         conn = mysql.connect()
         cursor = conn.cursor()
 
-        cursor.execute("SELECT * FROM territories")
+        cursor.execute("SELECT * FROM territories WHERE world = '" + world + "'")
         markers = cursor.fetchall()
 
         terrs = {}
@@ -673,6 +674,8 @@ def vote_handler():
             return 'Переданные данные не прошли проверку.'
     else:
         return 'Не переданы необходимые данные.'
+
+    
 
     data = {
         "content" : request.form['nick'] + ", " + random.choice(app.config["MESSAGES_FOR_VOTE"]) + "!\n\
