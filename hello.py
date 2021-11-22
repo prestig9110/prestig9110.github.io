@@ -693,7 +693,7 @@ def vote_handler():
         "nick" : request.form['nick']
     }
 
-    _sendRequest('casino', data)
+    resp = _sendRequest('casino', data)
 
     content = request.form['nick'] + ", " + random.choice(app.config["MESSAGES_FOR_VOTE"]) + "!\n\
 Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
