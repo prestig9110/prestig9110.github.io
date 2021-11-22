@@ -677,25 +677,23 @@ def vote_handler():
 
     chance_money = False
     chance_tools = False
+    prize = ''
 
     if random.random() < app.config["CHANCE_MONEY"]:
         chance_money = True
+        prize = "money"
 
-        data = {
-            "prize" : "money",
-            "nick": request.form['nick']
-        }
-
-        _sendRequest('casino', data)
     if random.random() < app.config["CHANCE_TOOLS"]:
         chance_tools - True
+        prize = "tools"
 
-        data = {
-            "prize" : "tools",
-            "nick": request.form['nick']
-        }
 
-        _sendRequest('casino', data)
+    data = {
+        "prize" : prize,
+        "nick" : request.form['nick']
+    }
+
+    _sendRequest('casino', data)
 
     content = request.form['nick'] + ", " + random.choice(app.config["MESSAGES_FOR_VOTE"]) + "!\n\
 Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
