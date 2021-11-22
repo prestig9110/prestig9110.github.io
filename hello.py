@@ -549,7 +549,7 @@ def location_markers(world):
         
         cache.set('responseLocation_' + world, terrs, timeout=600)
         
-    terr = { 'territories': terrs }
+    terr = { 'territories': terrs, 'world': world }
         
     resp = jsonify(terr)
 
@@ -675,14 +675,31 @@ def vote_handler():
     else:
         return 'Не переданы необходимые данные.'
 
-    
+    chance_money = False
+    chance_tools = False
 
-    data = {
-        "content" : request.form['nick'] + ", " + random.choice(app.config["MESSAGES_FOR_VOTE"]) + "!\n\
+    if random.random() < app.config["CHANCE_MONEY"]:
+        chance_money = True
+        _sendRequest('casino', {"prize" : "money", "nick": request.form['nick']})
+    if random.random() < app.config["CHANCE_TOOLS"]:
+        chance_tools - True
+        _sendRequest('casino', {"prize" : "tools", "nick": request.form['nick']})
+
+    content = request.form['nick'] + ", " + random.choice(app.config["MESSAGES_FOR_VOTE"]) + "!\n\
 Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
 Твоя поддержка очень важна для нас.\n\
 Также можете принять участие в розыгрыше <https://hotmc.ru/casino-205185>\n\
-Поддержать проект другим способом <https://gmgame.ru/support/>",
+Поддержать проект другим способом <https://gmgame.ru/support/>"
+
+    if chance_money:
+        content = content + "\nПоздравляю, ты выйграл 10 монет на сервере"
+
+
+    if chance_tools:
+        content = content + "\nПоздравляю, ты выйграл иструмент на сервере"
+
+    data = {
+        "content" : content,
         "username" : 'vote'
     }
 
