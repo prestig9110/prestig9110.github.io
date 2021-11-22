@@ -702,11 +702,11 @@ Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
 Поддержать проект другим способом <https://gmgame.ru/support/>"
 
     if chance_money:
-        content = content + "\nПоздравляю, ты выйграл 10 монет на сервере"
+        content = content + "\nПоздравляю, ты выиграл 10 монет на сервере"
 
 
     if chance_tools:
-        content = content + "\nПоздравляю, ты выйграл иструмент на сервере"
+        content = content + "\nПоздравляю, ты выиграл иструмент на сервере"
 
     data = {
         "content" : content,
