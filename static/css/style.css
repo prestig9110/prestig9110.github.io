@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*---------------------------------------- all ----------------------------------------*/
 * {
   margin: 0;
@@ -1718,6 +1719,52 @@ h6 {
   padding: 5px;
   border: 1px solid #f4f4f415;
   border-bottom: none;
+}
+
+/*---------------------------------------- Смена пароля ----------------------------------------*/
+.change-password {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.change-password .inputpassword {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #f4f4f4;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  font-weight: 750;
+  font-size: 18px;
+  height: auto;
+  border: 1px solid black;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin: 10px;
+}
+
+.change-password .Buttonpasworld {
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  height: auto;
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  cursor: pointer;
 }
 
 /*---------------------------------------- stat ----------------------------------------*/
