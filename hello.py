@@ -112,6 +112,10 @@ def register():
             return jsonify( { 'error': 'Не указан или указан не корректно возвраст' } )
         if len(password) < 8:
             return jsonify( { 'error': 'Пароль должен быть минимум из 8 символов' } )
+        if not from_about or re.search("\s", from_about):
+            return jsonify( { 'error': 'Расскажите о себе, пожалуйста' } )
+        if not you_about or re.search("\s", you_about):
+            return jsonify( { 'error': 'Расскажите о себе, пожалуйста' } )
 
         user = oauth.fetch_user()
         userJson = user.to_json()
@@ -330,12 +334,14 @@ def list_players():
     conn = mysql.connect()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT id, username, age, status FROM users ORDER BY status")
+    cursor.execute("SELECT id, username, age, status, tag FROM users ORDER BY status")
     users = cursor.fetchall()
 
     usersResult = {}
 
     for item in users:
+        tag = json.loads(item["tag"].replace("'",'"').replace("True", "true").replace("False", "false").replace("None", "null"))
+        item["email"] = tag["email"]
         if item['status'] in usersResult:
             usersResult[item["status"]].append(item)
         else:
@@ -562,34 +568,39 @@ def location_markers(world):
 def change_password():
     user = oauth.fetch_user()
 
-    # if request.method == 'POST':
+    if request.method == 'POST':
 
-    #     password = request.form['password']
+        password = request.form['password']
 
-    #     if not password:
-    #         return jsonify( { 'error': 'Не указан пароль' } )
-    #     if len(password) < 8:
-    #         return jsonify( { 'error': 'Пароль должен быть минимум из 8 символов' } )
+        if not password:
+            return jsonify( { 'error': 'Не указан пароль' } )
+        if len(password) < 8:
+            return jsonify( { 'error': 'Пароль должен быть минимум из 8 символов' } )
 
-    #     conn = mysql.connect()
-    #     cursor = conn.cursor()
+        conn = mysql.connect()
+        cursor = conn.cursor()
 
-    #     cursor.execute( 
-    #         'UPDATE users SET password = %s WHERE user_id = %s', ( password, str(user.id) )
-    #     )
+        # cursor.execute( 
+        #     'UPDATE users SET password = %s WHERE user_id = %s', ( password, str(user.id) )
+        # )
 
-    #     conn.commit
+        # conn.commit
 
-    #     cursor.execute("SELECT username FROM users WHERE user_id = %s", ( str(user.id) ))
-    #     username = cursor.fetchone()
+        cursor.execute("SELECT username FROM users WHERE user_id = %s", ( str(user.id) ))
+        username = cursor.fetchone()
 
-    #     data = {
-    #         "password" : password,
-    #         "login" : username['username']
-    #     }
+        if username is not None:
+            return jsonify( { 'error': 'Нет такого имени' } )
 
-    #     response = _sendRequest('change_password', data)
+        data = {
+            "password" : password,
+            "login" : username['username']
+        }
 
+        response = _sendRequest('change_password', data)
+
+        if 'ok' in response:
+            return jsonify( { 'ok': 'Пароль изменен' } )
     #     return response
 
         # credentials = pika.PlainCredentials(app.config["MQ_USER"], app.config["MQ_PASS"])
@@ -684,7 +695,7 @@ def vote_handler():
         prize = "money"
 
     if random.random() < app.config["CHANCE_TOOLS"]:
-        chance_tools - True
+        chance_tools = True
         prize = "tools"
 
 

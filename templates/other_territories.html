@@ -6,6 +6,7 @@
       <tr>
         <th>Ник</th>
         <th>Название</th>
+        <th>Мир</th>
         <th>Start X</th>
         <th>Start Z</th>
         <th>Stop X</th>
@@ -21,6 +22,12 @@
             id="username-{{ marker.id }}" value="{{ marker.username }}"></th>
         <th data-label="Название"><input type="text" placeholder="{{ marker.name }}" name="name"
             id="name-{{ marker.id }}" value="{{ marker.name }}"></th>
+        <th data-label="Мир">
+          <select name="world" id="world-{{ marker.id }}">
+            <option value="gmgame" {% if marker.world=='gmgame' %} selected="selected" {% endif %}>Основной</option>
+            <option value="farm" {% if marker.world=='farm' %} selected="selected" {% endif %}>Фермерский</option>
+          </select>
+        </th>
         <th data-label="Start X"><input class="x-y-z" type="text" placeholder="{{ marker.xStart }}" name="xStart"
             id="xStart-{{ marker.id }}" value="{{ marker.xStart }}"></th>
         <th data-label="Start Z"><input class="x-y-z" type="text" placeholder="{{ marker.zStart }}" name="zStart"
