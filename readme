@@ -25,3 +25,5 @@ config.py:
     SECRET_KEY_FOR_VOTE = "123"
     MESSAGES_FOR_VOTE = ["роцмалоцумароц"]
     WEBHOOKURL_FOR_VOTE = 'url'
+    CHANCE_MONEY = 100
+    CHANCE_TOOLS = 100
