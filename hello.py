@@ -338,9 +338,8 @@ def list_players():
     users = cursor.fetchall()
 
     usersResult = {}
-
     for item in users:
-        tag = json.loads(item["tag"].replace("'",'"').replace("True", "true").replace("False", "false").replace("None", "null"))
+        tag = json.loads(re.sub('[^A-Za-z0-9{}\':,@._-]+', '', item["tag"]).replace("'",'"').replace("True", "true").replace("False", "false").replace("None", "null"))
         item["email"] = tag["email"]
         if item['status'] in usersResult:
             usersResult[item["status"]].append(item)
