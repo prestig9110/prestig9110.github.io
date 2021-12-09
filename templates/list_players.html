@@ -33,6 +33,7 @@
                             <thead>
                                 <tr>
                                     <th>Username</th>
+                                    <th>email</th>
                                     <th>Возраст</th>
                                     <th>Действия</th>
                                     <th>Действия</th>
@@ -42,6 +43,7 @@
                                 {% for us in usersResult[key] %}
                                     <tr>
                                         <th id="username-{{ us.id }}" data-label=" ">{{ us.username }}</th>
+                                        <th data-label=" ">{{ us.email }}</th>
                                         <th data-label=" ">{{ us.age }}</th>
                                         {% if us.status == 1 %}
                                             <th data-label=" "><button id="accept-{{ us.id }}">Принять</button></th>
