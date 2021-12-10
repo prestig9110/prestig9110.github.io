@@ -112,9 +112,9 @@ def register():
             return jsonify( { 'error': 'Не указан или указан не корректно возвраст' } )
         if len(password) < 8:
             return jsonify( { 'error': 'Пароль должен быть минимум из 8 символов' } )
-        if not from_about or re.search("\s", from_about):
+        if not from_about or not re.search("\w", from_about):
             return jsonify( { 'error': 'Расскажите о себе, пожалуйста' } )
-        if not you_about or re.search("\s", you_about):
+        if not you_about or not re.search("\w", you_about):
             return jsonify( { 'error': 'Расскажите о себе, пожалуйста' } )
 
         user = oauth.fetch_user()
