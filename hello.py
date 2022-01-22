@@ -323,7 +323,7 @@ def other_markers():
 
     return render_template('other_markers.html', user=user,  markers=markers, opUser=1, auth_ok=1)
 
-@app.route("/list_players/")
+@app.route("/list_players/", methods=['POST', 'GET'])
 @requires_authorization
 def list_players():
     user = oauth.fetch_user()
@@ -334,7 +334,13 @@ def list_players():
     conn = mysql.connect()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT id, username, age, status, tag FROM users ORDER BY status")
+    if request.method == 'POST':
+        id_group = request.form['id']
+
+        cursor.execute("SELECT id, username, age, status, tag FROM users WHERE status = " + str(id_group) + " ORDER BY status")
+    else:
+        cursor.execute("SELECT id, username, age, status, tag FROM users WHERE status = 1 ORDER BY status")
+
     users = cursor.fetchall()
 
     usersResult = {}
@@ -345,6 +351,9 @@ def list_players():
             usersResult[item["status"]].append(item)
         else:
             usersResult[item['status']] = [item]
+
+    if request.method == 'POST':
+        return jsonify({'usersResult': usersResult})
 
     return render_template('list_players.html', user=user, auth_ok=1, usersResult = usersResult)
 
@@ -405,7 +414,36 @@ def change_user():
     elif action == 'not_accept' or action == 'unban':
         status = 3
     elif action == 'ban':
+        if not username:
+            return jsonify( { 'message': 'Нет обязательного параметра' } )
+
         status = 4
+
+        data = {
+            "username" : username
+        }
+
+        response = _sendRequest('del_wl', data)
+
+        if 'error' in response:
+            return jsonify( { 'error': 'Не удалось забанить' } )
+    elif action == 'delete':
+        if not username:
+            return jsonify( { 'message': 'Нет обязательного параметра' } )
+
+        data = {
+            "username" : username
+        }
+
+        response = _sendRequest('del_wl', data)
+
+        if 'error' in response:
+            return jsonify( { 'error': 'Не удалось удалить' } )
+
+        cursor.execute( "DELETE FROM users WHERE id = %s", (userID) )
+        conn.commit()
+
+        return jsonify( { 'message': 'Заявка удалена' } )
 
     cursor.execute( "UPDATE users SET status = %s WHERE id = %s", (status, userID) )
     conn.commit()
@@ -624,6 +662,8 @@ def change_password():
 def _sendRequest(url, data):
     global jwt_token
 
+    return
+
     try:
         response = requests.post(
             app.config["JWT_URL"] + url, 
@@ -742,8 +782,11 @@ def start(page):
 
     if page:
         template = page + '.html'
-    
-    return render_template(template, user=user, auth_ok=auth_ok)
+
+    try:
+        return render_template(template, user=user, auth_ok=auth_ok)
+    except:
+        return render_template('start.html', user=user, auth_ok=auth_ok)
 
 def _is_numb ( digit ):
     return digit.isdigit() if digit[:1] != '-' else digit[1:].isdigit()
