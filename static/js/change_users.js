@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    $( "[id^=accept-], [id^=not_accept-], [id^=ban-], [id^=unban-], [id^=del_wl-], [id^=delete-]" ).click( function() {
+    $( "[id^=accept-], [id^=not_accept-], [id^=ban-], [id^=unban-], [id^=del_wl-], [id^=delete-], [id^=add_wl-]" ).click( function() {
         id = $(this)[0].id.match(/^(\w+)-(\d+)$/);
 
         let params = {
@@ -98,6 +98,7 @@ $( document ).ready(function() {
                                 <th data-label=" "><button id="delete-${us.id}">Удалить</button></th>\n`
                         } else if (us.status == 5) {
                             html = html + `
+                                <th data-label=" "><button id="add_wl-${us.id}">Добавить в ВЛ</button></th>
                                 <th data-label=" "><button id="delete-${us.id}">Удалить</button></th>\n`
                         }
                 html = html + '</tr>'
@@ -107,7 +108,7 @@ $( document ).ready(function() {
 
             $("#content-" + params.id).html(html);
 
-            $( "[id^=accept-], [id^=not_accept-], [id^=ban-], [id^=unban-], [id^=del_wl-], [id^=delete-]" ).on( 'click', function() {
+            $( "[id^=accept-], [id^=not_accept-], [id^=ban-], [id^=unban-], [id^=del_wl-], [id^=delete-], [id^=add_wl-]" ).on( 'click', function() {
                 id = $(this)[0].id.match(/^(\w+)-(\d+)$/);
         
                 let params = {
