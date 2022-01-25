@@ -410,6 +410,21 @@ def change_user():
 
         if 'error' in response:
             return jsonify( { 'error': 'Не удалось удалить' } )
+    
+    elif action == 'add_wl':
+        if not username:
+            return jsonify( { 'message': 'Нет обязательного параметра' } )
+
+        status = 2
+
+        data = {
+            "username" : username
+        }
+
+        response = _sendRequest('add_wl', data)
+
+        if 'error' in response:
+            return jsonify( { 'error': 'Не удалось добавить' } )
 
     elif action == 'not_accept' or action == 'unban':
         status = 3
@@ -661,8 +676,6 @@ def change_password():
 
 def _sendRequest(url, data):
     global jwt_token
-
-    return
 
     try:
         response = requests.post(
