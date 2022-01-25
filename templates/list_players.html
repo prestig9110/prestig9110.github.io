@@ -13,15 +13,7 @@
                 {% endif %}
                     {% if key == 1 %}
                         <p>Ожидающие</p>
-                    {% elif key == 2 %}
-                        <p>Принятые</p>
-                    {% elif key == 3 %}
-                        <p>Отказано</p>
-                    {% elif key == 4 %}
-                        <p>Забаненные</p>
-                    {% elif key == 5 %}
-                        <p>Неактивные</p>
-                    {% endif %}
+                    {% endif %}         
                 </div>
                 {% if loop.index == 1 %}
                     <div class="accordion-item-body" style="max-height: 10000px">
@@ -37,6 +29,7 @@
                                     <th>Возраст</th>
                                     <th>Действия</th>
                                     <th>Действия</th>
+                                    <th>Действия</th>
                                 </tr>
                             </thead>
                             <tbody id="metki_tbody">
@@ -48,13 +41,7 @@
                                         {% if us.status == 1 %}
                                             <th data-label=" "><button id="accept-{{ us.id }}">Принять</button></th>
                                             <th data-label=" "><button id="not_accept-{{ us.id }}">Отказать</button></th>
-                                        {% elif us.status == 2 %}
-                                            <th data-label=" "><button id="ban-{{ us.id }}">Забанить</button></th>
-                                            <th data-label=" "><button id="del_wl-{{ us.id }}">Удалить из ВЛ</button></th>
-                                        {% elif us.status == 3 %}
-                                            <th data-label=" "><button id="accept-{{ us.id }}">Принять</button></th>
-                                        {% elif us.status == 4 %}
-                                            <th data-label=" "><button id="unban-{{ us.id }}">Разбанить</button></th>
+                                            <th data-label=" "><button id="delete-{{ us.id }}">Удалить</button></th>
                                         {% endif %}
                                     </tr>
                                 {% endfor %}
@@ -65,6 +52,50 @@
             </div>
         </div>
     {% endfor %}
+    <div class="accordion-2">
+        <div class="accordion-item">
+            <div class="accordion-item-header" id="acord-2">
+                <p>Принятые</p>
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content" id="content-2">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-2">
+        <div class="accordion-item">
+            <div class="accordion-item-header" id="acord-3">    
+                <p>Отказано</p>
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content" id="content-3">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-2">
+        <div class="accordion-item">
+            <div class="accordion-item-header" id="acord-4">
+                <p>Забаненные</p>
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content" id="content-4">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="accordion-2">
+        <div class="accordion-item">
+            <div class="accordion-item-header" id="acord-5">
+                <p>Неактивные</p>
+            </div>
+            <div class="accordion-item-body">
+                <div class="accordion-item-body-content" id="content-5">
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 {% block js_scripts %}
