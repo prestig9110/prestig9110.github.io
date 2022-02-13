@@ -152,7 +152,7 @@ def register():
             }
         }
 
-        # result = requests.post(app.config["WEBHOOKURL"], json = data)
+        result = requests.post(app.config["WEBHOOKURL"], json = data)
 
         return jsonify({'success': 'Вы успешно зарегистрировались'})
     
