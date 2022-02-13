@@ -628,6 +628,8 @@ def change_password():
             return jsonify( { 'error': 'Не указан пароль' } )
         if len(password) < 8:
             return jsonify( { 'error': 'Пароль должен быть минимум из 8 символов' } )
+        if len(password) > 15:
+            return jsonify( { 'error': 'Пароль должен быть максимум из 15 символов' } )
 
         conn = mysql.connect()
         cursor = conn.cursor()
@@ -641,7 +643,7 @@ def change_password():
         cursor.execute("SELECT username FROM users WHERE user_id = %s", ( str(user.id) ))
         username = cursor.fetchone()
 
-        if username is not None:
+        if username is None:
             return jsonify( { 'error': 'Нет такого имени' } )
 
         data = {
@@ -650,6 +652,10 @@ def change_password():
         }
 
         response = _sendRequest('change_password', data)
+
+        if 'error' in response:
+            return jsonify( { 'error': 'Не удалось изменить пароль' } )
+
 
         if 'ok' in response:
             return jsonify( { 'ok': 'Пароль изменен' } )
@@ -672,7 +678,7 @@ def change_password():
 
         # return jsonify({'ok': 'Пароль будет изменен в ближайшее время'})
 
-    return render_template('change_password.html', user=user)
+    return render_template('change_password.html', user=user, auth_ok=1)
 
 def _sendRequest(url, data):
     global jwt_token
