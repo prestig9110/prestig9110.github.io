@@ -383,12 +383,13 @@ def change_user():
 
         status = 2
 
-        cursor.execute("SELECT password FROM users WHERE id = %s", ( str(userID) ))
+        cursor.execute("SELECT password, type FROM users WHERE id = %s", ( str(userID) ))
         password = cursor.fetchone()
 
         data = {
             "username" : username,
-            "password" : password['password']
+            "password" : password['password'],
+            "type" : password['type']
         }
 
         response = _sendRequest('add_user', data)
