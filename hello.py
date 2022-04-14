@@ -776,7 +776,7 @@ Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
 
 
     if chance_tools:
-        content = content + "\nПоздравляю, ты выиграл иструмент на сервере"
+        content = content + "\nПоздравляю, ты выиграл инструмент на сервере"
 
     data = {
         "content" : content,
