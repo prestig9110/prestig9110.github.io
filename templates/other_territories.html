@@ -18,10 +18,20 @@
     <tbody id="metki_tbody">
       {% for marker in markers %}
       <tr id="tr-{{ marker.id }}">
-        <th data-label="Название"><input type="text" placeholder="{{ marker.username }}" name="username"
+        <th data-label="Ник"><input type="text" placeholder="{{ marker.username }}" name="username"
             id="username-{{ marker.id }}" value="{{ marker.username }}"></th>
-        <th data-label="Название"><input type="text" placeholder="{{ marker.name }}" name="name"
-            id="name-{{ marker.id }}" value="{{ marker.name }}"></th>
+        <th data-label="Название">
+          <div style="display: inline-block; float: left; width:auto;">
+            <input oninput="this.style.width = this.value.length + 'px';" type="text" name="name" id="name-{{ marker.id }}" value="{{ marker.name }}">
+          </div>
+          <div style="display: inline-block; float:left;">
+            {% if marker.world=='gmgame' %}
+              <a target="blank" href="https://map.gmgame.ru/#/{{ (marker.xStart+marker.xStop)/2 }}/64/{{ (marker.zStart+marker.zStop)/2 }}/-4/GMGameWorld%20-%20overworld/over">карта</a>
+            {% elif marker.world=='farm' %}
+              <a target="blank" href="https://map.gmgame.ru/#/{{ (marker.xStart+marker.xStop)/2 }}/64/{{ (marker.zStart+marker.zStop)/2 }}/-4/FarmWorld%20-%20overworld/farm">карта</a>
+            {% endif %}
+          </div>
+        </th>
         <th data-label="Мир">
           <select name="world" id="world-{{ marker.id }}">
             <option value="gmgame" {% if marker.world=='gmgame' %} selected="selected" {% endif %}>Основной</option>
