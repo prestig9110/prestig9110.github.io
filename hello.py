@@ -360,6 +360,9 @@ def list_players():
 @app.route('/change_user', methods=['POST', 'GET'])
 @requires_authorization
 def change_user():
+    if app.config["DEV"] == "true":
+        return jsonify( { 'message': 'Статус изменен' } )
+
     user = oauth.fetch_user()
 
     if not str(user.id) in app.config["PERMISSIONS"]:
