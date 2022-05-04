@@ -323,6 +323,85 @@ def other_markers():
 
     return render_template('other_markers.html', user=user,  markers=markers, opUser=1, auth_ok=1)
 
+@app.route("/farm_manager", methods=['POST', 'GET'])
+@requires_authorization
+def farm_manager():
+    user = oauth.fetch_user()
+
+    if not str(user.id) in app.config["PERMISSIONS"]:
+        return 'Доступ запрещен'
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    if request.method == 'POST':
+        action = request.form['action']
+
+        if action == 'add' or action == 'edit':
+            server = request.form['server']
+            name   = request.form['name']
+            x      = request.form['x']
+            y      = request.form['y']
+            z      = request.form['z']
+
+            if action == 'add':
+                cursor.execute( 
+                    'INSERT INTO farm_manager (x, y, z, name, server) VALUES (%s, %s, %s, %s, %s)', 
+                        ( x, y, z, name, server)
+                )
+
+                conn.commit()
+
+                return jsonify({'success': cursor.lastrowid})
+
+            if action == 'edit':
+                markerID = request.form['markerID']
+
+                cursor.execute( 
+                    'UPDATE farm_manager SET x = %s, y = %s, z = %s, name = %s, server = %s WHERE id = %s',
+                        ( x, y, z, name, server, markerID )
+                )
+
+                conn.commit()
+
+                return jsonify({'success': int(markerID)})
+        
+        if action == 'del':
+            idMarker = request.form['id']
+
+            cursor.execute( 'DELETE FROM farm_manager WHERE id = ' + idMarker )  
+            conn.commit()
+
+            return jsonify({'success': 'Ферма удалена'})
+
+        if action == 'reinit':
+            cursor.execute("SELECT * FROM farm_manager")
+            farms = cursor.fetchall()
+
+            data = {"farm": dict(), "main": dict()}
+
+            for farm in farms:
+                key = ",".join((str(farm["x"]),str(farm["y"]),str(farm["z"])))
+
+                if farm["server"] == 'gmgame':
+                    data["main"].update({key: farm["name"]})
+                else:
+                    data["farm"].update({key: farm["name"]})
+
+            response = _sendRequest('reinitFarmManager', data)
+
+            if 'error' in response:
+                return jsonify( { 'error': 'Не удалось перезапустить' } )
+
+
+            if 'ok' in response:
+                return jsonify( { 'ok': 'Перезапущено' } )          
+
+    cursor.execute("SELECT * FROM farm_manager")
+    farms = cursor.fetchall()
+
+    return render_template('farm_manager.html', user=user,  farms=farms, opUser=1, auth_ok=1)
+
 @app.route("/list_players/", methods=['POST', 'GET'])
 @requires_authorization
 def list_players():
