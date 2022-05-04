@@ -1,0 +1,69 @@
+{% extends "_base.html" %}
+{% block meta %}
+{{ super() }}
+{% if opUser %}
+<meta id="opUser" data-name="opUser" data-other="opUser">
+{% endif %}
+{% endblock %}
+{% block content %}
+<div class="markers-block">
+  <h4 class="header-metki">Фермы</h4>
+  <div id="add_marker_res"></div>
+  <input type="hidden" name="allmarkers" value="1">
+  <table id="metki" class="metki">
+    <thead>
+      <tr>
+        <th>Мир</th>
+        <th>Имя</th>
+        <th class="x-y-z">X</th>
+        <th class="x-y-z">Y</th>
+        <th class="x-y-z">Z</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody id="metki_tbody">
+      {% for farm in farms %}
+      <tr id="tr-{{ farm.id }}">
+        <th data-label="Мир">
+          <select name="server" id="server-{{ farm.id }}">
+            <option value="gmgame" {% if farm.server=='gmgame' %} selected="selected" {% endif %}>Основной мир
+            </option>
+            <option value="farm" {% if farm.server=='farm' %} selected="selected" {% endif %}>Фермерский мир</option>
+          </select>
+        </th>
+        <th data-label="Имя"><input type="text" placeholder="{{ farm.name }}" name="name" id="name-{{ farm.id }}"
+            value="{{ farm.name }}"></th>
+        <th data-label="X"><input class="x-y-z" type="text" placeholder="{{ farm.x }}" name="x" id="x-{{ farm.id }}"
+            value="{{ farm.x }}"></th>
+        <th data-label="Y"><input class="x-y-z" type="text" placeholder="{{ farm.y }}" name="y" id="y-{{ farm.id }}"
+            value="{{ farm.y }}"></th>
+        <th data-label="Z"><input class="x-y-z" type="text" placeholder="{{ farm.z }}" name="z" id="z-{{ farm.id }}"
+            value="{{ farm.z }}"></th>
+        <th data-label="Добавить"><button id="edit-{{ farm.id }}">Изменить</button></th>
+        <th data-label="Удалить"><button id="del-{{ farm.id }}">Удалить</button></th>
+      </tr>
+      {% endfor %}
+      <tr>
+        <th data-label="Мир">
+          <select name="add_server" id="add_server">
+            <option value="gmgame">Основной мир</option>
+            <option value="farm">Фермерский мир</option>
+          </select>
+        </th>
+        <th data-label="Имя"><input type="text" placeholder="text" name="add_name" id="add_name"></th>
+        <th data-label="X"><input class="x-y-z" type="text" placeholder="0000" name="add_x" id="add_x"></th>
+        <th data-label="Y"><input class="x-y-z" type="text" placeholder="0000" name="add_y" id="add_y"></th>
+        <th data-label="Z"><input class="x-y-z" type="text" placeholder="0000" name="add_z" id="add_z"></th>
+        <th data-label="Добавить"><button id="add">Добавить</button></th>
+        <th data-label="Удалить" class="display-none"></th>
+      </tr>
+    </tbody>
+  </table>
+  <button id="reinit">Перезапустить</button>
+</div>
+{% endblock %}
+{% block js_scripts %}
+{{ super() }}
+<script src="/static/js/add_farms.js"></script>
+{% endblock %}
