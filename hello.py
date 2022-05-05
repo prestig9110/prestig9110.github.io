@@ -167,7 +167,12 @@ def index():
         auth_ok = 1
         user = oauth.fetch_user()
 
-    return render_template('index.html', user=user, auth_ok=auth_ok)
+    return render_template(
+        'index.html', 
+        user    = user, 
+        auth_ok = auth_ok,
+        version = app.config["GAME_VERSION"]
+    )
 
 @app.route("/login/")
 def login():
@@ -219,7 +224,17 @@ def me():
     cursor.execute("SELECT * FROM markers WHERE user = '" + str(user.id) + "'")
     markers = cursor.fetchall()
 
-    return render_template('me.html', gmg_ok=gmg_ok, user=user, auth_ok=1, user_id=user_id, users=users, markers=markers, opUser=opUser)
+    return render_template(
+        'profile/me.html', 
+        gmg_ok  = gmg_ok, 
+        user    = user, 
+        auth_ok = 1, 
+        user_id = user_id, 
+        users   = users, 
+        markers = markers, 
+        opUser  = opUser,
+        version = app.config["GAME_VERSION"]
+    )
 
 @app.route('/add_marker', methods=['POST', 'GET'])
 @requires_authorization
