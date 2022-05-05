@@ -9,21 +9,8 @@
 
   {% endif %} 
 
-  {# новый игрок #} 
-  {% if user_id["status"] == 1 %} 
-  {% include  "_status1.html" %} 
-  {# добавленный игрок #}
-  {% elif user_id["status"] == 2 %} 
-  {% include "_status2.html" %} 
-  {# непринятый  игрок #} 
-  {% elif user_id["status"] == 3 %}
-  {% include "_status3.html" %} 
-  {#  забаненный игрок #} 
-  {% elif user_id["status"] == 4 %} 
-  {% include "_status4.html" %}
-  {# удален из вл #}
-  {% elif user_id["status"] == 5 %} 
-  {% include "_status5.html" %}  
+  {% if user_id["status"] != 0 %}
+    {% include "profile/status.html" %}
   
   
   {% else %}
