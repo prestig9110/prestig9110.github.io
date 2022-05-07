@@ -410,9 +410,9 @@ def farm_manager():
                 z = int(str(farm["z"])[1:] if signZ == '-' else farm["z"])
 
                 addXpositive = [ signX + str(i) if signX == '-' else str(i) for i in range(x, x+6, 1)]
-                addXnegative = [ signX + str(i) if signX == '-' else str(i) for i in range(x, x-6, 1)]
+                addXnegative = [ signX + str(i) if signX == '-' else str(i) for i in range(x-6, x, 1)]
                 addZpositive = [ signZ + str(i) if signZ == '-' else str(i) for i in range(z, z+6, 1)]
-                addZnegative = [ signZ + str(i) if signZ == '-' else str(i) for i in range(z, z-6, 1)]
+                addZnegative = [ signZ + str(i) if signZ == '-' else str(i) for i in range(z-6, z, 1)]
 
                 for i in range(0,5):
                     keyPositive = ",".join((addXpositive[i],str(farm["y"]),addZpositive[i]))
