@@ -416,7 +416,7 @@ def farm_manager():
 
                 for i in range(0,5):
                     keyPositiveX = addXpositive[i] 
-		    keyNegativeX = addXnegative[i]
+                    keyNegativeX = addXnegative[i]
 		    for i in range(0,5):
                         keyPositive = ",".join((keyPositiveX,str(farm["y"]),addZpositive[i]))
                         keyPositiveNegative = ",".join((keyPositiveX,str(farm["y"]),addZnegative[i]))
@@ -425,9 +425,9 @@ def farm_manager():
 
                         if farm["server"] == 'gmgame':
                             data["main"].update({keyPositive: farm["name"]})
-			    data["main"].update({keyPositiveNegative: farm["name"]})
+                            data["main"].update({keyPositiveNegative: farm["name"]})
                             data["main"].update({keyNegative: farm["name"]})
-			    data["main"].update({keyNegativePositive: farm["name"]})
+                            data["main"].update({keyNegativePositive: farm["name"]})
                         else:
                             data["farm"].update({keyPositive: farm["name"]})
 			    data["farm"].update({keyPositiveNegative: farm["name"]})
