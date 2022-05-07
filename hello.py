@@ -403,7 +403,7 @@ def farm_manager():
                 else:
                     data["farm"].update({key: farm["name"]})
 		
-		signX = farm["x"][:1]
+                signX = farm["x"][:1]
                 signZ = farm["z"][:1]
 
                 x = farm["x"][1:] if signX == '-' else farm["x"]
