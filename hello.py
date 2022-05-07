@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template, request, jsonify, escape
+from flask import Flask, redirect, url_for, render_template, request, jsonify, escape, flash
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
 import requests
@@ -12,6 +12,8 @@ from flask_caching import Cache
 import re
 import random
 import hashlib
+from werkzeug.utils import secure_filename
+from functools import wraps
 
 app = Flask(__name__)
 app._static_folder = 'static'
@@ -84,6 +86,27 @@ jwt_token, jwt_refresh_token = get_token(refresh=0)
 #jwt_token = get_token(refresh=1)
 
 # pprint(jwt_token)
+
+def defaultParams():
+    auth_ok = 0
+    user = {}
+
+    if oauth.authorized:
+        auth_ok = 1
+        user = oauth.fetch_user()
+
+    resposeCache = cache.get('responseCategory')
+
+    if resposeCache is None:
+        conn = mysql.connect()
+        cursor = conn.cursor()
+
+        cursor.execute('SELECT * FROM category')
+        resposeCache = cursor.fetchall()
+
+        cache.set('responseCategory', resposeCache, timeout=10800)
+
+    return {'user': user, 'auth_ok': auth_ok, 'categories': resposeCache}
 
 #Регистрация
 @app.route('/register', methods=['POST', 'GET'])
@@ -160,17 +183,9 @@ def register():
 
 @app.route('/')
 def index():
-    auth_ok = 0
-    user = {}
-
-    if oauth.authorized:
-        auth_ok = 1
-        user = oauth.fetch_user()
-
     return render_template(
         'index.html', 
-        user    = user, 
-        auth_ok = auth_ok,
+        params = defaultParams(),
         version = app.config["GAME_VERSION"]
     )
 
@@ -191,7 +206,8 @@ def redirect_unauthorized(e):
 @app.route("/me/")
 @requires_authorization
 def me():
-    user = oauth.fetch_user()
+    params = defaultParams()
+    user = params["user"]
 
     # перенести на клиент
     # пока такой костыль что бы как минимум не падало с 500
@@ -226,9 +242,8 @@ def me():
 
     return render_template(
         'profile/me.html', 
-        gmg_ok  = gmg_ok, 
-        user    = user, 
-        auth_ok = 1, 
+        params  = params,
+        gmg_ok  = gmg_ok,  
         user_id = user_id, 
         users   = users, 
         markers = markers, 
@@ -325,9 +340,9 @@ def del_marker():
 @app.route("/other_markers/")
 @requires_authorization
 def other_markers():
-    user = oauth.fetch_user()
+    params = defaultParams()
 
-    if not str(user.id) in app.config["PERMISSIONS"]:
+    if not str(params["user"].id) in app.config["PERMISSIONS"]:
         return 'Доступ запрещен'
 
     conn = mysql.connect()
@@ -336,14 +351,14 @@ def other_markers():
     cursor.execute("SELECT markers.*, username FROM markers join users on user = user_id order by username")
     markers = cursor.fetchall()
 
-    return render_template('other_markers.html', user=user,  markers=markers, opUser=1, auth_ok=1)
+    return render_template('other_markers.html', params = params, markers=markers, opUser=1)
 
 @app.route("/farm_manager", methods=['POST', 'GET'])
 @requires_authorization
 def farm_manager():
-    user = oauth.fetch_user()
+    params = defaultParams()
 
-    if not str(user.id) in app.config["PERMISSIONS"]:
+    if not str(params["user"].id) in app.config["PERMISSIONS"]:
         return 'Доступ запрещен'
 
     conn = mysql.connect()
@@ -417,7 +432,7 @@ def farm_manager():
                 for i in range(0,5):
                     keyPositiveX = addXpositive[i] 
                     keyNegativeX = addXnegative[i]
-		    for i in range(0,5):
+                    for i in range(0,5):
                         keyPositive = ",".join((keyPositiveX,str(farm["y"]),addZpositive[i]))
                         keyPositiveNegative = ",".join((keyPositiveX,str(farm["y"]),addZnegative[i]))
                         keyNegative = ",".join((keyNegativeX,str(farm["y"]),addZnegative[i]))
@@ -430,9 +445,9 @@ def farm_manager():
                             data["main"].update({keyNegativePositive: farm["name"]})
                         else:
                             data["farm"].update({keyPositive: farm["name"]})
-			    data["farm"].update({keyPositiveNegative: farm["name"]})
+                            data["farm"].update({keyPositiveNegative: farm["name"]})
                             data["farm"].update({keyNegative: farm["name"]})
-			    data["farm"].update({keyNegativePositive: farm["name"]})
+                            data["farm"].update({keyNegativePositive: farm["name"]})
 
             response = _sendRequest('reinitFarmManager', data)
 
@@ -446,14 +461,14 @@ def farm_manager():
     cursor.execute("SELECT * FROM farm_manager")
     farms = cursor.fetchall()
 
-    return render_template('farm_manager.html', user=user,  farms=farms, opUser=1, auth_ok=1)
+    return render_template('farm_manager.html', params = params, farms=farms, opUser=1)
 
 @app.route("/list_players/", methods=['POST', 'GET'])
 @requires_authorization
 def list_players():
-    user = oauth.fetch_user()
+    params = defaultParams()
 
-    if not str(user.id) in app.config["PERMISSIONS"]:
+    if not str(params["user"].id) in app.config["PERMISSIONS"]:
         return 'Доступ запрещен'
 
     conn = mysql.connect()
@@ -480,7 +495,7 @@ def list_players():
     if request.method == 'POST':
         return jsonify({'usersResult': usersResult})
 
-    return render_template('list_players.html', user=user, auth_ok=1, usersResult = usersResult)
+    return render_template('list_players.html', params = params, usersResult = usersResult)
 
 @app.route('/change_user', methods=['POST', 'GET'])
 @requires_authorization
@@ -681,9 +696,9 @@ def del_territories():
 @app.route("/other_territories/")
 @requires_authorization
 def other_territories():
-    user = oauth.fetch_user()
+    params = defaultParams()
 
-    if not str(user.id) in app.config["PERMISSIONS"]:
+    if not str(params["user"].id) in app.config["PERMISSIONS"]:
         return 'Доступ запрещен'
 
     conn = mysql.connect()
@@ -692,20 +707,20 @@ def other_territories():
     cursor.execute("SELECT * FROM territories join users on user = user_id order by username")
     territories = cursor.fetchall()
 
-    return render_template('other_territories.html', user=user,  markers=territories, opUser=1, auth_ok=1)
+    return render_template('other_territories.html', params = params, markers=territories, opUser=1)
 
 @app.route('/territories', methods=['POST', 'GET'])
 @requires_authorization
 def territories():
-    user = oauth.fetch_user()
+    params = defaultParams()
 
     conn = mysql.connect()
     cursor = conn.cursor()
 
-    cursor.execute("SELECT * FROM territories WHERE user = '" + str(user.id) + "'")
+    cursor.execute("SELECT * FROM territories WHERE user = '" + str(params["user"].id) + "'")
     markers = cursor.fetchall()
 
-    return render_template('territories.html', user=user, auth_ok=1, markers=markers)
+    return render_template('territories.html', params = params, markers=markers)
 
 @app.route('/locations/<world>')
 def location_markers(world):
@@ -747,7 +762,7 @@ def location_markers(world):
 @app.route('/change_password', methods=['POST', 'GET'])
 @requires_authorization
 def change_password():
-    user = oauth.fetch_user()
+    params = defaultParams()
 
     if request.method == 'POST':
 
@@ -769,7 +784,7 @@ def change_password():
 
         # conn.commit
 
-        cursor.execute("SELECT username FROM users WHERE user_id = %s", ( str(user.id) ))
+        cursor.execute("SELECT username FROM users WHERE user_id = %s", ( str(params["user"].id) ))
         username = cursor.fetchone()
 
         if username is None:
@@ -807,7 +822,7 @@ def change_password():
 
         # return jsonify({'ok': 'Пароль будет изменен в ближайшее время'})
 
-    return render_template('change_password.html', user=user, auth_ok=1)
+    return render_template('change_password.html', params = params)
 
 def _sendRequest(url, data):
     global jwt_token
@@ -837,13 +852,6 @@ def logout():
 @app.route("/getStats")
 # @cache.cached(timeout=10800)
 def stats():
-    auth_ok = 0
-    user = {}
-
-    if oauth.authorized:
-        auth_ok = 1
-        user = oauth.fetch_user()
-
     # if app.config["DEV"] == "true":
     #     return jsonify({'data': [
     #         {"name": "*minemax34700", "active_playtime": "675665554", "deaths": "1", "mobs": "0", "broken": "300", "supplied": "237867254"}, 
@@ -917,14 +925,206 @@ Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
 
     return 'ok'
 
+@app.route('/save_images', methods=['POST'])
+@requires_authorization
+def save_images():
+    user = oauth.fetch_user()
+
+    if request.method == 'POST':
+        if 'file' not in request.files:
+            flash('No file part')
+            return jsonify( { 'status': 'Файл поврежден' } )
+
+        file = request.files['file']
+
+        if file.filename == '':
+            flash('No image selected for uploading')
+            return jsonify( { 'status': 'Нет имени файла' } )
+
+        if file and _allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            pathToSave = os.path.join(app.config['UPLOAD_FOLDER'], str(user.id))
+
+            if not os.path.isdir(pathToSave):
+                os.makedirs(pathToSave)
+
+            file.save(os.path.join(pathToSave, filename))
+            print('upload_image filename: ' + filename)
+            flash('Image successfully uploaded and displayed below')
+            return jsonify( { "location": os.path.join('/static/users/', str(user.id), filename) } )
+            # return render_template('index.html', filename=filename)
+        else:
+            flash('Allowed image types are - png, jpg, jpeg, gif')
+            return jsonify( { 'status': 'Файл не поддерживается' } )
+
+@app.route('/my_articles', methods=['POST', 'GET'])
+@requires_authorization
+def my_articles():
+    params = defaultParams()
+
+    user = params["user"]
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    if request.method == 'POST':
+        content = request.form['editor']
+        title = request.form['title']
+        category = request.form['category']
+
+        if not content or content == '':
+            return jsonify( { 'status': u'not article' } )
+        if not title or title == '':
+            return jsonify( { 'status': u'not title' } )
+        if not category or category == '':
+            return jsonify( { 'status': u'not category' } )
+
+        prewImg = re.findall('img src="(.*?)"', content)
+        img = ''
+
+        if len(prewImg) > 0 and prewImg[0] != '':
+            img = prewImg[0]
+        else:
+            ramdomImg = random.choice(["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "10.png", "11.png", "12.png"])
+            img = '/static/img/prew/' + ramdomImg
+
+        cursor.execute( 
+            'INSERT INTO articles (title, content, create_date, last_modify, user_id, category, visible, preview_img) VALUES (%s, %s, CURDATE(), CURDATE(), %s, %s, 1, %s)', 
+                ( title, content, str(user.id), str(category), img )
+        )  
+        
+        conn.commit()
+
+    cursor.execute("SELECT * FROM articles WHERE user_id = " + str(user.id))
+    articles = cursor.fetchall()
+
+    return render_template('my_articles.html', params = params, articles=articles)
+
+@app.route('/category/<id_category>')
+def player_articles(id_category):
+    params = defaultParams()
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM articles WHERE category = " + str(id_category))
+    articles = cursor.fetchall()
+
+    return render_template('player_articles.html', params = params, articles=articles)
+
+@app.route("/article/edit/<id_article>", methods=['POST', 'GET'])
+@requires_authorization
+def article_edit(id_article):
+    params = defaultParams()
+    user = params["user"]
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    if request.method == 'POST': 
+        content = request.form['editor']
+        title = request.form['title']
+        category = request.form['category']
+
+        if not content or content == '':
+            return jsonify( { 'status': u'not article' } )
+        if not title or title == '':
+            return jsonify( { 'status': u'not title' } )
+        if not category or category == '':
+            return jsonify( { 'status': u'not category' } )
+
+        prewImg = re.findall('img src="(.*?)"', content)
+        img = ''
+
+        if len(prewImg) > 0 and prewImg[0] != '':
+            img = prewImg[0]
+        else:
+            ramdomImg = random.choice(["1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "10.png", "11.png", "12.png"])
+            img = '/static/img/prew/' + ramdomImg
+
+        cursor.execute( 
+            'UPDATE articles SET title = %s, content = %s, last_modify = CURDATE(), category = %s, preview_img = %s WHERE id = %s AND user_id = %s',
+                ( title, content, str(category), img, id_article, str(user.id) )
+        )
+
+        conn.commit()
+
+    cursor.execute("SELECT * FROM articles WHERE id = " + id_article + " AND user_id = " + str(user.id))
+    article = cursor.fetchone()
+
+    return render_template('article_edit.html', params = params, article=article, id_article=id_article)
+
+@app.route("/article/<id_article>")
+def article(id_article):
+    params = defaultParams()
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM articles WHERE id = " + id_article)
+    article = cursor.fetchone()
+    print(article)
+
+    return render_template('article.html', params = params, article=article)
+
+@app.route("/category", methods=['POST', 'GET'])
+@requires_authorization
+def category():
+    params = defaultParams()
+
+    if not str(params["user"].id) in app.config["PERMISSIONS"]:
+        return 'Доступ запрещен'
+
+    conn = mysql.connect()
+    cursor = conn.cursor()
+
+    if request.method == 'POST':
+        action = request.form['action']
+
+        if action == 'add':
+            name_category = request.form['name_category']
+
+            cursor.execute( 
+                'INSERT INTO category (name_category) VALUES (%s)', 
+                    ( name_category )
+            )  
+            
+            conn.commit()
+
+            return jsonify({'success': cursor.lastrowid})
+        
+        if action == 'edit':
+            name_category = request.form['name_category']
+            id = request.form['id']
+
+            cursor.execute( 
+                'UPDATE category SET name_category = %s WHERE id = %s', 
+                    ( name_category, str(id) )
+            )  
+            
+            conn.commit()
+
+            return jsonify({'success': cursor.lastrowid})
+        
+        if action == 'delete':
+            id = request.form['id']
+
+            cursor.execute( 
+                'DELETE FROM category WHERE id = %s', 
+                    ( str(id) )
+            )  
+            
+            conn.commit()
+
+            return jsonify({'success': cursor.lastrowid})
+
+    cursor.execute('SELECT * FROM category')
+    categories = cursor.fetchall()
+
+    return render_template('category.html', params=params)
+
 @app.route("/<page>/")
 def start(page):
-    auth_ok = 0
-    user = {}
-
-    if oauth.authorized:
-        auth_ok = 1
-        user = oauth.fetch_user()
+    params = defaultParams()
     
     template = 'start.html'
 
@@ -932,12 +1132,17 @@ def start(page):
         template = page + '.html'
 
     try:
-        return render_template(template, user=user, auth_ok=auth_ok)
+        return render_template(template, params = params)
     except:
-        return render_template('start.html', user=user, auth_ok=auth_ok)
+        return render_template('start.html', params = params)
 
 def _is_numb ( digit ):
     return digit.isdigit() if digit[:1] != '-' else digit[1:].isdigit()
+
+def _allowed_file(filename):
+    allowed_types = set(["png", "jpg", "jpeg", "gif"])
+    print("Check if image types is allowed")
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_types
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

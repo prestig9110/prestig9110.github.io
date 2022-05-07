@@ -1,0 +1,36 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="markers-block">
+    <h4 class="header-metki">Категории</h4>
+    <div id="add_marker_res"></div>
+    <table id="metki" class="metki">
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="metki_tbody">
+        {% for category in params.categories %}
+        <tr id="tr-{{ category.id }}">
+            <th data-label="Название">
+                <input type="text" name="name" id="name-{{ category.id }}" value="{{ category.name_category}}">
+            </th>
+            <th data-label="Добавить"><button id="edit-{{ category.id }}">Изменить</button></th>
+            <th data-label="Удалить"><button id="del-{{ category.id }}">Удалить</button></th>
+          </tr>
+        {% endfor %}
+        <tr>
+            <th data-label="Название"><input type="text" placeholder="Название" name="name_category" id="name-add"></th>
+            <th data-label="Добавить"><button id="add">Добавить</button></th>
+            <th data-label="Удалить" class="display-none"></th>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
+{% block js_scripts %}
+{{ super() }}
+<script src="/static/js/category.js"></script>
+{% endblock %}

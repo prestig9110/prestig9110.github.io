@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="/static/css/style.css" />
 </head>
 
-<body>
+<body link="#FFDEAD" vlink="#DEB887" alink="#DEB887">
   <div class="preloader" id="preloader">
     <div class="mdiv">
       <div class="cdiv">
@@ -66,10 +66,9 @@
               <input type="checkbox" id="three-menu" />
               <label for="three-menu">Wiki</label>
               <ul>
-                {# <li><a href="/block-kraft/">Крафты</a></li>
-                <li><a href="/block-base/">База блоков</a></li>
-                <li><a href="/aach-create/">Достижения</a></li> #}
-                <li><a href="/change_nickname/">Смена никнейма</a></li>
+                {% for category in params.categories %}
+                  <li><a href="/category/{{category.id}}">{{category.name_category}}</a></li>
+                {% endfor %}
               </ul>
             </li>
           </ul>
@@ -146,13 +145,13 @@
           </label>
           <span>Instagram</span>
         </a>
-        {% if auth_ok %}
-        <a class="button-link classHover" href="/me">
-          <label class="icon-button">
-            <img src="{{user.avatar_url}}" alt="none">
-          </label>
-          <span>{{user.name}}</span>
-        </a>
+        {% if params.auth_ok == 1 %}
+          <a class="button-link classHover" href="/me">
+            <label class="icon-button">
+              <img src="{{params.user.avatar_url}}" alt="none">
+            </label>
+            <span>{{params.user.name}}</span>
+          </a>
         {% else %}
         <a class="button-link classHover" href="/login">
           <label class="icon-button">

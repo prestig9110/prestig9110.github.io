@@ -1,0 +1,9 @@
+{% extends "_base.html" %}
+{% block content %}
+    <div style="all: unset;">
+        <h1>{{article.title}}</h1>
+        {% autoescape false %}
+        {{article.content}} 
+        {% endautoescape %}
+    </div>
+{% endblock %}
