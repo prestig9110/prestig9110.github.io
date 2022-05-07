@@ -418,10 +418,10 @@ def farm_manager():
                     keyPositiveX = addXpositive[i] 
 		    keyNegativeX = addXnegative[i]
 		    for i in range(0,5):
-			keyPositive = ",".join((keyPositiveX,str(farm["y"]),addZpositive[i]))
-			keyPositiveNegative = ",".join((keyPositiveX,str(farm["y"]),addZnegative[i]))
+                        keyPositive = ",".join((keyPositiveX,str(farm["y"]),addZpositive[i]))
+                        keyPositiveNegative = ",".join((keyPositiveX,str(farm["y"]),addZnegative[i]))
                         keyNegative = ",".join((keyNegativeX,str(farm["y"]),addZnegative[i]))
-			keyNegativePositive = ",".join((keyNegativeX,str(farm["y"]),addZpositive[i]))
+                        keyNegativePositive = ",".join((keyNegativeX,str(farm["y"]),addZpositive[i]))
 
                         if farm["server"] == 'gmgame':
                             data["main"].update({keyPositive: farm["name"]})
