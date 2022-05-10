@@ -1767,6 +1767,50 @@ h6 {
   cursor: pointer;
 }
 
+.inputForm {
+  display: flex;
+  color: #f4f4f4;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  font-weight: 750;
+  font-size: 18px;
+  height: auto;
+  border: 1px solid black;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin: 10px;
+}
+
+.selectForm {
+  /* display: flex; */
+  color: #f4f4f4;
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  font-weight: 750;
+  font-size: 18px;
+  height: auto;
+  border: 1px solid black;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin: 10px;
+}
+
+.buttonForm {
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  height: auto;
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+  background: rgba(0, 0, 0, 0.2);
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+
 /*---------------------------------------- stat ----------------------------------------*/
 .stats-block .phone-stat-link-h2 {
   display: none;

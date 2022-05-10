@@ -1,0 +1,120 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<style>
+  #add {
+        display: none;
+      }
+  #add:target {display: block;}
+</style>
+  <script src="https://cdn.tiny.cloud/1/gglmbfn2laq71vuxq2fihk10ysxjnawsbqsaydkputeqbn23/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/jquery.tinymce.min.js" referrerpolicy="origin"></script>
+
+  <div class="markers-block">
+    <h4 class="header-metki">Мои статьи</h4>
+    <div id="add_marker_res"></div>
+    <table id="metki" class="metki">
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th>Дата публикации</th>
+          <th>Последнее изменение</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="metki_tbody">
+        {% for article in articles %}
+        <tr>
+          <th data-label="Мир">{{article.title}}</th>
+          <th data-label="Имя">{{article.create_date}}</th>
+          <th data-label="Имя">{{article.last_modify}}</th>
+          <th data-label="Добавить">
+            <form action="/article/edit/{{article.id}}">
+              <input type="submit" value="Изменить" />
+            </form>
+          </th>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <form action="#add">
+    <input class="inputForm" type="submit" value="Добавить статью" />
+  </form>
+
+  <script>
+    tinymce.init({
+      selector: 'textarea#editor',
+      menubar: true,
+      skin: 'oxide-dark',
+      content_css: 'dark',
+      language : 'ru',
+      height: 800,
+      relative_urls : false,
+      plugins: [
+        'advlist autolink lists link image charmap print preview anchor',
+        'searchreplace visualblocks code fullscreen',
+        'insertdatetime media table paste imagetools wordcount formatpainter'
+      ],
+      toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | formatpainter code',
+
+      images_upload_handler: function (blobInfo, success, failure) {
+        // console.log(success)
+        console.log(blobInfo);
+        var xhr, formData;
+        xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+        xhr.open('POST', '/save_images');
+        xhr.onload = function() {
+          var json;
+
+          if (xhr.status != 200) {
+            failure('HTTP Error: ' + xhr.status);
+            return;
+          }
+          json = JSON.parse(xhr.responseText);
+
+          if (!json || typeof json.location != 'string') {
+            failure('Invalid JSON: ' + xhr.responseText);
+            return;
+          }
+          success(json.location);
+        };
+        formData = new FormData();
+        formData.append('file', blobInfo.blob(), blobInfo.filename());
+        console.log(formData);
+        var image_size = blobInfo.blob().size / 1000;  // image size in kbytes
+        var max_size   = 1024                // max size in kbytes
+        if( image_size  > max_size ){        
+          failure('Image is too large( '+ image_size  + ') ,Maximum image size is:' + max_size + ' kB');
+          return;      
+        }else{
+          xhr.send(formData);
+        }
+      },
+      images_file_types: 'jpg,svg,webp,png'
+    });
+  </script>
+  <div id="add">
+    <div class="container mt-4 mb-4">
+      <div class="row justify-content-md-center">
+        <div class="col-md-12 col-lg-8">
+        <form action = "/my_articles" method='POST'}}>
+          <div class="form-group">
+            <input class="inputForm" class="inputpassword" id="title" name = title value="Название"></input>
+            Категория 
+            <select class="selectForm" name="category">
+              {% for category in params.categories %}
+                <option value="{{category.id}}">{{category.name_category}}</option>
+              {% endfor %}
+            </select>
+            <textarea id="editor" name = editor></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary buttonForm">Отправить</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

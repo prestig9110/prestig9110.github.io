@@ -2,6 +2,8 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS markers;
 DROP TABLE IF EXISTS territories;
 DROP TABLE IF EXISTS farm_manager;
+DROP TABLE IF EXISTS articles;
+DROP TABLE IF EXISTS category;
 
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -46,4 +48,22 @@ CREATE TABLE farm_manager (
   z INT NOT NULL,
   name VARCHAR(100) NOT NULL,
   server VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE articles (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(200) NOT NULL,
+  content MEDIUMTEXT NOT NULL,
+  create_date DATE NOT NULL,
+  last_modify DATE NOT NULL,
+  user_id VARCHAR(100) NOT NULL,
+  preview_img VARCHAR(200),
+  category INT NOT NULL,
+  visible INT NOT NULL,
+  tags VARCHAR(200)
+);
+
+CREATE TABLE category (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name_category VARCHAR(100) NOT NULL UNIQUE
 );
