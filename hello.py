@@ -41,7 +41,7 @@ app.config.from_mapping(config)
 cache = Cache(app)
 
 from decorators import admin_required
-from context import get_db, defaultParams
+from context import get_db, defaultParams, get_token
 from lk import lk
 
 app.register_blueprint(lk)
