@@ -47,7 +47,7 @@ from lk import lk
 app.register_blueprint(lk)
 
 @app.teardown_request
-def teardown_request(exception):
+def teardown_request(response):
     cursor = g.pop('cursor', None)
     conn = g.pop('conn', None)
 
@@ -763,10 +763,14 @@ def logout():
 @app.route("/getStats")
 # @cache.cached(timeout=10800)
 def stats():
-    resposeCache = cache.get('responseStats')
+    defaultParams()
+
+    resposeCache = _sendRequest('getStats', {})
+    # resposeCache = cache.get('responseStats')
 
     if resposeCache is None:
         resposeCache = _sendRequest('getStats', {})
+        # print(resposeCache)
         cache.set('responseStats', resposeCache, timeout=10800)
 
     return jsonify({'data': resposeCache})

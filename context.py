@@ -1,5 +1,6 @@
 from hello import mysql, app, oauth, cache
 from flask import g
+import requests
 
 def get_token(refresh):
     if refresh:
