@@ -1007,19 +1007,19 @@ def category():
 
     return render_template('category.html', params=g.params)
 
-# @app.route("/<page>/")
-# def start(page):
-#     template = 'start.html'
+@app.route("/<page>/")
+def start(page):
+    template = 'start.html'
 
-#     if page:
-#         template = page + '.html'
+    if page:
+        template = page + '.html'
 
-#     defaultParams()
+    defaultParams()
 
-#     try:
-#         return render_template(template, params = g.params)
-#     except:
-#         return render_template('start.html', params = g.params)
+    try:
+        return render_template(template, params = g.params)
+    except:
+        return render_template('start.html', params = g.params)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
