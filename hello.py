@@ -145,7 +145,8 @@ def login():
 
 @app.route("/callback/")
 def callback():
-    oauth.callback()
+    defaultParams()
+    g.oauth.callback()
     return redirect(url_for(".me"))
 
 @app.errorhandler(Unauthorized)
