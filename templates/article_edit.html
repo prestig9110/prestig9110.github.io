@@ -74,6 +74,9 @@
                 <option value="{{category.id}}" {% if article.category == category.id %} selected="selected" {% endif %}>{{category.name_category}}</option>
               {% endfor %}
             </select>
+            <label for="visible"  style="word-wrap:break-word; vertical-align:middle;">
+              <input style="vertical-align:middle;" name="visible" id="visible" type="checkbox" value="1" {% if article.visible == 1 %} checked {% endif %} /> опубликовать
+            </label>
           <textarea id="editor" name = editor></textarea>
           <input type="hidden" id="edit" name="edit" value="1">
 

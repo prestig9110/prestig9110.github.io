@@ -109,6 +109,9 @@
                 <option value="{{category.id}}">{{category.name_category}}</option>
               {% endfor %}
             </select>
+            <label for="visible"  style="word-wrap:break-word; vertical-align:middle;">
+              <input style="vertical-align:middle;" name="visible" id="visible" type="checkbox" value="1" /> опубликовать
+            </label>
             <textarea id="editor" name = editor></textarea>
           </div>
           <button type="submit" class="btn btn-primary buttonForm">Отправить</button>

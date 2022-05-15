@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
 {% block content %}
+    <div style="display: block; padding: 10px 100px; text-align: center;"><h3>{{title}}</h3></div>
+    <br>
     {% for article in articles %}
         <div style="display: block; float: left; padding: 10px 100px; text-align: center;">
             <a href="/article/{{article.id}}"><img style="object-fit: cover;" src="{{article.preview_img}}" width="500" height="64"></a>

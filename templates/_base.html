@@ -185,6 +185,13 @@
 
     <div class="body-center-container">
       <div class="container">
+        <div>
+            {% if breadcrumbs %}
+              {% for breadcrumb in breadcrumbs %}
+                <a style="color: rgb(64, 64, 255)" href="{{breadcrumb.src}}">{{breadcrumb.name}}</a> >
+              {% endfor %}
+            {% endif %}
+        </div>
         {% block content %}
 
         {% endblock %}
