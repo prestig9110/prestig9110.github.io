@@ -1,5 +1,6 @@
 from hello import mysql, app, oauth, cache
 from flask import g
+from utils import _getTitle
 import requests
 
 def get_token(refresh):
@@ -65,3 +66,22 @@ def defaultParams():
     g.jwt_token, g.jwt_refresh_token = get_token(refresh=0)
 
     g.params = {'user': g.user, 'auth_ok': auth_ok, 'categories': resposeCache}
+
+def getbreadcrumbs(page, **params):
+    breadcrumbs = []
+
+    if page == 'wiki':
+        breadcrumbs.append({"name": page, "src": "#"})
+        breadcrumbs.append({"name": _getTitle(params["category"]), "src": "/category/" + str(params["category"])})
+        breadcrumbs.append({"name": params["title"], "src": "/article/" + str(params["id"])})
+    
+    # if page == "category":
+    #     breadcrumbs.append({"name": "wiki", "src": "#"})
+
+    #     resposeCache = cache.get('jhwvfkjwevhfhjwek' if app.config["DEV"] == "true" else 'responseCategory')
+    
+    #     for category in resposeCache:
+    #         if int(category["id"]) == int(params["category"]):
+    #             breadcrumbs.append({"name": category["name_category"], "src": "/category/" + str(params["category"])})
+
+    return breadcrumbs

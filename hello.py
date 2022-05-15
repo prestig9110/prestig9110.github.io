@@ -13,7 +13,6 @@ import re
 import random
 import hashlib
 from werkzeug.utils import secure_filename
-from utils import _is_numb, _allowed_file
 
 app = Flask(__name__)
 
@@ -41,7 +40,8 @@ app.config.from_mapping(config)
 cache = Cache(app)
 
 from decorators import admin_required
-from context import get_db, defaultParams, get_token
+from context import get_db, defaultParams, get_token, getbreadcrumbs
+from utils import _is_numb, _allowed_file, _getTitle
 from lk import lk
 
 app.register_blueprint(lk)
@@ -868,6 +868,10 @@ def my_articles():
         content = request.form['editor']
         title = request.form['title']
         category = request.form['category']
+        visible = 0
+
+        if "visible" in request.form:
+            visible = request.form['visible']
 
         if not content or content == '':
             return jsonify( { 'status': u'not article' } )
@@ -886,8 +890,8 @@ def my_articles():
             img = '/static/img/prew/' + ramdomImg
 
         g.cursor.execute( 
-            'INSERT INTO articles (title, content, create_date, last_modify, user_id, category, visible, preview_img) VALUES (%s, %s, CURDATE(), CURDATE(), %s, %s, 1, %s)', 
-                ( title, content, str(g.user.id), str(category), img )
+            'INSERT INTO articles (title, content, create_date, last_modify, user_id, category, visible, preview_img) VALUES (%s, %s, CURDATE(), CURDATE(), %s, %s, %s, %s)', 
+                ( title, content, str(g.user.id), str(category), int(visible), img )
         )  
         
         g.conn.commit()
@@ -902,10 +906,15 @@ def player_articles(id_category):
     get_db()
     defaultParams()
 
-    g.cursor.execute("SELECT * FROM articles WHERE category = " + str(id_category))
+    g.cursor.execute("SELECT * FROM articles WHERE category = " + str(id_category) + " AND visible = 1")
     articles = g.cursor.fetchall()
 
-    return render_template('player_articles.html', params = g.params, articles=articles)
+    return render_template(
+        'player_articles.html', 
+        params = g.params, articles=articles,
+        title = _getTitle(id_category)
+        # breadcrumbs = getbreadcrumbs('category', category = id_category)
+    )
 
 @app.route("/article/edit/<id_article>", methods=['POST', 'GET'])
 @requires_authorization
@@ -917,6 +926,10 @@ def article_edit(id_article):
         content = request.form['editor']
         title = request.form['title']
         category = request.form['category']
+        visible = 0
+
+        if "visible" in request.form:
+            visible = request.form['visible']
 
         if not content or content == '':
             return jsonify( { 'status': u'not article' } )
@@ -935,8 +948,8 @@ def article_edit(id_article):
             img = '/static/img/prew/' + ramdomImg
 
         g.cursor.execute( 
-            'UPDATE articles SET title = %s, content = %s, last_modify = CURDATE(), category = %s, preview_img = %s WHERE id = %s AND user_id = %s',
-                ( title, content, str(category), img, id_article, str(g.user.id) )
+            'UPDATE articles SET title = %s, content = %s, last_modify = CURDATE(), category = %s, preview_img = %s, visible = %s WHERE id = %s AND user_id = %s',
+                ( title, content, str(category), img, int(visible), id_article, str(g.user.id))
         )
 
         g.conn.commit()
@@ -951,10 +964,16 @@ def article(id_article):
     get_db()
     defaultParams()
 
-    g.cursor.execute("SELECT * FROM articles WHERE id = " + id_article)
+    g.cursor.execute("SELECT *, u.username as username FROM articles a JOIN users u ON a.user_id = u.user_id WHERE a.id = " + id_article)
     article = g.cursor.fetchone()
 
-    return render_template('article.html', params = g.params, article=article)
+    return render_template(
+        'article.html', 
+        params = g.params, 
+        article = article, 
+        breadcrumbs = getbreadcrumbs('wiki', title = article["title"], category = article["category"], id = id_article),
+        autor = article["username"]
+    )
 
 @app.route("/category", methods=['POST', 'GET'])
 @requires_authorization
