@@ -1,0 +1,35 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class="markers-block">
+    <h4 class="header-metki">Призы</h4>
+    <div id="add_marker_res"></div>
+    {% if prizes %}
+        <table id="metki" class="metki">
+        <thead>
+            <tr>
+            <th>Приз</th>
+            <th>Выдан</th>
+            </tr>
+        </thead>
+        <tbody id="metki_tbody">
+            {% for prize in prizes %}
+            <tr>
+            <th data-label="Мир">{% if prize.type == 'tools' %} Инструмент {% else %} Деньги {% endif %}</th>
+            <th data-label="Мир">Еще нет</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    {% else %}
+        <a href="/support/">Голосуй и учавствуй в розыгрыше каждый день и однажды тебе повезет</a>
+    {% endif %}
+  </div>
+
+  {% if prizes %}
+    <br>
+    <p>Пожалуйста, убедись, что твой персонаж онлайн на основном сервере(GMGame) перед тем, как нажать кнопку</p>
+    <form action="/give_prize" method='POST'>
+        <input class="inputForm" type="submit" value="Получить призы" />
+    </form>
+  {% endif %}
+{% endblock %}
