@@ -13,6 +13,7 @@ import re
 import random
 import hashlib
 from werkzeug.utils import secure_filename
+import time
 
 app = Flask(__name__)
 
@@ -777,11 +778,12 @@ def stats():
 
 @app.route('/vote_handler', methods=['POST', 'GET'])
 def vote_handler():
-    if (request.form['nick'] and request.form['time'] and request.form['sign']):
-        if (request.form['sign'] != hashlib.sha1((request.form['nick'] + request.form['time'] + str(app.config["SECRET_KEY_FOR_VOTE"])).encode('utf-8')).hexdigest()):
-            return 'Переданные данные не прошли проверку.'
-    else:
-        return 'Не переданы необходимые данные.'
+    if app.config["DEV"] != "true":
+        if (request.form['nick'] and request.form['time'] and request.form['sign']):
+            if (request.form['sign'] != hashlib.sha1((request.form['nick'] + request.form['time'] + str(app.config["SECRET_KEY_FOR_VOTE"])).encode('utf-8')).hexdigest()):
+                return 'Переданные данные не прошли проверку.'
+        else:
+            return 'Не переданы необходимые данные.'
 
     chance_money = False
     chance_tools = False
@@ -796,12 +798,27 @@ def vote_handler():
         prize = "tools"
 
 
-    data = {
-        "prize" : prize,
-        "nick" : request.form['nick']
-    }
+    # data = {
+    #     "prize" : prize,
+    #     "nick" : request.form['nick']
+    # }
 
-    resp = _sendRequest('casino', data)
+    if chance_tools or chance_money:
+        get_db()
+
+        g.cursor.execute("SELECT user_id FROM users WHERE username = %s", ( str(request.form['nick']) ))
+        user_id = g.cursor.fetchone()
+
+        if user_id is not None:
+            g.cursor.execute( 
+                'INSERT INTO prize (type, user_id, issued) VALUES (%s, %s, %s)', 
+                    ( prize, user_id['user_id'], 0)
+            )  
+        
+            g.conn.commit()
+
+
+    # resp = _sendRequest('casino', data)
 
     content = request.form['nick'] + ", " + random.choice(app.config["MESSAGES_FOR_VOTE"]) + "!\n\
 Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
@@ -809,21 +826,20 @@ Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
 Также можете принять участие в розыгрыше <https://hotmc.ru/casino-205185>\n\
 Поддержать проект другим способом <https://gmgame.ru/support/>"
 
-    if chance_money:
-        content = content + "\nПоздравляю, ты выиграл 10 монет на сервере"
+    # if chance_money:
+    #     content = content + "\nПоздравляю, ты выиграл 10 монет на сервере"
 
 
-    if chance_tools:
-        content = content + "\nПоздравляю, ты выиграл инструмент на сервере"
+    # if chance_tools:
+    #     content = content + "\nПоздравляю, ты выиграл инструмент на сервере"
 
     data = {
         "content" : content,
         "username" : 'vote'
     }
 
-    print (data)
-
-    result = requests.post(app.config["WEBHOOKURL_FOR_VOTE"], json = data)
+    if app.config["DEV"] != "true":
+        result = requests.post(app.config["WEBHOOKURL_FOR_VOTE"], json = data)
 
     return 'ok'
 
@@ -857,6 +873,43 @@ def save_images():
         else:
             flash('Allowed image types are - png, jpg, jpeg, gif')
             return jsonify( { 'status': 'Файл не поддерживается' } )
+
+@app.route('/give_prize', methods=['POST', 'GET'])
+@requires_authorization
+def give_prize():
+    get_db()
+    defaultParams()
+
+    g.cursor.execute("SELECT *, u.username as username FROM prize p JOIN users u ON u.user_id = p.user_id WHERE p.user_id = %s AND issued = 0", ( str(g.user.id), ))
+    prizes = g.cursor.fetchall()
+
+    if request.method == 'POST':
+        for prize in prizes:
+            data = {
+                "prize" : prize["type"],
+                "nick" : prize["username"]
+            }
+
+            g.cursor.execute( 
+                'UPDATE prize SET issued = 1 WHERE id = %s', ( prize["id"] )
+            )
+            g.conn.commit()
+
+            resp = _sendRequest('casino', data)
+
+            dataDiscord = {
+                "content" : "Поздравляем, " + prize["username"] + "! Выигрыш " + resp["prize"],
+                "username" : 'Yakubovich'
+            }
+
+            time.sleep(1)
+
+            if app.config["DEV"] != "true":
+                result = requests.post(app.config["WEBHOOKURL_FOR_VOTE"], json = dataDiscord)
+
+        return redirect(url_for("lk.me"))
+
+    return render_template('give_prize.html', params = g.params, prizes=prizes)
 
 @app.route('/my_articles', methods=['POST', 'GET'])
 @requires_authorization

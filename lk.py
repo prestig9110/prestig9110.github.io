@@ -23,7 +23,6 @@ def me():
             gmg_ok = 1
 
     g.cursor.execute("SELECT id, username, tag, status FROM users WHERE user_id = %s", ( str(g.user.id), ))
-
     user_id = g.cursor.fetchone()
 
     users = []
