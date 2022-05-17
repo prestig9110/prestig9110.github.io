@@ -825,7 +825,8 @@ Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
 Твоя поддержка очень важна для нас.\n\
 Также можете принять участие в розыгрыше <https://hotmc.ru/casino-205185>\n\
 Поддержать проект другим способом <https://gmgame.ru/support/>"
-
+    if chance_tools or chance_money:
+        content = content + "\n\nПоздравляю, ты что то выиграл"
     # if chance_money:
     #     content = content + "\nПоздравляю, ты выиграл 10 монет на сервере"
 
