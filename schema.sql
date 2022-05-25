@@ -16,7 +16,8 @@ CREATE TABLE users (
   from_about TEXT,
   you_about TEXT,
   status INT NOT NULL,
-  user_id VARCHAR(100) NOT NULL UNIQUE
+  user_id VARCHAR(100) NOT NULL UNIQUE,
+  partner VARCHAR(255)
 );
 
 CREATE TABLE markers (
