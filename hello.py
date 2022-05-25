@@ -44,8 +44,11 @@ from decorators import admin_required
 from context import get_db, defaultParams, get_token, getbreadcrumbs
 from utils import _is_numb, _allowed_file, _getTitle
 from lk import lk
+from api import api
+from registration import create_user
 
 app.register_blueprint(lk)
+app.register_blueprint(api)
 
 @app.teardown_request
 def teardown_request(response):
@@ -62,9 +65,6 @@ def teardown_request(response):
 @requires_authorization
 def register():
     if request.method == 'POST':
-        get_db()
-        defaultParams()
-
         error = None
 
         login      = request.form['login']
@@ -90,43 +90,15 @@ def register():
         if not you_about or not re.search("\w", you_about):
             return jsonify( { 'error': 'Расскажите о себе, пожалуйста' } )
 
-        userJson = g.user.to_json()
+        response = create_user(
+            login = login, password = password, typeMc = typeMc, age = age, from_about = from_about, you_about = you_about, servers = servers, partner = "GMGame"
+        )
 
-        g.cursor.execute("SELECT id FROM users WHERE user_id = %s OR username = %s", ( str(g.user.id), login ))
-        user_id = g.cursor.fetchone()
-
-        if user_id is not None:
+        if response == "exist user":
             return jsonify( { 'error': 'Такой пользователь уже существует' } )
-
-        g.cursor.execute( 
-            'INSERT INTO users (username, password, tag, type, age, from_about, you_about, status, user_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)', 
-                ( login, password, str(userJson), typeMc, age, from_about, you_about, 1, str(userJson['id']) )
-        )  
-        g.conn.commit()
         
-        ticket = 'Игровой ник: ' + login + '\n'
-        ticket = ticket + 'Аккаунт: ' + ('Лицензия' if typeMc == '1' else 'Пиратка') + '\n'
-        ticket = ticket + 'Ваш возраст: ' + age + '\n'
-        ticket = ticket + 'Предыдущие сервера: ' + servers + '\n'
-        ticket = ticket + 'Откуда узнали о проекте: ' + from_about + '\n'
-        ticket = ticket + 'Интересы в Minecraft: ' + you_about + '\n'
-        ticket = ticket + 'Дискорд тэг: ' + userJson['username'] + '#' + userJson['discriminator'] + '\n'
-
-        if app.config["DEV"] == "true":
-            ticket = ticket + "\nЭто тестовая заявка"
-
-        data = {
-            "content" : "```" + ticket + "```" + '<@' + userJson['id'] + '>',
-            "username" : 'applicant',
-            "allowed_mentions": {
-                "parse": ["users"],
-                "users": []
-            }
-        }
-
-        result = requests.post(app.config["WEBHOOKURL"], json = data)
-
-        return jsonify({'success': 'Вы успешно зарегистрировались'})
+        if response == "ok":
+            return jsonify({'success': 'Вы успешно зарегистрировались'})
     
     return jsonify({'error': 'При регистрации произошка ошибка'})
 
@@ -152,50 +124,6 @@ def callback():
 @app.errorhandler(Unauthorized)
 def redirect_unauthorized(e):
     return redirect(url_for("login"))
-
-	
-# @app.route("/me/")
-# @requires_authorization
-# def me():
-#     get_db()
-#     defaultParams()
-#     # перенести на клиент
-#     # пока такой костыль что бы как минимум не падало с 500
-#     try:
-#         guilds = oauth.request('/users/@me/guilds')
-#     except:
-#         guilds = {}
-
-#     gmg_ok = 0
-
-#     for guild in guilds:
-#         if guild['id'] == '723912565234728972':
-#             gmg_ok = 1
-
-#     g.cursor.execute("SELECT id, username, tag, status FROM users WHERE user_id = %s", ( str(g.user.id), ))
-
-#     user_id = g.cursor.fetchone()
-
-#     users = []
-#     all_markers = []
-#     opUser = 0
-    
-#     if str(g.user.id) in app.config["PERMISSIONS"]:
-#         opUser = 1
-
-#     g.cursor.execute("SELECT * FROM markers WHERE user = '" + str(g.user.id) + "'")
-#     markers = g.cursor.fetchall()
-
-#     return render_template(
-#         'profile/me.html', 
-#         params  = g.params,
-#         gmg_ok  = gmg_ok,  
-#         user_id = user_id, 
-#         users   = users, 
-#         markers = markers, 
-#         opUser  = opUser,
-#         version = app.config["GAME_VERSION"]
-#     )
 
 @app.route('/add_marker', methods=['POST', 'GET'])
 @requires_authorization
@@ -717,24 +645,6 @@ def change_password():
 
         if 'ok' in response:
             return jsonify( { 'ok': 'Пароль изменен' } )
-    #     return response
-
-        # credentials = pika.PlainCredentials(app.config["MQ_USER"], app.config["MQ_PASS"])
-        # connection = pika.BlockingConnection(pika.ConnectionParameters(host=app.config["MQ_HOST"], credentials=credentials))
-        # channel = connection.channel()
-        # properties = pika.BasicProperties(delivery_mode = 2);
-
-        # channel.queue_declare(queue='tasks', durable=True)
-
-        # channel.basic_publish(
-        #     exchange='',
-        #     properties=properties,
-        #     routing_key='tasks',
-        #     body=json.dumps( { "task" : "change_password", "user" : str(user.id) } )
-        # )
-        # connection.close()
-
-        # return jsonify({'ok': 'Пароль будет изменен в ближайшее время'})
 
     return render_template('change_password.html', params = g.params)
 
@@ -797,12 +707,6 @@ def vote_handler():
         chance_tools = True
         prize = "tools"
 
-
-    # data = {
-    #     "prize" : prize,
-    #     "nick" : request.form['nick']
-    # }
-
     if chance_tools or chance_money:
         get_db()
 
@@ -817,9 +721,6 @@ def vote_handler():
         
             g.conn.commit()
 
-
-    # resp = _sendRequest('casino', data)
-
     content = request.form['nick'] + ", " + random.choice(app.config["MESSAGES_FOR_VOTE"]) + "!\n\
 Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
 Твоя поддержка очень важна для нас.\n\
@@ -827,12 +728,6 @@ Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
 Поддержать проект другим способом <https://gmgame.ru/support/>"
     if chance_tools or chance_money:
         content = content + "\n\nПоздравляю, ты что то выиграл"
-    # if chance_money:
-    #     content = content + "\nПоздравляю, ты выиграл 10 монет на сервере"
-
-
-    # if chance_tools:
-    #     content = content + "\nПоздравляю, ты выиграл инструмент на сервере"
 
     data = {
         "content" : content,
