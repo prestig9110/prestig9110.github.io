@@ -1,5 +1,10 @@
 {% extends "_base.html" %}
 
+{% block css %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/prism.css" />
+{% endblock %}
+
 {% block content %}
   <script src="https://cdn.tiny.cloud/1/r55dmb7tylbap7uwxto0jlsvcn6z3uy29kieq6ujtxejkzyi/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/jquery.tinymce.min.js" referrerpolicy="origin"></script>
@@ -20,10 +25,11 @@
       relative_urls : false,
       plugins: [
         'advlist autolink lists link image charmap print preview anchor',
-        'searchreplace visualblocks code fullscreen',
+        'searchreplace visualblocks code fullscreen codesample',
         'insertdatetime media table paste imagetools wordcount'
       ],
-      toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+      toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | codesample',
+      codesample_global_prismjs: true,
 
       images_upload_handler: function (blobInfo, success, failure) {
         // console.log(success)
@@ -86,4 +92,8 @@
       </div>
     </div>
   </div>
+{% endblock %}
+{% block js_scripts %} 
+{{ super() }}
+<script src="/static/js/prism.js"></script>
 {% endblock %}

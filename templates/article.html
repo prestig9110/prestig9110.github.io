@@ -1,4 +1,10 @@
 {% extends "_base.html" %}
+
+{% block css %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/prism.css" />
+{% endblock %}
+
 {% block content %}
     <div><b>Автор:</b> <i>{{autor}}</i> <b>Дата:</b> <i>{{article.create_date}}</i></div>
     <br>
@@ -8,4 +14,8 @@
         {{article.content}} 
         {% endautoescape %}
     </div>
+{% endblock %}
+{% block js_scripts %} 
+{{ super() }}
+<script src="/static/js/prism.js"></script>
 {% endblock %}
