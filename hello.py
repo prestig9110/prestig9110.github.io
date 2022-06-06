@@ -67,32 +67,39 @@ def register():
     if request.method == 'POST':
         error = None
 
-        login      = request.form['login']
-        password   = request.form['password']
-        typeMc     = request.form['type']
-        age        = request.form['age']
-        from_about = request.form['from_about']
-        you_about  = request.form['you_about']
-        servers    = request.form['servers']
+        fields = dict({'login': '', 'password': '', 'type': '', 'age': '', 'from_about': '', 'you_about': '', 'servers': ''})
 
-        if not login or re.search("\s|@", login):
+        for key in fields.keys():
+            if key == 'servers':
+                if key in request.form:
+                    fields[key] = request.form[key]
+                else:
+                    fields[key] = ''
+
+            if key in request.form:
+                fields[key] = request.form[key]
+            else:
+                return jsonify( { "error": key + " не указан или не верен"} )
+
+        fields['typeMc'] = fields['type']
+        fields['partner'] = "GMGame"
+
+        if not fields['login'] or re.search("\s|@", fields['login']):
             return jsonify( { 'error': 'Не указан или не корректный логин' } )
-        if not password or re.search("\s", password):
+        if not fields['password'] or re.search("\s", fields['password']):
             return jsonify( { 'error': 'Не указан или не корректный пароль' } )
-        if not typeMc:
+        if not fields['typeMc']:
             return jsonify( { 'error': 'Не указан тип аккаунта' } )
-        if not age or not re.match("\d+$", age):
+        if not fields['age'] or not re.match("\d+$", fields['age']):
             return jsonify( { 'error': 'Не указан или указан не корректно возвраст' } )
-        if len(password) < 8:
+        if len(fields['password']) < 8:
             return jsonify( { 'error': 'Пароль должен быть минимум из 8 символов' } )
-        if not from_about or not re.search("\w", from_about):
+        if not fields['from_about'] or not re.search("\w", fields['from_about']):
             return jsonify( { 'error': 'Расскажите о себе, пожалуйста' } )
-        if not you_about or not re.search("\w", you_about):
+        if not fields['you_about'] or not re.search("\w", fields['you_about']):
             return jsonify( { 'error': 'Расскажите о себе, пожалуйста' } )
 
-        response = create_user(
-            login = login, password = password, typeMc = typeMc, age = age, from_about = from_about, you_about = you_about, servers = servers, partner = "GMGame"
-        )
+        response = create_user(fields)
 
         if response == "exist user":
             return jsonify( { 'error': 'Такой пользователь уже существует' } )
@@ -346,7 +353,7 @@ def list_players():
     usersResult = {}
     for item in users:
         tag = json.loads(re.sub('[^A-Za-z0-9{}\':,@._-]+', '', item["tag"]).replace("'",'"').replace("True", "true").replace("False", "false").replace("None", "null"))
-        item["email"] = tag["email"]
+        item["email"] = tag["email"] if "email" in tag else ""
         if item['status'] in usersResult:
             usersResult[item["status"]].append(item)
         else:

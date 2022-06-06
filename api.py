@@ -17,42 +17,64 @@ def api_create_user():
         except:
             return jsonify( { "error": "json invalid", "status_code": 400, "success": "" } ), 400
 
-        login      = reqJson['login']
-        password   = reqJson['password']
-        typeMc     = reqJson['type']
-        age        = str(reqJson['age'])
-        from_about = reqJson['from_about']
-        you_about  = reqJson['you_about']
-        servers    = reqJson['servers']
-        userJson   = reqJson['user_json']
+        if reqJson is None:
+            return jsonify( { "error": "json invalid or Content-Type", "status_code": 400, "success": "" } ), 400
 
-        if not login or re.search("\s|@", login):
+        fields = dict({'login': '', 'password': '', 'type': '', 'age': '', 'from_about': '', 'you_about': '', 'servers': '', 'user_json': ''})
+
+        for key in fields.keys():
+            if key == 'servers':
+                if key in reqJson:
+                    fields[key] = reqJson[key]
+                else:
+                    fields[key] = ''
+
+            if key in reqJson:
+                fields[key] = reqJson[key]
+            else:
+                return jsonify( { "error": key + " invalid or does not exist", "status_code": 400, "success": "" } ), 400
+
+        # if 'login' in reqJson:
+        #     login      = reqJson['login']
+        # else:
+        #     return jsonify( { "error": "login invalid or does not exist", "status_code": 400, "success": "" } ), 400
+        # password   = reqJson['password']
+        # typeMc     = reqJson['type']
+        # age        = str(reqJson['age'])
+        # from_about = reqJson['from_about']
+        # you_about  = reqJson['you_about']
+        # servers    = reqJson['servers']
+        # userJson   = reqJson['user_json']
+
+        fields['typeMc'] = fields['type']
+        fields['userJson'] = fields['user_json']
+
+        if not fields['login'] or re.search("\s|@", fields['login']):
             return jsonify( { "error": "login not specified or invalid", "status_code": 400, "success": "" } ), 400
-        if not password or re.search("\s", password):
+        if not fields['password'] or re.search("\s", fields['password']):
             return jsonify( { "error": "password not specified or invalid", "status_code": 400, "success": "" } ), 400
-        if not typeMc:
+        if not fields['typeMc']:
             return jsonify( { "error": "account type not specified", "status_code": 400, "success": "" } ), 400
-        if not age or not re.match("\d+$", str(age)):
+        if not fields['age'] or not re.match("\d+$", str(fields['age'])):
             return jsonify( { "error": "age not specified or specified incorrectly", "status_code": 400, "success": "" } ), 400
-        if len(password) < 8:
+        if len(fields['password']) < 8:
             return jsonify( { "error": "password must be at least 8 characters", "status_code": 400, "success": "" } ), 400
-        if not from_about or not re.search("\w", from_about):
+        if not fields['from_about'] or not re.search("\w", fields['from_about']):
             return jsonify( { "error": "from_about empty", "status_code": 400, "success": "" } ), 400
-        if not you_about or not re.search("\w", you_about):
+        if not fields['you_about'] or not re.search("\w", fields['you_about']):
             return jsonify( { "error": "you_about empty", "status_code": 400, "success": "" } ), 400
-        if not userJson:
+        if not fields['userJson']:
             return jsonify( { "error": "user_json invalid", "status_code": 400, "success": "" } ), 400
 
         bearer = request.headers['Authorization'].encode('ascii','ignore')
         token = str.replace(str(bearer), 'Bearer ','')
-        partner = ""
 
         if token != app.config["BEARER_SUPERHUB"]:
-            partner = "superhub"
+            fields['partner'] = "superhub"
 
-        response = create_user(
-            login = login, password = password, typeMc = typeMc, age = age, from_about = from_about, you_about = you_about, servers = servers, partner = partner, userJson = userJson
-        )
+        response = create_user(fields)
+            # login = login, password = password, typeMc = typeMc, age = age, from_about = from_about, you_about = you_about, servers = servers, partner = partner, userJson = userJson
+        # )
 
         if response == "exist user":
             return jsonify( { "error": "this user already exists", "status_code": 400, "success": "" } ), 400
