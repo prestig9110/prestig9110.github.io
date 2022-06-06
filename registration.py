@@ -3,7 +3,7 @@ from hello import get_db, defaultParams, app
 import requests
 import json
 
-def create_user(**params):
+def create_user(params):
     get_db()
 
     if "userJson" in params and params["userJson"] is not None:
@@ -31,12 +31,15 @@ def create_user(**params):
     
     ticket = 'Игровой ник: ' + params["login"] + '\n'
     ticket = ticket + 'Аккаунт: ' + ('Лицензия' if params["typeMc"] == '1' else 'Пиратка') + '\n'
-    ticket = ticket + 'Ваш возраст: ' + params["age"] + '\n'
+    ticket = ticket + 'Ваш возраст: ' + str(params["age"]) + '\n'
     ticket = ticket + 'Предыдущие сервера: ' + params["servers"] + '\n'
     ticket = ticket + 'Откуда узнали о проекте: ' + params["from_about"] + '\n'
     ticket = ticket + 'Интересы в Minecraft: ' + params["you_about"] + '\n'
     ticket = ticket + 'Заявка от: ' + params["partner"] + '\n'
-    ticket = ticket + 'Дискорд тэг: ' + userJson['username'] + '#' + userJson['discriminator'] + '\n'
+    if "username" in userJson and "discriminator" in userJson:
+        ticket = ticket + 'Дискорд тэг: ' + userJson['username'] + '#' + userJson['discriminator'] + '\n'
+    else: 
+        ticket = ticket + 'Дискорд тэг: ' + str(userJson['id']) + '\n'
 
     if app.config["DEV"] == "true":
         ticket = ticket + "\nЭто тестовая заявка"
