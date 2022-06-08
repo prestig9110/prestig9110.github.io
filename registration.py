@@ -37,7 +37,7 @@ def create_user(params):
     ticket = ticket + 'Интересы в Minecraft: ' + params["you_about"] + '\n'
     ticket = ticket + 'Заявка от: ' + params["partner"] + '\n'
     if "username" in userJson and "discriminator" in userJson:
-        ticket = ticket + 'Дискорд тэг: ' + userJson['username'] + '#' + userJson['discriminator'] + '\n'
+        ticket = ticket + 'Дискорд тэг: ' + str(userJson['username']) + '#' + str(userJson['discriminator']) + '\n'
     else: 
         ticket = ticket + 'Дискорд тэг: ' + str(userJson['id']) + '\n'
 
