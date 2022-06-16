@@ -15,7 +15,7 @@ def api_create_user():
         try:
             reqJson = request.get_json()
         except:
-            return jsonify( { "error": "json invalid", "status_code": 400, "success": "" } ), 400
+            return jsonify( { "error": "json invalid " + reqJson, "status_code": 400, "success": "" } ), 400
 
         if reqJson is None:
             return jsonify( { "error": "json invalid or Content-Type", "status_code": 400, "success": "" } ), 400
@@ -53,7 +53,7 @@ def api_create_user():
             return jsonify( { "error": "login not specified or invalid", "status_code": 400, "success": "" } ), 400
         if not fields['password'] or re.search("\s", fields['password']):
             return jsonify( { "error": "password not specified or invalid", "status_code": 400, "success": "" } ), 400
-        if not fields['typeMc']:
+        if 'typeMc' not in fields:
             return jsonify( { "error": "account type not specified", "status_code": 400, "success": "" } ), 400
         if not fields['age'] or not re.match("\d+$", str(fields['age'])):
             return jsonify( { "error": "age not specified or specified incorrectly", "status_code": 400, "success": "" } ), 400
