@@ -88,7 +88,7 @@ def register():
             return jsonify( { 'error': 'Не указан или не корректный логин' } )
         if not fields['password'] or re.search("\s", fields['password']):
             return jsonify( { 'error': 'Не указан или не корректный пароль' } )
-        if not fields['typeMc']:
+        if 'typeMc' not in fields:
             return jsonify( { 'error': 'Не указан тип аккаунта' } )
         if not fields['age'] or not re.match("\d+$", fields['age']):
             return jsonify( { 'error': 'Не указан или указан не корректно возвраст' } )
