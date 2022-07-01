@@ -1,4 +1,12 @@
-{% extends "_base.html" %} {% block content %}
+{% extends "_base.html" %} 
+
+{% block css %} 
+{{ super() }}
+<link rel="stylesheet" href="/static/css/gallery.css" />
+<link rel="stylesheet" href="/static/css/fotorama.css" />
+{% endblock %} 
+
+{% block content %}
 <div class="gallery-block">
     <!-- gallery owerview-->
     <div class="gallery">

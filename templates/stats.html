@@ -1,28 +1,35 @@
-{% extends "_base.html" %}
+{% extends "_base.html" %} 
+
+{% block css %} 
+{{ super() }}
+<link rel="stylesheet" href="/static/css/table_stat.css" />
+{% endblock %} 
+
 {% block content %}
-<div class="stats-block"> 
-    <div class="phone-stat-link-h2">
-        <h2>Страница доступна только с ПК-версии</h2>
-    </div>
-    <div class="phone-stat-link-tadles">
-        <table id="example" class="display" >
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Имя</th>
-                    <th>Время игры</th>
-                    <th>AFK</th>
-                    <th>Смертей</th>
-                    <th>Убито мобов</th>
-                    <th>Сломано блоков</th>
-                    <th>Поставлено блоков</th>
-                </tr>
-            </thead>
-        </table>
-    </div>
+<div class="stats-block">
+  <div class="phone-stat-link-h2">
+    <h2>Страница доступна только с ПК-версии</h2>
+  </div>
+  <div class="phone-stat-link-tadles">
+    <table id="example" class="display">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Имя</th>
+          <th>Время игры</th>
+          <th>AFK</th>
+          <th>Смертей</th>
+          <th>Убито мобов</th>
+          <th>Сломано блоков</th>
+          <th>Поставлено блоков</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
 </div>
-{% endblock %}
-{% block js_scripts %}
+{% endblock %} 
+
+{% block js_scripts %} 
 {{ super() }}
 <script src="https://cdn.datatables.net/1.11.1/js/jquery.dataTables.min.js"></script>
 <script src="/static/js/table.js"></script>

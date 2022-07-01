@@ -1,0 +1,21 @@
+.resourses-block {
+  h4 {
+    span {
+      font-style: italic;
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .prev-img {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: auto;
+      width: 366px;
+      margin: 0 auto;
+    }
+  }
+}

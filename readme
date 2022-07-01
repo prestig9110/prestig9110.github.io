@@ -1,4 +1,4 @@
-pip3 install Flask flask-mysql requests flask_discord pprint inspect pika redis Flask-Caching
+pip3 install Flask flask-mysql requests flask_discord pika redis Flask-Caching cryptography 
 
 create database dbname character set utf8;
 create user 'dbuser'@'localhost' identified by 'userpassword';

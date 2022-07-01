@@ -1,16 +1,20 @@
-{% extends "_base.html" %}
+{% extends "_base.html" %} 
+
+{% block css %} 
+{{ super() }}
+<link rel="stylesheet" href="/static/css/support.css" />
+{% endblock %} 
+
 {% block content %}
 <div class="support-block">
-        <h2>Поддержать проект</h2>
-        <h4>Сервер GMGame является абсолютно бесплатным. Он существует и развивается только за счет активных игроков,
-                ламповой атмосферы и ваших пожертвований.</h4>
-        <p>Вы можете поддержать проект:</p>
-        <ul>
-                <li><a target="_blank" href="https://new.donatepay.ru/@gmgame">- Донатом</a></li>
-                <li><a target="_blank" href="https://hotmc.ru/minecraft-server-205185">- Проголосовать на мониторинге</a></li>
-                <li><a target="_blank" href="https://hotmc.ru/casino-205185">- Розыгрыш на мониторинге</a></li>
-        </ul>
-
-        <h4>Спасибо! Ваша поддержка очень важна.</h4>
+  <h2>Поддержать проект</h2>
+  <h4>Сервер GMGame является абсолютно бесплатным. Он существует и развивается только за счет активных игроков, ламповой атмосферы и ваших пожертвований.</h4>
+  <p>Вы можете поддержать проект:</p>
+  <ul>
+    <li><a target="_blank" href="https://new.donatepay.ru/@gmgame">- Донатом</a></li>
+    <li><a target="_blank" href="https://hotmc.ru/minecraft-server-205185">- Проголосовать на мониторинге</a></li>
+    <li><a target="_blank" href="https://hotmc.ru/casino-205185">- Розыгрыш на мониторинге</a></li>
+  </ul>
+  <h4>Спасибо! Ваша поддержка очень важна.</h4>
 </div>
 {% endblock %}

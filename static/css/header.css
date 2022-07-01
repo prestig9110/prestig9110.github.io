@@ -1,0 +1,250 @@
+.header {
+  height: 130px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  z-index: 150;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.header .menu input[type="checkbox"] {
+  display: none;
+}
+
+.header .menu .content-menu {
+  width: auto;
+  height: auto;
+}
+
+.header .menu .content-menu .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+  z-index: 150;
+}
+
+.header .menu .content-menu .links li {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  list-style: none;
+  height: 50px;
+  line-height: 50px;
+  width: 240px;
+  margin-left: 17px;
+  margin-right: 17px;
+  z-index: 1800;
+}
+
+.header .menu .content-menu .links li a,
+.header .menu .content-menu .links li label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #f7f7f7;
+  font-size: 26px;
+  font-weight: 500;
+  height: 100%;
+  width: 100%;
+  min-width: 220px;
+  -webkit-transition: all 0.15s ease;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header .menu .content-menu .links li a:hover,
+.header .menu .content-menu .links li label:hover {
+  background: #555a66;
+}
+
+.header .menu .content-menu .links li label {
+  display: none;
+}
+
+.header .menu .content-menu .links li ul {
+  position: absolute;
+  background: rgba(48, 52, 73, 0.65);
+  top: 0;
+  opacity: 0;
+  -webkit-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+  visibility: hidden;
+}
+
+.header .menu .content-menu .links li ul li {
+  margin-left: 0;
+  margin-right: 0;
+  position: relative;
+}
+
+.header .menu .content-menu .links li:hover > ul {
+  top: 50px;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+
+.header .menu #toggle {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  display: none;
+}
+
+.header .menu #toggle ::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: #f7f7f7;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+.header .menu #toggle ::before {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 2px;
+  background: #f7f7f7;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-box-shadow: 0 10px 0 #f7f7f7;
+          box-shadow: 0 10px 0 #f7f7f7;
+}
+
+.header .menu #toggle.active {
+  background: rgba(48, 52, 73, 0.95);
+}
+
+.header .menu #toggle.active ::after {
+  -webkit-transform: translateY(0px) rotate(-45deg);
+          transform: translateY(0px) rotate(-45deg);
+}
+
+.header .menu #toggle.active ::before {
+  -webkit-transform: translateY(0px) rotate(45deg);
+          transform: translateY(0px) rotate(45deg);
+  -webkit-box-shadow: 0 0 0 #f7f7f7;
+          box-shadow: 0 0 0 #f7f7f7;
+}
+
+/*---------------------------------------- header-menu-link ----------------------------------------*/
+.wrapper-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 10px;
+  z-index: 150;
+}
+
+.wrapper-link .button-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 60px;
+  width: 63px;
+  float: left;
+  margin: 10px;
+  overflow: hidden;
+  color: #f7f7f7;
+  border: 0.2px solid #929292;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+  text-decoration: none;
+}
+
+.wrapper-link .button-link .icon-button svg,
+.wrapper-link .button-link .icon-button img {
+  height: 35px;
+  width: 35px;
+  margin: 12.5px;
+  fill: #f7f7f7;
+}
+
+.wrapper-link .button-link:hover {
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding-right: 25px;
+}
+
+.wrapper-link .button-link span {
+  height: 60px;
+  line-height: 60px;
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.wrapper-link .classHover {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding-right: 25px;
+}

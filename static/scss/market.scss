@@ -1,0 +1,30 @@
+.market-block {
+  .accordion-item-header {
+    img {
+      width: 35px;
+      height: 35px;
+      margin-right: 10px;
+    }
+  }
+  .accordion-item-body-content {
+    ul {
+      li {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        font-weight: 500;
+        img {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 36px;
+          width: 36px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
