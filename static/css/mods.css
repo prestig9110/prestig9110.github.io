@@ -1,0 +1,13 @@
+.mods-block ul li::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+  background: url(../img/check-mark.svg) no-repeat center;
+  background-size: cover;
+}
+
+.mods-block h4 span {
+  font-weight: 900;
+}

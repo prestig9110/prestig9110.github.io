@@ -1,52 +1,36 @@
-{% extends "_base.html" %} {% block content %}
+{% extends "_base.html" %} 
+
+{% block css %}
+{{ super() }}
+<link rel="stylesheet" href="/static/css/profile.css" />
+{% endblock %} 
+
+{% block content %}
 <div class="me-block">
   {% if not gmg_ok %}
-  <p style="color: red">
-    Вы не зашли на дискорд сервер, для получения полного функционала,
-    пожалуйста, присоединитесь к
-    <a href="https://discord.gg/cAM6tUYEuX" target="_blank">серверу</a>
-  </p>
-
-  {% endif %} 
-
-  {% if user_id["status"] and user_id["status"] != 0 %}
-    {% include "profile/status.html" %}
-  
-  
+  <p class="warning-help"> Вы не зашли на дискорд сервер, для получения полного функционала, пожалуйста, присоединитесь к <a href="https://discord.gg/cAM6tUYEuX" target="_blank">серверу</a></p>
+  {% endif %}   
+  {% if user_id["status"] and user_id["status"] != 0 %} 
+  {% include "profile/status.html" %} 
   {% else %}
   <div class="profile-tabs">
-    <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" checked />
-    <input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two" />
-    <input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three" />
-    <input class="state" type="radio" title="tab-four" name="tabs-state" id="tab-four" />
+    <input class="state" type="radio" title="tab-one" name="tabs-state" id="tab-one" checked/>
+    <input class="state" type="radio" title="tab-two" name="tabs-state" id="tab-two"/>
+    <input class="state" type="radio" title="tab-three" name="tabs-state" id="tab-three"/>
 
     <div class="tabs flex-tabs">
       <label for="tab-one" id="tab-one-label" class="tab">
-        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-          x="0px" y="0px" viewBox="0 0 460.8 460.8" xml:space="preserve">
-          <g>
-            <g>
-              <path d="M230.432,0c-65.829,0-119.641,53.812-119.641,119.641s53.812,119.641,119.641,119.641s119.641-53.812,119.641-119.641
-			S296.261,0,230.432,0z" />
-            </g>
-          </g>
-          <g>
-            <g>
-              <path d="M435.755,334.89c-3.135-7.837-7.314-15.151-12.016-21.943c-24.033-35.527-61.126-59.037-102.922-64.784
-			c-5.224-0.522-10.971,0.522-15.151,3.657c-21.943,16.196-48.065,24.555-75.233,24.555s-53.29-8.359-75.233-24.555
-			c-4.18-3.135-9.927-4.702-15.151-3.657c-41.796,5.747-79.412,29.257-102.922,64.784c-4.702,6.792-8.882,14.629-12.016,21.943
-			c-1.567,3.135-1.045,6.792,0.522,9.927c4.18,7.314,9.404,14.629,14.106,20.898c7.314,9.927,15.151,18.808,24.033,27.167
-			c7.314,7.314,15.673,14.106,24.033,20.898c41.273,30.825,90.906,47.02,142.106,47.02s100.833-16.196,142.106-47.02
-			c8.359-6.269,16.718-13.584,24.033-20.898c8.359-8.359,16.718-17.241,24.033-27.167c5.224-6.792,9.927-13.584,14.106-20.898
-			C436.8,341.682,437.322,338.024,435.755,334.89z" />
-            </g>
-          </g>
-        </svg><span>Заявка</span></label>
+        {% include "/svg/svg_5.html" %}
+        <span>Заявка</span>
+      </label>
       <label for="tab-two" id="tab-two-label" class="tab">
-        <svg viewBox="0 -12 512 512" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="m134.042969 488.03125c-4.128907 0-8.296875-.804688-12.28125-2.453125-12.003907-4.972656-19.761719-16.582031-19.761719-29.574219v-34.003906c0-12.132812-9.867188-22-22-22-44.113281 0-80-35.886719-80-80v-240c0-44.113281 35.886719-80 80-80h352c44.113281 0 80 35.886719 80 80v140c0 11.046875-8.953125 20-20 20s-20-8.953125-20-20v-140c0-22.054688-17.945312-40-40-40h-352c-22.054688 0-40 17.945312-40 40v240c0 22.054688 17.945312 40 40 40 34.1875 0 62 27.8125 62 62v14.714844l43.550781-43.550782c21.386719-21.386718 49.820313-33.164062 80.066407-33.164062h166.382812c22.054688 0 40-17.945312 40-40 0-11.046875 8.953125-20 20-20s20 8.953125 20 20c0 44.109375-35.886719 80-80 80h-166.382812c-19.558594 0-37.949219 7.617188-51.78125 21.445312l-57.191407 57.191407c-6.136719 6.140625-14.289062 9.394531-22.601562 9.394531zm141.957031-187.03125c0-11.046875-8.953125-20-20-20s-20 8.953125-20 20 8.953125 20 20 20 20-8.953125 20-20zm0-70v-13.984375c0-1.132813.648438-2.207031 1.511719-2.496094 28.484375-9.492187 47.578125-37.105469 46.4375-67.148437-1.339844-35.289063-30.03125-63.980469-65.320313-65.320313-18.664062-.710937-36.351562 6.023438-49.785156 18.957031-13.441406 12.941407-20.84375 30.339844-20.84375 48.992188 0 11.046875 8.953125 20 20 20s20-8.953125 20-20c0-7.679688 3.050781-14.847656 8.585938-20.175781 5.527343-5.324219 12.820312-8.097657 20.523437-7.804688 14.515625.550781 26.316406 12.355469 26.871094 26.871094.46875 12.390625-7.390625 23.773437-19.117188 27.683594-17.261719 5.753906-28.863281 22.003906-28.863281 40.441406v13.984375c0 11.046875 8.953125 20 20 20s20-8.953125 20-20zm0 0" />
-        </svg><span>faq</span></label>
+        {% include "/svg/svg_5.html" %}
+        <span>Faq</span>
+      </label>
+      <label for="tab-three" id="tab-three-label" class="tab">
+        {% include "/svg/svg_5.html" %}
+        <span>Правила</span>
+      </label>
 
       <div id="tab-one-panel" class="panel active">
         <div id="res"></div>
@@ -54,18 +38,18 @@
           <div class="me-register">
             <div class="border-line">
               <label> </label>
-              <input id="login" type="input" name="login" placeholder="" />
+              <input id="login" type="input" name="login" placeholder=""/>
               <span>Логин (игровой ник на сервере)</span>
             </div>
             <div class="border-line">
               <label> </label>
-              <input id="password" type="input" name="password" placeholder="" />
+              <input id="password" type="input" name="password" placeholder=""/>
               <span>Пароль (минимум 8 символов. Используется для входа на сервер)</span>
             </div>
             <div class="border-line">
               <label> </label>
               <select name="type" id="type">
-                <option value=""></option>
+                <option value=" "></option>
                 <option value="1">Лицензия</option>
                 <option value="0">Пиратка</option>
               </select>
@@ -73,7 +57,7 @@
             </div>
             <div class="border-line">
               <label> </label>
-              <input id="age" type="input" name="age" placeholder=" " />
+              <input id="age" type="input" name="age" placeholder="" />
               <span>Возраст</span>
             </div>
           </div>
@@ -81,8 +65,7 @@
             <div class="border-line">
               <label> </label>
               <textarea name="from_about" id="from_about" cols="auto" rows="auto"></textarea>
-              <span>Откуда узнали о проекте.
-              Если вы по совету друга, пожалуйста, не поленитесь указать его ник на сервере</span>
+              <span>Откуда узнали о проекте. Если вы по совету друга, пожалуйста, не поленитесь указать его ник на сервере</span>
             </div>
             <div class="border-line">
               <label> </label>
@@ -95,27 +78,20 @@
               <span>Прошлые серверы</span>
             </div>
           </div>
-          <div class="regulations-block">
-            {% include  "regulations.html" %} 
-            <!-- искать по #0987654321 -->
-          </div>
           <div class="register-block">
-            <button id="register" class="register-btn-next">
-              Отправить заявку
-            </button>
+            <button id="register" class="register-btn-next">Отправить заявку</button>
           </div>
         </div>
       </div>
       <div id="tab-two-panel" class="panel">
-        {% include  "faq.html" %} 
-        <!-- искать по #1234567890 -->
+        <h3 class="time-problem">Все актуальные вопросы faq  находятся в дискорде в канпле #welcome-faq</h3>
+      </div>
+      <div id="tab-three-panel" class="panel">
+        <h3 class="time-problem">Все актуальные правила для сервера находятся в дискорде в канпле #Правила</h3>
       </div>
     </div>
   </div>
   {% endif %}
 </div>
 {% endblock %} 
-{% block js_scripts %} 
-{{ super() }}
-<script src="/static/js/add_markers.js"></script>
-{% endblock %}
+

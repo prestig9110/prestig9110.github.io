@@ -15,7 +15,7 @@ $(document).ready(function() {
         { "data": "afk", "className": "dt-head-left", "visible": false }
     ],
     order: [[ 8, 'desc' ]],
-    pageLength : 15,
+    pageLength : 30,
     "bLengthChange": false,
     "bInfo": false,
     "language": {

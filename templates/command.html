@@ -1,10 +1,15 @@
 {% extends "_base.html" %}
+
+{% block css %} 
+{{ super() }}
+<link rel="stylesheet" href="/static/css/command.css" />
+{% endblock %} 
+
 {% block content %}
 <div class="command-block">
     <h2>Команды</h2>
-    <h4>Здесь будут перечислены все команды которые доступны игроку в чате на сервере</h4>
-    <h3>* * *</h3>
-    <h4>Личные сообщения:</h4>
+    <h4>Здесь будут перечислены все команды которые доступны игроку в чате на сервере (*список не полный)</h4>
+    <h4 class="com">* * *</h4>
     <ul>
         <li><span>/msg</span> - сообщение для другого игрока</li>
         <li><span>/w</span> - сообщение для другого игрока</li>
@@ -18,41 +23,12 @@
         <li><span>/cmi ignore </span> - Игнорирование другого игрока</li>
         <li><span>/cmi mail </span> - Отправка или получение сообщения на почту</li>
         <li><span>/cmi list </span> - Показывает список онлайн игроков так же как и таб</li>
-        <li><span>/sit </span> - Сесть на блок</li>
+        <li><span>/gsit </span> - Сесть на блок</li>
         <li><span>/lay </span> - Лежать</li>
         <li><span>/crawl </span> - Ползти</li>
         <li><span>/skin </span> - Изменить скин</li>
         <li><span>/tps </span> - Показывает tps сервера</li>
     </ul>
-    <h3>* * *</h3>
-    <!-- <h4>Достижения </h4>
-
-    <ul>
-        <li>Можно использовать /aach или /aachievements </li>
-        <li><span>/aach book</span> - Выдает книгу со списком всех выполненых достижений</li>
-        <li><span>/aach info</span> - Показывает информацию о плагине (Вряле кому то эта информация даст пользу, но
-            пусть
-            будет)</li>
-        <li><span>/aach stats</span> - Показывает процент и количество выполненых достижений из количества доступных
-        </li>
-        <li><span>/aahh list</span> - Показывает полный список всех достижений</li>
-        <li><span>/aach toggle</span> - Включает или выключает отображения о получении достижений другими игроками</li>
-        <li><span>/aach top</span> - Показывает информацию лучших авантюристов за все время</li>
-        <li><span>/aach month</span> - Показывает информацию лучших авантюристов за месяц</li>
-        <li><span>/aach week</span> - Показывает информацию лучших авантюристов за все неделю</li>
-        </li>
-        <li><span>/aach help</span> - Показывает весь выше перечисленый список команд и их описание</li>
-    </ul>
-    <h3>* * *</h3> -->
-    <!-- <h4>Креативный мир - плоты</h4>
-    <ul>
-        <li><span>/plot</span> - </li>
-        <li><span>/plot</span> - </li>
-        <li><span>/plot</span> - </li>
-        <li><span>/plot</span> - </li>
-        <li><span>/plot flag set</span> - </li>
-        <li><span>/plot flag set</span> - </li>
-        <li><span>/plot flag set</span> - </li>
-    </ul> -->
+    <h4 class="com">* * *</h4>
 </div>
 {% endblock %}

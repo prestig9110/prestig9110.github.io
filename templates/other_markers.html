@@ -1,10 +1,12 @@
 {% extends "_base.html" %}
+
 {% block meta %}
 {{ super() }}
 {% if opUser %}
 <meta id="opUser" data-name="opUser" data-other="opUser">
 {% endif %}
 {% endblock %}
+
 {% block content %}
 <div class="markers-block">
   <h4 class="header-metki">Все метки</h4>
@@ -20,6 +22,7 @@
         <th class="x-y-z">Y</th>
         <th class="x-y-z">Z</th>
         <th>Описание</th>
+        <th>Карта</th>
         <th>Добавить</th>
         <th>Удалить</th>
         <th>Никнейм</th>
@@ -39,43 +42,29 @@
           <select name="id_type" id="id_type-{{ marker.id }}">
             <option value="basePlayers" {% if marker.id_type=='basePlayers' %} selected="selected" {% endif %}>Базы игроков - over</option>
             <option value="city" {% if marker.id_type=='city' %} selected="selected" {% endif %}>Города - over</option>
-            <option value="shopping_centers" {% if marker.id_type=='shopping_centers' %} selected="selected" {% endif
-              %}>
-              Торговые центры - over</option>
+            <option value="shopping_centers" {% if marker.id_type=='shopping_centers' %} selected="selected" {% endif %}>Торговые центры - over</option>
             <option value="turquoise" {% if marker.id_type=='turquoise' %} selected="selected" {% endif %}>Бирюзовая - nether</option>
-            <option value="orange" {% if marker.id_type=='orange' %} selected="selected" {% endif %}>Оранжевая - nether
-            </option>
-            <option value="lime" {% if marker.id_type=='lime' %} selected="selected" {% endif %}>Лаймовая - nether
-            </option>
-            <option value="pink" {% if marker.id_type=='pink' %} selected="selected" {% endif %}>Розовая - nether
-            </option>
+            <option value="orange" {% if marker.id_type=='orange' %} selected="selected" {% endif %}>Оранжевая - nether</option>
+            <option value="lime" {% if marker.id_type=='lime' %} selected="selected" {% endif %}>Лаймовая - nether</option>
+            <option value="pink" {% if marker.id_type=='pink' %} selected="selected" {% endif %}>Розовая - nether</option>
             <option value="farm" {% if marker.id_type=='farm' %} selected="selected" {% endif %}>Фермы - nether</option>
             <option value="end_portals" {% if marker.id_type=='end_portals' %} selected="selected" {% endif %}>Энд порталы - nether</option>
             <option value="pixel_arts" {% if marker.id_type=='pixel_arts' %} selected="selected" {% endif %}>Пиксель арты - end</option>
           </select>
         </th>
-        <th data-label="Имя"><input type="text" placeholder="{{ marker.name }}" name="name" id="name-{{ marker.id }}"
-            value="{{ marker.name }}"></th>
-        <th data-label="X"><input class="x-y-z" type="text" placeholder="{{ marker.x }}" name="x" id="x-{{ marker.id }}"
-            value="{{ marker.x }}"></th>
-        <th data-label="Y"><input class="x-y-z" type="text" placeholder="{{ marker.y }}" name="y" id="y-{{ marker.id }}"
-            value="{{ marker.y }}"></th>
-        <th data-label="Z"><input class="x-y-z" type="text" placeholder="{{ marker.z }}" name="z" id="z-{{ marker.id }}"
-            value="{{ marker.z }}"></th>
-        <th data-label="Описание">
-            <div style="display: inline-block; float: left; width:auto;">
-              <input type="text" placeholder="{{ marker.description }}" name="description" id="description-{{ marker.id }}" 
-                {% if marker.description %} value="{{ marker.description }}" {% endif %}>
-            </div>
-            <div style="display: inline-block; float:left;">
-              {% if marker.id_type=='basePlayers' or marker.id_type=='city' or marker.id_type=='shopping_centers' %}
-                <a target="blank" href="https://map.gmgame.ru/#/{{ marker.x }}/{{ marker.y }}/{{ marker.z }}/-4/GMGameWorld%20-%20overworld/over">карта</a>
-              {% elif marker.id_type=='turquoise' or marker.id_type=='orange' or marker.id_type=='lime' or marker.id_type=='pink' or marker.id_type=='farm' %}
-                <a target="blank" href="https://map.gmgame.ru/#/{{ marker.x }}/{{ marker.y }}/{{ marker.z }}/-4/GMGameWorld-Nether%20-%20nether/nether">карта</a>
-              {% elif marker.id_type=='end_portals' or marker.id_type=='pixel_arts' %}
-                <a target="blank" href="https://map.gmgame.ru/#/{{ marker.x }}/{{ marker.y }}/{{ marker.z }}/-4/GMGameWorld-TheEnd%20-%20end/the_end">карта</a>
-              {% endif %}
-            </div>
+        <th data-label="Имя"><input type="text" placeholder="{{ marker.name }}" name="name" id="name-{{ marker.id }}" value="{{ marker.name }}"></th>
+        <th data-label="X"><input class="x-y-z" type="text" placeholder="{{ marker.x }}" name="x" id="x-{{ marker.id }}" value="{{ marker.x }}"></th>
+        <th data-label="Y"><input class="x-y-z" type="text" placeholder="{{ marker.y }}" name="y" id="y-{{ marker.id }}" value="{{ marker.y }}"></th>
+        <th data-label="Z"><input class="x-y-z" type="text" placeholder="{{ marker.z }}" name="z" id="z-{{ marker.id }}" value="{{ marker.z }}"></th>
+        <th data-label="Описание"><input type="text" placeholder="{{ marker.description }}" name="description" id="description-{{ marker.id }}" {% if marker.description %} value="{{ marker.description }}" {% endif %}></th>
+        <th>
+          {% if marker.id_type=='basePlayers' or marker.id_type=='city' or marker.id_type=='shopping_centers' %}
+          <a target="blank" href="https://map.gmgame.ru/#/{{ marker.x }}/{{ marker.y }}/{{ marker.z }}/-4/GMGameWorld%20-%20overworld/over">отк.</a>
+          {% elif marker.id_type=='turquoise' or marker.id_type=='orange' or marker.id_type=='lime' or marker.id_type=='pink' or marker.id_type=='farm' %}
+          <a target="blank" href="https://map.gmgame.ru/#/{{ marker.x }}/{{ marker.y }}/{{ marker.z }}/-4/GMGameWorld-Nether%20-%20nether/nether">отк.</a>
+          {% elif marker.id_type=='end_portals' or marker.id_type=='pixel_arts' %}
+          <a target="blank" href="https://map.gmgame.ru/#/{{ marker.x }}/{{ marker.y }}/{{ marker.z }}/-4/GMGameWorld-TheEnd%20-%20end/the_end">отк.</a>
+          {% endif %}
         </th>
         <th data-label="Добавить"><button id="edit-{{ marker.id }}">Изменить</button></th>
         <th data-label="Удалить"><button id="del-{{ marker.id }}">Удалить</button></th>
@@ -86,6 +75,7 @@
   </table>
 </div>
 {% endblock %}
+
 {% block js_scripts %}
 {{ super() }}
 <script src="/static/js/add_markers.js"></script>

@@ -1,0 +1,36 @@
+.litem {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: row;
+  .info-litematic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: auto;
+    ul {
+      li {
+        font-size: 16px;
+        a {
+          font-size: 16px;
+          color: #0080ff;
+          text-transform: none;
+          font-weight: 500;
+          font-style: italic;
+          text-overflow: ellipsis;
+        }
+        a:hover {
+          color: #70b8ffa9;
+          transition: all 0.35s ease;
+        }
+      }
+    }
+  }
+  .info-litematic-img {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    height: auto;
+  }
+}

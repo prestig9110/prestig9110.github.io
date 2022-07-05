@@ -1,0 +1,383 @@
+.warning-help {
+  font-size: 24px;
+  color: red;
+  font-weight: 600;
+  background: transparent;
+}
+.profile-tabs {
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  .state {
+    position: absolute;
+    left: -10000px;
+  }
+  .flex-tabs {
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    .tab {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      background-color: rgba(61, 61, 61, 0.55);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.5s ease;
+      width: 150px;
+      height: 60px;
+      svg {
+        width: 30px;
+        height: 30px;
+        margin: auto 10px;
+        fill: #f7f7f7;
+      }
+      span {
+        width: auto;
+        height: 30px;
+        line-height: 30px;
+        margin: auto 10px auto 0;
+        fill: #f7f7f7;
+      }
+      &:hover {
+        background-color: rgb(114, 114, 114);
+      }
+    }
+    .panel {
+      display: none;
+      background: rgba(0, 0, 0, 0.4);
+      min-height: 500px;
+      width: 100%;
+      flex-basis: auto;
+      padding-top: 35px;
+      .h3-spam {
+        margin: 15px;
+        margin-left: 50px;
+      }
+      .profile {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: start;
+        width: 100%;
+        height: 100%;
+        .me-info-profile {
+          display: flex;
+          flex-direction: column;
+          height: auto;
+          width: 75%;
+          padding: 30px;
+          position: relative;
+          .border-line {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            background: transparent;
+            width: auto;
+            height: 65px;
+            margin-left: 80px;
+            margin-bottom: 15px;
+            padding-bottom: 0;
+            border-bottom: 1px solid #f7f7f750;
+            p {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: start;
+              background: transparent;
+              width: 100%;
+              height: auto;
+              padding: 0;
+              margin-left: 70px;
+              font-size: 18px;
+              font-weight: 750;
+            }
+            span {
+              position: absolute;
+              background: transparent;
+              width: 100%;
+              height: auto;
+              font-size: 12px;
+              font-weight: 500;
+              margin-top: 30px;
+              margin-left: 70px;
+            }
+            label {
+              position: absolute;
+              background: transparent;
+              width: 35px;
+              height: 35px;
+              fill: #f7f7f7;
+              margin-top: 12px;
+              margin-left: 15px;
+              cursor: default;
+            }
+            .me-1 {
+              color: rgba(238, 255, 0, 0.658);
+            }
+            .me-2 {
+              color: rgba(72, 255, 0, 0.616);
+            }
+            .me-3 {
+              color: rgba(255, 28, 28, 0.603);
+            }
+            .me-4 {
+              color: rgb(255, 0, 0);
+            }
+            .me-5 {
+              color: rgba(255, 213, 0, 0.776);
+            }
+            input {
+              display: flex;
+              color: #f7f7f7;
+              border: none;
+              border-radius: 0;
+              outline: none;
+              background: transparent;
+              font-weight: 750;
+              font-size: 18px;
+            }
+          }
+        }
+        .me-info-profile-wight {
+          width: 100% !important;
+          .border-line {
+            margin-right: 80px;
+          }
+        }
+        .profile-help {
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          width: 25%;
+          height: auto;
+          padding: 30px;
+          padding-top: 42px;
+          .otstup {
+            padding-bottom: 50px;
+          }
+          a {
+            color: #f7f7f7;
+            margin-top: 10px;
+            position: relative;
+            label {
+              position: absolute;
+              height: auto;
+              width: 25px;
+              svg {
+                width: auto;
+                height: auto;
+                fill: #f7f7f7;
+              }
+            }
+          }
+        }
+        .profile-help-display-none {
+          display: none;
+        }
+        .link-support-profile {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: auto;
+          width: 100%;
+          padding: 0 30px;
+          padding-left: 90px;
+          padding-right: 90px;
+          padding-bottom: 50px;
+          .BuTtOn {
+            text-align: center;
+            height: auto;
+            width: 100%;
+            padding: 10px;
+            margin: 0 auto;
+            margin-top: 50px;
+            border: 1px solid black;
+            background: rgba(0, 0, 0, 0.2);
+            color: #f7f7f7;
+            transition: all 0.35s ease;
+            cursor: pointer;
+            a {
+              transition: all 0.35s ease;
+              &:visited,
+              &:focus {
+                color: #f7f7f7;
+              }
+            }
+            &:hover {
+              background: rgba(0, 0, 0, 0.5);
+            }
+          }
+          p {
+            height: auto;
+            margin-top: 10px;
+            width: 100%;
+          }
+        }
+        .me-register {
+          height: 300px;
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          justify-content: start;
+          .border-line {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            background: transparent;
+            width: auto;
+            height: 75px;
+            margin-left: 80px;
+            margin-right: 80px;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: 1px solid #f7f7f750;
+            input,
+            textarea,
+            select {
+              position: relative;
+              border: none;
+              outline: none;
+              background: transparent;
+              width: 100%;
+              min-height: 25px;
+              height: 100%;
+              color: lightgreen;
+              transition: all 0.35s ease;
+              padding: 5px 20px;
+              font-size: 18px;
+              bottom: 0;
+              z-index: 2;
+              &:focus,
+              &:active {
+                background: rgba(59, 59, 59, 0.623);
+                color: lightgreen;
+              }
+              option {
+                background: rgba(59, 59, 59, 0.623);
+                color: #f7f7f7;
+              }
+            }
+            textarea {
+              margin: 0;
+              min-width: 100%;
+              max-width: 100%;
+              min-height: 100px;
+              max-height: 100px;
+            }
+            span {
+              position: absolute;
+              margin: 45px;
+              margin-left: 60px;
+              color: rgba(255, 255, 255, 0.35);
+              z-index: 1;
+            }
+          }
+        }
+        .me-register-custom {
+          justify-content: center !important;
+          .border-line {
+            min-height: 100px;
+            max-height: 100px;
+            span {
+              position: absolute;
+              margin: 70px;
+              margin-left: 60px;
+              color: rgba(255, 255, 255, 0.35);
+              z-index: 1;
+            }
+          }
+        }
+        .regulations-block {
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          width: 100%;
+          padding-left: 80px;
+          padding-right: 80px;
+          padding-top: 10px;
+          padding-bottom: 25px;
+        }
+        .register-block {
+          display: flex;
+          justify-content: center;
+          flex-direction: row;
+          width: 100%;
+          padding-top: 10px;
+          padding-bottom: 25px;
+          .register-btn-next {
+            color: #f7f7f7;
+            margin: 20px auto;
+            padding: 20px auto;
+            height: 50px;
+            width: 300px;
+            font-size: 18px;
+            background: radial-gradient(circle, rgba(70, 70, 70, 1) 0%, rgba(101, 101, 101, 1) 100%);
+            border: 0.2px solid rgba(70, 70, 70, 1);
+            border-radius: 5px;
+            outline: none;
+            &:hover,
+            &:visited {
+              outline: none;
+            }
+          }
+        }
+        .time-problem{
+          margin: 0 auto;
+        }
+      }
+      .faq-block {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 0;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+#tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label {
+  background-color: rgba(0, 0, 0, 0.4);
+  cursor: default;
+  transition: all 0.2s ease;
+}
+#tab-one:checked ~ .tabs #tab-one-label::before,
+#tab-two:checked ~ .tabs #tab-two-label::before,
+#tab-three:checked ~ .tabs #tab-three-label::before {
+  transition: all 0.5s ease;
+  display: block;
+  content: "";
+  height: 20px;
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  top: -20px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+#tab-one:checked ~ .tabs #tab-one-label::after,
+#tab-two:checked ~ .tabs #tab-two-label::after,
+#tab-three:checked ~ .tabs #tab-three-label::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 22px solid rgb(59, 59, 59);
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel {
+  display: block;
+}

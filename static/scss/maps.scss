@@ -1,0 +1,18 @@
+.map-block {
+  .cd-btn {
+    width: 180px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    color: #f7f7f7;
+    letter-spacing: 2px;
+    margin: 20px;
+    padding: 20px;
+    transition: 0.35s;
+    border: 2px solid #ffba00;
+    &:hover {
+      background-color: #ffbb009d;
+      border-color: #ffba00;
+    }
+  }
+}

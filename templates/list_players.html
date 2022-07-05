@@ -1,104 +1,116 @@
-{% extends "_base.html" %}
-{% block content %}
-<div class="players-block">    
-    <p class="header-metki">Список пользователей</p>
+{% extends "_base.html" %} 
 
-    {% for key in usersResult.keys() %}
-        <div class="accordion-2">
-            <div class="accordion-item">
-                {% if loop.index == 1 %}
-                    <div class="accordion-item-header active">
-                {% else %}
-                    <div class="accordion-item-header">
-                {% endif %}
-                    {% if key == 1 %}
-                        <p>Ожидающие</p>
-                    {% endif %}         
-                </div>
-                {% if loop.index == 1 %}
-                    <div class="accordion-item-body" style="max-height: 10000px">
-                {% else %}
-                    <div class="accordion-item-body">
-                {% endif %}
-                    <div class="accordion-item-body-content">
-                        <table id="metki" class="metki">
-                            <thead>
-                                <tr>
-                                    <th>Username</th>
-                                    <th>email</th>
-                                    <th>Возраст</th>
-                                    <th>Действия</th>
-                                    <th>Действия</th>
-                                    <th>Действия</th>
-                                </tr>
-                            </thead>
-                            <tbody id="metki_tbody">
-                                {% for us in usersResult[key] %}
-                                    <tr>
-                                        <th id="username-{{ us.id }}" data-label=" ">{{ us.username }}</th>
-                                        <th data-label=" ">{{ us.email }}</th>
-                                        <th data-label=" ">{{ us.age }}</th>
-                                        {% if us.status == 1 %}
-                                            <th data-label=" "><button id="accept-{{ us.id }}">Принять</button></th>
-                                            <th data-label=" "><button id="not_accept-{{ us.id }}">Отказать</button></th>
-                                            <th data-label=" "><button id="delete-{{ us.id }}">Удалить</button></th>
-                                        {% endif %}
-                                    </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-    <div class="accordion-2">
-        <div class="accordion-item">
-            <div class="accordion-item-header" id="acord-2">
-                <p>Принятые</p>
-            </div>
-            <div class="accordion-item-body">
-                <div class="accordion-item-body-content" id="content-2">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="accordion-2">
-        <div class="accordion-item">
-            <div class="accordion-item-header" id="acord-3">    
-                <p>Отказано</p>
-            </div>
-            <div class="accordion-item-body">
-                <div class="accordion-item-body-content" id="content-3">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="accordion-2">
-        <div class="accordion-item">
-            <div class="accordion-item-header" id="acord-4">
-                <p>Забаненные</p>
-            </div>
-            <div class="accordion-item-body">
-                <div class="accordion-item-body-content" id="content-4">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="accordion-2">
-        <div class="accordion-item">
-            <div class="accordion-item-header" id="acord-5">
-                <p>Неактивные</p>
-            </div>
-            <div class="accordion-item-body">
-                <div class="accordion-item-body-content" id="content-5">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% endblock %}
-{% block js_scripts %}
+{% block css %} 
 {{ super() }}
-<script src="/static/js/change_users.js"></script>
-{% endblock %}
+<link rel="stylesheet" href="/static/css/accordion.css" />
+{% endblock %} 
+
+{% block content %}
+<div class="players-block">
+  <p class="header-metki">Список пользователей</p>
+
+  {% for key in usersResult.keys() %}
+  <div class="accordion-2">
+    <div class="accordion-item">
+      {% if loop.index == 1 %}
+      <div class="accordion-item-header active">
+        {% else %}
+        <div class="accordion-item-header">
+          {% endif %} {% if key == 1 %}
+          <p>Ожидающие</p>
+          {% endif %}
+        </div>
+        {% if loop.index == 1 %}
+        <div class="accordion-item-body" style="max-height: 10000px">
+          {% else %}
+          <div class="accordion-item-body">
+            {% endif %}
+            <div class="accordion-item-body-content">
+              <table id="metki" class="metki">
+                <thead>
+                  <tr>
+                    <th>Username</th>
+                    <th>email</th>
+                    <th>Возраст</th>
+                    <th>Действия</th>
+                    <th>Действия</th>
+                    <th>Действия</th>
+                  </tr>
+                </thead>
+                <tbody id="metki_tbody">
+                  {% for us in usersResult[key] %}
+                  <tr>
+                    <th id="username-{{ us.id }}" data-label=" ">
+                      {{ us.username }}
+                    </th>
+                    <th data-label=" ">{{ us.email }}</th>
+                    <th data-label=" ">{{ us.age }}</th>
+                    {% if us.status == 1 %}
+                    <th data-label=" ">
+                      <button id="accept-{{ us.id }}">Принять</button>
+                    </th>
+                    <th data-label=" ">
+                      <button id="not_accept-{{ us.id }}">Отказать</button>
+                    </th>
+                    <th data-label=" ">
+                      <button id="delete-{{ us.id }}">Удалить</button>
+                    </th>
+                    {% endif %}
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+      <div class="accordion-2">
+        <div class="accordion-item">
+          <div class="accordion-item-header" id="acord-2">
+            <p>Принятые</p>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content" id="content-2"></div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-2">
+        <div class="accordion-item">
+          <div class="accordion-item-header" id="acord-3">
+            <p>Отказано</p>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content" id="content-3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-2">
+        <div class="accordion-item">
+          <div class="accordion-item-header" id="acord-4">
+            <p>Забаненные</p>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content" id="content-4"></div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-2">
+        <div class="accordion-item">
+          <div class="accordion-item-header" id="acord-5">
+            <p>Неактивные</p>
+          </div>
+          <div class="accordion-item-body">
+            <div class="accordion-item-body-content" id="content-5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endblock %} {% block js_scripts %} {{ super() }}
+    <script src="/static/js/change_users.js"></script>
+    <script src="/static/js/accordeon.js"></script>
+
+    {% endblock %}
+  </div>
+</div>
