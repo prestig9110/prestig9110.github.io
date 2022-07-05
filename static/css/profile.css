@@ -464,6 +464,10 @@
   outline: none;
 }
 
+.profile-tabs .flex-tabs .panel .profile .time-problem {
+  margin: 0 auto;
+}
+
 .profile-tabs .flex-tabs .panel .faq-block {
   display: -webkit-box;
   display: -ms-flexbox;

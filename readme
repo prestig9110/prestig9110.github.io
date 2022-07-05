@@ -27,6 +27,6 @@ config.py:
     WEBHOOKURL_FOR_VOTE = 'url'
     CHANCE_MONEY = 100
     CHANCE_TOOLS = 100
-    GAME_VERSION = "1.18.2"
+    GAME_VERSION = "1.19"
     UPLOAD_FOLDER = "/home/site/static/users"
     BEARER_SUPERHUB = "jkwebfijwbfweijbfwjifbwifw"

@@ -3,7 +3,8 @@
     ><label> {% include "/svg/svg_10.html" %} </label
     >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Выйти</a
   >
-  {% if user_id["status"] == 2 %} {% if opUser %}
+  {% if user_id["status"] == 2 %} 
+  {% if opUser %}
   <a href="/list_players/"
     ><label> {% include "/svg/svg_17.html" %}</label
     >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Заявки</a
@@ -48,5 +49,14 @@
     ><label> {% include "/svg/svg_16.html" %}</label
     >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Категории</a
   >
-  {% endif %} {% endif %}
+  <a href="/testing_svg"
+  ><label> {% include "/svg/svg_16.html" %}</label
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Иконоки</a
+  >
+  <a href="/ticket_all"
+    ><label> {% include "/svg/svg_16.html" %}</label
+    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Тикеты</a
+  >
+  {% endif %} 
+  {% endif %}
 </div>

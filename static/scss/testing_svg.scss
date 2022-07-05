@@ -1,0 +1,13 @@
+.testing-block{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  .viev{
+    height: auto;
+    width: auto;
+    max-width: 500px;
+    max-height: 500px;
+    padding: 25px;
+    margin: 0 auto;
+  }
+}
