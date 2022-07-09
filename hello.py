@@ -379,7 +379,7 @@ def change_user():
 
     userID = request.form['id']
     action = request.form['action']
-    username = request.form['username']
+    username = request.form['username'].strip()
 
     if not userID or not action:
         return jsonify( { 'message': 'Нет обязательного параметра' } )
