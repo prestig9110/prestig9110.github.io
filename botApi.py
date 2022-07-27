@@ -46,7 +46,7 @@ def accept_user():
 
     status = 2
 
-    g.cursor.execute("SELECT username, password, type FROM users WHERE id = %s", ( reqJson["user"] ))
+    g.cursor.execute("SELECT username, password, type FROM users WHERE user_id = %s", ( reqJson["user"] ))
     password = g.cursor.fetchone()
 
     data = {
@@ -57,7 +57,7 @@ def accept_user():
 
     response = _sendRequest('add_user', data)
 
-    g.cursor.execute( "UPDATE users SET status = %s WHERE id = %s", (status, reqJson["user"]) )
+    g.cursor.execute( "UPDATE users SET status = %s WHERE user_id = %s", (status, reqJson["user"]) )
     g.conn.commit()
 
     return jsonify({"success": "ok", "status_code": 200, "error": "", "data": "" } ), 200
@@ -72,7 +72,7 @@ def deny_user():
 
     get_db()
 
-    g.cursor.execute( "UPDATE users SET status = %s WHERE id = %s", (3, reqJson["user"]) )
+    g.cursor.execute( "UPDATE users SET status = %s WHERE user_id = %s", (3, reqJson["user"]) )
     g.conn.commit()
 
     return jsonify({"success": "ok", "status_code": 200, "error": "", "data": "" } ), 200
