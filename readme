@@ -30,3 +30,4 @@ config.py:
     GAME_VERSION = "1.19"
     UPLOAD_FOLDER = "/home/site/static/users"
     BEARER_SUPERHUB = "jkwebfijwbfweijbfwjifbwifw"
+    BEARER_BOT_API = "wekmfbkjwenfwekljfwnlfweblk"
