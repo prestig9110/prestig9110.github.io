@@ -43,6 +43,7 @@ def accept_user():
         return jsonify( { "error": "json invalid " + reqJson, "status_code": 400, "success": "" } ), 400
 
     get_db()
+    defaultParams()
 
     status = 2
 
