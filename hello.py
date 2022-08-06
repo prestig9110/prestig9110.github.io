@@ -700,8 +700,6 @@ def vote_handler():
 
             username = request.form['nick']
 
-    return 'ok'
-
     chance_prize = False
     prize = ''
 
