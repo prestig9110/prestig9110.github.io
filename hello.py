@@ -680,29 +680,44 @@ def stats():
 
 @app.route('/vote_handler', methods=['POST', 'GET'])
 def vote_handler():
-    if app.config["DEV"] != "true":
-        if (request.form['nick'] and request.form['time'] and request.form['sign']):
+    username = ''
+
+    if app.config["DEV"] == "true":
+        try:
+            jsonData = request.get_json()
+        except:
+            PASS
+        
+        if "project" in jsonData:
+            selfSign = hashlib.sha256((str(jsonData['project']) + "." + str(app.config["SECRET_KEY_FOR_VOTE_MINESERV"]) + "." + jsonData['timestamp'] + "." + jsonData['username']).encode('utf-8')).hexdigest()
+            
+            if jsonData['signature'] != selfSign:
+                return 'Переданные данные не прошли проверку.'
+            
+            username = jsonData['username']
+        elif "nick" in request.form:
             if (request.form['sign'] != hashlib.sha1((request.form['nick'] + request.form['time'] + str(app.config["SECRET_KEY_FOR_VOTE"])).encode('utf-8')).hexdigest()):
                 return 'Переданные данные не прошли проверку.'
+
+            username = request.form['nick']
         else:
             return 'Не переданы необходимые данные.'
 
-    chance_money = False
-    chance_tools = False
+    chance_prize = False
     prize = ''
 
     if random.random() < app.config["CHANCE_MONEY"]:
-        chance_money = True
+        chance_prize = True
         prize = "money"
 
     if random.random() < app.config["CHANCE_TOOLS"]:
-        chance_tools = True
+        chance_prize = True
         prize = "tools"
 
-    if chance_tools or chance_money:
+    if chance_prize:
         get_db()
 
-        g.cursor.execute("SELECT user_id FROM users WHERE username = %s", ( str(request.form['nick']) ))
+        g.cursor.execute("SELECT user_id FROM users WHERE username = %s", ( str(username) ))
         user_id = g.cursor.fetchone()
 
         if user_id is not None:
@@ -712,22 +727,34 @@ def vote_handler():
             )  
         
             g.conn.commit()
-
-    content = request.form['nick'] + ", " + random.choice(app.config["MESSAGES_FOR_VOTE"]) + "!\n\
-Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
-Твоя поддержка очень важна для нас.\n\
-Также можете принять участие в розыгрыше <https://hotmc.ru/casino-205185>\n\
-Поддержать проект другим способом <https://gmgame.ru/support/>"
-    if chance_tools or chance_money:
-        content = content + "\n\nПоздравляю, ты что то выиграл"
-
+    
     data = {
-        "content" : content,
-        "username" : 'vote'
+        "username": username,
+        "prize": chance_prize
     }
 
-    if app.config["DEV"] != "true":
-        result = requests.post(app.config["WEBHOOKURL_FOR_VOTE"], json = data)
+    requests.post(
+        app.config["URL_BOT"] + "send_embed",
+        json = data, 
+        headers = { 'Authorization' : 'Bearer ' + app.config["TOKEN_FOR_BOT"] }
+    )
+
+
+#     content = request.form['nick'] + ", " + random.choice(app.config["MESSAGES_FOR_VOTE"]) + "!\n\
+# Cпасибо за голос на https://hotmc.ru/minecraft-server-205185\n\
+# Твоя поддержка очень важна для нас.\n\
+# Также можете принять участие в розыгрыше <https://hotmc.ru/casino-205185>\n\
+# Поддержать проект другим способом <https://gmgame.ru/support/>"
+#     if chance_tools or chance_money:
+#         content = content + "\n\nПоздравляю, ты что то выиграл"
+
+#     data = {
+#         "content" : content,
+#         "username" : 'vote'
+#     }
+
+#     if app.config["DEV"] != "true":
+#         result = requests.post(app.config["WEBHOOKURL_FOR_VOTE"], json = data)
 
     return 'ok'
 
