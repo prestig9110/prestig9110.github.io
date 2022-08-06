@@ -682,10 +682,7 @@ def stats():
 def vote_handler():
     username = ''
 
-    if app.config["DEV"] != "true":
-        if not "project" in request.form or not "nick" in request.form:
-            return
-
+    if "project" in request.form or "nick" in request.form:
         if "project" in request.form:
             selfSign = hashlib.sha256((str(request.form["project"]) + "." + str(app.config["SECRET_KEY_FOR_VOTE_MINESERV"]) + "." + request.form["timestamp"] + "." + request.form["username"]).encode('utf-8')).hexdigest()
             
@@ -696,9 +693,13 @@ def vote_handler():
 
         if "nick" in request.form:
             if (request.form['sign'] != hashlib.sha1((request.form['nick'] + request.form['time'] + str(app.config["SECRET_KEY_FOR_VOTE"])).encode('utf-8')).hexdigest()):
+                print('fkbwfkjbwebjkfjwebk3')
                 return 'Переданные данные не прошли проверку.'
 
             username = request.form['nick']
+
+    print(username)
+    print('fkbwfkjbwebjkfjwebk')
 
     chance_prize = False
     prize = ''
