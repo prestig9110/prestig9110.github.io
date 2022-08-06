@@ -682,26 +682,25 @@ def stats():
 def vote_handler():
     username = ''
 
-    if app.config["DEV"] == "true":
+    if app.config["DEV"] != "true":
         try:
             jsonData = request.get_json()
+
+            if jsonData and "project" in jsonData:
+                selfSign = hashlib.sha256((str(jsonData['project']) + "." + str(app.config["SECRET_KEY_FOR_VOTE_MINESERV"]) + "." + jsonData['timestamp'] + "." + jsonData['username']).encode('utf-8')).hexdigest()
+                
+                if jsonData['signature'] != selfSign:
+                    return 'Переданные данные не прошли проверку.'
+                
+                username = jsonData['username']
         except:
             PASS
-        
-        if "project" in jsonData:
-            selfSign = hashlib.sha256((str(jsonData['project']) + "." + str(app.config["SECRET_KEY_FOR_VOTE_MINESERV"]) + "." + jsonData['timestamp'] + "." + jsonData['username']).encode('utf-8')).hexdigest()
-            
-            if jsonData['signature'] != selfSign:
-                return 'Переданные данные не прошли проверку.'
-            
-            username = jsonData['username']
-        elif "nick" in request.form:
+
+        if "nick" in request.form:
             if (request.form['sign'] != hashlib.sha1((request.form['nick'] + request.form['time'] + str(app.config["SECRET_KEY_FOR_VOTE"])).encode('utf-8')).hexdigest()):
                 return 'Переданные данные не прошли проверку.'
 
             username = request.form['nick']
-        else:
-            return 'Не переданы необходимые данные.'
 
     chance_prize = False
     prize = ''
